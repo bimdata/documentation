@@ -1,0 +1,19 @@
+{
+  "name": "Documentation",
+  "version": "0.0.1",
+  "description": "BIMData documentation",
+  "main": "index.js",
+  "authors": {
+    "name": "BIMData",
+    "email": "support@bimdata.io"
+  },
+  "repository": "https://github.com/bimdata/documentation-next/Documentation",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  }
+}
