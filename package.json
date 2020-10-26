@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@bimdata/design-system": "0.0.41",
+    "@bimdata/viewer": "^1.0.0-alpha.17",
     "node-sass": "^4.14.1",
     "sass-loader": "^10.0.4"
   }

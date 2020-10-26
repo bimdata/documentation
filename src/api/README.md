@@ -2,14 +2,6 @@
 sidebar: auto
 ---
 
-# Config
+# Quick start
 
-## foo
-
-- Type: `string`
-- Default: `/`
-
-## bar
-
-- Type: `string`
-- Default: `/`
+WIP

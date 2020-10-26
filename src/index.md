@@ -1,5 +1,1 @@
----
-home: false
----
-
 <BIMDataHome />
