@@ -7,17 +7,23 @@
       <div class="home_links">
         <BIMDataCard class="m-r-24">
           <template #content>
-            <a href="api">API</a>
+            <img :src="$withBase('/assets/img/bimdata_icon-api.svg')" alt="" />
+            <p>BIMData provides you a customizable 3D Viewer, to see and manipulate your models.</p>
+            <a class="bimdata-btn bimdata-btn__fill bimdata-btn__fill--primary bimdata-btn__radius" href="api">API</a>
           </template>
         </BIMDataCard>
         <BIMDataCard class="m-r-24">
           <template #content>
-            <a href="platform">Platform</a>
+            <img :src="$withBase('/assets/img/bimdata_icon-guided_tour.svg')" alt="" />
+            <p>Make your first steps and begin to work with the BIMData's API.</p>
+            <a class="bimdata-btn bimdata-btn__fill bimdata-btn__fill--primary bimdata-btn__radius" href="platform">Platform</a>
           </template>
         </BIMDataCard>
         <BIMDataCard>
           <template #content>
-            <a href="viewer">Viewer</a>
+            <img :src="$withBase('/assets/img/bimdata_icon-viewer.svg')" alt="" />
+            <p>BIMData's API provides you tools to upload IFCs, manage your files and retreive your model data.</p>
+            <a class="bimdata-btn bimdata-btn__fill bimdata-btn__fill--primary bimdata-btn__radius" href="viewer">Viewer</a>
           </template>
         </BIMDataCard>
       </div>
@@ -116,7 +122,25 @@ h2{
   justify-content: center;
 }
 .bimdata-documentation__home__header .bimdata-card{
+  padding: 16px;
   max-width: 330px;
+}
+.bimdata-documentation__home__header .bimdata-card img{
+  margin: auto;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bimdata-documentation__home__header .bimdata-card p{
+  margin: 18px 0;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+}
+.bimdata-documentation__home__header .bimdata-card .bimdata-btn{
+  height: 32px;
+  width: 150px;
 }
 .bimdata-documentation__home__content, .bimdata-documentation__home__footer{
   text-align: center;
