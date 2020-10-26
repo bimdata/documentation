@@ -100,6 +100,7 @@ h2{
   position: absolute;
   width: 100%;
 }
+
 .bimdata-documentation__home section{
   width: 1425px;
   margin: auto;
@@ -114,6 +115,13 @@ h2{
 .bimdata-documentation__home section .bimdata-card .bimdata-btn{
   margin: auto;
 }
+
+.home_links {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  z-index: 2;
+}
 .bimdata-documentation__home__header{
   position: relative;
   height: 565px;
@@ -124,6 +132,7 @@ h2{
 .bimdata-documentation__home__header .bimdata-card{
   padding: 16px;
   max-width: 330px;
+  z-index: 2;
 }
 .bimdata-documentation__home__header .bimdata-card img{
   margin: auto;
@@ -142,9 +151,14 @@ h2{
   height: 32px;
   width: 150px;
 }
+.bimdata-documentation__home__header .bimdata-card .bimdata-btn:hover{
+  text-decoration: none;
+}
+
 .bimdata-documentation__home__content, .bimdata-documentation__home__footer{
   text-align: center;
 }
+
 .bimdata-documentation__home__content .bimdata-card{
   padding: 16px;
 }
@@ -154,6 +168,7 @@ h2{
 .bimdata-documentation__home__content .bimdata-card p{
   min-height: 70px;
 }
+
 .home_illustration {
   position: absolute;
   right: calc(50% - 569px / 2);
@@ -161,13 +176,4 @@ h2{
   top: 10%;
 }
 
-.home_links {
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  z-index: 2;
-}
-.home_links .bimdata-card{
-  z-index: 2;
-}
 </style>
