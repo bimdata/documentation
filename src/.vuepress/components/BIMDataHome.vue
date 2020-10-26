@@ -96,14 +96,13 @@ h2{
 .bimdata-documentation__home::before{
   content: "";
   background: linear-gradient(162.76deg,#d1e6ff -9.05%,rgba(248,248,249,0) 108.11%);
-  height: 565px;
+  height: 600px;
   position: absolute;
   width: 100%;
 }
 
 .bimdata-documentation__home section{
-  width: 1425px;
-  margin: auto;
+  margin-bottom: 30px;
 }
 .bimdata-documentation__home section .bimdata-card{
   flex: 1;
@@ -123,10 +122,11 @@ h2{
   z-index: 2;
 }
 .bimdata-documentation__home__header{
+  padding-bottom: 35px;
   position: relative;
   height: 565px;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
 }
 .bimdata-documentation__home__header .bimdata-card{
