@@ -7,6 +7,7 @@
 <script>
 export default {
   mounted() {
+    localStorage.setItem("BIMDataViewer_helpShown", true);
     const bimdataViewer = makeBIMDataViewer({
       locale: "fr",
       api: {
