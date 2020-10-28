@@ -81,13 +81,8 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 @import '../../../node_modules/@bimdata/design-system/dist/css/design-system.css';
-.theme-default-content:not(.custom){
-  margin: auto;
-  padding: 0;
-  max-width: 100%;
-}
 h2{
   padding: 0;
   border-bottom: none;

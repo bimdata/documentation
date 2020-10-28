@@ -1,1 +1,3 @@
-<BIMDataHome />
+---
+layout: BIMDataHome
+---
