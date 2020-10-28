@@ -1,5 +1,6 @@
 <template>
   <div class="bimdata-documentation__home">
+    <Navbar />
     <section class="bimdata-documentation__home__header">
       <div class="home_illustration">
         <img :src="$withBase('/assets/img/home_illu.svg')" alt="" />
@@ -9,21 +10,27 @@
           <template #content>
             <img :src="$withBase('/assets/img/bimdata_icon-api.svg')" alt="" />
             <p>BIMData provides you a customizable 3D Viewer, to see and manipulate your models.</p>
-            <a class="bimdata-btn bimdata-btn__fill bimdata-btn__fill--primary bimdata-btn__radius" href="api">API</a>
+            <RouterLink to="/api/">
+              <BIMDataButton color="primary" fill radius >API</BIMDataButton>
+            </RouterLink>
           </template>
         </BIMDataCard>
         <BIMDataCard class="m-r-24">
           <template #content>
             <img :src="$withBase('/assets/img/bimdata_icon-guided_tour.svg')" alt="" />
             <p>Make your first steps and begin to work with the BIMData's API.</p>
-            <a class="bimdata-btn bimdata-btn__fill bimdata-btn__fill--primary bimdata-btn__radius" href="platform">Platform</a>
+            <RouterLink to="/platform/">
+              <BIMDataButton color="primary" fill radius >Platform</BIMDataButton>
+            </RouterLink>
           </template>
         </BIMDataCard>
         <BIMDataCard>
           <template #content>
             <img :src="$withBase('/assets/img/bimdata_icon-viewer.svg')" alt="" />
             <p>BIMData's API provides you tools to upload IFCs, manage your files and retreive your model data.</p>
-            <a class="bimdata-btn bimdata-btn__fill bimdata-btn__fill--primary bimdata-btn__radius" href="viewer">Viewer</a>
+            <RouterLink to="/viewer/">
+              <BIMDataButton color="primary" fill radius >Viewer</BIMDataButton>
+            </RouterLink>
           </template>
         </BIMDataCard>
       </div>
@@ -73,10 +80,13 @@
 import BIMDataCard from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataCard.js";
 import BIMDataButton from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataButton.js";
 
+import Navbar from '@vuepress/theme-default/components/Navbar.vue';
+
 export default {
   components: {
     BIMDataCard,
-    BIMDataButton
+    BIMDataButton,
+    Navbar
   }
 }
 </script>
