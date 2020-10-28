@@ -36,7 +36,7 @@ function getViewerSidebar() {
       title: 'Customize the viewer',
       collapsable: false,
       children: [
-        'customize_the_viewer/concepts',
+        'customize_the_viewer/ui',
       ]
     },
     ['api', 'Viewer API'],

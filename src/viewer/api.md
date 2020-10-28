@@ -14,22 +14,38 @@ It takes a configuration `object` that accept the following properties :
 
 A string to determine the locale of the viewer. Available options: `en` or `fr`;
 
-## api
+### api
 
-### ifcIds: number[]
+example :
+
+```javascript
+const bimdataViewer = makeBIMDataViewer({
+  api: {
+    ifcIds: [2283],
+    cloudId: 515,
+    projectId: 756,
+    accessToken: "fc83e49ca9444d3ea41d212599f39040",
+    apiUrl: "https://api-staging.bimdata.io",
+  },
+});
+```
+
+#### ifcIds: number[]
 An array of IFC ids to load.
 
-### cloudId: number
+#### cloudId: number
 The cloud id.
 
-### projectId: number
+#### projectId: number
 The project id.
 
-### accessToken: string
+#### accessToken: string
 The access token.
 
-### apiUrl: string
+#### apiUrl: string
 The BIMData api url.
+
+### ui
 
 # mount
 
