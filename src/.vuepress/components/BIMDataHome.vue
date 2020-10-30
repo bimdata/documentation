@@ -77,15 +77,14 @@
 </template>
 
 <script>
-import BIMDataCard from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataCard.ssr.js";
-import BIMDataButton from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataButton.ssr.js";
+import DS from "@bimdata/design-system";
 
 import Navbar from '@vuepress/theme-default/components/Navbar.vue';
 
 export default {
   components: {
-    BIMDataCard,
-    BIMDataButton,
+    BIMDataCard: DS.BIMDataCard,
+    BIMDataButton: DS.BIMDataButton,
     Navbar
   }
 }
