@@ -15,15 +15,6 @@
             </RouterLink>
           </template>
         </BIMDataCard>
-        <BIMDataCard class="m-r-24">
-          <template #content>
-            <img :src="$withBase('/assets/img/bimdata_icon-guided_tour.svg')" alt="" />
-            <p>Make your first steps and begin to work with the BIMData's API.</p>
-            <RouterLink to="/platform/">
-              <BIMDataButton color="primary" fill radius >Platform</BIMDataButton>
-            </RouterLink>
-          </template>
-        </BIMDataCard>
         <BIMDataCard>
           <template #content>
             <img :src="$withBase('/assets/img/bimdata_icon-viewer.svg')" alt="" />
