@@ -77,8 +77,8 @@
 </template>
 
 <script>
-import BIMDataCard from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataCard.js";
-import BIMDataButton from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataButton.js";
+import BIMDataCard from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataCard.ssr.js";
+import BIMDataButton from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataButton.ssr.js";
 
 import Navbar from '@vuepress/theme-default/components/Navbar.vue';
 
