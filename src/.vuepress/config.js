@@ -6,6 +6,9 @@ module.exports = {
   ],
   themeConfig: {
     logo: '/assets/img/logo.svg',
+    repo: 'bimdata/documentation-next',
+    editLinks: true,
+    docsDir: 'src',
     nav: [
       { text: 'API', link: '/api/' },
       { text: 'Platform', link: '/platform/' },
@@ -13,11 +16,31 @@ module.exports = {
       { text: 'Github', link: 'https://github.com/bimdata/documentation-next' }
     ],
     sidebar: {
-      '/api/': [],
+      '/api/': getApiSidebar(),
       '/plateform/': [],
       '/viewer/': getViewerSidebar(),
     }
   }
+}
+
+function getApiSidebar() {
+  return [
+    ['', "Introduction"],
+    'external_libraries',
+   {
+     title: 'Guides',
+     collapsable: false,
+     children: [
+       'guides/ifc',
+       'guides/access_token',
+       'guides/application',
+       'guides/scopes',
+       'guides/share_data',
+       'guides/security',
+     ]
+   } ,
+    'reference'
+  ]
 }
 
 function getViewerSidebar() {
