@@ -77,14 +77,14 @@
 </template>
 
 <script>
-import DS from "@bimdata/design-system";
+import { BIMDataCard, BIMDataButton } from "@bimdata/design-system";
 
 import Navbar from '@vuepress/theme-default/components/Navbar.vue';
 
 export default {
   components: {
-    BIMDataCard: DS.BIMDataCard,
-    BIMDataButton: DS.BIMDataButton,
+    BIMDataCard,
+    BIMDataButton,
     Navbar
   }
 }
