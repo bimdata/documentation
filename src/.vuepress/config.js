@@ -11,9 +11,7 @@ module.exports = {
     docsDir: 'src',
     nav: [
       { text: 'API', link: '/api/' },
-      { text: 'Platform', link: '/platform/' },
       { text: 'Viewer', link: '/viewer/' },
-      { text: 'Github', link: 'https://github.com/bimdata/documentation-next' }
     ],
     sidebar: {
       '/api/': getApiSidebar(),
