@@ -9,7 +9,7 @@
         <BIMDataCard class="m-r-24">
           <template #content>
             <img :src="$withBase('/assets/img/bimdata_icon-api.svg')" alt="" />
-            <p>BIMData provides you a customizable 3D Viewer, to see and manipulate your models.</p>
+            <p>BIMData's API provides you tools to upload IFCs, manage your files and retreive your model data.</p>
             <RouterLink to="/api/">
               <BIMDataButton color="primary" fill radius >API</BIMDataButton>
             </RouterLink>
@@ -18,7 +18,7 @@
         <BIMDataCard>
           <template #content>
             <img :src="$withBase('/assets/img/bimdata_icon-viewer.svg')" alt="" />
-            <p>BIMData's API provides you tools to upload IFCs, manage your files and retreive your model data.</p>
+            <p>BIMData provides you a customizable 3D Viewer, to see and manipulate your models.</p>
             <RouterLink to="/viewer/">
               <BIMDataButton color="primary" fill radius >Viewer</BIMDataButton>
             </RouterLink>

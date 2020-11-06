@@ -12,16 +12,15 @@ Depending on the options you chose, you can:
 - Retrieve classifications, systems and zones
 - Retrieve 2D plans in SVG format
 
+![BIMData Connect](/assets/img/api/API-ifc.png)
+
 ## Upload an IFC
 
-<div style="display:flex;">
-  <div>
-    <p>To upload an IFC file, you have to upload a `document`. When the BIMData API detects an IFC format (based on the file name ending with `.ifc` or `.ifczip`), it will trigger the IFC process.</p>
-    <p>IFC files are tied to a `document` which represents the actual uploaded file. We use HTTP Compression to speed up the file transfer. HTTP Compression will start as soon as you upload a file. Files are decompressed at the output of the API.</p>
-    <p>There is no size limit to the IFC upload.</p>
-  </div>
- <img src="/assets/img/api/API-cloud_project_ifc.png" width="400px">
-</div>
+To upload an IFC file, you have to upload a `document`. When the BIMData API detects an IFC format (based on the file name ending with `.ifc` or `.ifczip`), it will trigger the IFC process.
+
+IFC files are tied to a `document` which represents the actual uploaded file. We use HTTP Compression to speed up the file transfer. HTTP Compression will start as soon as you upload a file. Files are decompressed at the output of the API.
+
+There is no size limit to the IFC upload.
 
 ::: tip Note
 The displayed filesize is the compressed size and not the actual size of the initial file.

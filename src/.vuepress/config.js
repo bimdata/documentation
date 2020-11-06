@@ -29,9 +29,13 @@ function getApiSidebar() {
      title: 'Guides',
      collapsable: false,
      children: [
+       'guides/cloud',
+       'guides/project',
        'guides/ifc',
+       'guides/folder&document',
        'guides/access_token',
        'guides/application',
+       'guides/authentication',
        'guides/scopes',
        'guides/share_data',
        'guides/security',
