@@ -12,10 +12,6 @@ The Sign-In page is on the BIMData Connect server. The BIMData Connect provides 
 
 ## Get your Access Token
 
-::: warning Requirement
-You must have an application, see [Create an application process](/api/guides/application).
-:::
-
 ![BIMData Connect](/assets/img/api/API-auth_flow.jpg)
 
 ## Use your Access Token

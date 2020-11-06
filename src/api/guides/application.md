@@ -1,47 +1,66 @@
 # Create your application
 
+## Which app will you create?
+
+The implementation of your app depends on your needs. You can create several types of applications.
+
+### Backend-less application
+
+Choose this way if you are developing a backend-less application.
+
+These applications:
+- Could share data with other applications like BIMData Platform or any other third-party app.
+- Must use BIMData Connect users credentials system.
+- Are usually mobile apps or small Javascript apps.
+
+### Application with a backend
+
+#### With BIMData Connect Users
+
+Choose this way if your app has a backend (PHP, NodeJS, Python, .NET, etc.).
+
+These applications:
+- Could share data with other applications like BIMData Platform or any other third-party app.
+- must use BIMData Connect users credentials system.
+
+#### Without Users
+
+Chose this way if you don’t want to use BIMData Connect users (You may want to create an IFC Access Token).
+
+These applications:
+- Have to manage their own users and authorizations.
+- can’t share data with other BIMData applications.
+- Have an easier setup.
+
 ## How-To create your application on BIMData Connect
 
 - Create an account on the [https://connect-staging.bimdata.io](https://connect-staging.bimdata.io) website.
-- After the login step, go to “Manage your application” screen and fill the form to Create an Application.
-- Choose a Name for your application. let’s type “Wonderful app” in the field Name.
-
-All the fields may be edited later.
-
-These settings allow your app to communicate using a unique Token Access. Other choices are useful to manage the access rights for every API call.
+- After the login step, go to “Manage your application” and click on `Create an application`.
+- In the form to Create an Application, let’s type “Wonderful app” in the field Name. The other fields can be edited later.
+- Click on create.
 
 ::: tip
 Your user has no access to what your application created. To grant access to your user see [how-to share data with your app](/api/guides/share_data).
 :::
 
-You created your first application. You will see 2 new pieces of information:
+You created your first application and now have access to 2 new pieces of information:
 
 - the Client ID
 - the Client Secret
 
-They are mandatory to build your application.
+### Fields description
 
-See also
+#### Name
 
-See also Authentication documentation
+You can choose whatever you want. The name is displayed to users when requesting permissions and in their application list.
 
-## Response Type
-See the two Types of Auth to learn more about the Response Type.
-In the field Redirect URIs, set at least the value `http://localhost`: for now, you want your brand new application to receive any response.
+#### Scopes
 
-## Fields description
-### Name
-- You can choose whatever you want.
-- The name is displayed to users when requesting permissions and in their application list.
+Select scopes your app needs. See the [Scopes documentation](/api/guides/scopes) to learn more.
 
-### Scopes
-- Select scopes your app needs
-- See the [Scopes documentation](/api/guides/scopes) to learn more.
+#### Redirect URIs
 
-### Redirect URIs
-- List of authorized redirect URIs.
-- After allowing your app to access their data, users will be redirected to your app on one of these URIs.
-- By default, the redirect URI is: `http://localhost:8080/oidc-callback`
+The list of authorized redirect URIs. After allowing your app to access their data, users will be redirected to your app on one of these URIs. By default, the redirect URI is: `http://localhost:8080/oidc-callback`
 
 ::: warning
 For security reasons, avoid using locals URL such as localhost, 127.0.0.1, 192.168.x.x, etc. for applications in production.

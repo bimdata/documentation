@@ -10,7 +10,7 @@
           <template #content>
             <img :src="$withBase('/assets/img/bimdata_icon-api.svg')" alt="" />
             <p>BIMData's API provides you tools to upload IFCs, manage your files and retreive your model data.</p>
-            <RouterLink to="/api/">
+            <RouterLink to="/api/introduction/overview">
               <BIMDataButton color="primary" fill radius >API</BIMDataButton>
             </RouterLink>
           </template>

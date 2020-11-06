@@ -51,7 +51,3 @@ The limitations are:
 The resources and possible scopes are pre-defined.
 
 You can set a scope by typing scopes in a list in the form field Scopes. Each line contains only one scope. In the Manage your application screen, you can add, edit or remove from the Scopes list the granted access.
-
-::: tip See also
-Security guide.
-:::
