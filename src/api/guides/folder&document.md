@@ -41,7 +41,8 @@ File upload is one of the few API calls which does not use the `application/json
 The filesize is the compressed size and not the actual size of the initial file due to HTTP Compression.
 :::
 
-#### cURL
+<code-group>
+<code-block title="cURL">
 
 ```bash
 curl -X POST \
@@ -51,8 +52,8 @@ curl -X POST \
 -F name=my_custom_name \
 -F file=@/path/to/XXX.pdf
 ```
-
-#### Python
+</code-block >
+<code-block title="python">
 
 ```python
 import requests
@@ -73,8 +74,8 @@ response = requests.request("POST", url, data=payload, files=files, headers=head
 
 print(response.text)
 ```
-
-#### Javascript
+</code-block >
+<code-block title="javascript">
 
 ```javascript
 var fs = require("fs");
@@ -97,6 +98,8 @@ if (error) throw new Error(error);
 console.log(body);
 });
 ```
+</code-block >
+</code-group>
 
 #### Response
 
@@ -122,14 +125,16 @@ console.log(body);
 
 You can download files using the URL returned by the API. The URL is valid for 1 hour.
 
-#### cURL
+<code-group>
+<code-block title="cURL">
 
 ```bash
 curl -X GET \
 'https://storage.gra3.cloud.ovh.net/v1/AUTH_b6a1c0b6b7c041d3a71d56f84ce25102/bimdata-staging-dev/cloud_1/project_1/XXX.pdf?temp_url_sig=311d34059bbebc87cd7f37de244bb6b62d114679&temp_url_expires=1527771256'
 ```
+</code-block>
 
-#### Python
+<code-block title="python">
 
 ```python
 import requests
@@ -147,8 +152,8 @@ response = requests.request("GET", url, headers=headers, params=querystring)
 
 print(response.text)
 ```
-
-#### Javascript
+</code-block>
+<code-block title="javascript">
 
 ```javascript
 // TODO not javascript !
@@ -160,3 +165,5 @@ response = requests.request("GET", url)
 
 print(response.text)
 ```
+</code-block>
+</code-group>
