@@ -24,6 +24,7 @@ function getApiSidebar() {
         "guides/share_data",
         "guides/scopes",
         "guides/security",
+        "guides/webhooks",
       ],
     },
     "external_libraries",
