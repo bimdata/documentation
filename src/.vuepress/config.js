@@ -16,7 +16,7 @@ module.exports = {
     editLinks: true,
     docsDir: 'src',
     nav: [
-      { text: 'API', link: '/api/' },
+      { text: 'API', link: '/api/introduction/overview.html' },
       { text: 'Viewer', link: '/viewer/' },
     ],
     sidebar

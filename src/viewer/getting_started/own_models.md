@@ -1,6 +1,6 @@
 # Own models
 
-To use your own models on the BIMData Viewer, you first need to upload them using the [BIMData API](/api/).
+To use your own models on the BIMData Viewer, you first need to upload them using the [BIMData API](/api/introduction/overview.html).
 
 Then, you can display them on the viewer user their identifications :
 
