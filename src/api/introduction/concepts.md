@@ -2,7 +2,7 @@
 
 ## Cloud
 
-A cloud is a set of projects sharing the same configuration. Each projects contains your models, your Document Management System and BCFs. Cloud administrators are also projects admin by default, they can see every user in their cloud and change everyone’s roles. Cloud users can’t see cloud collaborators. This means that a contractor on a project can’t see every collaborators of the company.
+A cloud is a set of projects sharing the same configuration. Each projects contains your models, your Document Management System and BCFs. Cloud administrators are also projects admin by default, they can see every [user](#user) in their cloud and change everyone’s roles. Cloud [users](#user) can’t see cloud collaborators. This means that a contractor on a project can’t see every collaborators of the company.
 
 ![BIMData Connect](/assets/img/api/API-cloud.png)
 
@@ -246,3 +246,66 @@ console.log(await response.text());
 
 </code-block>
 </code-group>
+
+## User
+
+User has a Role and belongs to a Project. There are currently 3 roles.
+
+- admin
+- user
+- guest
+
+When checking User’s role through the API, the values are:
+
+### Constant values in API
+
+#### Cloud role’s values
+
+- admin: 100
+- user: 50
+
+#### Project role’s values
+
+- admin: 100
+- user: 50
+- guest: 25
+
+### User in the Cloud
+
+Every User in the Cloud is linked to a Project.
+
+#### Admin
+
+A cloud Admin can see every other member of the Cloud, can invite other Users as admin in the Cloud.
+By default, the cloud Admin has admin rights on every project on the Cloud.
+A cloud admin can ban any User from the Cloud.
+
+::: warning
+Ban a User exclude the User from all Projects of the Cloud.
+:::
+
+#### Member
+
+A Cloud member is at least a member of one Project.
+
+### User in the Project
+
+Any User in any Project can read the user list and see the other users of the project.
+
+#### Admin
+
+A Project admin can invite Users to the Project.
+
+::: tip Note
+The User is implicitly invited in the Cloud.
+:::
+
+The Project admin manages the Roles of the Users: the admin car add, edit or delete Roles.
+
+#### Member
+
+A member can read and write DMS, model, and BCF.
+
+#### Guest
+
+A guest can read-only: DMS, models, BCF and write BCF content.
