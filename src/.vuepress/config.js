@@ -13,6 +13,7 @@ module.exports = {
     env: process.env, // inject env variables
     logo: '/assets/img/logo.svg',
     repo: 'bimdata/documentation-next',
+    docsBranch: 'develop',
     editLinks: true,
     docsDir: 'src',
     nav: [
