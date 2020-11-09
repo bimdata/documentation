@@ -14,11 +14,12 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "vuepress": "^1.5.3",
     "@bimdata/design-system": "0.0.42",
     "dotenv": "^8.2.0",
     "node-sass": "^4.14.1",
     "sass-loader": "^10.0.4",
-    "swagger-ui": "^3.36.2"
+    "swagger-ui": "^3.36.2",
+    "swagger-ui-dist": "^3.36.2",
+    "vuepress": "^1.5.3"
   }
 }

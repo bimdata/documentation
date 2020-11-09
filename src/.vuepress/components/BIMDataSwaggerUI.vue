@@ -3,20 +3,14 @@
 </template>
 
 <script>
+import {SwaggerUIBundle} from "swagger-ui-dist";
+
 export default {
   async mounted() {
-    try {
-      const module = await import(
-        "../../../node_modules/swagger-ui/dist/swagger-ui-es-bundle.js"
-      );
-      const SwaggerUI = module.default;
-      SwaggerUI({
+      SwaggerUIBundle({
         dom_id: "#bimdata-doc-swagger-ui",
         url: "https://api-staging.bimdata.io/doc.json",
       });
-    } catch (e) {
-      console.error("Impossible to display reference", e);
-    }
   },
 };
 </script>
