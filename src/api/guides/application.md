@@ -34,7 +34,7 @@ These applications:
 
 ## How-To create your application on BIMData Connect
 
-- Create an account on the <a :href="$themeConfig.env.CONNECT_URL">{{ $themeConfig.env.CONNECT_URL }}</a> website.
+- Create an account on the [https://connect.bimdata.io](https://connect.bimdata.io) website.
 - After the login step, go to “Manage your application” and click on `Create an application`.
 - In the form to Create an Application, let’s type “Wonderful app” in the field Name. The other fields can be edited later.
 - Click on create.

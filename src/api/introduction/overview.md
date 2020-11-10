@@ -43,7 +43,7 @@ BIMData API is composed of five APIs:
 
 ### Single Sign-On (SSO) API
 - Log in on desktop, tablet, mobile
-- Log in all your BIM Services through BIMData Connect: <a :href="$themeConfig.env.CONNECT_URL">{{ $themeConfig.env.CONNECT_URL }}</a>
+- Log in all your BIM Services through BIMData Connect: [https://connect.bimdata.io](https://connect.bimdata.io)
 - Log in through your own SSO (OpenID Connect or SAMLv2)
 
 <div style="text-align: center;">
@@ -66,7 +66,7 @@ BIMData API follows these general principles:
 Calls made over plain HTTP will respond a 302, redirecting to the same URL over HTTPS.
 :::
 
-The API Endpoint is: <a :href="$themeConfig.env.API_URL">{{ $themeConfig.env.API_URL }}</a>
+The API Endpoint is: [https://api.bimdata.io](https://api.bimdata.io)
 
 ## OpenID
 

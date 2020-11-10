@@ -1,6 +1,6 @@
 # External libraries
 
-We’re currently maintaining two external libraries auto-generated from <a :href="$themeConfig.env.API_URL + '/doc#/'">our OpenAPI specification file</a> using [openapi-generator](https://github.com/OpenAPITools/openapi-generator).
+We’re currently maintaining two external libraries auto-generated from [our OpenAPI specification file](https://api.bimdata.io/doc#/) using [openapi-generator](https://github.com/OpenAPITools/openapi-generator).
 
 ## Javascript
 
