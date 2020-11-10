@@ -36,20 +36,20 @@ function getApiSidebar() {
 function getViewerSidebar() {
   return [
     "",
+    "getting_started",
+    "ui",
     {
-      title: "Getting Started",
+      title: "Plugins",
+      collapsable: false,
+      children: ["plugins/"],
+    },
+    {
+      title: "Viewer API",
       collapsable: false,
       children: [
-        "getting_started/quick_start",
-        "getting_started/own_models",
-        "getting_started/native_plugins",
+        "api/makeBIMDataViewer",
+        "api/mount",
       ],
     },
-    {
-      title: "Customize the viewer",
-      collapsable: false,
-      children: ["customize_the_viewer/ui"],
-    },
-    ["api", "Viewer API"],
   ];
 }
