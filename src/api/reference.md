@@ -1,5 +1,5 @@
 # Reference
 
 <ClientOnly>
-  <BIMDataSwaggerUI />
+  <SwaggerUI />
 </ClientOnly>
