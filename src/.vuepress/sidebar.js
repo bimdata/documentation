@@ -43,6 +43,7 @@ function getViewerSidebar() {
       collapsable: false,
       children: [
         "plugins/overview",
+        "plugins/component_api",
       ],
     },
     {
