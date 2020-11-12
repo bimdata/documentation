@@ -44,6 +44,11 @@ function getViewerSidebar() {
       children: [
         "plugins/overview",
         "plugins/component_api",
+        "plugins/$viewer",
+        "plugins/state",
+        "plugins/context_menu",
+        "plugins/shortcuts",
+        "plugins/modals",
       ],
     },
     {
