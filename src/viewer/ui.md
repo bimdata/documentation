@@ -186,6 +186,26 @@ The `panel` mode open the component in a Panel. The panel height is 100% of the 
   <img src="/assets/img/viewer/Viewer-panel.gif" alt="Viewer Panel.">
 </p>
 
+### Free
+
+A plugin that is not displayed as a button is displayed on the window content. The viewer 3D and the viewer 2D are plugins displayed this way.
+
+Example: this is the file content (simplified) used to register the viewer 3D:
+
+```javascript
+import Viewer3D from "./Viewer3D.vue";
+
+export default {
+  name: "viewer3d",
+  component: Viewer3D,
+  window: {
+    name: "3d",
+  },
+};
+```
+
+There is no [button](#button) configuration in this file. The viewer 3D is registered as "viewer3d" and a window named "3d" is created with the viewer 3d plugin as child.
+
 ## mount
 
 Once created, the BIMDataViewer must be mounted to a [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) element in order to be displayed to the user.
