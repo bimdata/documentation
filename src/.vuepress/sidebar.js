@@ -41,7 +41,9 @@ function getViewerSidebar() {
     {
       title: "Plugins",
       collapsable: false,
-      children: ["plugins/"],
+      children: [
+        "plugins/overview",
+      ],
     },
     {
       title: "Viewer API",
