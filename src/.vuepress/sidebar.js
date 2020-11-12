@@ -47,8 +47,6 @@ function getViewerSidebar() {
         "plugins/$viewer",
         "plugins/state",
         "plugins/context_menu",
-        "plugins/shortcuts",
-        "plugins/modals",
       ],
     },
     {
