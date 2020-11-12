@@ -23,7 +23,7 @@ The `$viewer` object can be accessed using `this` on a component, or as the firs
 │ │ registerShortcut(shortcut)
 │ │ unregisterShortcut(shortcutName)
 │ │ hub
-│ │ <a href="/viewer/plugins/modals.html">modals</a>
+│ │ modals
 │
 └─── <b>globalContext</b>
 │ │ getPlugins(pluginName)
@@ -33,7 +33,7 @@ The `$viewer` object can be accessed using `this` on a component, or as the firs
 │ │ registerShortcut(shortcut)
 │ │ unregisterShortcut(shortcutName)
 │ │ hub
-│ │ <a href="/viewer/plugins/modals.html">modals</a>
+│ │ modals
 │
 └─── <b>utils</b>
 │ │ getRawElements(ifcId)
@@ -83,9 +83,9 @@ const element = await new this.$viewer.api.apiClient.IfcApi().getElement(
 
 ## global and local contexts
 
-The `globalContext` and the `localContext` objects are related to [windows](/viewer/ui.html#window) and the viewer UI in genera. The `globalContext` is the whole UI while the `localContext` is the [window](/viewer/ui.html#window) where the code is executed.
+The `globalContext` and the `localContext` objects are related to [windows](/viewer/ui.html#window) and the viewer UI in general. The `globalContext` is the whole UI while the `localContext` is the [window](/viewer/ui.html#window) where the code is executed.
 
-TODO add a link to the context API.
+These two objects share a similar API except for the `getPlugin(pluginName)` and `getPlugins(pluginName)` methods. A plugin must have a unique name in a window, but many plugins with the same name can be instanciated in the viewer if they belong to different windows. That is why `globalContext.getPlugins(pluginName)` returns an Array of plugins, while `localContext.getPlugin(pluginName)` returns a simple plugin (if it exists).
 
 ### Spinners
 
@@ -108,13 +108,73 @@ this.$viewer.globalContext.incrementSpinnerProcesses();
   <img width="48%" src="/assets/img/viewer/Viewer-local_context.gif" alt="Viewer local context spinner.">
 </p>
 
+To stop spinners:
+
+```javascript
+this.$viewer.localContext.decrementSpinnerProcesses();
+this.$viewer.globalContext.decrementSpinnerProcesses();
+```
+
+The loading property on the the `globalContext` and the `localContext` objects indicates if a spinner is running on the related context.
+
 ### Modals
 
-In a similar way, you can choose to show a modal on the whole UI or juste the current window using [the modal managers](/viewer/plugins/modals.html) available on `localContext.modals` and `globalContext.modals`.
+In a similar way, you can choose to show a modal on the whole UI or juste the current window using modal managers available on `localContext.modals` and `globalContext.modals`.
+
+Modal managers allow to display modals. Modals are queue so if more than one modals are sent to the same modal manager, they will be displayed in order.
+
+To open a modal, call `pushModal` on a modal manager.
+
+| Property                      | Description                                                                                           |
+| :---------------------------- | :---------------------------------------------------------------------------------------------------- |
+| `pushModal(component, props)` | Add a modal to the queue. `component` is a valid vuejs component. `props` is components props values. |
+
+```javascript
+this.$viewer.localContext.modals.pushModal(MyModa);
+```
+
+To close a modal, click outside of its content or emit the "close" event inside the modal component.
+
+```javascript
+this.$emit("close");
+```
 
 ### Shortcuts
 
 You can also register a shortcut that depends on the context. The current context is the window where the mouse is hover. If two shortcuts are registered on the same key, one on the `localContext`, the other on the `globalContext`, the `localContext` shortcut will be executed on keystroke if the mouse is hovering the window, else, it will be the `globalContext` one (the mouse is hovering another window or the header).
+
+A shortcut object have the following interface:
+
+| Property   | Type     | Description                                                                                                                                                                              |
+| :--------- | :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`     | String   | **Required**. A name to identify the shortcut.                                                                                                                                           |
+| `key`      | String   | **Required**. Pressing this key will execute the shortcut (Case insensitive). [`key` may be many things](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values). |
+| `execute`  | Function | **Required**. The function that will be executed when the key is pressed.                                                                                                                |
+| `ctrlKey`  | Boolean  | **Default to false**. A boolean indicating that the ctrl key must be pressed in addition to the key to trigger the shortcut. (ctrl and meta keys are treated like the same key)          |
+| `shiftKey` | Boolean  | **Default to false**. A boolean indicating that the shift key must be pressed in addition to the key to trigger the shortcut.                                                            |
+| `altKey`   | Boolean  | **Default to false**. A boolean indicating that the alt key must be pressed in addition to the key to trigger the shortcut.                                                              |
+
+```javascript
+this.$viewer.localContext.registerShortcut({
+  name: "log",
+  key: "l",
+  ctrlKey: true,
+  execute: () => console.log("Log from local shortcut."),
+});
+
+this.$viewer.globalContext.registerShortcut({
+  name: "log",
+  key: "l",
+  ctrlKey: true,
+  execute: () => console.log("Log from global shortcut."),
+});
+```
+
+Shortcuts can be unregistered calling the `unregisterShortcut` with the shortcut name.
+
+### Hub
+
+
 
 ## utils
 
