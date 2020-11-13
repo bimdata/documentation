@@ -5,34 +5,24 @@
 </template>
 
 <script>
+import makeViewer from "../viewer/index.js";
+
 export default {
+  props: {
+    config: {
+      type: String,
+      required: true,
+    },
+  },
   mounted() {
     localStorage.setItem("BIMDataViewer_helpShown", true);
-    const bimdataViewer = makeBIMDataViewer({
-      locale: "fr",
-      api: {
-        ifcIds: [2283],
-        cloudId: 515,
-        projectId: 756,
-        accessToken: "fc83e49ca9444d3ea41d212599f39040",
-        apiUrl: "https://api-staging.bimdata.io",
-      },
-      ui: {
-        windowManager: false,
-      },
-      plugins: {
-        header: {
-          warnings: false,
-        },
-        fullscreen: false,
-        section: false,
-        bcf: false,
-      }
-    });
 
-    bimdataViewer.mount("#documentation-bimdata-viewer")
-  }
-}
+    const bimdataViewer = makeViewer(
+      this.config,
+      "#documentation-bimdata-viewer"
+    );
+  },
+};
 </script>
 
 <style>

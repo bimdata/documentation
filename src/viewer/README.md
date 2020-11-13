@@ -6,7 +6,7 @@ The BIMData viewer is a preformant and flexible solution to display BIM models. 
 This is a simple example of the BIMData Viewer in one of his simplest form:
 
 <ClientOnly>
-  <BIMDataViewer />
+  <BIMDataViewer config="simple"/>
 </ClientOnly>
 
 ## Complexe showcases

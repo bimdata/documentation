@@ -50,6 +50,13 @@ function getViewerSidebar() {
       ],
     },
     {
+      title: "Examples",
+      children: [
+        "examples/plugins_ui",
+        "examples/window_ui",
+      ],
+    },
+    {
       title: "Viewer API",
       collapsable: false,
       children: [
