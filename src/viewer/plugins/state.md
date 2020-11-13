@@ -131,3 +131,7 @@ All objects setters like `selectObjects(ids, options)` have `uuid` equivalent by
 $viewer.state.selectObjects(ids, options); // Selects objects by ids
 $viewer.state.selectObjectsByUuids(uuids, options); // Selects objects by uuids
 ```
+
+## Undo Redo
+
+The state in binded to `ctrl + z` (and `cmd + z`) and `ctrl + y` (and `cmd + y`) shortcuts to undo or redo modifications respectively. The majority of the state modifications can be undo or redo except highlight changes.
