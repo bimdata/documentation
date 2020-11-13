@@ -2,12 +2,14 @@ import simple from "./config/simple.js";
 import pluginUi from "./config/pluginUi.js";
 import windowUI from "./config/windowUI.js";
 import shortcuts from "./config/shortcuts.js";
+import contextMenu from "./config/contextMenu.js";
 
 const configs = new Map([
   ["simple", simple],
   ["pluginUi", pluginUi],
   ["windowUI", windowUI],
   ["shortcuts", shortcuts],
+  ["contextMenu", contextMenu],
 ]);
 
 function makeViewer(config, id) {
