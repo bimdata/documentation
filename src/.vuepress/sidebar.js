@@ -54,6 +54,7 @@ function getViewerSidebar() {
       children: [
         "examples/plugins_ui",
         "examples/window_ui",
+        "examples/shortcuts",
       ],
     },
     {

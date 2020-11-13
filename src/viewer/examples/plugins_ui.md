@@ -1,6 +1,10 @@
 # Plugin UI
 
-This example shows 4 type of plugin UI. Three as buttons. One as global window UI.
+This example shows 4 types of plugin UI. Three as buttons. One as global window UI. Note that `plugin1` stay open even if you click outsite of it thanks to the property `keepOpen` set to true.
+
+::: tip
+To see a plugin hidden by another one, hover its button to make it stand up front.
+:::
 
 <ClientOnly>
   <BIMDataViewer config="pluginUi"/>
