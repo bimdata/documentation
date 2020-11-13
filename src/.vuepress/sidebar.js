@@ -40,7 +40,6 @@ function getViewerSidebar() {
     "ui",
     {
       title: "Plugins",
-      collapsable: false,
       children: [
         "plugins/overview",
         "plugins/component_api",
@@ -59,7 +58,6 @@ function getViewerSidebar() {
     },
     {
       title: "Viewer API",
-      collapsable: false,
       children: [
         "api/makeBIMDataViewer",
         "api/mount",
