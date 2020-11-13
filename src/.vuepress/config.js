@@ -7,7 +7,7 @@ module.exports = {
   title: "Documentation",
   head: [
     ['link', { rel: 'icon', href: '/assets/img/favicon.svg', type: "image/svg+xml" }],
-    ['script', { src: "https://www.unpkg.com/@bimdata/viewer@1.0.0" }]
+    ['script', { src: "https://www.unpkg.com/@bimdata/viewer@1.0.2" }]
   ],
   themeConfig: {
     env: process.env, // inject env variables
