@@ -3,6 +3,7 @@ import pluginUi from "./config/pluginUi.js";
 import windowUI from "./config/windowUI.js";
 import shortcuts from "./config/shortcuts.js";
 import contextMenu from "./config/contextMenu.js";
+import state from "./config/state.js";
 
 const configs = new Map([
   ["simple", simple],
@@ -10,6 +11,7 @@ const configs = new Map([
   ["windowUI", windowUI],
   ["shortcuts", shortcuts],
   ["contextMenu", contextMenu],
+  ["state", state],
 ]);
 
 function makeViewer(config, id) {

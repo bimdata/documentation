@@ -55,6 +55,7 @@ function getViewerSidebar() {
         "examples/window_ui",
         "examples/shortcuts",
         "examples/context_menu",
+        "examples/state",
       ],
     },
     {
