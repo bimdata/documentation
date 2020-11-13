@@ -1,5 +1,7 @@
 # Window UI
 
+This example shows how to create custom windows layout.
+
 <ClientOnly>
   <BIMDataViewer config="windowUI"/>
 </ClientOnly>

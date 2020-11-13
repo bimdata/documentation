@@ -1,7 +1,7 @@
 export default function(id) {
   const viewer = makeBIMDataViewer({
     ui: {
-      headerVisible: false
+      headerVisible: false,
     }
   });
 

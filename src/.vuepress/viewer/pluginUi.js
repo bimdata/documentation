@@ -38,12 +38,20 @@ export default function(id) {
     }
   });
 
+  viewer.registerPlugin({
+    name: "plugin4",
+    component: {
+      template: "<div>Plugin 4</div>"
+    },
+  });
+
   viewer.registerWindow({
     name: "window",
     plugins: [
       "plugin1",
       "plugin2",
       "plugin3",
+      "plugin4",
     ],
   });
 
