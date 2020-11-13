@@ -56,6 +56,7 @@ function getViewerSidebar() {
         "examples/shortcuts",
         "examples/context_menu",
         "examples/state",
+        "examples/plugins_communication",
       ],
     },
     {
