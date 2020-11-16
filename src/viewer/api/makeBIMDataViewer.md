@@ -137,11 +137,11 @@ const bimdataViewer = makeBIMDataViewer({
     search: false,
     section: false,
     split: true,
-      "structure-properties": {
-        merge: true,
-        export: true,
-        editProperties: true,
-      },
+    "structure-properties": {
+      merge: true,
+      export: true,
+      editProperties: true,
+    },
     viewer3d: {
       pivotMarker: false,
       navCube: false,
