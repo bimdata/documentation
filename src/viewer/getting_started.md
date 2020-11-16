@@ -131,7 +131,6 @@ const viewer = makeBIMDataViewer(
     viewer3d: {
       navCube: false, // get rid of the navcube
     },
-    "structure-properties": false,
   }
 );
 ```
