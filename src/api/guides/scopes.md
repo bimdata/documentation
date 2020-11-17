@@ -29,7 +29,7 @@ The limitations are:
 - check:read, check:write
 - cloud:read, cloud:manage
 - document:read, document:write
-- ifc:read, ifc:write, ifc:manage_token
+- ifc:read, ifc:write, ifc:token_manage
 - org:manage
 - user:read
 - webhook:manage
@@ -38,7 +38,7 @@ The limitations are:
 | ---------------- | :--: | ----: | -----: |
 | bcf              |  x   |     x |        |
 | check            |  x   |     x |        |
-| cloud            |      |       |      x |
+| cloud            |  x   |       |      x |
 | document         |  x   |     x |        |
 | ifc              |  x   |     x |        |
 | org              |      |       |      x |

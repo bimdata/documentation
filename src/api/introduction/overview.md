@@ -18,12 +18,12 @@ BIMData API is composed of five APIs:
 - Upload Models
 - Retrieve and update Model’s data in real-time
 - We support the following implementations:
-- IFC Spacial Structure
-- IFC Zones
-- IFC Classifications
-- IFC Systems
-- IFC Layers
-- IFC Properties and PropertySets
+  - IFC Spacial Structure
+  - IFC Zones
+  - IFC Classifications
+  - IFC Systems
+  - IFC Layers
+  - IFC Properties and PropertySets
 - 3D models throught [glTF format](https://www.khronos.org/gltf/)
 
 ### BCF API
@@ -33,7 +33,7 @@ BIMData API is composed of five APIs:
 - We implement the [BCF 2.1 API](https://github.com/buildingSMART/BCF-API) defined by BuildingSMART
 
 ### Collaboration API
-- Create projects
+- Create clouds and projects
 - Invite users
 - Manage their rights
 - Share models, data and documents
@@ -43,7 +43,7 @@ BIMData API is composed of five APIs:
 
 ### Single Sign-On (SSO) API
 - Log in on desktop, tablet, mobile
-- Log in all your BIM Services through BIMData Connect: <a :href="$themeConfig.env.CONNECT_URL">{{ $themeConfig.env.CONNECT_URL }}</a>
+- Log in all your BIM Services through BIMData Connect: [https://connect.bimdata.io](https://connect.bimdata.io)
 - Log in through your own SSO (OpenID Connect or SAMLv2)
 
 <div style="text-align: center;">
@@ -58,7 +58,7 @@ BIMData API follows these general principles:
 
 - All non-binary data is sent and received as JSON
 
-- Errors are sent using standard HTTP response codes (400, 404, 403)
+- Errors are sent using standard HTTP response codes (400, 403, 404)
 
 - Actions are indicated by HTTP verbs: GET, POST, PUT, PATCH, DELETE
 
@@ -66,7 +66,7 @@ BIMData API follows these general principles:
 Calls made over plain HTTP will respond a 302, redirecting to the same URL over HTTPS.
 :::
 
-The API Endpoint is: <a :href="$themeConfig.env.API_URL">{{ $themeConfig.env.API_URL }}</a>
+The API Endpoint is: [https://api.bimdata.io](https://api.bimdata.io)
 
 ## OpenID
 

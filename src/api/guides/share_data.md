@@ -4,7 +4,7 @@
 You can invite your user in the Cloud you created with your app:
 
 ```bash
-curl --request POST 'https://api-staging.bimdata.io/cloud/YOUR_CLOUD_ID/invitation' \
+curl --request POST 'https://api.bimdata.io/cloud/YOUR_CLOUD_ID/invitation' \
   --header 'Content-Type: application/json' \
   --header 'Authorization: Bearer YOUR_ACCESS_TOKEN' \
   --data '{"email": "YOUR_EMAIL_ADDRESS", "redirect_uri": "https://platform.bimdata.io/cloud/YOUR_CLOUD_ID"}'

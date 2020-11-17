@@ -21,7 +21,7 @@ A project may contains:
 A BCF is linked to a Project, not a Model.
 :::
 
-A project member can see all other members, and an admin member can add a user to the project.
+A project member can see all other members, and an admin member can manage the users of the project.
 
 ![BIMData Connect](/assets/img/api/API-project.png)
 
@@ -78,7 +78,7 @@ Every project is created with a root folder. It is the starting point to create 
 
 #### Example
 
-Fetching `https://api-staging.bimdata.io/cloud/1/project/1` returns : (with the correct granted access)
+Fetching `https://api.bimdata.io/cloud/1/project/1` returns : (with the correct granted access)
 
 ```json
 {
@@ -111,8 +111,8 @@ File upload is one of the few API calls which does not use the `application/json
 
 ```bash
 curl -X POST \
-'https://api-staging.bimdata.io/cloud/1/project/1/document' \
--H 'authorization: Bearer ZeZr9oYxHspA8OdSCo9uftaLaEHX1N'
+'https://api.bimdata.io/cloud/1/project/1/document' \
+-H 'authorization: Bearer ZeZr9oYxHspA8OdSCo9uftaLaEHX1N' \
 -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \
 -F name=my_custom_name \
 -F file=@/path/to/XXX.pdf
@@ -124,14 +124,14 @@ curl -X POST \
 ```python
 import requests
 
-url = "https://api-staging.bimdata.io/cloud/1/project/1/document"
+url = "https://api.bimdata.io/cloud/1/project/1/document"
 
 headers = {
     'authorization': 'Bearer ZeZr9oYxHspA8OdSCo9uftaLaEHX1N',
 }
 
 payload = {
-    'name': 'my_custom_name'
+    'name': 'my_custom_name',
 }
 
 files = {'file': open('/path/to/XXX.pdf', 'rb')}
@@ -150,7 +150,7 @@ var request = require("request");
 
 var options = {
   method: "POST",
-  url: "https://api-staging.bimdata.io/cloud/1/project/1/document",
+  url: "https://api.bimdata.io/cloud/1/project/1/document",
   headers: {
     authorization: "Bearer ZeZr9oYxHspA8OdSCo9uftaLaEHX1N",
     "content-type":
@@ -218,7 +218,7 @@ curl -X GET \
 ```python
 import requests
 
-url = "https://api-staging.bimdata.io/cloud/1/project/1/ifc"
+url = "https://api.bimdata.io/cloud/1/project/1/ifc"
 
 querystring = {"status":"C"}
 
