@@ -15,7 +15,7 @@ The viewer UI is decomposed in three main parts :
 
 - First, there is the [header](#header). The header is where some usefull actions can be performed like accessing the main menu, loading models or customizing the rest of the UI using the window manager. The header is not displayed on the bottom-right image. It is a special case where user only wants a floating header and a button (top-right) to customize windows.
 - Next, there is the main view where [windows](#window) are displayed. The user can resize, add, delete, split or swap windows to create his own workspace, according to his needs. On the images above there is one, two or three windows with spatial arborescence, a 2d and 3d representations of the model displayed on different windows.
-- Last, there are [plugins](#plugin) displayed as menu inside windows. Different display possibilities are shown on the image below (left, right, small...). These possibilities are described in the [plugin](#Plugin) part.
+- Last, there are [plugins](#plugin) displayed on windows. Different display possibilities are shown on the image below (full, left, right, small...).
 
 <p align="center">
   <img width="70%" src="/assets/img/viewer/Viewer-1_window_plugins.png" alt="Viewer with opened plugins.">
@@ -27,7 +27,7 @@ By default, the header is always displayed as a top bar. However, it can be chan
 
 ### Flying header
 
-To display the flying header instead of the top bar on a simple window, the `flyingHeader` propperty on a [window configuration object](#window-configuration-object) must be set to `true`;
+To display the flying header instead of the top bar on a single window, the `flyingHeader` propperty on a [window configuration object](#window-configuration-object) must be set to `true`.
 
 ```javascript
 const bimdataViewer = makeBIMDataViewer(/* {...} */);
@@ -43,19 +43,19 @@ const windowConfigurationObject = {
 bimdataViewer.registerWindow(windowConfigurationObject);
 ```
 
-Then, if only this window is displayed, the header will be displayed `flying` like on the image bellow.
+Then, if this window is displayed, the header will be displayed `flying` like on the image bellow.
 
 <p align="center">
   <img width="70%" src="/assets/img/viewer/Viewer-1_window_special.png" alt="Flying header on siple window.">
 </p>
 
 ::: warning
-The flying header is possible only if one window is displayed. If there is two windows displayed, even if they have the flyingHeader property set to true, the header will be displayed as a top bar.
+The flying header is possible only if one window is displayed only. If there is two windows displayed, even if they have the flyingHeader property set to true, the header will be displayed as a top bar.
 :::
 
 ### No header
 
-In some case, you may want to get rid of the header. To do so, you must use the `makeBIMDataViewer` configuration object, and use the ui property :
+In some case, you may want to get rid of the header. To do so, you must use the configuration object of the `makeBIMDataViewer` method, and use the `ui.headerVisible` property :
 
 ```javascript
 const bimdataViewer = makeBIMDataViewer({
@@ -127,14 +127,14 @@ bimdataViewer.registerWindow(windowConfigurationObject);
 The viewer is shipped with native BIMData plugins but others can be added to add new features and more possibilities. A plugin is mainly either a Vuejs component or/and a simple function that is run when the viewer is mouted into the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model).
 
 ::: tip
-See the [plugins documentation](/viewer/plugins/) to know how to develop a plugin and add new features to the viewer.
+See the [plugins documentation](/viewer/plugins/overview.html) to know how to develop a plugin and add new features to the viewer.
 :::
 
 A plugin is added to the viewer by registering it :
 
 ```javascript
-import makeBIMDataViewer from "@bimdata/viewer"; // fake path
-import MyPlugin from "@myOrganisation/plugin"; // fake path
+import makeBIMDataViewer from "@bimdata/viewer";
+import MyPlugin from "@myOrganisation/plugin";
 
 const bimdataViewer = makeBIMDataViewer(/* {...} */);
 
@@ -150,7 +150,7 @@ The registerPlugin method take an object as argument. The options are the follow
 | `name`: `string`           | **Required** The name of the plugin. Must be unique.                                            |
 | `component`: `object`      | A Vuejs (v2.x) component.                                                                       |
 | `i18n`: `object`           | An object containing translations for internationalization.                                     |
-| `startupScript($viewer)`   | A function that is executed when the viewer is mounted, with [`$viewer`](#$viewer) as argument. |
+| `startupScript($viewer)`   | A function that is executed when the viewer is mounted, with [`$viewer`](/viewer/plugins/$viewer.html) as argument. |
 | `button`: `object`         | An [object](#button) that disribe the display of the plugin if the plugin is shown as button.   |
 | `window`: `object`         | An [object](#window) used to register a window with this plugin in it.                          |
 | `addToWindows`: `string[]` | An array of [window](#window) name in wich to include this plugin.                              |
@@ -162,7 +162,7 @@ The registerPlugin method take an object as argument. The options are the follow
 | `position`: `string`    | "left" or "right". The position of the button in the window.                                                                |
 | `content`: `string`     | "simple", "panel" or "free"(default). Different way to display the component when the button is clicked. (see images below) |
 | `tooltip`: `string`     | A string that is displayed when the plugin button is hovered. It can be a key to be translated ex: "myPluginName.tooltip"   |
-| `keepOpen`: `boolean`   | Default to `false`. If `true`, the plugin will close by clicking away from the viewer.                                      |
+| `keepOpen`: `boolean`   | Default to `false`. If `true`, the plugin stay open even if the user click away from it.                                      |
 | `icon.imgUri`: `string` | An uri to an image for the button.                                                                                          |
 
 If only the `icon` is defined, the corresponding image is always displayed on the button.
@@ -186,7 +186,7 @@ The `panel` mode open the component in a Panel. The panel height is 100% of the 
   <img src="/assets/img/viewer/Viewer-panel.gif" alt="Viewer Panel.">
 </p>
 
-### Free
+### Window content
 
 A plugin that is not displayed as a button is displayed on the window content. The viewer 3D and the viewer 2D are plugins displayed this way.
 
@@ -214,7 +214,7 @@ Once created, the BIMDataViewer must be mounted to a [DOM](https://developer.moz
 bimdataViewer.mount("#app"); // 'app' is the id of an existing element.
 ```
 
-The mount methode take an optional second argument: the [`layout`](#Layout). The [`layout`](#Layout) is the configuration of the windows displayed at startup. The default value is "3d", which is the name of a window registered by default. The "3d" window includes many BIMData plugins like "viewer3d", "section", "projection", "structure-properties"...
+The mount methode take an optional second argument: the [`layout`](#layout). The [`layout`](#layout) is the configuration of the windows displayed at startup. The default value is "3d", which is the name of a window registered by default. The "3d" window includes many BIMData plugins like "viewer3d", "section", "projection", "structure-properties"...
 
 ## Layout
 

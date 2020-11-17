@@ -11,7 +11,7 @@ This is a simple example of the BIMData Viewer in one of his simplest form:
 
 ## Complexe showcases
 
-But as mentionned, it can be customized as needed:
+As mentionned, it can be customized as needed:
 
 ### 3D + 2D + spatial structure:
 ![An image](/assets/img/viewer/Viewer-3_windows.png)

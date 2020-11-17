@@ -115,7 +115,7 @@ this.$viewer.localContext.decrementSpinnerProcesses();
 this.$viewer.globalContext.decrementSpinnerProcesses();
 ```
 
-The loading property on the the `globalContext` and the `localContext` objects indicates if a spinner is running on the related context.
+The `loading` property on the the `globalContext` and the `localContext` objects indicates if a spinner is running on the related context.
 
 ### Modals
 

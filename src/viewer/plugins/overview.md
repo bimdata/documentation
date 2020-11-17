@@ -17,11 +17,11 @@ Here is a list of some addition you may want to do:
 
 A plugin is mainly either a Vuejs 2.x component or/and a simple function that is run when the viewer is mouted into the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model).
 
-Both component and function have access to the `$viewer` object. It can be accessed using `this` on a component, or as the first parameter of the startupScript methode. This object allows to interact with the viewer core.
+Both component and function have access to the [`$viewer`](/viewer/plugins/$viewer.html) object. It can be accessed using `this` on a component, or as the first parameter of the startupScript methode. This object allows to interact with the viewer core.
 
 ### Plugin as a function
 
-To develop a plugin as a **function**, you must provide a function on the startupScript property of the configuration object of the `registerPlugin` method. The first argument of this function is the `$viewer` object.
+To develop a plugin as a **function**, you must provide a function on the startupScript property of the configuration object of the `registerPlugin` method. The first argument of this function is the [`$viewer`](/viewer/plugins/$viewer.html)object.
 
 ### Plugin as a component
 
@@ -30,7 +30,7 @@ To develop a plugin as a **component**, you must provide a Vuejs 2.x component o
 ::: tip
 Here is some usefull links you should need to develop your own plugin with a component:
 - [Plugin UI configuration documentation](/viewer/ui.html#plugin) to see the UI possibilities.
-- [Component API](/viewer/plugins/component-api.html) to bind a behavior on the user interactions.
+- [Component API](/viewer/plugins/component_api.html) to bind a behavior on the user interactions.
 :::
 
 ### Function and Component registration example
