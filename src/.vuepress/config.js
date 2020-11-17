@@ -1,6 +1,3 @@
-// get .env in process.env
-require('dotenv').config();
-
 const sidebar = require("./sidebar.js");
 
 module.exports = {
@@ -10,7 +7,6 @@ module.exports = {
     ['script', { src: "https://www.unpkg.com/@bimdata/viewer@1.0.3" }]
   ],
   themeConfig: {
-    env: process.env, // inject env variables
     logo: '/assets/img/logo.svg',
     repo: 'bimdata/documentation-next',
     docsBranch: 'develop',
