@@ -60,10 +60,10 @@ function getViewerSidebar() {
       ],
     },
     {
-      title: "Viewer API",
+      title: "Reference",
       children: [
-        "api/makeBIMDataViewer",
-        "api/mount",
+        "reference/makeBIMDataViewer",
+        "reference/mount",
       ],
     },
   ];

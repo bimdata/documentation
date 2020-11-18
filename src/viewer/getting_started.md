@@ -109,7 +109,7 @@ bimdataViewer.mount("#viewer");
 
 ## Disable native plugins
 
-UI elements like plugins, viewer version and BIMData logo can be configured. To do so, use the [makeBIMDataViewer](/viewer/api/makeBIMDataViewer.html) function configuration object.
+UI elements like plugins, viewer version and BIMData logo can be configured. To do so, use the [makeBIMDataViewer](/viewer/reference/makeBIMDataViewer.html) function configuration object.
 
 Here is an example to get an empty 3d viewer :
 
