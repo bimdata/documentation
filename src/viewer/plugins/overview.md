@@ -15,7 +15,11 @@ Here is a list of some addition you may want to do:
 
 ## How to develop a plugin
 
-A plugin is mainly either a Vuejs 2.x component or/and a simple function that is run when the viewer is mouted into the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model).
+A plugin is mainly either a [Vuejs 2.x component](https://vuejs.org/v2/guide/components.html) or/and a simple function that is run when the viewer is mouted into the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model).
+
+::: tip
+To learn what is a Vuejs 2.x component, [visite the Vuejs documentation](https://vuejs.org/v2/guide/components.html).
+:::
 
 Both component and function have access to the [`$viewer`](/viewer/plugins/$viewer.html) object. It can be accessed using `this` on a component, or as the first parameter of the startupScript methode. This object allows to interact with the viewer core.
 
