@@ -1,6 +1,6 @@
 # Component API
 
-A plugin component will have a special API if it is registered as a [window button](/viewer/ui.html#button).
+A plugin component will have a special API if it is registered as a [window button](/viewer/customize_the_ui.html#button).
 
 ## onOpen and onClose
 

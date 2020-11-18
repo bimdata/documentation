@@ -83,7 +83,7 @@ const element = await new this.$viewer.api.apiClient.IfcApi().getElement(
 
 ## global and local contexts
 
-The `globalContext` and the `localContext` objects are related to [windows](/viewer/ui.html#window) and the viewer UI in general. The `globalContext` is the whole UI while the `localContext` is the [window](/viewer/ui.html#window) where the code is executed.
+The `globalContext` and the `localContext` objects are related to [windows](/viewer/customize_the_ui.html#window) and the viewer UI in general. The `globalContext` is the whole UI while the `localContext` is the [window](/viewer/customize_the_ui.html#window) where the code is executed.
 
 These two objects share a similar API except for the `getPlugin(pluginName)` and `getPlugins(pluginName)` methods. A plugin must have a unique name in a window, but many plugins with the same name can be instanciated in the viewer if they belong to different windows. That is why `globalContext.getPlugins(pluginName)` returns an Array of plugins, while `localContext.getPlugin(pluginName)` returns a simple plugin (if it exists).
 

@@ -107,7 +107,7 @@ const bimdataViewer = makeBIMDataViewer({
 bimdataViewer.mount("#viewer");
 ```
 
-## Customize the UI
+## Disable native plugins
 
 UI elements like plugins, viewer version and BIMData logo can be configured. To do so, use the [makeBIMDataViewer](/viewer/api/makeBIMDataViewer.html) function configuration object.
 
@@ -139,5 +139,5 @@ The result :
 ![Viewer with one window empty](/assets/img/viewer/Viewer-1_window_empty.png)
 
 ::: tip
-To see all the UI configuration possibilities, see the [viewer UI documentation](/viewer/ui.html).
+To see all the UI configuration possibilities, see the [viewer UI documentation](/viewer/customize_the_ui.html).
 :::

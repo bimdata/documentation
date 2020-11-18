@@ -37,9 +37,9 @@ function getViewerSidebar() {
   return [
     "",
     "getting_started",
-    "ui",
+    "customize_the_ui",
     {
-      title: "Plugins",
+      title: "Develop your plugins",
       children: [
         "plugins/overview",
         "plugins/component_api",
