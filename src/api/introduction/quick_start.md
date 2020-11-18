@@ -23,7 +23,7 @@ Once you have the access_token, you can start doing API calls!
 
 ## Create a Cloud
 
-Next, let's create a [Cloud](/api/introduction/concepts.md#cloud). A Cloud is a configurable space where projects are created. All projects in this Cloud share the Cloud’s configuration.
+Next, let's create a [Cloud](/api/introduction/concepts.html#cloud). A Cloud is a configurable space where projects are created. All projects in this Cloud share the Cloud’s configuration.
 
 A Cloud just needs a name:
 
@@ -38,7 +38,7 @@ You get a Cloud ID in the response. We need it for our next API call.
 
 ## Create a Project
 
-Once you have your first Cloud, you can create your first [Project](/api/introduction/concepts.md#project). For this tutorial, we will use a special endpoint that creates a demo Project with our demo Model: createDemo.
+Once you have your first Cloud, you can create your first [Project](/api/introduction/concepts.html#project). For this tutorial, we will use a special endpoint that creates a demo Project with our demo Model: createDemo.
 
 ```bash
 curl --request POST 'https://api.bimdata.io/cloud/YOUR_CLOUD_ID/create-demo' \

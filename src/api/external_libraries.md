@@ -33,4 +33,4 @@ We offer our OpenAPI file to let you use it. You can use one of those generators
 
 3. Add your new API client in your software stack, everything is in the README generated along with your client.
 
-4. Use it and check [our API Reference documentation](/api/reference).
+4. Use it and check [our API Reference documentation](/api/reference.html).

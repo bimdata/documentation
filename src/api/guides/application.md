@@ -40,7 +40,7 @@ These applications:
 - Click on create.
 
 ::: tip
-Your user has no access to what your application created. To grant access to your user see [how-to share data with your app](/api/guides/share_data).
+Your user has no access to what your application created. To grant access to your user see [how-to share data with your app](/api/guides/share_data.html).
 :::
 
 You created your first application and now have access to 2 new pieces of information:
@@ -56,7 +56,7 @@ You can choose whatever you want. The name is displayed to users when requesting
 
 #### Scopes
 
-Select scopes your app needs. See the [Scopes documentation](/api/guides/scopes) to learn more.
+Select scopes your app needs. See the [Scopes documentation](/api/guides/scopes.html) to learn more.
 
 #### Redirect URIs
 
@@ -67,5 +67,5 @@ For security reasons, avoid using locals URL such as localhost, 127.0.0.1, 192.1
 :::
 
 ::: tip See also
-See also [our documentation about Security](/api/guides/security).
+See also [our documentation about Security](/api/guides/security.html).
 :::

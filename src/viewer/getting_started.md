@@ -139,5 +139,5 @@ The result :
 ![Viewer with one window empty](/assets/img/viewer/Viewer-1_window_empty.png)
 
 ::: tip
-To see all the UI configuration possibilities, see the [viewer UI documentation](/viewer/ui).
+To see all the UI configuration possibilities, see the [viewer UI documentation](/viewer/ui.html).
 :::
