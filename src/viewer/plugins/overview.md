@@ -30,7 +30,7 @@ To develop a plugin as a **component**, you must provide a Vuejs 2.x component o
 ::: tip
 Here is some usefull links you should need to develop your own plugin with a component:
 - [Plugin UI configuration documentation](/viewer/customize_the_ui.html#plugin) to see the UI possibilities.
-- [Component API](/viewer/plugins/component_api.html) to bind a behavior on the user interactions.
+- [Plugin as button API](/viewer/plugins/plugin_as_button.html) to bind a behavior on the user interactions.
 :::
 
 ### Function and Component registration example

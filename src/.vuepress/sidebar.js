@@ -42,7 +42,7 @@ function getViewerSidebar() {
       title: "Develop your plugins",
       children: [
         "plugins/overview",
-        "plugins/component_api",
+        "plugins/plugin_as_button",
         "plugins/$viewer",
         "plugins/state",
         "plugins/context_menu",
