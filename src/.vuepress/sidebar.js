@@ -37,6 +37,18 @@ function getViewerSidebar() {
   return [
     "",
     "getting_started",
+    {
+      title: "Tutorials",
+      children: [
+        "tutorials/",
+        "tutorials/make_your_own_window_layout",
+        "tutorials/plugins_ui",
+        "tutorials/shortcuts",
+        "tutorials/context_menu",
+        "tutorials/state",
+        "tutorials/plugins_communication",
+      ],
+    },
     "customize_the_ui",
     {
       title: "Develop your plugins",
@@ -46,17 +58,6 @@ function getViewerSidebar() {
         "plugins/$viewer",
         "plugins/state",
         "plugins/context_menu",
-      ],
-    },
-    {
-      title: "Examples",
-      children: [
-        "examples/plugins_ui",
-        "examples/window_ui",
-        "examples/shortcuts",
-        "examples/context_menu",
-        "examples/state",
-        "examples/plugins_communication",
       ],
     },
     {
