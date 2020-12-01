@@ -124,7 +124,7 @@ bimdataViewer.registerWindow(windowConfigurationObject);
 
 ## Plugin
 
-The viewer is shipped with native BIMData plugins but others can be added to add new features and more possibilities. A plugin is mainly either a Vuejs component or/and a simple function that is run when the viewer is mouted into the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model).
+The viewer is shipped with native BIMData plugins but others can be added to add new features and more possibilities. A plugin is mainly either a [Vuejs component](https://vuejs.org/v2/guide/components.html) or/and a simple function that is run when the viewer is mouted into the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model).
 
 ::: tip
 See the [plugins documentation](/viewer/plugins/overview.html) to know how to develop a plugin and add new features to the viewer.

@@ -21,7 +21,7 @@ export default function(canvasId) {
     }
   });
 
-  // Registering the windows
+  // Create and register windows
   const window1 = {
     name: "window1",
     plugins: [],
@@ -35,7 +35,7 @@ export default function(canvasId) {
   viewer.registerWindow(window1);
   viewer.registerWindow(window2);
 
-  // Mount our custom layout
+  // Mount custom layout
   const customLayout = {
     ratios: [40, 60],
     children: [

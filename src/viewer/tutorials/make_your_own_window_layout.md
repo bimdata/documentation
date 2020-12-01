@@ -4,6 +4,8 @@ In this first tutorial, let's create a custom windows layout.
 
 ## Step by step
 
+### Configure the viewer
+
 We first create a viewer with a specific configuration:
 - Remove the header to be focused on the main content (the windows !).
 - Add BIMData API demo ids to load a model.
@@ -34,6 +36,8 @@ const viewer = makeBIMDataViewer({
 });
 ```
 
+### Create and register windows
+
 Then we register two windows named "window1" and "window2":
 
 ```javascript
@@ -54,6 +58,8 @@ viewer.registerWindow(window2);
 ::: tip
 Note that this windows are without any plugins for now.
 :::
+
+### Create custom layout and mount the viewer
 
 Finally, we create a custom layout and mount the viewer into the DOM using the `mount` method. Our layout is a three windows part layout :
 
@@ -113,7 +119,7 @@ const viewer = makeBIMDataViewer({
   }
 });
 
-// Registering the windows
+// Create and register windows
 const window1 = {
   name: "window1",
   plugins: [],
@@ -127,7 +133,7 @@ const window2 = {
 viewer.registerWindow(window1);
 viewer.registerWindow(window2);
 
-// Mount our custom layout
+// Mount custom layout
 const customLayout = {
   ratios: [40, 60],
   children: [
