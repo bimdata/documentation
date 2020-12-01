@@ -42,7 +42,7 @@ function getViewerSidebar() {
       children: [
         "tutorials/",
         "tutorials/make_your_own_window_layout",
-        "tutorials/plugins_ui",
+        "tutorials/add_plugins_on_windows",
         "tutorials/shortcuts",
         "tutorials/context_menu",
         "tutorials/state",
