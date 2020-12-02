@@ -58,7 +58,7 @@ viewer.registerPlugin(plugin3);
 
 We want our plugins to be displayed differently on windows, so we will customise their configurations.
 
-"plugin1" and "plugin2" will be display as `window` main content. No need to add more plugin configuration but we will add juste a little bot of style on their component to display the text at the center of the windows:
+"plugin1" and "plugin2" will be displayed as `window` main content. No need to add more plugin configuration but we will add just a little bit of style on their components to display the text at the center of the windows:
 
 ```javascript
 const component1 = {
