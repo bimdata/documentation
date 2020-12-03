@@ -41,10 +41,10 @@ jobs:
       - run:
           name: backup previous image
           command: |
-            if export DOCKER_CLI_EXPERIMENTAL=enabled && docker manifest inspect "docker-registry.bimdata.io/bimdata/documentation-next:prev-$ENV" > /dev/null; then
-              docker pull "docker-registry.bimdata.io/bimdata/documentation-next:$ENV"
-              docker image tag "docker-registry.bimdata.io/bimdata/documentation-next:$ENV" "docker-registry.bimdata.io/bimdata/documentation-next:prev-$ENV"
-              docker push "docker-registry.bimdata.io/bimdata/documentation-next:prev-$ENV"
+            if export DOCKER_CLI_EXPERIMENTAL=enabled && docker manifest inspect "docker-registry.bimdata.io/bimdata/documentation:prev-$ENV" > /dev/null; then
+              docker pull "docker-registry.bimdata.io/bimdata/documentation:$ENV"
+              docker image tag "docker-registry.bimdata.io/bimdata/documentation:$ENV" "docker-registry.bimdata.io/bimdata/documentation:prev-$ENV"
+              docker push "docker-registry.bimdata.io/bimdata/documentation:prev-$ENV"
             fi
       - run:
           name: prepare build
@@ -63,19 +63,19 @@ jobs:
             docker exec -e ANSIBLE_VAULT_PASSWD deployment \
               ansible-playbook \
               --inventory-file inventories/$ENV \
-              --tags documentation-next \
+              --tags documentation \
               --extra-vars '{"context_dir":"/var/repo","ansible_ssh_private_key_file":"./files/deploy_rsa"}' \
               --user deploy \
               build.yml
       - run:
           name: push new image
-          command: docker push "docker-registry.bimdata.io/bimdata/documentation-next:$ENV"
+          command: docker push "docker-registry.bimdata.io/bimdata/documentation:$ENV"
       - run:
           name: push latest tag image
           command: |
             if [[ "$CIRCLE_BRANCH" == "develop" ]]; then
-              docker tag "docker-registry.bimdata.io/bimdata/documentation-next:$ENV" docker-registry.bimdata.io/bimdata/documentation-next:latest
-              docker push docker-registry.bimdata.io/bimdata/documentation-next:latest
+              docker tag "docker-registry.bimdata.io/bimdata/documentation:$ENV" docker-registry.bimdata.io/bimdata/documentation:latest
+              docker push docker-registry.bimdata.io/bimdata/documentation:latest
             fi
 
   deploy:
@@ -90,7 +90,7 @@ jobs:
             docker run -e ANSIBLE_VAULT_PASSWD docker-registry.bimdata.io/bimdata/deployment:latest \
               ansible-playbook \
               --inventory-file inventories/$ENV \
-              --tags documentation-next \
+              --tags documentation \
               --extra-vars "ansible_ssh_private_key_file=./files/deploy_rsa" \
               --user deploy  \
               deploy.yml
