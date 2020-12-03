@@ -1,4 +1,4 @@
-export default function(id) {
+export default function(canvasId) {
   const viewer = makeBIMDataViewer({
     locale: "fr",
     ui: {
@@ -75,7 +75,7 @@ export default function(id) {
     plugins: ["listener"],
   });
 
-  viewer.mount(id, {
+  viewer.mount(`#${canvasId}`, {
     ratios: [50, 50],
     direction: "row",
     children: ["window1", "window2"],

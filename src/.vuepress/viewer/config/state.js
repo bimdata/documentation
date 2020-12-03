@@ -1,4 +1,4 @@
-export default function(id) {
+export default function(canvasId) {
   const viewer = makeBIMDataViewer({
     locale: "fr",
     api: {
@@ -27,5 +27,5 @@ export default function(id) {
     },
   });
 
-  viewer.mount(id);
+  viewer.mount(`#${canvasId}`);
 }

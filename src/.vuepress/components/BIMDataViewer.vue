@@ -19,7 +19,7 @@ export default {
 
     const bimdataViewer = makeViewer(
       this.config,
-      "#documentation-bimdata-viewer"
+      "documentation-bimdata-viewer"
     );
   },
 };
