@@ -124,7 +124,7 @@ bimdataViewer.registerWindow(windowConfigurationObject);
 
 ## Plugin
 
-The viewer is shipped with native BIMData plugins but others can be added to add new features and more possibilities. A plugin is mainly either a [Vuejs component](https://vuejs.org/v2/guide/components.html) or/and a simple function that is run when the viewer is mouted into the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model).
+The viewer is shipped with native BIMData plugins but others can be added to add new features and more possibilities. A plugin is mainly either a [Vuejs component](https://vuejs.org/v2/guide/components.html) or/and a simple function that is run when the viewer is mounted into the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model).
 
 ::: tip
 See the [plugins documentation](/viewer/plugins/overview.html) to know how to develop a plugin and add new features to the viewer.
@@ -151,7 +151,7 @@ The registerPlugin method take an object as argument. The options are the follow
 | `component`: `object`      | A Vuejs (v2.x) component.                                                                       |
 | `i18n`: `object`           | An object containing translations for internationalization.                                     |
 | `startupScript($viewer)`   | A function that is executed when the viewer is mounted, with [`$viewer`](/viewer/plugins/$viewer.html) as argument. |
-| `button`: `object`         | An [object](#button) that disribe the display of the plugin if the plugin is shown as button.   |
+| `button`: `object`         | An [object](#button) that describe the display of the plugin if the plugin is shown as button.  |
 | `window`: `object`         | An [object](#window) used to register a window with this plugin in it.                          |
 | `addToWindows`: `string[]` | An array of [window](#window) name in wich to include this plugin.                              |
 
@@ -166,7 +166,7 @@ The registerPlugin method take an object as argument. The options are the follow
 | `icon.imgUri`: `string` | An uri to an image for the button.                                                                                          |
 
 If only the `icon` is defined, the corresponding image is always displayed on the button.
-A similar option, iconOpen can be defined to display a icon different when the button is open.
+A similar option, iconOpen can be defined to display a different icon when the button is open.
 
 The images below show the different way to display plugin as button. (top-left : content = `simple`, top-right : content = `free`, bottom : content = `panel`)
 
@@ -179,7 +179,9 @@ The images below show the different way to display plugin as button. (top-left :
 </p>
 
 The `simple` mode display the component in a small div adapted for small menu interfaces like switching between few options.
+
 The `free` mode display the component in a div. The developper of the plugin is responsible to decide the style of the component because the div is related to the component size.
+
 The `panel` mode open the component in a Panel. The panel height is 100% of the window (minus few margins) and it can be unpined. Once unpined, the panel can be resized and moved inside the window like on the gif below.
 
 <p align="center">
@@ -214,7 +216,7 @@ Once created, the BIMDataViewer must be mounted to a [DOM](https://developer.moz
 bimdataViewer.mount("#app"); // 'app' is the id of an existing element.
 ```
 
-The mount methode take an optional second argument: the [`layout`](#layout). The [`layout`](#layout) is the configuration of the windows displayed at startup. The default value is "3d", which is the name of a window registered by default. The "3d" window includes many BIMData plugins like "viewer3d", "section", "projection", "structure-properties"...
+The mount method take an optional second argument: the [`layout`](#layout). The [`layout`](#layout) is the configuration of the windows displayed at startup. The default value is "3d", which is the name of a window registered by default. The "3d" window includes many BIMData plugins like "viewer3d", "section", "projection", "structure-properties"...
 
 ## Layout
 
