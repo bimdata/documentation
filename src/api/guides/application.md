@@ -63,7 +63,7 @@ Select scopes your app needs. See the [Scopes documentation](/api/guides/scopes.
 The list of authorized redirect URIs. After allowing your app to access their data, users will be redirected to your app on one of these URIs. By default, the redirect URI is: `http://localhost:8080/oidc-callback`
 
 ::: warning
-For security reasons, avoid using locals URL such as localhost, 127.0.0.1, 192.168.x.x, etc. for applications in production.
+For security reasons, avoid using local URLs such as localhost, 127.0.0.1, 192.168.x.x, etc. for applications in production.
 :::
 
 ::: tip See also
