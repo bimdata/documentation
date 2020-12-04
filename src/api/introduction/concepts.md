@@ -300,7 +300,7 @@ A Project admin can invite Users to the Project.
 The User is implicitly invited in the Cloud.
 :::
 
-The Project admin manages the Roles of the Users: the admin car add, edit or delete Roles.
+The Project admin manages the Roles of the Users: the admin can add, edit or delete Roles.
 
 #### Member
 

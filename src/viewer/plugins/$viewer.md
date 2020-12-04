@@ -1,6 +1,6 @@
 # `$viewer`
 
-The `$viewer` object can be accessed using `this` on a component, or as the first parameter of the startupScript methode. This object allows to interact with the viewer core. Here is an overview of what it contains:
+The `$viewer` object can be accessed using `this` on a component, or as the first parameter of the startupScript method. This object allows to interact with the viewer core. Here is an overview of what it contains:
 
 <pre style="color: white;">
 <b>$viewer</b>
@@ -54,8 +54,8 @@ To log messages:
 ```javascript
 const myMessage = "A simple message.";
 
-$viewer.logger.info(myMessage); // logged if logger leve is "INFO"
-$viewer.logger.warn(myMessage); // logged if logger leve is "INFO" of "WARNING"
+$viewer.logger.info(myMessage); // logged if logger level is "INFO"
+$viewer.logger.warn(myMessage); // logged if logger level is "INFO" of "WARNING"
 $viewer.logger.error(myMessage); // always logged
 ```
 
@@ -89,7 +89,7 @@ These two objects share a similar API except for the `getPlugin(pluginName)` and
 
 ### Spinners
 
-You can start a spinner to indicate to the user that he needs to wait. You can choose to add a spinner on the whole UI or juste the current window.
+You can start a spinner to indicate to the user that he needs to wait. You can choose to add a spinner on the whole UI or just the current window.
 
 ```javascript
 // A spinner on the whole UI
@@ -115,22 +115,22 @@ this.$viewer.localContext.decrementSpinnerProcesses();
 this.$viewer.globalContext.decrementSpinnerProcesses();
 ```
 
-The `loading` property on the the `globalContext` and the `localContext` objects indicates if a spinner is running on the related context.
+The `loading` property on the `globalContext` and the `localContext` objects indicates if a spinner is running on the related context.
 
 ### Modals
 
-In a similar way, you can choose to show a modal on the whole UI or juste the current window using modal managers available on `localContext.modals` and `globalContext.modals`.
+In a similar way, you can choose to show a modal on the whole UI or just the current window using modal managers available on `localContext.modals` and `globalContext.modals`.
 
 Modal managers allow to display modals. Modals are queue so if more than one modals are sent to the same modal manager, they will be displayed in order.
 
 To open a modal, call `pushModal` on a modal manager.
 
-| Property                      | Description                                                                                           |
-| :---------------------------- | :---------------------------------------------------------------------------------------------------- |
-| `pushModal(component, props)` | Add a modal to the queue. `component` is a valid vuejs component. `props` is components props values. |
+| Property                      | Description                                                                                              |
+| :---------------------------- | :------------------------------------------------------------------------------------------------------- |
+| `pushModal(component, props)` | Add a modal to the queue. `component` is a valid vuejs component. `props` is the component props values. |
 
 ```javascript
-this.$viewer.localContext.modals.pushModal(MyModa);
+this.$viewer.localContext.modals.pushModal(MyModal);
 ```
 
 To close a modal, click outside of its content or emit the "close" event inside the modal component.
@@ -150,7 +150,7 @@ A shortcut object have the following interface:
 | `name`     | String   | **Required**. A name to identify the shortcut.                                                                                                                                           |
 | `key`      | String   | **Required**. Pressing this key will execute the shortcut (Case insensitive). [`key` may be many things](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values). |
 | `execute`  | Function | **Required**. The function that will be executed when the key is pressed.                                                                                                                |
-| `ctrlKey`  | Boolean  | **Default to false**. A boolean indicating that the ctrl key must be pressed in addition to the key to trigger the shortcut. (ctrl and meta keys are treated like the same key)          |
+| `ctrlKey`  | Boolean  | **Default to false**. A boolean indicating that the ctrl key must be pressed in addition to the key to trigger the shortcut. (ctrl and meta keys are treated as the same key)          |
 | `shiftKey` | Boolean  | **Default to false**. A boolean indicating that the shift key must be pressed in addition to the key to trigger the shortcut.                                                            |
 | `altKey`   | Boolean  | **Default to false**. A boolean indicating that the alt key must be pressed in addition to the key to trigger the shortcut.                                                              |
 

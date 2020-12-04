@@ -37,7 +37,7 @@ The result:
 
 ![Viewer async plugin](/assets/img/viewer/Viewer-async_plugin.gif)
 
-These methods are usefull when an action needs to be awaited before the plugin can be opened or closed again.
+These methods are useful when an action needs to be awaited before the plugin can be opened or closed again.
 
 ## $open and $close
 

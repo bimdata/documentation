@@ -12,7 +12,7 @@ Each event corresponds to a set of actions.
 | ----------------------- | ----------------------------------------------------- |
 | bcf.topic.creation      | a BCF Topic is created                                |
 | bcf.topic.update        | a BCF Topic is updated                                |
-| bcf.comment.creation    | a BCF comment                                         |
+| bcf.comment.creation    | a BCF comment is created                              |
 | bcf.comment.update      | a BCF comment is updated                              |
 | bcf.topic.full.creation | a BCF Topic is created, send a FullTopic object       |
 | bcf.topic.full.update   | a BCF Topic is updated, send a FullTopic object       |

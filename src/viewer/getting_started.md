@@ -91,7 +91,7 @@ export default {
 
 To use your own models on the BIMData Viewer, you first need to upload them using the [BIMData API](/api/introduction/overview.html).
 
-Then, you can display them on the viewer user their identifications :
+Then, you can display them on the viewer using their identifications :
 
 ```javascript
 const bimdataViewer = makeBIMDataViewer({

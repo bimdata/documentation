@@ -1,5 +1,5 @@
 # Security
-We treat your data with care and apply state-of-the-art security, follwing the OWASP recommandations. Here are answers on how we keep your data secure.
+We treat your data with care and apply state-of-the-art security, following the OWASP recommendations. Here are answers on how we keep your data secure.
 
 ## Where is my BIMData hosted?
 Your BIMData data and BIMData.io infrastructure are hosted in France by OVH. Files (DMS and IFCs) are stored with [OVH Object Storage](https://www.ovh.com/fr/public-cloud/object-storage/).
