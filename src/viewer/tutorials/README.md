@@ -9,4 +9,4 @@ This is what you will learn:
 - [Create shortcuts.](/viewer/tutorials/shortcuts.html)
 - [Create context menu command](/viewer/tutorials/context_menu.html)
 - [Listen and update state](/viewer/tutorials/state.html)
-- [Plugins communication](/viewer/tutorials/plugins_communication.html)
+- [Hubs](/viewer/tutorials/hubs.html)

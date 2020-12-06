@@ -46,7 +46,7 @@ function getViewerSidebar() {
         "tutorials/shortcuts",
         "tutorials/context_menu",
         "tutorials/state",
-        "tutorials/plugins_communication",
+        "tutorials/hubs",
       ],
     },
     "customize_the_ui",
