@@ -1,8 +1,12 @@
 # Introduction
 
-This is a step by step tutorials that covers the main features of the viewer.
+Here you will find tutorials that cover the main features of the viewer. Step by step, you will build a complete viewer example by adding a feature at a time.
 
-This is what you will learn:
+## Tutorials list
+
+::: tip
+It is a good idea to do tutorials in order as code is added to the same file step by step.
+:::
 
 - [Make your own window layout.](/viewer/tutorials/make_your_own_window_layout.html)
 - [Add plugins on windows.](/viewer/tutorials/add_plugins_on_windows.html)
@@ -10,3 +14,7 @@ This is what you will learn:
 - [Create context menu command](/viewer/tutorials/context_menu.html)
 - [Listen and update state](/viewer/tutorials/state.html)
 - [Hubs](/viewer/tutorials/hubs.html)
+
+## What do I do next?
+
+Once finished, you will have solid knowledge of the main viewer features. The next sections [Customize the UI](/viewer/customize_the_ui.html) and [Develop your plugins](/viewer/plugins/overview.html) covers the respective features in depth and are the logic sequel of these tutorials. You will find features you already saw here with more detailed informations.
