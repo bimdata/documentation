@@ -228,5 +228,5 @@ This code must be placed after plugins registration.
     ],
   };
 
-  viewer.mount(canvasId, customLayout);
+  viewer.mount(`#${canvasId}`, customLayout);
 ```
