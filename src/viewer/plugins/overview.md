@@ -21,7 +21,7 @@ A plugin is mainly either a [Vuejs 2.x component](https://vuejs.org/v2/guide/com
 To learn what is a Vuejs 2.x component, [visite the Vuejs documentation](https://vuejs.org/v2/guide/components.html).
 :::
 
-Both component and function have access to the [`$viewer`](/viewer/plugins/$viewer.html) object. It can be accessed using `this` on a component, or as the first parameter of the startupScript methode. This object allows to interact with the viewer core.
+Both component and function have access to the [`$viewer`](/viewer/plugins/$viewer.html) object. It can be accessed using `this` on a component, or as the first parameter of the startupScript method. This object allows to interact with the viewer core.
 
 ### Plugin as a function
 

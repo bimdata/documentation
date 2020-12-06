@@ -120,7 +120,7 @@ const bimdataViewer = makeBIMDataViewer({
 
 Each property is a plugin name and the value is either a boolean or an object. An object is considered as true and the object content is provided to the plugin instance on `this.$options.$cfg`.
 
-Some native plugins are enabled by default and others disabled. To enabled the defaulty disabled plugins, you must provide their names with `true` or an object with plugin specific options.
+Some native plugins are enabled by default and others disabled. To enabled plugins that are disabled by default, you must provide their names with `true` or an object with plugin specific options.
 
 All native plugins are enabled by default except :
 - split

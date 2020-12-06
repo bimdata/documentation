@@ -20,7 +20,7 @@ There are two possible ways to authenticate depending on your application archit
 - access as an application and benefit from authentication capacities.
 - use a user-behavior authentication.
 
-## When use an app auth?
+## When to use an app auth?
 ### The benefits
 #### Simple to use
 
@@ -40,7 +40,7 @@ You cannot access as a user, therefore you cannot:
 - share data with other applications using BIMData
 :::
 
-## When use a user impersonation?
+## When to use a user impersonation?
 ### The benefits
 #### User’s name as the author
 

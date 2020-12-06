@@ -101,7 +101,7 @@ Setters allows to update the state.
 
 ```javascript
 state.hub.on("objects-selected", ({ ids, options }) => {
-  // id : [1]
+  // ids : [1]
   // options : {optionProperty: "test"}
 });
 state.selectObjects([1], { optionProperty: "test" });
