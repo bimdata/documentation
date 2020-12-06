@@ -16,6 +16,7 @@ export default function(canvasId) {
       fullscreen: false,
       section: false,
       bcf: false,
+      windowSelector: false,
     },
   });
 

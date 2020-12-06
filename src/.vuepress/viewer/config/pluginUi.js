@@ -18,6 +18,7 @@ export default function(canvasId) {
       section: false,
       search: false,
       projection: false,
+      windowSelector: false,
     },
   });
 
