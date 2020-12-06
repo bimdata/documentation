@@ -10,7 +10,7 @@ The state encapsulate logic of objects and ifcs. There is getters to get objects
 
 In this sutorial, we will simply add a plugin that listen to the state to know when objects are selected, and hide them.
 
-## Step by Step
+## Step by step
 
 ### Add a 5th plugin to hide object when selected
 
