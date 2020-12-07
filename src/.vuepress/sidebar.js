@@ -61,6 +61,7 @@ function getViewerSidebar() {
       title: "Reference",
       children: [
         "reference/makeBIMDataViewer",
+        "reference/native_plugins",
         "reference/mount",
         "reference/$viewer",
         "reference/state",

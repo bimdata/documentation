@@ -119,3 +119,7 @@ const bimdataViewer = makeBIMDataViewer({
   },
 });
 ```
+
+:::tip
+For more details about native plugins, see [the native plugins reference](/viewer/reference/native_plugins.html).
+:::
