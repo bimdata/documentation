@@ -2,6 +2,37 @@
 
 Here you will find tutorials that cover the main features of the viewer. Step by step, you will build a complete viewer example by adding a feature at a time.
 
+## How to start
+
+The code examples on the following tutorials can be used in different way. You just need to install the viewer and add a canvas with an `id` named `"viewerId"`.
+
+The simplest way is to start with this code:
+
+```html
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>BIMDataViewer - Tutorials</title>
+    <script src="https://www.unpkg.com/@bimdata/viewer@1.1.0"></script>
+  </head>
+
+  <body>
+    <div style="height: 100vh">
+      <div id="viewerId"></div>
+    </div>
+
+    <script>
+
+      /******* INSERT COMPLET CODE EXAMPLES HERE *******/
+
+    </script>
+  </body>
+</html>
+```
+
+And past the `Complet code example` sections you will find on the tutorials in an `index.html` file and open it in a compatible browser.
+
 ## Tutorials list
 
 ::: tip
