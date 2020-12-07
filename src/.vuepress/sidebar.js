@@ -64,6 +64,7 @@ function getViewerSidebar() {
         "reference/native_plugins",
         "reference/mount",
         "reference/$viewer",
+        "reference/hubs",
         "reference/state",
         "reference/context_menu",
       ],
