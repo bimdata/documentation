@@ -114,7 +114,7 @@ Try openning the plugin 3 (the right button on the last bottom-right window).
   <BIMDataViewer config="hubs"/>
 </ClientOnly>
 
-## Complet code example
+## Complete code example
 
 ```javascript {75-107,123-127}
 // Configure the viewer

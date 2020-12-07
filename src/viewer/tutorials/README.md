@@ -24,14 +24,14 @@ The simplest way is to start with this code:
 
     <script>
 
-      /******* INSERT COMPLET CODE EXAMPLES HERE *******/
+      /******* INSERT COMPLETE CODE EXAMPLES HERE *******/
 
     </script>
   </body>
 </html>
 ```
 
-And past the `Complet code example` sections you will find on the tutorials in an `index.html` file and open it in a compatible browser.
+And past the `Complete code example` sections you will find on the tutorials in an `index.html` file and open it in a compatible browser.
 
 ## Tutorials list
 
