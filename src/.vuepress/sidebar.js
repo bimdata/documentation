@@ -55,9 +55,6 @@ function getViewerSidebar() {
       children: [
         "plugins/overview",
         "plugins/plugin_as_button",
-        "plugins/$viewer",
-        "plugins/state",
-        "plugins/context_menu",
       ],
     },
     {
@@ -65,6 +62,9 @@ function getViewerSidebar() {
       children: [
         "reference/makeBIMDataViewer",
         "reference/mount",
+        "reference/$viewer",
+        "reference/state",
+        "reference/context_menu",
       ],
     },
   ];
