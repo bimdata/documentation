@@ -36,30 +36,15 @@ const bimdataViewer = makeBIMDataViewer({
 });
 ```
 
-### api.ifcIds
+The `api` properties are:
 
-- **Type**: `Number[]`
-- **Details**: An array of IFC ids to load.
-
-### api.cloudId: number
-
-- **Type**: `Number`
-- **Details**: The cloud id.
-
-### api.projectId
-
-- **Type**: `Number`
-- **Details**: The project id.
-
-### api.accessToken
-
-- **Type**: `String`
-- **Details**: The access token.
-
-### api.apiUrl
-
-- **Type**: `String`
-- **Details**: The BIMData api url.
+| Name          | Type       | Description                  |
+| :------------ | :--------- | :--------------------------- |
+| `ifcIds`      | `number[]` | An array of IFC ids to load. |
+| `cloudId`     | `number`   | The cloud id.                |
+| `projectId`   | `number`   | The project id.              |
+| `accessToken` | `string`   | The access token.            |
+| `apiUrl`      | `string`   | The BIMData api url.         |
 
 ## ui
 
@@ -83,35 +68,16 @@ const bimdataViewer = makeBIMDataViewer({
 });
 ```
 
-### ui.style.backgroundColor
+The `ui` properties are:
 
-- **Type**: `String`
-- **Details**: A css color applied to the viewer background.
-
-### ui.headerVisible
-
-- **Type**: `Boolean`
-- **Details**: Default to `true`. If `false`, the header is hidden.
-
-### ui.windowManager
-
-- **Type**: `Boolean`
-- **Details**: Default to `true`. If `false`, the window manager tools are hidden.
-
-### ui.windowManager
-
-- **Type**: `Boolean`
-- **Details**: Default to `true`. If `false`, the viewer version is hidden.
-
-### ui.bimdataLogo
-
-- **Type**: `Boolean`
-- **Details**: Default to `true`. If `false`, the BIMData logo is hidden.
-
-### ui.contextMenu
-
-- **Type**: `Boolean`
-- **Details**: Default to `true`. If `false`, the context menu is disabled.
+| Name                    | Type      | Description                                                             |
+| :---------------------- | :-------- | :---------------------------------------------------------------------- |
+| `style.backgroundColor` | `string`  | A css color applied to the viewer background.                           |
+| `headerVisible`         | `boolean` | **Default** to `true`. If `false`, the header is hidden.                |
+| `windowManager`         | `boolean` | **Default** to `true`. If `false`, the window manager tools are hidden. |
+| `version`               | `boolean` | **Default** to `true`. If `false`, the viewer version is hidden.        |
+| `bimdataLogo`           | `boolean` | **Default** to `true`. If `false`, the BIMData logo is hidden.          |
+| `contextMenu`           | `boolean` | **Default** to `true`. If `false`, the context menu is disabled.        |
 
 ## plugins
 
@@ -123,6 +89,7 @@ Each property is a plugin name and the value is either a boolean or an object. A
 Some native plugins are enabled by default and others disabled. To enabled plugins that are disabled by default, you must provide their names with `true` or an object with plugin specific options.
 
 All native plugins are enabled by default except :
+
 - split
 
 Example :
@@ -130,13 +97,14 @@ Example :
 ```javascript
 const bimdataViewer = makeBIMDataViewer({
   plugins: {
+    split: true,
     bcf: false,
     header: false,
     fullscreen: false,
     projection: false,
     search: false,
     section: false,
-    split: true,
+    windowSelector: false,
     "structure-properties": {
       merge: true,
       export: true,
