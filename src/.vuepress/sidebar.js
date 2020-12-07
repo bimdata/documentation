@@ -55,6 +55,7 @@ function getViewerSidebar() {
       children: [
         "plugins/overview",
         "plugins/plugin_as_button",
+        "plugins/i18n",
       ],
     },
     {
