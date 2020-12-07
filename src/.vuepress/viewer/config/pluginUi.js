@@ -1,4 +1,4 @@
-export default function(canvasId) {
+export default function(viewerId) {
   // Configure the viewer
   const viewer = makeBIMDataViewer({
     ui: {
@@ -106,5 +106,5 @@ export default function(canvasId) {
     ],
   };
 
-  viewer.mount(`#${canvasId}`, customLayout);
+  viewer.mount(`#${viewerId}`, customLayout);
 }

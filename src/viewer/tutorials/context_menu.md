@@ -243,5 +243,5 @@ const customLayout = {
   ],
 };
 
-viewer.mount(`#${canvasId}`, customLayout);
+viewer.mount(`#${viewerId}`, customLayout);
 ```

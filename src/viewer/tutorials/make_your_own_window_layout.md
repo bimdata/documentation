@@ -79,11 +79,11 @@ const customLayout = {
   ],
 };
 
-viewer.mount(`#${canvasId}`, customLayout);
+viewer.mount(`#${viewerId}`, customLayout);
 ```
 
 ::: warning
-`canvasId` must be the id of a valid [HTMLCanvasElement](https://developer.mozilla.org/fr/docs/Web/API/HTMLCanvasElement).
+`viewerId` must be the id of a valid [HTMLCanvasElement](https://developer.mozilla.org/fr/docs/Web/API/HTMLCanvasElement).
 :::
 
 ## Resulting viewer
@@ -146,5 +146,5 @@ const customLayout = {
   ],
 };
 
-viewer.mount(`#${canvasId}`, customLayout);
+viewer.mount(`#${viewerId}`, customLayout);
 ```
