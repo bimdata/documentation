@@ -4,8 +4,8 @@ The `$viewer` object can be accessed using `this` on a component, or as the firs
 
 <pre style="color: white;">
 <b>$viewer</b>
-│ <a href="/viewer/plugins/context_menu.html">contextMenu</a>
-│ <a href="/viewer/plugins/state.html">state</a>
+│ <a href="/viewer/reference/context_menu.html">contextMenu</a>
+│ <a href="/viewer/reference/state.html">state</a>
 │ logger
 │
 └─── <b>api</b>

@@ -11,7 +11,7 @@ $viewer.state.hub.on("objects-selected", (objects) => {
 Hubs allow to register event listener or trigger events on them. The state hub is probably the one that you will use the most, but there is also two other hubs that can be interesting. Remember the `globalContext` and the `localContext` from the [shorctut tutorial](/viewer/tutorials/shortcuts.html)? There is also a hub on each of these contexts. If you want to trigger events that can reach only plugins on the same window, use the `localContext.hub`. If you want to trigger event for all plugins, use the `globalContext.hub`.
 
 :::tip
-For more information, see [global and local contexts documentation](/viewer/plugins/$viewer.html#global-and-local-contexts).
+For more information, see [global and local contexts documentation](/viewer/reference/$viewer.html#global-and-local-contexts).
 :::
 
 In this tutorial, we will trigger a local event when the plugin3 gets open and the plugin2 will listen to this event and display a message accordingly.

@@ -150,7 +150,7 @@ The registerPlugin method take an object as argument. The options are the follow
 | `name`: `string`           | **Required** The name of the plugin. Must be unique.                                            |
 | `component`: `object`      | A Vuejs (v2.x) component.                                                                       |
 | `i18n`: `object`           | An object containing translations for internationalization.                                     |
-| `startupScript($viewer)`   | A function that is executed when the viewer is mounted, with [`$viewer`](/viewer/plugins/$viewer.html) as argument. |
+| `startupScript($viewer)`   | A function that is executed when the viewer is mounted, with [`$viewer`](/viewer/reference/$viewer.html) as argument. |
 | `button`: `object`         | An [object](#button) that describe the display of the plugin if the plugin is shown as button.  |
 | `window`: `object`         | An [object](#window) used to register a window with this plugin in it.                          |
 | `addToWindows`: `string[]` | An array of [window](#window) name in wich to include this plugin.                              |
