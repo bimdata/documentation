@@ -2,7 +2,7 @@
 
 A Hub is an event manager. It allows to register event handler and to trigger events.
 
-There is three hubs on the viewer:
+There are three hubs on the viewer:
 
 - The state hub, available on `$viewer.state.hub`.
 - The local context hub, available on `$viewer.localContext.hub`.

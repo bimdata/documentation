@@ -23,15 +23,15 @@ $viewer.contextMenu
 | Property        | Description                                                                                                                       |
 | :-------------- | :-------------------------------------------------------------------------------------------------------------------------------- |
 | `label: string` | The text displayed on the menu.                                                                                                   |
-| `picto`         | Usually a letter to show the associated shortcut.                                                                                 |
+| `picto: string` | Usually a letter to show the associated shortcut.                                                                                 |
 | `execute()`     | The function to execute when the command is clicked.                                                                              |
-| `?predicate()`  | An optionnal predicate function that is run when the context menu opens. The command is displayed if the function returns `true`. |
+| `predicate()`   | An optionnal predicate function that is run when the context menu opens. The command is displayed if the function returns `true`. |
 
 ## Default commands
 
-The context menu is shipped with native default commands but they can be removed form the context menu commands and then added one by one if needed.
+The context menu is shipped with native default commands but they can be removed from the context menu commands and then added one by one if needed.
 
-To remove default commands, use the makeBIMDataViewer configuration object:
+To remove default commands, use the [makeBIMDataViewer](./makeBIMDataViewer.html) configuration object:
 
 ```javascript
 makeBIMDataViewer({

@@ -140,4 +140,4 @@ state.hub.on("objects-selected", ({ ids, options }) => {
 
 ## Undo Redo
 
-The state in binded to `ctrl + z` (and `cmd + z`) and `ctrl + y` (and `cmd + y`) shortcuts to undo or redo modifications respectively. The majority of the state modifications can be undo or redo except highlight changes.
+The state is binded to `ctrl + z` (and `cmd + z`) and `ctrl + y` (and `cmd + y`) shortcuts to undo or redo modifications respectively. The majority of the state modifications can be undone or re-done except highlight changes.

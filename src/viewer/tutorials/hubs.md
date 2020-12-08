@@ -20,7 +20,7 @@ In this tutorial, we will trigger a local event when the plugin3 gets open and t
 
 ### Emitting an event when plugin 3 gets open
 
-We first add to emit an event when the plugin 3 gets open. To do so, we will use the [plugin as button API](/viewer/plugins/plugin_as_button.html) and emit an event on the `localContext.hub`.
+We first have to emit an event when the plugin 3 gets open. To do so, we will use the [plugin as button API](/viewer/plugins/plugin_as_button.html) and emit an event on the `localContext.hub`.
 
 Let's update the component3:
 
@@ -104,11 +104,11 @@ The rest of the code is similar to the component 1 to display messages.
 
 ### Other possibility
 
-In this example, we use `localContext` because plugin 2 and plugin 3 are on the same window. They share the same `localContext`. Plugin 1 cannot get the `"custom-event"` event because it has another `localContext` (is is on another window). If we wante to display the message on the component 1 (UI of the plugin 1), we could use the `globalContext` instead. Emitting an event on the `globalContext` allows every plugin of the entiere viewer to listen to them and act accordingly.
+In this example, we use `localContext` because plugin 2 and plugin 3 are on the same window. They share the same `localContext`. Plugin 1 cannot get the `"custom-event"` event because it has another `localContext` (as it is on another window). If we want to display the message on the component 1 (UI of the plugin 1), we could use the `globalContext` instead. Emitting an event on the `globalContext` allows every plugin of the entiere viewer to listen to them and act accordingly.
 
 ## Resulting viewer
 
-Try openning the plugin 3 (the right button on the last bottom-right window).
+Try opening the plugin 3 (the right button on the last bottom-right window).
 
 <ClientOnly>
   <BIMDataViewer config="hubs"/>
