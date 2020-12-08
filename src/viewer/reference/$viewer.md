@@ -172,8 +172,9 @@ this.$viewer.globalContext.registerShortcut({
 
 Shortcuts can be unregistered calling the `unregisterShortcut` with the shortcut name.
 
-### Hub
-
+```javascript
+this.$viewer.globalContext.unregisterShortcut("log");
+```
 
 
 ## utils

@@ -11,9 +11,9 @@
   <img width="48%" src="/assets/img/viewer/Viewer-1_window_special.png" alt="Viewer with one window without header.">
 </p>
 
-The viewer UI is decomposed in three main parts :
+The viewer UI is composed of three main parts :
 
-- First, there is the [header](#header). The header is where some usefull actions can be performed like accessing the main menu, loading models or customizing the rest of the UI using the window manager. The header is not displayed on the bottom-right image. It is a special case where user only wants a floating header and a button (top-right) to customize windows.
+- First, there is the [header](#header). The header is where some useful actions can be performed like accessing the main menu, loading models or customizing the rest of the UI using the window manager. The header is not displayed on the bottom-right image. It is a special case where user only wants a floating header and a button (top-right) to customize windows.
 - Next, there is the main view where [windows](#window) are displayed. The user can resize, add, delete, split or swap windows to create his own workspace, according to his needs. On the images above there is one, two or three windows with spatial arborescence, a 2d and 3d representations of the model displayed on different windows.
 - Last, there are [plugins](#plugin) displayed on windows. Different display possibilities are shown on the image below (full, left, right, small...).
 
@@ -27,7 +27,7 @@ By default, the header is always displayed as a top bar. However, it can be chan
 
 ### Flying header
 
-To display the flying header instead of the top bar on a single window, the `flyingHeader` propperty on a [window configuration object](#window-configuration-object) must be set to `true`.
+To display the flying header instead of the top bar on a single window, the `flyingHeader` property on a [window configuration object](#window-configuration-object) must be set to `true`.
 
 ```javascript
 const bimdataViewer = makeBIMDataViewer(/* {...} */);
@@ -43,14 +43,14 @@ const windowConfigurationObject = {
 bimdataViewer.registerWindow(windowConfigurationObject);
 ```
 
-Then, if this window is displayed, the header will be displayed `flying` like on the image bellow.
+Then, if this window is displayed, the header will be displayed `flying` like on the image below.
 
 <p align="center">
   <img width="70%" src="/assets/img/viewer/Viewer-1_window_special.png" alt="Flying header on siple window.">
 </p>
 
 ::: warning
-The flying header is possible only if one window is displayed only. If there is two windows displayed, even if they have the flyingHeader property set to true, the header will be displayed as a top bar.
+The flying header can only be enabled when one window is displayed. If there is more than one windows displayed, even if they have the flyingHeader property set to true, the header will be displayed as a top bar.
 :::
 
 ### No header
@@ -153,7 +153,7 @@ The registerPlugin method take an object as argument. The options are the follow
 | `startupScript($viewer)`   | A function that is executed when the viewer is mounted, with [`$viewer`](/viewer/reference/$viewer.html) as argument. |
 | `button`: `object`         | An [object](#button) that describe the display of the plugin if the plugin is shown as button.  |
 | `window`: `object`         | An [object](#window) used to register a window with this plugin in it.                          |
-| `addToWindows`: `string[]` | An array of [window](#window) name in wich to include this plugin.                              |
+| `addToWindows`: `string[]` | An array of [window](#window) name in which to include this plugin.                              |
 
 ### Button
 
@@ -180,7 +180,7 @@ The images below show the different way to display plugin as button. (top-left :
 
 The `simple` mode display the component in a small div adapted for small menu interfaces like switching between few options.
 
-The `free` mode display the component in a div. The developper of the plugin is responsible to decide the style of the component because the div is related to the component size.
+The `free` mode display the component in a div. The developer of the plugin is responsible to decide the style of the component because the div is related to the component size.
 
 The `panel` mode open the component in a Panel. The panel height is 100% of the window (minus few margins) and it can be unpined. Once unpined, the panel can be resized and moved inside the window like on the gif below.
 
@@ -206,7 +206,7 @@ export default {
 };
 ```
 
-There is no [button](#button) configuration in this file. The viewer 3D is registered as "viewer3d" and a window named "3d" is created with the viewer 3d plugin as child.
+There is no [button](#button) configuration in this file. The viewer 3D is registered as "viewer3d" and a window named "3d" is created with the viewer 3d plugin as a child.
 
 ## mount
 
