@@ -14,7 +14,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@bimdata/design-system": "0.0.42",
+    "@bimdata/design-system": "0.0.54",
     "node-sass": "^4.14.1",
     "sass-loader": "^10.0.4",
     "swagger-ui": "^3.36.2",
