@@ -6,33 +6,36 @@
       <div class="home_illustration flex items-center justify-center">
         <img :src="$withBase('/assets/img/home_illu.svg')" alt="" />
       </div>
-      <div class="home_links">
+      <div class="home_links flex justify-center">
         <BIMDataCard>
           <template #content>
             <img :src="$withBase('/assets/img/bimdata_icon-viewer.svg')" alt="" />
+            <h5 class="bimdata-h5 color-primary">Viewer</h5>
             <p>
               BIMData provides you a customizable 3D Viewer, to see and manipulate your models.
-            </p>
-            <RouterLink to="/api/introduction/overview">
-              <BIMDataButton width="165px" color="primary" fill radius>API</BIMDataButton>
-            </RouterLink>
-          </template>
-        </BIMDataCard>
-        <BIMDataCard>
-          <template #content>
-            <img :src="$withBase('/assets/img/bimdata_icon-api.svg')" alt="" />
-            <p>
-              BIMData's API provides you tools to upload IFCs, manage your files and retreive your
-              model data.
             </p>
             <RouterLink to="/viewer/">
               <BIMDataButton width="165px" color="primary" fill radius>Viewer</BIMDataButton>
             </RouterLink>
           </template>
         </BIMDataCard>
+        <BIMDataCard>
+          <template #content>
+            <img :src="$withBase('/assets/img/bimdata_icon-api.svg')" alt="" />
+            <h5 class="bimdata-h5 color-primary">API</h5>
+            <p>
+              BIMData's API provides you tools to upload IFCs, manage your files and retreive your
+              model data.
+            </p>
+            <RouterLink to="/api/introduction/overview">
+              <BIMDataButton width="165px" color="primary" fill radius>API</BIMDataButton>
+            </RouterLink>
+          </template>
+        </BIMDataCard>
         <!-- <BIMDataCard>
           <template #content>
             <img :src="$withBase('/assets/img/bimdata_icon-platform.svg')" alt="" />
+            <h5 class="bimdata-h5 color-primary">Platform</h5>
             <p>BIMData's API provides you tools to upload IFCs, manage your files and retreive your model data.</p>
             <RouterLink to="/platform/">
               <BIMDataButton width="165px" color="primary" fill radius>Platform</BIMDataButton>
@@ -109,9 +112,9 @@ export default {
 @import "../../../node_modules/@bimdata/design-system/dist/scss/BIMData.scss";
 .bimdata-documentation__home {
   section {
-    margin-bottom: 30px;
+    margin-bottom: 60px;
   }
-  /* custom HEADER CONTENT HOME */
+  /* custom HEADER HOME */
   &__header {
     margin-top: calc(60px + 34px);
     h1 {
@@ -119,8 +122,6 @@ export default {
     }
     .home_links {
       width: 100%;
-      display: flex;
-      justify-content: center;
       .bimdata-card {
         margin-right: 53px;
         padding: 16px;
@@ -133,8 +134,17 @@ export default {
           align-items: center;
           justify-content: center;
         }
-        h3 {
-          color: $color-primary;
+        h5 {
+          position: relative;
+          &::after{
+            content: "";
+            position: absolute;
+            width: 16px;
+            height: 2px;
+            bottom: -7px;
+            left: calc(50% - (16px / 2));
+            background-color: $color-secondary;
+          }
         }
         p {
           margin: 18px 0;
