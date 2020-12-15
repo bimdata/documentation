@@ -2,31 +2,43 @@
   <div class="bimdata-documentation__home">
     <Navbar />
     <section class="bimdata-documentation__home__header">
-      <div class="home_illustration">
+      <h1 class="bimdata-h1">Documentation</h1>
+      <div class="home_illustration flex items-center justify-center">
         <img :src="$withBase('/assets/img/home_illu.svg')" alt="" />
       </div>
       <div class="home_links">
-        <BIMDataCard class="m-r-24">
+        <BIMDataCard>
+          <template #content>
+            <img :src="$withBase('/assets/img/bimdata_icon-viewer.svg')" alt="" />
+            <p>
+              BIMData provides you a customizable 3D Viewer, to see and manipulate your models.
+            </p>
+            <RouterLink to="/api/introduction/overview">
+              <BIMDataButton width="165px" color="primary" fill radius>API</BIMDataButton>
+            </RouterLink>
+          </template>
+        </BIMDataCard>
+        <BIMDataCard>
           <template #content>
             <img :src="$withBase('/assets/img/bimdata_icon-api.svg')" alt="" />
             <p>
               BIMData's API provides you tools to upload IFCs, manage your files and retreive your
               model data.
             </p>
-            <RouterLink to="/api/introduction/overview">
-              <BIMDataButton color="primary" fill radius>API</BIMDataButton>
-            </RouterLink>
-          </template>
-        </BIMDataCard>
-        <BIMDataCard>
-          <template #content>
-            <img :src="$withBase('/assets/img/bimdata_icon-viewer.svg')" alt="" />
-            <p>BIMData provides you a customizable 3D Viewer, to see and manipulate your models.</p>
             <RouterLink to="/viewer/">
-              <BIMDataButton color="primary" fill radius>Viewer</BIMDataButton>
+              <BIMDataButton width="165px" color="primary" fill radius>Viewer</BIMDataButton>
             </RouterLink>
           </template>
         </BIMDataCard>
+        <!-- <BIMDataCard>
+          <template #content>
+            <img :src="$withBase('/assets/img/bimdata_icon-platform.svg')" alt="" />
+            <p>BIMData's API provides you tools to upload IFCs, manage your files and retreive your model data.</p>
+            <RouterLink to="/platform/">
+              <BIMDataButton width="165px" color="primary" fill radius>Platform</BIMDataButton>
+            </RouterLink>
+          </template>
+        </BIMDataCard> -->
       </div>
     </section>
     <section class="bimdata-documentation__home__content">
@@ -80,7 +92,7 @@
 </template>
 
 <script>
-import { BIMDataCard, BIMDataButton } from "@bimdata/design-system";
+import { BIMDataCard, BIMDataButton } from "@bimdata/design-system/components.js";
 
 import Navbar from "@vuepress/theme-default/components/Navbar.vue";
 
@@ -96,95 +108,6 @@ export default {
 <style lang="scss" scoped>
 @import "../../../node_modules/@bimdata/design-system/dist/css/design-system.css";
 @import "../../../node_modules/@bimdata/design-system/dist/scss/BIMData.scss";
-
-h2 {
-  padding: 0;
-  border-bottom: none;
-}
-
-.bimdata-documentation__home::before {
-  content: "";
-  background: linear-gradient(162.76deg, #d1e6ff -9.05%, rgba(248, 248, 249, 0) 108.11%);
-  height: 600px;
-  position: absolute;
-  width: 100%;
-}
-
-.bimdata-documentation__home section {
-  margin-bottom: 30px;
-}
-.bimdata-documentation__home section .bimdata-card {
-  flex: 1;
-  text-align: center;
-}
-.bimdata-documentation__home section .bimdata-card h3 {
-  color: #2f374a;
-}
-.bimdata-documentation__home section .bimdata-card .bimdata-btn {
-  margin: auto;
-}
-
-.home_links {
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  z-index: 2;
-}
-.bimdata-documentation__home__header {
-  padding-bottom: 35px;
-  position: relative;
-  height: 565px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-}
-.bimdata-documentation__home__header .bimdata-card {
-  padding: 16px;
-  max-width: 330px;
-  z-index: 2;
-}
-.bimdata-documentation__home__header .bimdata-card img {
-  margin: auto;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.bimdata-documentation__home__header .bimdata-card p {
-  margin: 18px 0;
-  min-height: 60px;
-  display: flex;
-  align-items: center;
-}
-.bimdata-documentation__home__header .bimdata-card .bimdata-btn {
-  height: 32px;
-  width: 150px;
-}
-.bimdata-documentation__home__header .bimdata-card .bimdata-btn:hover {
-  text-decoration: none;
-}
-
-.bimdata-documentation__home__content,
-.bimdata-documentation__home__footer {
-  text-align: center;
-}
-
-.bimdata-documentation__home__content .bimdata-card {
-  padding: 16px;
-}
-.bimdata-documentation__home__content .bimdata-card h3 {
-  margin: 0;
-}
-.bimdata-documentation__home__content .bimdata-card p {
-  min-height: 70px;
-}
-
-.home_illustration {
-  position: absolute;
-  right: calc(50% - 569px / 2);
-  z-index: 0;
-  top: 10%;
-}
 
 .bimdata-documentation__home {
   /* custom HEADER NAVBAR */
@@ -239,5 +162,64 @@ h2 {
       }
     }
   }
+  /* custom HEADER CONTENT HOME */
+  section {
+    margin-bottom: 30px;
+  }
+  &__header {
+    margin-top: calc(60px + 34px);
+    h1 {
+      text-align: center;
+    }
+    .home_links {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      .bimdata-card {
+        margin-right: 53px;
+        padding: 16px;
+        max-width: 330px;
+        text-align: center;
+        img {
+          margin: auto;
+          height: 220px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        h3 {
+          color: $color-primary;
+        }
+        p {
+          margin: 18px 0;
+          min-height: 60px;
+          display: flex;
+          align-items: center;
+        }
+        .bimdata-btn {
+          margin: auto;
+        }
+        &:last-child{
+          margin-right: 0;
+        }
+      }
+    }
+  }
 }
+
+.bimdata-documentation__home__content,
+.bimdata-documentation__home__footer {
+  text-align: center;
+}
+
+.bimdata-documentation__home__content .bimdata-card {
+  padding: 16px;
+}
+.bimdata-documentation__home__content .bimdata-card h3 {
+  margin: 0;
+}
+.bimdata-documentation__home__content .bimdata-card p {
+  min-height: 70px;
+}
+
 </style>
