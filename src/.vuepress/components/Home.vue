@@ -106,66 +106,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../../node_modules/@bimdata/design-system/dist/css/design-system.css";
 @import "../../../node_modules/@bimdata/design-system/dist/scss/BIMData.scss";
-
 .bimdata-documentation__home {
-  /* custom HEADER NAVBAR */
-  .navbar {
-    padding: 0 24px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-    &::v-deep .home-link {
-      width: 130px;
-    }
-    &::v-deep .links {
-      padding: 0;
-      width: calc(50% + (257px / 2));
-      height: 100%;
-      position: initial;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      .search-box {
-        margin: 0;
-        input {
-          width: 217px;
-          border: none;
-          color: $color-primary;
-          border-radius: 3px;
-          background-color: $color-tertiary-lightest;
-        }
-      }
-      .nav-links {
-        height: 100%;
-        align-items: center;
-        display: flex;
-        .nav-item {
-          height: 100%;
-        }
-        a {
-          padding: 0 12px;
-          height: 100%;
-          display: flex;
-          align-items: center;
-          color: $color-primary;
-          &:hover {
-            border-bottom: 2px solid rgba($color-secondary, 0.3);
-          }
-          span {
-            display: none;
-          }
-        }
-      }
-    }
-  }
-  /* custom HEADER CONTENT HOME */
   section {
     margin-bottom: 30px;
   }
+  /* custom HEADER CONTENT HOME */
   &__header {
     margin-top: calc(60px + 34px);
     h1 {
@@ -199,7 +145,7 @@ export default {
         .bimdata-btn {
           margin: auto;
         }
-        &:last-child{
+        &:last-child {
           margin-right: 0;
         }
       }
@@ -221,5 +167,62 @@ export default {
 .bimdata-documentation__home__content .bimdata-card p {
   min-height: 70px;
 }
+</style>
 
+<style lang="scss">
+@import "../../../node_modules/@bimdata/design-system/dist/scss/BIMDataVariables.scss";
+.navbar {
+  padding: 0 24px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 2px 10px rgba($color-black, 0.1);
+  .home-link {
+    width: 130px;
+  }
+  .links {
+    padding: 0;
+    width: calc(50% + (257px / 2));
+    height: 100%;
+    position: initial;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .search-box {
+      margin: 0;
+      input {
+        width: 217px;
+        border: none;
+        color: $color-primary;
+        border-radius: 3px;
+        background-color: $color-tertiary-lightest;
+      }
+    }
+    .nav-links {
+      height: 100%;
+      align-items: center;
+      display: flex;
+      .nav-item {
+        height: 100%;
+      }
+      a {
+        padding: 0 12px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        color: $color-primary;
+        &:hover {
+          border-bottom: 2px solid rgba($color-secondary, 0.3);
+        }
+        &.router-link-active{
+          border-bottom: 2px solid $color-secondary;
+        }
+        span {
+          display: none;
+        }
+      }
+    }
+  }
+}
 </style>
