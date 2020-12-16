@@ -12,7 +12,7 @@ You can quickly launch the BIMData Viewer with demo identifications.
   <head>
     <meta charset="utf-8" />
     <title>BIMDataViewer - Quick start</title>
-    <script src="https://www.unpkg.com/@bimdata/viewer"></script>
+    <script src="https://www.unpkg.com/@bimdata/viewer@1.1.0"></script>
   </head>
 
   <body>
