@@ -119,6 +119,12 @@
         </div>
       </div>
     </section>
+    <section class="bimdata-documentation__home__questions">
+      <h2 class="bimdata-h2">Do you have a question ?</h2>
+      <p class="bimdata-text">
+        We are available to help you. Check out how-to contact our support team.
+      </p>
+    </section>
   </div>
 </template>
 
