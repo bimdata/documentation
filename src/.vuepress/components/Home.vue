@@ -159,6 +159,9 @@ export default {
 .bimdata-documentation__home {
   section {
     margin-bottom: 60px;
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
   /* custom HEADER HOME */
   &__header {
@@ -182,7 +185,7 @@ export default {
         }
         h5 {
           position: relative;
-          &::after{
+          &::after {
             content: "";
             position: absolute;
             width: 16px;
@@ -325,7 +328,7 @@ export default {
         &:hover {
           border-bottom: 2px solid rgba($color-secondary, 0.3);
         }
-        &.router-link-active{
+        &.router-link-active {
           border-bottom: 2px solid $color-secondary;
         }
         span {
