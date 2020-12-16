@@ -16,6 +16,7 @@ module.exports = {
       { text: 'API', link: '/api/introduction/overview.html' },
       { text: 'Viewer', link: '/viewer/' },
     ],
-    sidebar
+    sidebar,
+    searchPlaceholder: 'Search'
   },
 }
