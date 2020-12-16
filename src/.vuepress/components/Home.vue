@@ -45,44 +45,56 @@
       </div>
     </section>
     <section class="bimdata-documentation__home__content">
-      <h2>How Can We Help?</h2>
-      <p>
+      <h2 class="bimdata-h2">How Can We Help?</h2>
+      <p class="bimdata-text">
         Here are a few items we think might help you get started faster with BIMData.io depending on
         your needs.
       </p>
-      <div class="flex">
+      <div class="flex justify-center m-t-24">
         <BIMDataCard class="m-r-24">
           <template #content>
-            <h3>Scopes</h3>
+            <div class="flex items-center justify-center m-b-24">
+              <img :src="$withBase('/assets/img/bimdata_icon-ifc.svg')" alt="" />
+            </div>
+            <h4 class="bimdata-h4 color-primary">IFC</h4>
             <p>
               A scope is an important concept using the API. Using scopes is a way to handle the
               credentials of your application.
             </p>
-            <BIMDataButton color="primary" fill radius>Try it now</BIMDataButton>
+            <BIMDataButton width="125px" color="secondary" fill radius>Try it now</BIMDataButton>
           </template>
         </BIMDataCard>
         <BIMDataCard class="m-r-24">
           <template #content>
-            <h3>Authentication</h3>
+            <div class="flex items-center justify-center m-b-24">
+              <img :src="$withBase('/assets/img/bimdata_icon-bcf.svg')" alt="" />
+            </div>
+            <h4 class="bimdata-h4 color-primary">BCF</h4>
             <p>
               The authentication is fully implementing OpenID Connect offering to the users a secure
               authentication.
             </p>
-            <BIMDataButton color="primary" fill radius>Try it now</BIMDataButton>
+            <BIMDataButton width="125px" color="secondary" fill radius>Try it now</BIMDataButton>
           </template>
         </BIMDataCard>
         <BIMDataCard class="m-r-24">
           <template #content>
-            <h3>How-to retrieve elements</h3>
+            <div class="flex items-center justify-center m-b-24">
+              <img :src="$withBase('/assets/img/bimdata_icon-open_source.svg')" alt="" />
+            </div>
+            <h4 class="bimdata-h4 color-primary">Open source</h4>
             <p>An example showing using the API, how to get the elements of your Model</p>
-            <BIMDataButton color="primary" fill radius>Try it now</BIMDataButton>
+            <BIMDataButton width="125px" color="secondary" fill radius>Try it now</BIMDataButton>
           </template>
         </BIMDataCard>
         <BIMDataCard>
           <template #content>
-            <h3>Create an application</h3>
+            <div class="flex items-center justify-center m-b-24">
+              <img :src="$withBase('/assets/img/bimdata_icon-plugin.svg')" alt="" />
+            </div>
+            <h4 class="bimdata-h4 color-primary">Plugin</h4>
             <p>How-To create your application on BIMData Connect</p>
-            <BIMDataButton color="primary" fill radius>Try it now</BIMDataButton>
+            <BIMDataButton width="125px" color="secondary" fill radius>Try it now</BIMDataButton>
           </template>
         </BIMDataCard>
       </div>
