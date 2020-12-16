@@ -256,6 +256,9 @@ export default {
       width: 1200px;
     }
     &__img {
+      img {
+        width: 436px;
+      }
     }
     &__text {
       margin-left: 62px;
@@ -293,6 +296,9 @@ export default {
   box-shadow: 0px 2px 10px rgba($color-black, 0.1);
   .home-link {
     width: 130px;
+    .can-hide {
+      display: none;
+    }
   }
   .links {
     padding: 0;
