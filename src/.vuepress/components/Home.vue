@@ -99,9 +99,25 @@
         </BIMDataCard>
       </div>
     </section>
-    <section class="bimdata-documentation__home__footer">
-      <h2>Do you have a question ?</h2>
-      <p>We are available to help you. Check out how-to contact our support team.</p>
+    <section class="bimdata-documentation__home__ds p-y-24">
+      <div class="flex items-center">
+        <div class="bimdata-documentation__home__ds__img">
+          <img :src="$withBase('/assets/img/bimdata_img-ds.png')" alt="" />
+        </div>
+        <div class="bimdata-documentation__home__ds__text">
+          <h2 class="bimdata-h2">Design <span class="color-secondary">System</span></h2>
+          <p>
+            Nous avons développé une bibliothèque VueJs qui contient un ensemble de composants et de
+            démos pour la construction d'interfaces utilisateurs interactives. Il est composé de
+            patterns et composantes UI, typographie, couleurs et outils associés, iconographie,
+            éléments/composants fonctionnels. Tout cela est mis à disposition des développeurs pour
+            créer des plugins.
+          </p>
+          <a href="https://design.bimdata.io/" target="_blank">
+            <BIMDataButton width="125px" color="primary" fill radius>Tester</BIMDataButton>
+          </a>
+        </div>
+      </div>
     </section>
   </div>
 </template>
@@ -189,6 +205,32 @@ export default {
 .bimdata-documentation__home__content .bimdata-card p {
   min-height: 70px;
 }
+  /* custom DESIGN SYSTEM SECTION */
+  &__ds {
+    background-color: $color-tertiary-lightest;
+    .flex {
+      margin: auto;
+      width: 1200px;
+    }
+    &__img {
+    }
+    &__text {
+      margin-left: 62px;
+      h2 {
+        border: none;
+        position: relative;
+        &::before {
+          content: "";
+          position: absolute;
+          width: 46px;
+          height: 5px;
+          left: 0;
+          top: -32px;
+          background-color: $color-secondary;
+        }
+      }
+    }
+  }
 </style>
 
 <style lang="scss">
