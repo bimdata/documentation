@@ -125,6 +125,18 @@
         We are available to help you. Check out how-to contact our support team.
       </p>
     </section>
+    <section class="bimdata-documentation__home__footer p-y-24">
+      <h2 class="bimdata-h2">Utilisez BIMData.io dès maintenant</h2>
+      <div class="flex justify-center items-center">
+        <BIMDataButton width="125px" color="secondary" fill radius class="m-r-18"
+          >Inscrivez-vous</BIMDataButton
+        >
+        <span>ou</span>
+        <BIMDataButton width="125px" color="default" fill radius class="m-l-18"
+          >Contactez-nous</BIMDataButton
+        >
+      </div>
+    </section>
   </div>
 </template>
 
@@ -195,12 +207,15 @@ export default {
       }
     }
   }
-}
-
-.bimdata-documentation__home__content,
-.bimdata-documentation__home__footer {
-  text-align: center;
-}
+  /* custom CONTENT & QUESTIONS & FOOTER HOME */
+  &__content,
+  &__questions,
+  &__footer {
+    text-align: center;
+    h2 {
+      border: none;
+    }
+  }
   /* custom CONTENT HOME */
   &__content {
     .bimdata-card {
@@ -256,6 +271,12 @@ export default {
       }
     }
   }
+  /* custom FOOTER HOME */
+  &__footer {
+    background-color: $color-primary;
+    color: $color-white;
+  }
+}
 </style>
 
 <style lang="scss">
