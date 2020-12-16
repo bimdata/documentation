@@ -195,16 +195,35 @@ export default {
 .bimdata-documentation__home__footer {
   text-align: center;
 }
-
-.bimdata-documentation__home__content .bimdata-card {
-  padding: 16px;
-}
-.bimdata-documentation__home__content .bimdata-card h3 {
-  margin: 0;
-}
-.bimdata-documentation__home__content .bimdata-card p {
-  min-height: 70px;
-}
+  /* custom CONTENT HOME */
+  &__content {
+    .bimdata-card {
+      padding: 16px;
+      width: 274px;
+      .flex {
+        height: 77px;
+      }
+      h4 {
+        margin: 0;
+        position: relative;
+        &::before {
+          content: "";
+          position: absolute;
+          width: 12px;
+          height: 1px;
+          top: -9px;
+          left: calc(50% - (12px / 2));
+          background-color: $color-secondary;
+        }
+      }
+      p {
+        min-height: 70px;
+      }
+      .bimdata-btn {
+        margin: auto;
+      }
+    }
+  }
   /* custom DESIGN SYSTEM SECTION */
   &__ds {
     background-color: $color-tertiary-lightest;
