@@ -3,7 +3,7 @@
 The state contains [IFCs](#ifc) and [objects](#object) logic. It is located on the `$viewer` object:
 
 ```javascript
-$viewer.state
+$viewer.state;
 ```
 
 ## IFC
@@ -31,6 +31,11 @@ interface object {
   object_type: string;
   children: ViewerObject[];
   parent: ViewerObject;
+  descendants: ViewerObject[];
+  ancestors: ViewerObject[];
+  getFirstAncestorWithType: ViewerObject;
+  storey: ViewerObject; // get first ancestor with type "storey"
+  space: ViewerObject; // get first ancestor with type "space"
 }
 ```
 
@@ -42,22 +47,25 @@ Getters allows to quickly access ifcs and objects with specific properties.
 const allIfcs = state.ifcs;
 ```
 
-| Name                                 | Description                               |
-| :----------------------------------- | :---------------------------------------- |
-| `ifcs`                               | Returns all ifcs.                         |
-| `objects`                            | Returns all objects.                      |
-| `getIfc(ifcId)`                      | Returns the ifc with the specified id.    |
-| `getObject(objectId)`                | Returns the object with the specified id. |
-| `getObjectsByUuids(uuids: string[])` | Returns objects with corresponding uuids. |
-| `selectedObjects`                    | Returns selected objects.                 |
-| `deselectedObjects`                  | Returns deselected objects.               |
-| `highlightedObjects`                 | Returns highlighted objects.              |
-| `unhighlightedObjects`               | Returns unhighlighted objects.            |
-| `visibleObjects`                     | Returns visible objects.                  |
-| `unvisibleObjects`                   | Returns unvisible objects.                |
-| `xrayedObjects`                      | Returns xrayed objects.                   |
-| `unxrayedObjects`                    | Returns unxrayed objects.                 |
-| `colorizedObjects`                   | Returns colorized objects.                |
+| Name                                                       | Description                                            |
+| :--------------------------------------------------------- | :----------------------------------------------------- |
+| `ifcs`                                                     | Returns all ifcs.                                      |
+| `objects`                                                  | Returns all objects.                                   |
+| `getIfc(ifcId)`                                            | Returns the ifc with the specified id.                 |
+| `getObject(objectId)`                                      | Returns the object with the specified id.              |
+| `getObjectsByUuids(uuids: string[])`                       | Returns objects with corresponding uuids.              |
+| `getObjectsOfType(type: string)`                           | Returns objects with corresponding type.               |
+| `getTypesOf(ids: number[] | Set<number>): string[]`        | Returns all the types of the corresponding objects.    |
+| `getObjectsWithTheSameTypeAs(ids: number[] | Set<number>)` | Returns all objects with the same type as objects ids. |
+| `selectedObjects`                                          | Returns selected objects.                              |
+| `deselectedObjects`                                        | Returns deselected objects.                            |
+| `highlightedObjects`                                       | Returns highlighted objects.                           |
+| `unhighlightedObjects`                                     | Returns unhighlighted objects.                         |
+| `visibleObjects`                                           | Returns visible objects.                               |
+| `unvisibleObjects`                                         | Returns unvisible objects.                             |
+| `xrayedObjects`                                            | Returns xrayed objects.                                |
+| `unxrayedObjects`                                          | Returns unxrayed objects.                              |
+| `colorizedObjects`                                         | Returns colorized objects.                             |
 
 ## Setters
 
