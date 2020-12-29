@@ -71,5 +71,6 @@ function getViewerSidebar() {
         "reference/offline",
       ],
     },
+    "migration_guide",
   ];
 }
