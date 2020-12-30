@@ -74,10 +74,8 @@ Setters allows to update the state.
 ```javascript
 const objectId = 1;
 
-state.selectObjects([objectId], { optionProperty: "someOption" });
+state.selectObjects([objectId], options);
 ```
-
-`options` on objects setters is passed as property on the event payload.
 
 | Name                                   | Description                                                   |
 | :------------------------------------- | :------------------------------------------------------------ |
@@ -94,6 +92,17 @@ state.selectObjects([objectId], { optionProperty: "someOption" });
 | `xrayObjects(ids, options)`            | Xray objects.                                                 |
 | `unxrayObjects(ids, options)`          | Unxray objects.                                               |
 | `colorizeObjects(ids, color, options)` | Color objects with HEXColor (ex: "#FFFFFF").                  |
+
+The `options` object on setters is passed as property on the event payload. It could be interesting in some special case when a plugin update objects and listen to the same object change event. If the plugin sent the event, it may be appropriate to do not react on the corresponding event:
+
+```javascript
+this.$viewer.state.selectObjects(ids, { trigger: this });
+
+this.$viewer.state.hub.on("objects-selected", ({ objects, options }) => {
+  if (options.trigger === this) return;
+  /* Do something if the event comes from another plugin. */
+});
+```
 
 ## IDs and UUIDs
 
