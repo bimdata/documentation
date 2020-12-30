@@ -141,7 +141,7 @@
 </template>
 
 <script>
-import { BIMDataCard, BIMDataButton } from "@bimdata/design-system/components.js";
+import { BIMDataCard, BIMDataButton } from "@bimdata/design-system";
 
 import Navbar from "@vuepress/theme-default/components/Navbar.vue";
 
@@ -155,7 +155,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../../node_modules/@bimdata/design-system/dist/scss/BIMData.scss";
+@import '../../../node_modules/@bimdata/design-system/dist/css/design-system.css';
+@import "../../../node_modules/@bimdata/design-system/dist/scss/_BIMDataVariables.scss";
 .bimdata-documentation__home {
   section {
     margin-bottom: 60px;
