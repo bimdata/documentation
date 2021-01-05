@@ -27,11 +27,10 @@ Example :
 ```javascript
 const bimdataViewer = makeBIMDataViewer({
   api: {
-    ifcIds: [2283],
-    cloudId: 515,
-    projectId: 756,
-    accessToken: "fc83e49ca9444d3ea41d212599f39040",
-    apiUrl: "https://api-staging.bimdata.io",
+    ifcIds: [15097],
+    cloudId: 10344,
+    projectId: 237466,
+    accessToken: "TAbdyPzoQeYgVSMe4GUKoCEfYctVhcwJ",
   },
 });
 ```

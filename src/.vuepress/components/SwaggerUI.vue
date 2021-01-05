@@ -9,7 +9,7 @@ export default {
   async mounted() {
       SwaggerUIBundle({
         dom_id: "#bimdata-doc-swagger-ui",
-        url: "https://api-staging.bimdata.io/doc.json",
+        url: "https://api.bimdata.io/doc.json",
       });
   },
 };
