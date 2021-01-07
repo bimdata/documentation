@@ -58,10 +58,15 @@
             </div>
             <h4 class="bimdata-h4 color-primary">IFC</h4>
             <p>
-              A scope is an important concept using the API. Using scopes is a way to handle the
-              credentials of your application.
+              Build BIM tools by freeing yourself from technical complexity to focus on your
+              business.
             </p>
-            <BIMDataButton width="125px" color="secondary" fill radius>Try it now</BIMDataButton>
+            <a
+              href="https://developers-staging.bimdata.io/api/introduction/overview.html#apis"
+              target="_blank"
+            >
+              <BIMDataButton width="125px" color="secondary" fill radius>Learn more</BIMDataButton>
+            </a>
           </template>
         </BIMDataCard>
         <BIMDataCard class="m-r-24">
@@ -71,10 +76,14 @@
             </div>
             <h4 class="bimdata-h4 color-primary">BCF</h4>
             <p>
-              The authentication is fully implementing OpenID Connect offering to the users a secure
-              authentication.
+              Access, create, share, export your BCFs with our BCF API.
             </p>
-            <BIMDataButton width="125px" color="secondary" fill radius>Try it now</BIMDataButton>
+            <a
+              href="https://developers-staging.bimdata.io/api/introduction/overview.html#apis"
+              target="_blank"
+            >
+              <BIMDataButton width="125px" color="secondary" fill radius>Explore</BIMDataButton>
+            </a>
           </template>
         </BIMDataCard>
         <BIMDataCard class="m-r-24">
@@ -83,8 +92,10 @@
               <img :src="$withBase('/assets/img/bimdata_icon-open_source.svg')" alt="" />
             </div>
             <h4 class="bimdata-h4 color-primary">Open source</h4>
-            <p>An example showing using the API, how to get the elements of your Model</p>
-            <BIMDataButton width="125px" color="secondary" fill radius>Try it now</BIMDataButton>
+            <p>You can install our platform on your own server.</p>
+            <a href="https://github.com/bimdata/platform" target="_blank">
+              <BIMDataButton width="125px" color="secondary" fill radius>Discover</BIMDataButton>
+            </a>
           </template>
         </BIMDataCard>
         <BIMDataCard>
@@ -93,8 +104,13 @@
               <img :src="$withBase('/assets/img/bimdata_icon-plugin.svg')" alt="" />
             </div>
             <h4 class="bimdata-h4 color-primary">Plugin</h4>
-            <p>How-To create your application on BIMData Connect</p>
-            <BIMDataButton width="125px" color="secondary" fill radius>Try it now</BIMDataButton>
+            <p>Develop your own plugins to increase the efficiency of your tools.</p>
+            <a
+              href="https://developers-staging.bimdata.io/viewer/customize_the_ui.html#plugin"
+              target="_blank"
+            >
+              <BIMDataButton width="125px" color="secondary" fill radius>Try</BIMDataButton>
+            </a>
           </template>
         </BIMDataCard>
       </div>
@@ -106,35 +122,44 @@
         </div>
         <div class="bimdata-documentation__home__ds__text">
           <h2 class="bimdata-h2">Design <span class="color-secondary">System</span></h2>
-          <p>
-            Nous avons développé une bibliothèque VueJs qui contient un ensemble de composants et de
-            démos pour la construction d'interfaces utilisateurs interactives. Il est composé de
-            patterns et composantes UI, typographie, couleurs et outils associés, iconographie,
-            éléments/composants fonctionnels. Tout cela est mis à disposition des développeurs pour
-            créer des plugins.
+          <p class="color-tertiary-darkest">
+            We have developed a Vue.js library that contains a set of components and demos for
+            building interactive user interfaces. It is composed of UI patterns and components,
+            typography, colours and associated tools, iconography, functional elements/components.
+            All this is made available to developers to create plugins faster with a unified design.
           </p>
           <a href="https://design.bimdata.io/" target="_blank">
-            <BIMDataButton width="125px" color="primary" fill radius>Tester</BIMDataButton>
+            <BIMDataButton width="125px" color="primary" fill radius>Learn more</BIMDataButton>
           </a>
         </div>
       </div>
     </section>
     <section class="bimdata-documentation__home__questions">
       <h2 class="bimdata-h2">Do you have a question ?</h2>
-      <p class="bimdata-text">
-        We are available to help you. Check out how-to contact our support team.
+      <p class="bimdata-text color-tertiary-darkest">
+        We're always here to help. Check out our support, contact our super helpful
+        <a href="mailto:support@bimdata.io" class="color-primary">support team</a>.
+      </p>
+      <p class="bimdata-text color-tertiary-darkest">
+        Your data will be treated in accordance with our
+        <a href="https://bimdata.io/en/terms-of-services/" class="color-primary" target="_blank"
+          >Privacy Policy</a
+        >, which sets out the rights you have in respect of your data.
       </p>
     </section>
     <section class="bimdata-documentation__home__footer p-y-24">
-      <h2 class="bimdata-h2">Utilisez BIMData.io dès maintenant</h2>
+      <h2 class="bimdata-h2">Ready <span class="color-secondary">to build ?</span></h2>
       <div class="flex justify-center items-center">
-        <BIMDataButton width="125px" color="secondary" fill radius class="m-r-18"
-          >Inscrivez-vous</BIMDataButton
-        >
-        <span>ou</span>
-        <BIMDataButton width="125px" color="default" fill radius class="m-l-18"
-          >Contactez-nous</BIMDataButton
-        >
+        <a href="https://connect.bimdata.io/" target="_blank">
+          <BIMDataButton width="125px" color="secondary" fill radius class="m-r-18"
+            >Sign up</BIMDataButton
+          >
+        </a>
+        <a href="https://form.typeform.com/to/cQIOr6zI" target="_blank">
+          <BIMDataButton width="125px" color="default" fill radius class="m-l-18"
+            >Contact us</BIMDataButton
+          >
+        </a>
       </div>
     </section>
   </div>
@@ -155,7 +180,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../../../node_modules/@bimdata/design-system/dist/css/design-system.css';
+@import "../../../node_modules/@bimdata/design-system/dist/css/design-system.css";
 @import "../../../node_modules/@bimdata/design-system/dist/scss/_BIMDataVariables.scss";
 .bimdata-documentation__home {
   section {
