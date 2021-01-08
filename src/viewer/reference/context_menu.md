@@ -79,6 +79,16 @@ It is possible to change the default group positions:
 $viewer.contextMenu.groupPositions.select = Infinity;
 ```
 
+The default value of the `contextMenu.groupPositions` properties are the following:
+
+| Property     | Value |
+| :----------- | :---- |
+| `select`     | 10    |
+| `visibility` | 20    |
+| `color`      | 30    |
+
+This means that adding a command without adding a group property will display it at the top of the context menu as the default group value is 0. Because default group values are not contiguous, you can display you custom group between the default ones.
+
 ## Examples
 
 This examples are plugins or plugin components.
