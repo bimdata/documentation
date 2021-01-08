@@ -67,6 +67,24 @@ const allIfcs = state.ifcs;
 | `unxrayedObjects`                                          | Returns unxrayed objects.                              |
 | `colorizedObjects`                                         | Returns colorized objects.                             |
 
+In addition of the previous getters, there are Map getters that return a `Map` instead of an `Array`:
+
+| Name                              | Description                                                                                                                                    |
+| :-------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ifcsMap: Map<string, Object>`    | Returns a Map with all ifcs. `keys` are ifc ids.                                                                                               |
+| `objectsMap: Map<string, Object>` | Returns a Map with all objects. `keys` are object ids.                                                                                         |
+| `uuidsMap: Map<string, Object[]>` | Returns a Map with all objects. `keys` are object uuids. As object uuids may not be unique, uuidsMap.get("some_uuid") always returns an array. |
+
+```javascript
+const object = $viewer.state.uuidsMap.get("some_uuid")[0]; // Always returns an array with the corresponding objects.
+```
+
+:::tip
+If you need Array API like `filter`, `some`... Use `state.objects.filter(() => {/* do something */})`.
+
+If you need to get an object by uuid, use Map getters that are more performant for this purpose.
+:::
+
 ## Setters
 
 Setters allows to update the state.
