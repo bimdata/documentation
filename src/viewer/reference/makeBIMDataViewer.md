@@ -134,3 +134,28 @@ const bimdataViewer = makeBIMDataViewer({
 :::tip
 For more details about native plugins, see [the native plugins reference](/viewer/reference/native_plugins.html).
 :::
+
+## logger
+
+- **Type**: `Object`
+- **Details**: An object to set the logger level.
+
+`logger.level` can be set to "INFO", "WARNING" (default) or "ERROR".
+
+```javascript
+const bimdataViewer = makeBIMDataViewer({
+  // ...
+  logger: {
+    level: "INFO"
+  },
+});
+```
+
+## offlineOptions
+
+- **Type**: `Object`
+- **Details**: An object to configure the offline behaviour of the BIMData viewer.
+
+:::tip
+For more informations, see the [offline reference](./offline.html).
+:::
