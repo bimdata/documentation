@@ -5,18 +5,19 @@ The context menu is displayed after right clicking on the viewer. It displays co
 ## Get the context menu
 
 The context menu can be accessed on the `$viewer` object:
+
 ```javascript
-$viewer.contextMenu
+$viewer.contextMenu;
 ```
 
 ## Interface
 
-| Property                                              | Description                                              |
-| :---------------------------------------------------- | :------------------------------------------------------- |
-| `preventDefault()`                                    | Do not display default commands when context menu opens. |
-| `registerContextCommand(command: ContextMenuCommand)` | Add command for the openning context menu.               |
-| `registerCommand(command: ContextMenuCommand)`        | Add command on context menu.                             |
-| `unregisterCommand(command: ContextMenuCommand)`      | Remove context menu command.                             |
+| Property                                                      | Description                                                                                                   |
+| :------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------ |
+| `preventDefault(): void`                                      | Do not display registered commands when context menu opens.                                                   |
+| `registerContextCommand(command: ContextMenuCommand): number` | Add command for the openning context menu. Returns the command id.                                            |
+| `registerCommand(command: ContextMenuCommand): number`        | Add command on context menu, displayed if the predicate exists and returns true. Returns the command id.      |
+| `unregisterCommand(commandId: number): boolean`               | Remove the command corresponding to the given id. Returns `true` if a command was removed, `false` otherwise. |
 
 ## Command Interface
 
