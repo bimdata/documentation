@@ -12,21 +12,24 @@ $viewer.contextMenu;
 
 ## Interface
 
-| Property                                                      | Description                                                                                                   |
-| :------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------ |
-| `preventDefault(): void`                                      | Do not display registered commands when context menu opens.                                                   |
-| `registerContextCommand(command: ContextMenuCommand): number` | Add command for the openning context menu. Returns the command id.                                            |
-| `registerCommand(command: ContextMenuCommand): number`        | Add command on context menu, displayed if the predicate exists and returns true. Returns the command id.      |
-| `unregisterCommand(commandId: number): boolean`               | Remove the command corresponding to the given id. Returns `true` if a command was removed, `false` otherwise. |
+| Property                                                      | Description                                                                                                                        |
+| :------------------------------------------------------------ | :--------------------------------------------------------------------------------------------------------------------------------- |
+| `preventDefault(): void`                                      | Do not display registered commands when context menu opens.                                                                        |
+| `registerContextCommand(command: ContextMenuCommand): number` | Add command for the openning context menu. Returns the command id.                                                                 |
+| `registerCommand(command: ContextMenuCommand): number`        | Add command on context menu, displayed if the predicate exists and returns true. Returns the command id.                           |
+| `unregisterCommand(commandId: number): boolean`               | Remove the command corresponding to the given id. Returns `true` if a command was removed, `false` otherwise.                      |
+| `groupPositions: Object`                                      | An object with `select`, `visibility` and `color` properties that represent the group positions of corresponding default commands. |
 
 ## Command Interface
 
-| Property        | Description                                                                                                                       |
-| :-------------- | :-------------------------------------------------------------------------------------------------------------------------------- |
-| `label: string` | The text displayed on the menu.                                                                                                   |
-| `picto: string` | Usually a letter to show the associated shortcut.                                                                                 |
-| `execute()`     | The function to execute when the command is clicked.                                                                              |
-| `predicate()`   | An optionnal predicate function that is run when the context menu opens. The command is displayed if the function returns `true`. |
+| Property            | Description                                                                                                                       |
+| :------------------ | :-------------------------------------------------------------------------------------------------------------------------------- |
+| `label: string`     | The text displayed on the menu.                                                                                                   |
+| `picto: string`     | Usually a letter to show the associated shortcut.                                                                                 |
+| `execute()`         | The function to execute when the command is clicked.                                                                              |
+| `predicate()?`      | An optionnal predicate function that is run when the context menu opens. The command is displayed if the function returns `true`. |
+| `group?: number`    | The group the command belongs to. **Default** to 0.                                                                               |
+| `position?: number` | The position where to display the command in its group. **Default** to 0.                                                         |
 
 ## Default commands
 
@@ -54,18 +57,27 @@ Ths `defaultCommands` object is a [javascript Map](https://developer.mozilla.org
 
 Here is a list of all available default commands:
 
-| Name             | Description                                                                    | Display condition                                   |
-| :--------------- | :----------------------------------------------------------------------------- | :-------------------------------------------------- |
-| selectAll        | Select all objects.                                                            | At least one object is not selected.                |
-| deselectAll      | Select all selected objects.                                                   | At least one object is selected.                    |
-| selectSimilar    | Select all objects that share a common `type` with the unique selected object. | Exactly one object is selected.                     |
-| reverseSelection | Deselect all selected objects and select the others.                           | At least one object is selected.                    |
-| hide             | Hide the selected objects.                                                     | At least one object is selected.                    |
-| hideAll          | Hide all visible objects.                                                      | At least one object is visible.                     |
-| showAll          | Show all hidden objects.                                                       | At least one object is not visible.                 |
-| isolate          | Isolate the selected objects.                                                  | At least one object is selected and none are xrayed |
-| reintegrate      | Un-isolate all objects.                                                        | At least one object is xrayed.                      |
-| colorize         | Colorize the selected objects.                                                 | At least one object is selected.                    |
+| Name             | Description                                                                    | Display condition                                   | Group        | Position |
+| :--------------- | :----------------------------------------------------------------------------- | :-------------------------------------------------- | :----------- | :------- |
+| selectAll        | Select all objects.                                                            | At least one object is not selected.                | `select`     | 1        |
+| deselectAll      | Select all selected objects.                                                   | At least one object is selected.                    | `select`     | 2        |
+| selectSimilar    | Select all objects that share a common `type` with the unique selected object. | Exactly one object is selected.                     | `select`     | 3        |
+| reverseSelection | Deselect all selected objects and select the others.                           | At least one object is selected.                    | `select`     | 4        |
+| showAll          | Show all hidden objects.                                                       | At least one object is not visible.                 | `visibility` | 1        |
+| hide             | Hide the selected objects.                                                     | At least one object is selected.                    | `visibility` | 2        |
+| hideAll          | Hide all visible objects.                                                      | At least one object is visible.                     | `visibility` | 3        |
+| isolate          | Isolate the selected objects.                                                  | At least one object is selected and none are xrayed | `visibility` | 4        |
+| reintegrate      | Un-isolate all objects.                                                        | At least one object is xrayed.                      | `visibility` | 5        |
+| colorize         | Colorize the selected objects.                                                 | At least one object is selected.                    | `color`      | 1        |
+
+The command groups are displayed in ascending order according to the command `group` property with a separator between them. The commands in a group are displayed in ascending order corresponding to their `position` property.
+
+It is possible to change the default group positions:
+
+```javascript
+// To display select group related commands at the end
+$viewer.contextMenu.groupPositions.select = Infinity;
+```
 
 ## Examples
 
