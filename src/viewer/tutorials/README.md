@@ -1,12 +1,13 @@
 # Introduction
 
-Here you will find tutorials that cover the main features of the viewer. Step by step, you will build a complete viewer example by adding a feature at a time.
+Here you will find tutorials that cover the main features of the viewer.
+Step by step, you will build a complete viewer example by adding a feature at a time.
 
 ## How to start
 
-The code examples on the following tutorials can be used in different way. You just need to install the viewer and add a canvas with an `id` named `"viewerId"`.
+The code examples on the following tutorials can be used in different way.
 
-The simplest way is to start with this code:
+The simplest way is to start with the following code (`index.html`):
 
 ```html
 <!DOCTYPE html>
@@ -31,12 +32,14 @@ The simplest way is to start with this code:
 </html>
 ```
 
-And past the `Complete code example` sections you will find on the tutorials in an `index.html` file and open it in a compatible browser.
+You just need to have the viewer installed (via CDN) and add a div with an `id` attribute (e.g. `"viewerId"`).
+Then paste the `Complete code example` sections you will find on the tutorials in the `<script>` tag above,
+and open that `index.html` in a compatible browser.
 
 ## Tutorials list
 
 ::: tip
-It is a good idea to do tutorials in order as code is added to the same file step by step.
+It is a good idea to do this tutorials in order as code is added to the same file step by step.
 :::
 
 - [Make your own window layout.](/viewer/tutorials/make_your_own_window_layout.html)

@@ -227,5 +227,5 @@ This code must be placed after plugins registration.
     ],
   };
 
-  viewer.mount(`#${viewerId}`, customLayout);
+  viewer.mount("#viewerId", customLayout);
 ```

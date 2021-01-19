@@ -12,8 +12,6 @@ We first create a viewer with a specific configuration:
 - Disable some plugins to clean the "3d" window and simplify the example.
 
 ```javascript
-import makeBIMDataViewer from "@bimdata/viewer";
-
 const viewer = makeBIMDataViewer({
   ui: {
     headerVisible: false,
@@ -26,7 +24,7 @@ const viewer = makeBIMDataViewer({
   },
   plugins: {
     bcf: false,
-    structureProperties: false,
+    "structure-properties": false,
     fullscreen: false,
     section: false,
     search: false,
@@ -78,11 +76,11 @@ const customLayout = {
   ],
 };
 
-viewer.mount(`#${viewerId}`, customLayout);
+viewer.mount("#viewerId", customLayout);
 ```
 
 ::: warning
-`viewerId` must be the id of a valid [HTMLCanvasElement](https://developer.mozilla.org/fr/docs/Web/API/HTMLCanvasElement).
+`viewerId` must be the id of a valid HTML element (typically a `<div>` element).
 :::
 
 ## Resulting viewer
@@ -94,8 +92,6 @@ viewer.mount(`#${viewerId}`, customLayout);
 ## Complete code example
 
 ```javascript
-import makeBIMDataViewer from "@bimdata/viewer";
-
 // Configure the viewer
 const viewer = makeBIMDataViewer({
   ui: {
@@ -109,7 +105,7 @@ const viewer = makeBIMDataViewer({
   },
   plugins: {
     bcf: false,
-    structureProperties: false,
+    "structure-properties": false,
     fullscreen: false,
     section: false,
     search: false,
@@ -144,5 +140,5 @@ const customLayout = {
   ],
 };
 
-viewer.mount(`#${viewerId}`, customLayout);
+viewer.mount("#viewerId", customLayout);
 ```
