@@ -72,5 +72,6 @@ function getViewerSidebar() {
       ],
     },
     "migration_guide",
+    "release_notes",
   ];
 }
