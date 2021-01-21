@@ -24,11 +24,13 @@ const viewer = makeBIMDataViewer({
 
 The BCF plugin allows to interact with the BIMData BCF API by default. It is possible to change the target API using its configuration.
 
-| Name        | Type     | Description                                       |
-| :---------- | :------- | :------------------------------------------------ |
-| `headers`   | `object` | An object containing the header of the API calls. |
-| `apiUrl`    | `string` | BIMData API by default. The BCF API URL.          |
-| `projectId` | `object` | BIMData's project id by default. The project ID.  |
+| Name         | Type             | Description                                       | Default | Version |
+| :----------- | :--------------- | :------------------------------------------------ | :------ | :------ |
+| `headers`    | `object`         | Additionnal headers to send to the BCF API        | {}    | 1.2.0   |
+| `apiUrl`     | `string`         | The BCF API URL.                                  | BIMData API URL    | 1.2.0   |
+| `projectId`  | `object`         | Override the project ID                           | viewer's project id | 1.2.0 |
+| `fetchUsers` | `async function` | Define another method to fetch user list (used in `assigned_to` field) | null | 1.3.0 |
+| `mergeUsers` | `boolean`        | Set if users fetched with fetchUsers must be merged with users on BIMData API or should override the list | true | 1.3.0 |
 
 ## Fullscreen
 
