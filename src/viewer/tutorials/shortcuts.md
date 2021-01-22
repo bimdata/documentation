@@ -232,5 +232,5 @@ const customLayout = {
   ],
 };
 
-viewer.mount(`#${viewerId}`, customLayout);
+viewer.mount("#viewerId", customLayout);
 ```
