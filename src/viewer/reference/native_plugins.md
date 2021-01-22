@@ -31,6 +31,7 @@ The BCF plugin allows to interact with the BIMData BCF API by default. It is pos
 | `projectId`  | `object`         | Override the project ID                           | viewer's project id | 1.2.0 |
 | `fetchUsers` | `async function` | Define another method to fetch user list (used in `assigned_to` field) | null | 1.3.0 |
 | `mergeUsers` | `boolean`        | Set if users fetched with fetchUsers must be merged with users on BIMData API or should override the list | true | 1.3.0 |
+| `fetchCurrentUser` | `async function` | Change the method to retrive BCF current-user. Defaults to BCF standard method. Must be return the same object than standard current-user route. Emitted BCF Topics and Comments will use the id of the current user | null | 1.3.1 |
 
 ## Fullscreen
 
