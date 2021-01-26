@@ -47,7 +47,7 @@ const component3 = {
 };
 ```
 
-With this added code, the plugin 3 emits an event named `"custom-event"` on the `localContext.hub` when it gets open. However, as nobody is listen to this event, nothing happens.
+With this added code, the plugin 3 emits an event named `"custom-event"` on the `localContext.hub` when it gets open. However, as nobody is listening to this event, nothing happens.
 
 ### Listening to localContext events
 
@@ -55,7 +55,7 @@ Next, we will update the component 2 to listen to the `localContext.hub` `"custo
 
 ```javascript
 created() {
-  this.$viewer.localContext.hub.on(
+  this.subID = this.$viewer.localContext.hub.on(
     "custom-event",
     (event) => (this.message = event.message)
   );
@@ -64,7 +64,7 @@ created() {
 
 And this is the full component 2:
 
-```javascript {15-20}
+```javascript {15-23}
 const component2 = {
   name: "Component_2",
   data() {
@@ -80,10 +80,13 @@ const component2 = {
     },
   },
   created() {
-    this.$viewer.localContext.hub.on(
+    this.subID = this.$viewer.localContext.hub.on(
       "custom-event",
       (event) => (this.message = event.message)
     );
+  },
+  destroyed() {
+    this.$viewer.localContext.hub.off(this.subID);
   },
   template: `
     <div
@@ -100,11 +103,22 @@ const component2 = {
 };
 ```
 
+::: warning
+When you make a call to [`hub.on(eventName, callback)`](/viewer/reference/hubs.md) it will provide you with a subscription ID.
+This sub ID is used to 'cancel' the subscription using the [`hub.off(subID)`](/viewer/reference/hubs.md) method in order to release resources and stop listening to that event.
+For performance reason you should always consider cancelling active subscriptions when they are not useful anymore.
+This is typically done in the `destroyed()` lifecycle hook of a component (as shown above).
+:::
+
+::: tip
+You can also use the [`hub.clear()`](/viewer/reference/hubs.md) method to remove all subscriptions at once.
+:::
+
 The rest of the code is similar to the component 1 to display messages.
 
 ### Other possibility
 
-In this example, we use `localContext` because plugin 2 and plugin 3 are on the same window. They share the same `localContext`. Plugin 1 cannot get the `"custom-event"` event because it has another `localContext` (as it is on another window). If we want to display the message on the component 1 (UI of the plugin 1), we could use the `globalContext` instead. Emitting an event on the `globalContext` allows every plugin of the entiere viewer to listen to them and act accordingly.
+In this example, we use `localContext` because plugin 2 and plugin 3 are on the same window. They share the same `localContext`. Plugin 1 cannot get the `"custom-event"` event because it has another `localContext` (as it is on another window). If we want to display the message on the component 1 (UI of the plugin 1), we could use the `globalContext` instead. Emitting an event on the `globalContext` allows every plugin in the viewer to listen to them and act accordingly.
 
 ## Resulting viewer
 
@@ -116,7 +130,7 @@ Try opening the plugin 3 (the right button on the last bottom-right window).
 
 ## Complete code example
 
-```javascript {75-107,123-127}
+```javascript {75-110,126-130}
 // Configure the viewer
 const viewer = makeBIMDataViewer({
   ui: {
@@ -175,19 +189,20 @@ const component1 = {
       execute: () => (this.localMessage = `"m" key pressed LOCALLY`),
     });
   },
-  template: ` <div style="height: 100%; display: flex; justify-content:center; align-items:center;">
-                  <div>
-                    <div style="text-align:center;">
-                      <p><b>Listen to global context shortcuts :</b></p>
-                      <p>{{ globalMessage || "..." }}</p>
-                    </div>
-                    <hr>
-                    <div style="text-align:center;">
-                      <p><b>Listen to local context shortcuts :</b></p>
-                      <p>{{ localMessage || "..." }}</p>
-                    </div>
-                  <div>
-                  </div>`,
+  template: `
+  <div style="height: 100%; display: flex; justify-content:center; align-items:center;">
+    <div>
+      <div style="text-align:center;">
+        <p><b>Listen to global context shortcuts :</b></p>
+        <p>{{ globalMessage || "..." }}</p>
+      </div>
+      <hr>
+      <div style="text-align:center;">
+        <p><b>Listen to local context shortcuts :</b></p>
+        <p>{{ localMessage || "..." }}</p>
+      </div>
+    <div>
+  </div>`,
 };
 
 const component2 = {
@@ -205,10 +220,13 @@ const component2 = {
     },
   },
   created() {
-    this.$viewer.localContext.hub.on(
+    this.subID = this.$viewer.localContext.hub.on(
       "custom-event",
       (event) => (this.message = event.message)
     );
+  },
+  destroyed() {
+    this.$viewer.localContext.hub.off(this.subID);
   },
   template: `
     <div
