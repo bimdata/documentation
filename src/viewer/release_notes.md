@@ -1,5 +1,10 @@
 # Release Notes
 
+## v1.3.1
+### Developers
+* [BCF current-user can now be fetched from a custom endpoint](/viewer/reference/native_plugins.html#bcf)
+
+
 ## v1.3.0
 
 ### Usages
