@@ -91,7 +91,7 @@ const plugin3 = {
 };
 ```
 
-With this configuration, the plugin does not close if the user click away from it, and its style is a small rectangle open close to the button.
+With this configuration, the plugin does not close if the user click away from it, and its style is a small rectangle that appear next to the button.
 
 ### Add plugins to windows
 
@@ -111,6 +111,29 @@ const window2 = {
 
 ::: warning
 This code must be placed after plugins registration.
+:::
+
+::: tip
+It is also possible to add a button plugin into the *"viewer3d"* window.
+To do so you can use the `addToWindows` option when registering a plugin:
+```javascript
+const viewer = makeBIMDataViewer({ /* viewer config */ });
+
+viewer.registerPlugin({
+  name: "buttonPlugin",
+  component: {
+    name: "ButtonPluginComponent",
+    template: "<div>Hello World !</div>"
+  },
+  button: {
+    position: "right",
+    content: "simple",
+  },
+  addToWindows: [ "3d" ] // <-- Here is the trick
+});
+
+viewer.mount("#viewerId", "3d");
+```
 :::
 
 ## Resulting viewer
