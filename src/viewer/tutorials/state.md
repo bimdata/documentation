@@ -8,7 +8,7 @@ $viewer.state.selectedObjects;
 
 The state encapsulate logic of objects and ifcs. There is getters to get objects depending of their condition (selected, visible, ...) and setters to update them.
 
-In this sutorial, we will simply add a plugin that listen to the state to know when objects are selected, and hide them.
+In this tutorial, we will simply add a plugin that listen to the state to know when objects are selected, and hide them.
 
 ## Step by step
 
