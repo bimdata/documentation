@@ -13,9 +13,19 @@ const viewer = makeBIMDataViewer({
     split: true,
     "structure-properties": {
       merge: true,
-    }
+    },
   },
 });
+```
+
+Some plugins have instance API that can be used to interact with them:
+
+Example:
+
+```javascript
+$viewer.globalContext
+  .getPlugins("structure-properties")
+  .forEach((plugin) => plugin.reloadTrees());
 ```
 
 ## BCF
@@ -24,14 +34,16 @@ const viewer = makeBIMDataViewer({
 
 The BCF plugin allows to interact with the BIMData BCF API by default. It is possible to change the target API using its configuration.
 
-| Name         | Type             | Description                                       | Default | Version |
-| :----------- | :--------------- | :------------------------------------------------ | :------ | :------ |
-| `headers`    | `object`         | Additionnal headers to send to the BCF API        | {}    | 1.2.0   |
-| `apiUrl`     | `string`         | The BCF API URL.                                  | BIMData API URL    | 1.2.0   |
-| `projectId`  | `object`         | Override the project ID                           | viewer's project id | 1.2.0 |
-| `fetchUsers` | `async function` | Define another method to fetch user list (used in `assigned_to` field) | null | 1.3.0 |
-| `mergeUsers` | `boolean`        | Set if users fetched with fetchUsers must be merged with users on BIMData API or should override the list | true | 1.3.0 |
-| `fetchCurrentUser` | `async function` | Change the method to retrive BCF current-user. Defaults to BCF standard method. Must be return the same object than standard current-user route. Emitted BCF Topics and Comments will use the id of the current user | null | 1.3.1 |
+### Configuration
+
+| Name               | Type             | Description                                                                                                                                                                                                          | Default             | Version |
+| :----------------- | :--------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------ | :------ |
+| `headers`          | `object`         | Additionnal headers to send to the BCF API                                                                                                                                                                           | {}                  | 1.2.0   |
+| `apiUrl`           | `string`         | The BCF API URL.                                                                                                                                                                                                     | BIMData API URL     | 1.2.0   |
+| `projectId`        | `object`         | Override the project ID                                                                                                                                                                                              | viewer's project id | 1.2.0   |
+| `fetchUsers`       | `async function` | Define another method to fetch user list (used in `assigned_to` field)                                                                                                                                               | null                | 1.3.0   |
+| `mergeUsers`       | `boolean`        | Set if users fetched with fetchUsers must be merged with users on BIMData API or should override the list                                                                                                            | true                | 1.3.0   |
+| `fetchCurrentUser` | `async function` | Change the method to retrive BCF current-user. Defaults to BCF standard method. Must be return the same object than standard current-user route. Emitted BCF Topics and Comments will use the id of the current user | null                | 1.3.1   |
 
 ## Fullscreen
 
@@ -69,11 +81,25 @@ This plugin is displayed on windows if no plugins are present on them. It displa
 
 Disabled by default, the split plugin add the ability to split the ifc according to the selection, through a command on the context menu.
 
+## Structure
+
+- name: structure
+
+The `structure` plugin displays the tree structures of the IFCs.
+
+### Instance API
+
+| Name             | Description                          |
+| :--------------- | :----------------------------------- |
+| `reload(): void` | Reload the trees of the loaded IFCs. |
+
 ## Structure and properties
 
 - name: structure-properties
 
 This plugin is actually two plugins merged together. The `structure` plugin that displays the tree structures of the IFCs. The `properties` plugin that displays the properties of the selected objects.
+
+### Configuration
 
 | Name             | Type      | Description                                                          |
 | :--------------- | :-------- | :------------------------------------------------------------------- |
@@ -81,17 +107,25 @@ This plugin is actually two plugins merged together. The `structure` plugin that
 | `export`         | `boolean` | **Default** to `false`. Add the export ifcs option on the structure. |
 | `editProperties` | `boolean` | **Default** to `false`. Allows editing properties.                   |
 
+### Instance API
+
+| Name                  | Description                          |
+| :-------------------- | :----------------------------------- |
+| `reloadTrees(): void` | Reload the trees of the loaded IFCs. |
+
 ## Viewer 3D
 
 - name: viewer3d
 
 This plugin display the 3D representation of the IFC.
 
+### Configuration
+
 | Name          | Type      | Description                                                                     |
 | :------------ | :-------- | :------------------------------------------------------------------------------ |
 | `pivotMarker` | `boolean` | **Default** to `true`. Add a pivot marker of the rotation center when pivoting. |
 | `navCube`     | `boolean` | **Default** to `true`. Add the navCube to facilitate the 3D navigation.         |
-| `edges`       | `boolean` | **Default** to `true`. Add model edges.                                          |
+| `edges`       | `boolean` | **Default** to `true`. Add model edges.                                         |
 
 ## Window split
 
