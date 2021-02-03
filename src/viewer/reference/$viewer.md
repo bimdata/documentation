@@ -14,6 +14,7 @@ The `$viewer` object can be accessed using `this` on a component, or as the firs
 │ │ projectId
 │ │ accessToken
 │ │ apiClient
+│ │ getRawElements(ifcId)
 │
 └─── <b>localContext</b>
 │ │ getPlugin(pluginName)
@@ -34,9 +35,7 @@ The `$viewer` object can be accessed using `this` on a component, or as the firs
 │ │ unregisterShortcut(shortcutName)
 │ │ hub
 │ │ modals
-│
-└─── <b>utils</b>
-│ │ getRawElements(ifcId)
+
 </pre>
 
 ## logger
@@ -80,6 +79,22 @@ const element = await new this.$viewer.api.apiClient.IfcApi().getElement(
   uuid
 );
 ```
+
+### getRawElements
+
+`getRawElement()` is a special method. It retrieves all objects, their properties, classifications, systems and layers.
+
+For performance reasons, the API sends a formatted JSON that needs to be rebuilt in order to be used in javascript.
+
+If you want to parse data to filter objects, you probably want to use this method.
+
+```javascript
+const ifcId = 4;
+const elements = await new this.$viewer.api.getRawElements(ifcId);
+```
+
+The result is an object where keys are uuids and value are the element data formatted like the [API response](https://api.bimdata.io/doc#/ifc/getElement)
+
 
 ## global and local contexts
 
