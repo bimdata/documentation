@@ -17,3 +17,7 @@ The interface of a hub is the following:
 | `off(subscriptionId: number): void`                   | Cancel the corresponding subscription.                                                                                                                                                                                                                                      |
 | `emit(eventName: string, payload?: any): void`        | Emit an event with a optional payload.                                                                                                                                                                                                                                      |
 | `clear(): void`                                       | Remove all subscriptions of this hub.                                                                                                                                                                                                                                       |
+
+:::tip
+Many of the events you may use are State events. Find more [reading the State reference](./state.html#events).
+:::
