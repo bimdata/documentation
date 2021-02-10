@@ -1,5 +1,9 @@
 # Release Notes
 
+## v1.4.1
+#### Bugfixes
+* Fix [object properties](/viewer/reference/state.html#object) that may not be accessible in some contexts
+
 
 ## v1.4.0
 #### Usages
@@ -26,14 +30,12 @@
 * First person projection is now named "Flight mode"
 * Elements highlight on mouse hover is now disabled in Flight mode
 
-
 #### Developers
 * [BCF users can now be fetched from a custom endpoint](/viewer/reference/native_plugins.html#bcf)
 * [Increase render and pick precision for very large models](https://github.com/xeokit/xeokit-sdk/issues/254)
 * [Add methods to retrieve objects, children, siblings and parents](/viewer/reference/state.html#object)
 * [Add logger level configuration in makeBIMDataViewer](/viewer/reference/makeBIMDataViewer.html#logger)
 * [Add viewer instance setLocale method](/viewer/reference/makeBIMDataViewer.html#locale)
-
 
 #### Bugfixes
 * Fix BCF interface if loading was slower than the human
