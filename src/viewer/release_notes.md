@@ -1,5 +1,18 @@
 # Release Notes
 
+
+## v1.5.0
+#### Developers
+* Add [showAllAnnotations option](/viewer/reference/native_plugins.html#bcf) to BCF plugin
+* Add structure window as available window by default. `bimdataViewer.unregisterWindow('structure')` to remove it.
+* Add [getRawElements()](/viewer/reference/$viewer.html#getrawelements)
+
+#### Bugfixes
+* Fix BCF bucket tip which showed the wrong shortcut
+* Fix objects being cut when to close from camera
+* Fix xraySetters
+
+
 ## v1.4.1
 #### Bugfixes
 * Fix [object properties](/viewer/reference/state.html#object) that may not be accessible in some contexts
