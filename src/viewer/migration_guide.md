@@ -24,7 +24,6 @@ Major features:
 
 ### ES Module
 
-<ClientOnly>
 <code-group>
 <code-block title="Version 0.x">
 
@@ -116,12 +115,10 @@ const vm = bimdataViewer.mount("#app");
 </code-block>
 
 </code-group>
-</ClientOnly>
 
 ### Script tag
 
 
-<ClientOnly>
 <code-group>
 <code-block title="Version 0.x">
 
@@ -136,11 +133,9 @@ const vm = bimdataViewer.mount("#app");
 ```
 </code-block>
 </code-group>
-</ClientOnly>
 
 ### Refresh access token
 
-<ClientOnly>
 <code-group>
 <code-block title="Version 0.x">
 
@@ -156,11 +151,9 @@ bimdataViewer.setAccessToken(newToken);
 ```
 </code-block>
 </code-group>
-</ClientOnly>
 
 ### Change language
 
-<ClientOnly>
 <code-group>
 <code-block title="Version 0.x">
 
@@ -176,11 +169,9 @@ viewerVm.$i18n.locale = locale;
 ```
 </code-block>
 </code-group>
-</ClientOnly>
 
 ## Plugin configuration file
 
-<ClientOnly>
 <code-group>
 <code-block title="Version 0.x">
 
@@ -297,7 +288,6 @@ export default {
 ```
 </code-block>
 </code-group>
-</ClientOnly>
 
 ## Plugin API
 
@@ -311,7 +301,6 @@ Version 0.x used objects `uuids` as `id`. To handle identical `uuids` (eg: in mo
 There are `uuids` utilities. See the [state reference](/viewer/reference/state.html#ids-and-uuids).
 :::
 
-<ClientOnly>
 <code-group>
 <code-block title="Version 0.x">
 
@@ -326,11 +315,9 @@ this.$viewer.state.hub.on("objects-selected", ({ objects }) => { /* Do something
 ```
 </code-block>
 </code-group>
-</ClientOnly>
 
 ### Setters
 
-<ClientOnly>
 <code-group>
 <code-block title="Version 0.x">
 
@@ -345,11 +332,9 @@ this.$viewer.state.selectObjects([/* object ids to be selected */]);
 ```
 </code-block>
 </code-group>
-</ClientOnly>
 
 ### Getters
 
-<ClientOnly>
 <code-group>
 <code-block title="Version 0.x">
 
@@ -368,7 +353,6 @@ this.$viewer.api.accessToken;
 ```
 </code-block>
 </code-group>
-</ClientOnly>
 
 ::: tip
 - [$viewer reference](/viewer/reference/$viewer.html#viewer).
@@ -377,7 +361,6 @@ this.$viewer.api.accessToken;
 
 ### BIMData API Client
 
-<ClientOnly>
 <code-group>
 <code-block title="Version 0.x">
 
@@ -393,11 +376,9 @@ const apiClient = new this.$viewer.api.apiClient.IfcApi();
 ```
 </code-block>
 </code-group>
-</ClientOnly>
 
 ### Structure helpers
 
-<ClientOnly>
 <code-group>
 <code-block title="Version 0.x">
 
@@ -417,7 +398,6 @@ object.getFirstAncestorWithType(type);
 ```
 </code-block>
 </code-group>
-</ClientOnly>
 
 ::: tip
 See [state object reference](/viewer/reference/state.html#object).
@@ -425,7 +405,6 @@ See [state object reference](/viewer/reference/state.html#object).
 
 ### Model Loading
 
-<ClientOnly>
 <code-group>
 <code-block title="Version 0.x">
 
@@ -447,11 +426,9 @@ const loadedIfc = this.$viewer.state.ifcs[0];
 ```
 </code-block>
 </code-group>
-</ClientOnly>
 
 ### Error message
 
-<ClientOnly>
 <code-group>
 <code-block title="Version 0.x">
 
@@ -472,12 +449,10 @@ this.$viewer.localContext.hub.emit("alert", {
 ```
 </code-block>
 </code-group>
-</ClientOnly>
 
 
 ### Modals
 
-<ClientOnly>
 <code-group>
 <code-block title="Version 0.x">
 
@@ -492,4 +467,3 @@ this.$viewer.globalContext.modals.pushModal(modal);
 ```
 </code-block>
 </code-group>
-</ClientOnly>
