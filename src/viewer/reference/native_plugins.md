@@ -122,11 +122,12 @@ This plugin display the 3D representation of the IFC.
 
 ### Configuration
 
-| Name          | Type      | Description                                                                     |
-| :------------ | :-------- | :------------------------------------------------------------------------------ |
-| `pivotMarker` | `boolean` | **Default** to `true`. Add a pivot marker of the rotation center when pivoting. |
-| `navCube`     | `boolean` | **Default** to `true`. Add the navCube to facilitate the 3D navigation.         |
-| `edges`       | `boolean` | **Default** to `true`. Add model edges.                                         |
+| Name            | Type      | Description                                                                                  |
+| :-------------- | :-------- | :------------------------------------------------------------------------------------------- |
+| `pivotMarker`   | `boolean` | **Default** to `true`. Add a pivot marker of the rotation center when pivoting.              |
+| `navCube`       | `boolean` | **Default** to `true`. Add the navCube to facilitate the 3D navigation.                      |
+| `edges`         | `boolean` | **Default** to `true`. Add model edges.                                                      |
+| `enableOffsets` | `boolean` | **Default** to `False`. Allow model objects to be translated. This increase GPU memory usage |
 
 ## Window split
 
