@@ -129,6 +129,13 @@ This plugin display the 3D representation of the IFC.
 | `edges`         | `boolean` | **Default** to `true`. Add model edges.                                                      |
 | `enableOffsets` | `boolean` | **Default** to `False`. Allow model objects to be translated. This increase GPU memory usage |
 
+### Events
+
+| Name               | Payload                                                                                                                             | Description                                   |
+| :----------------- | :---------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
+| `annotation-click` | [`annotation`](https://xeokit.github.io/xeokit-sdk/docs/class/src/plugins/AnnotationsPlugin/Annotation.js~Annotation.html) | Emitted when an annotation marker is clicked. |
+| `3d-model-loaded`  | `{ ifc, model, plugin }`                                                                                                            | Emitted when a 3D model is loaded.            |
+
 ## Window split
 
 - name: window-split
