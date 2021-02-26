@@ -191,6 +191,13 @@ Shortcuts can be unregistered calling the `unregisterShortcut` with the shortcut
 this.$viewer.globalContext.unregisterShortcut("log");
 ```
 
+### Events
+
+Some default events are sent to the local and global context.
+
+- "plugin-menu-open", payload: the openned plugin. Sent when a [plugin as button](/viewer/plugins/plugin_as_button.html#plugin-as-button) is openned.
+- "plugin-menu-close", payload: the closed plugin. Sent when a [plugin as button](/viewer/plugins/plugin_as_button.html#plugin-as-button) is closed.
+- "window-open", payload: the openned window. Sent when a [window](/viewer/customize_the_ui.html#window) is selected on the window selector, displayed when the workspace is splitted. This event is only sent on the global context.
 
 ## utils
 
