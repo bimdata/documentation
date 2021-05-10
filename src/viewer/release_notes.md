@@ -1,5 +1,10 @@
 # Release Notes
 
+## v1.6.1
+#### Usages
+* Improve default 2D and 3D parameters (Edges, highlight, spaces and space names are enabled by default)
+
+
 ## v1.6.0
 #### Usages
 * Brand new 2D viewer
