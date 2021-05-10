@@ -140,4 +140,32 @@ This plugin display the 3D representation of the IFC.
 
 - name: window-split
 
-This plugin is displayed if there is only one window and the header is dsplayed flying. It is displayed as button on the top-right of the window, and add the possibility to split the current window by half, and add the new window where the user want (top, bottom, right or left).
+This plugin is displayed if there is only one window and the header is displayed flying. It is displayed as button on the top-right of the window, and add the possibility to split the current window by half, and add the new window where the user want (top, bottom, right or left).
+
+## Viewer 2D
+
+- name: viewer2d
+
+This plugin display the 2D representation of the IFC.
+
+## 2D measurements
+
+- name: measure2d
+
+A plugin as un button that allows to measure distances, angles and surfaces in the 2D viewer
+Measurements are saved in local storage
+
+
+## 3D parameters
+
+- name: viewer3d-parameters
+
+A plugin as un button that allows to configure highlight, edges and Spaces visibility.
+Parameters are saved in local storage
+
+## 2D parameters
+
+- name: viewer2d-parameters
+
+A plugin as un button that allows to configure door openings and space names.
+Parameters are saved in local storage
