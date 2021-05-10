@@ -1,5 +1,30 @@
 # Release Notes
 
+## v1.6.0
+#### Usages
+* Brand new 2D viewer
+* Faster and more accurate rendering
+* New measurment plugin: Measure distances, angle and surfaces easily!
+* Space names are shown in 2D
+* Door openings are shown in 2D
+* You can disable and enable door openings and space names
+* 2D objects can be colorized
+* 2D objects can be textured
+* User's 3D and 2D configurations are saved
+* Many performances improvements
+
+#### Developers
+* Open and close event are now always triggered on edge-cases
+
+#### Bugfixes
+* Section plane plugin now show sections loaded from BCF
+* Fix loadIfc method when ifcId is a string instead of an integer
+
+
+## v1.5.6
+#### Bugfixes
+* Performance fixes
+
 
 ## v1.5.0
 #### Developers
