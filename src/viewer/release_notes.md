@@ -1,5 +1,10 @@
 # Release Notes
 
+## v1.6.2
+#### Bugfixes
+* Fix bug with logarithmicDepthBuffer. It could cause glitches if two surfaces were too close to each other
+
+
 ## v1.6.1
 #### Usages
 * Improve default 2D and 3D parameters (Edges, highlight, spaces and space names are enabled by default)

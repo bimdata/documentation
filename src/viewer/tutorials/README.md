@@ -15,7 +15,7 @@ The simplest way is to start with the following code (`index.html`):
   <head>
     <meta charset="utf-8" />
     <title>BIMDataViewer - Tutorials</title>
-    <script src="https://www.unpkg.com/@bimdata/viewer@1.6.1"></script>
+    <script src="https://www.unpkg.com/@bimdata/viewer@1.6.2"></script>
   </head>
 
   <body>
