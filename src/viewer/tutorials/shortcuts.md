@@ -77,7 +77,7 @@ const component1 = {
                     <p><b>Listen to local context shortcuts :</b></p>
                     <p>{{ localMessage || "..." }}</p>
                   </div>
-                <div>
+                </div>
               </div>`,
 };
 ```
@@ -158,7 +158,7 @@ const component1 = {
                     <p><b>Listen to local context shortcuts :</b></p>
                     <p>{{ localMessage || "..." }}</p>
                   </div>
-                <div>
+                </div>
               </div>`,
 };
 
