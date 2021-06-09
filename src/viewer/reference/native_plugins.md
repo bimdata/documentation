@@ -131,10 +131,11 @@ This plugin display the 3D representation of the IFC.
 
 ### Events
 
-| Name               | Payload                                                                                                                             | Description                                   |
-| :----------------- | :---------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
-| `annotation-click` | [`annotation`](https://xeokit.github.io/xeokit-sdk/docs/class/src/plugins/AnnotationsPlugin/Annotation.js~Annotation.html) | Emitted when an annotation marker is clicked. |
-| `3d-model-loaded`  | `{ ifc, model, plugin }`                                                                                                            | Emitted when a 3D model is loaded.            |
+| Name                | Payload                                                                                                                    | Description                                   | Emitted on                         |
+| :------------------ | :------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------- | :--------------------------------- |
+| `annotation-click`  | [`annotation`](https://xeokit.github.io/xeokit-sdk/docs/class/src/plugins/AnnotationsPlugin/Annotation.js~Annotation.html) | Emitted when an annotation marker is clicked. | `localContext` and `globalContext` |
+| `3d-model-loaded`   | `{ ifc, model, plugin }`                                                                                                   | Emitted when a 3D model is loaded.            | `localContext` and `globalContext` |
+| `3d-model-unloaded` | `{ ifc, plugin }`                                                                                                          | Emitted when a 3D model is unloaded.          | `localContext` and `globalContext` |
 
 ## Window split
 
@@ -147,6 +148,14 @@ This plugin is displayed if there is only one window and the header is displayed
 - name: viewer2d
 
 This plugin display the 2D representation of the IFC.
+
+### Events
+
+| Name                | Payload                      | Description                          | Emitted on                         |
+| :------------------ | :--------------------------- | :----------------------------------- | :--------------------------------- |
+| `2d-model-loaded`   | `{ ifc, plugin }`            | Emitted when a 2D model is loaded.   | `localContext` and `globalContext` |
+| `2d-model-unloaded` | `{ ifc, plugin }`            | Emitted when a 2D model is unloaded. | `localContext` and `globalContext` |
+
 
 ## 2D measurements
 

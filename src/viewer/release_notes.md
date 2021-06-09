@@ -1,5 +1,22 @@
 # Release Notes
 
+## v1.7.0
+#### Usages
+* New menu to select windowed plugins
+* Add ability to take 2D screenshots with annotations
+* 3D lights have been improved
+* 2D plan are now aligned to the screen
+
+#### Developers
+* Add `2d-model-loaded` and `2d-model-unloaded` [events](/viewer/reference/native_plugins.html#events-2)
+* The new 2D engine is now [documented](https://2d-engine.bimdata.io). You can develop plugin drawing stuff in 2D!
+* Windows can now have an [icon](/viewer/customize_the_ui.html#window-configuration-object)
+
+#### Bugfixes
+* Fix 2D crash if the page loading the viewer doesn't allow `eval` or `new Function()`
+* Fix rare 2D crash
+
+
 ## v1.6.2
 #### Bugfixes
 * Fix bug with logarithmicDepthBuffer. It could cause glitches if two surfaces were too close to each other
