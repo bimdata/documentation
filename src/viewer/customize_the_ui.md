@@ -100,6 +100,7 @@ A window is composed of [plugins](#plugin) and can be registered using two ways 
 | `name`: `string`          | **Required** The name of the window. Must be unique.                                                                                           |
 | `label`: `string`         | The label that is displayed to the user. Can be a key to be translated like : "viewer3d.window_label".                                         |
 | `plugins`: `array`        | An array of plugins which will be added to the window.                                                                                         |
+| `icon.imgUri`: `string`   | A string that is injected into an `img` HTML element as a src. This image will be displayed while selecting the window on the window selector       |
 | `flyingHeader`: `boolean` | Default to false. If true, the header bar is replaced by a flying header and a window manager button if this window is the only one displayed. |
 
 ```javascript
