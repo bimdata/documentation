@@ -135,6 +135,14 @@ const bimdataViewer = makeBIMDataViewer({
 For more details about native plugins, see [the native plugins reference](/viewer/reference/native_plugins.html).
 :::
 
+Another option is available on the `plugins` object:
+
+```javascript
+addPlugins: false
+```
+
+If `true`, a button is displayed on the window selector to fetch new plugins from the BIMData.io Marketplace.
+
 ## logger
 
 - **Type**: `Object`
