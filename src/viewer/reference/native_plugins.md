@@ -131,11 +131,13 @@ This plugin display the 3D representation of the IFC.
 
 ### Events
 
-| Name                | Payload                                                                                                                    | Description                                   | Emitted on                         |
-| :------------------ | :------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------- | :--------------------------------- |
-| `annotation-click`  | [`annotation`](https://xeokit.github.io/xeokit-sdk/docs/class/src/plugins/AnnotationsPlugin/Annotation.js~Annotation.html) | Emitted when an annotation marker is clicked. | `localContext` and `globalContext` |
-| `3d-model-loaded`   | `{ ifc, model, plugin }`                                                                                                   | Emitted when a 3D model is loaded.            | `localContext` and `globalContext` |
-| `3d-model-unloaded` | `{ ifc, plugin }`                                                                                                          | Emitted when a 3D model is unloaded.          | `localContext` and `globalContext` |
+| Name                | Payload                                                                                                                            | Description                                   | Emitted on                         |
+| :------------------ | :-------------------------------------------------------------------------------------------------------------------------         | :-------------------------------------------- | :--------------------------------- |
+| `3d-model-loaded`   | `{ ifc, model, plugin }`                                                                                                           | Emitted when a 3D model is loaded.            | `localContext` and `globalContext` |
+| `annotation-create` | [`{ id, annotation }`](https://xeokit.github.io/xeokit-sdk/docs/class/src/plugins/AnnotationsPlugin/Annotation.js~Annotation.html) | Emitted when an annotation marker is created. | `localContext` and `globalContext` |
+| `annotation-click`  | [`{ id, annotation }`](https://xeokit.github.io/xeokit-sdk/docs/class/src/plugins/AnnotationsPlugin/Annotation.js~Annotation.html) | Emitted when an annotation marker is clicked. | `localContext` and `globalContext` |
+| `annotation-delete` | `{ id }`                                                                                                                           | Emitted when an annotation marker is deleted. | `localContext` and `globalContext` |
+| `annotation-clear`  | No payload                                                                                                                         | Emitted when annotation marker are cleared    | `localContext` and `globalContext` |
 
 ## Window split
 
