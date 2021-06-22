@@ -132,12 +132,25 @@ This plugin display the 3D representation of the IFC.
 ### Events
 
 | Name                | Payload                                                                                                                            | Description                                   | Emitted on                         |
-| :------------------ | :-------------------------------------------------------------------------------------------------------------------------         | :-------------------------------------------- | :--------------------------------- |
+| :------------------ | :--------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------- | :--------------------------------- |
 | `3d-model-loaded`   | `{ ifc, model, plugin }`                                                                                                           | Emitted when a 3D model is loaded.            | `localContext` and `globalContext` |
 | `annotation-create` | [`{ id, annotation }`](https://xeokit.github.io/xeokit-sdk/docs/class/src/plugins/AnnotationsPlugin/Annotation.js~Annotation.html) | Emitted when an annotation marker is created. | `localContext` and `globalContext` |
 | `annotation-click`  | [`{ id, annotation }`](https://xeokit.github.io/xeokit-sdk/docs/class/src/plugins/AnnotationsPlugin/Annotation.js~Annotation.html) | Emitted when an annotation marker is clicked. | `localContext` and `globalContext` |
 | `annotation-delete` | `{ id }`                                                                                                                           | Emitted when an annotation marker is deleted. | `localContext` and `globalContext` |
 | `annotation-clear`  | No payload                                                                                                                         | Emitted when annotation marker are cleared    | `localContext` and `globalContext` |
+
+### API
+
+This API is available from this object on the `3d` window:
+
+```javascript
+const viewer3dPlugin = this.$viewer.localContext.getPlugin("viewer3d");
+```
+
+| Name               | Type      | Description                                                      |
+| :----------------- | :-------- | :--------------------------------------------------------------- |
+| `selectOnClick`    | `boolean` | **Default** to `true`. If true, clicking an object select it.    |
+| `highlightOnHover` | `boolean` | **Default** to `true`. If true, hovering an object highlight it. |
 
 ## Window split
 
@@ -153,11 +166,23 @@ This plugin display the 2D representation of the IFC.
 
 ### Events
 
-| Name                | Payload                      | Description                          | Emitted on                         |
-| :------------------ | :--------------------------- | :----------------------------------- | :--------------------------------- |
-| `2d-model-loaded`   | `{ ifc, plugin }`            | Emitted when a 2D model is loaded.   | `localContext` and `globalContext` |
-| `2d-model-unloaded` | `{ ifc, plugin }`            | Emitted when a 2D model is unloaded. | `localContext` and `globalContext` |
+| Name                | Payload           | Description                          | Emitted on                         |
+| :------------------ | :---------------- | :----------------------------------- | :--------------------------------- |
+| `2d-model-loaded`   | `{ ifc, plugin }` | Emitted when a 2D model is loaded.   | `localContext` and `globalContext` |
+| `2d-model-unloaded` | `{ ifc, plugin }` | Emitted when a 2D model is unloaded. | `localContext` and `globalContext` |
 
+### API
+
+This API is available from this object on the `2d` window:
+
+```javascript
+const viewer2dPlugin = this.$viewer.localContext.getPlugin("viewer2d");
+```
+
+| Name               | Type      | Description                                                      |
+| :----------------- | :-------- | :--------------------------------------------------------------- |
+| `selectOnClick`    | `boolean` | **Default** to `true`. If true, clicking an object select it.    |
+| `highlightOnHover` | `boolean` | **Default** to `true`. If true, hovering an object highlight it. |
 
 ## 2D measurements
 
@@ -165,7 +190,6 @@ This plugin display the 2D representation of the IFC.
 
 A plugin as un button that allows to measure distances, angles and surfaces in the 2D viewer
 Measurements are saved in local storage
-
 
 ## 3D parameters
 
