@@ -1,3 +1,7 @@
+---
+tags: ["event", "events"]
+---
+
 # Hubs
 
 A Hub is an event manager. It allows to register event handler and to trigger events.
@@ -20,4 +24,8 @@ The interface of a hub is the following:
 
 :::tip
 Many of the events you may use are State events. Find more [reading the State reference](./state.html#events).
+:::
+
+:::tip
+Other usefull events are from the global and the local context. Find more [reading the $viewer reference](./$viewer.html#events).
 :::

@@ -95,7 +95,6 @@ const elements = await new this.$viewer.api.getRawElements(ifcId);
 
 The result is an object where keys are uuids and value are the element data formatted like the [API response](https://api.bimdata.io/doc#/ifc/getElement)
 
-
 ## global and local contexts
 
 The `globalContext` and the `localContext` objects are related to [windows](/viewer/customize_the_ui.html#window) and the viewer UI in general. The `globalContext` is the whole UI while the `localContext` is the [window](/viewer/customize_the_ui.html#window) where the code is executed.
@@ -165,7 +164,7 @@ A shortcut object have the following interface:
 | `name`     | String   | **Required**. A name to identify the shortcut.                                                                                                                                           |
 | `key`      | String   | **Required**. Pressing this key will execute the shortcut (Case insensitive). [`key` may be many things](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values). |
 | `execute`  | Function | **Required**. The function that will be executed when the key is pressed.                                                                                                                |
-| `ctrlKey`  | Boolean  | **Default to false**. A boolean indicating that the ctrl key must be pressed in addition to the key to trigger the shortcut. (ctrl and meta keys are treated as the same key)          |
+| `ctrlKey`  | Boolean  | **Default to false**. A boolean indicating that the ctrl key must be pressed in addition to the key to trigger the shortcut. (ctrl and meta keys are treated as the same key)            |
 | `shiftKey` | Boolean  | **Default to false**. A boolean indicating that the shift key must be pressed in addition to the key to trigger the shortcut.                                                            |
 | `altKey`   | Boolean  | **Default to false**. A boolean indicating that the alt key must be pressed in addition to the key to trigger the shortcut.                                                              |
 
@@ -195,9 +194,15 @@ this.$viewer.globalContext.unregisterShortcut("log");
 
 Some default events are sent to the local and global context.
 
-- "plugin-menu-open", payload: the openned plugin. Sent when a [plugin as button](/viewer/plugins/plugin_as_button.html#plugin-as-button) is openned.
-- "plugin-menu-close", payload: the closed plugin. Sent when a [plugin as button](/viewer/plugins/plugin_as_button.html#plugin-as-button) is closed.
-- "window-open", payload: the openned window. Sent when a [window](/viewer/customize_the_ui.html#window) is selected on the window selector, displayed when the workspace is splitted. This event is only sent on the global context.
+| Name                    | Payload                                   | Description                                                                                                                              |
+| :---------------------- | :---------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------- |
+| `plugin-created`        | { pluginName: `string`, plugin: `Object`} | Sent when a [plugin](/viewer/plugins/overview.html) is created.                                                                          |
+| `plugin-destroyed`      | { pluginName: `string`, plugin: `Object`} | Sent when a [plugin](/viewer/plugins/overview.html) is destroyed.                                                                        |
+| `plugin-menu-open`      | plugin: `Object`                          | Sent when a [plugin as button](/viewer/plugins/plugin_as_button.html#plugin-as-button) is openned                                        |
+| `plugin-destroyed`      | plugin: `Object`                          | Sent when a [plugin as button](/viewer/plugins/plugin_as_button.html#plugin-as-button) is closed.                                        |
+| **Global context only** |                                           |                                                                                                                                          |
+| `window-open`           | window: `Object`                          | Sent when a [window](/viewer/customize_the_ui.html#window) is selected on the window selector, displayed when a window is splitted. |
+| `window-close`          | window: `Object`                          | Sent when a [window](/viewer/customize_the_ui.html#window) is closed.                                                                    |
 
 ## utils
 
