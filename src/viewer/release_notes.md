@@ -1,5 +1,11 @@
 # Release Notes
 
+## v1.7.1
+#### Developers
+* Alerts plugin is now enabled on 2d window by default
+#### Bugfixes
+* Update api client to fix issues with `getExtensions`, `updateExtensions`, `createClassificationElementRelations` and `listClassificationElementRelations` methods
+
 ## v1.7.0
 #### Usages
 * New menu to select windowed plugins
