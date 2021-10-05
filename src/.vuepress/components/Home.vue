@@ -42,6 +42,16 @@
             </RouterLink>
           </template>
         </BIMDataCard> -->
+        <BIMDataCard>
+          <template #content>
+            <img :src="$withBase('/assets/img/bimdata_icon-platform.svg')" alt="" />
+            <h5 class="bimdata-h5 color-primary">On-Premises</h5>
+            <p>BIMData's On-Premises provides you the possibility to host our solutions on your servers.</p>
+            <RouterLink to="/on-premises/getting_started.html">
+              <BIMDataButton width="165px" color="primary" fill radius>On-Premises</BIMDataButton>
+            </RouterLink>
+          </template>
+        </BIMDataCard>
       </div>
     </section>
     <section class="bimdata-documentation__home__content">
