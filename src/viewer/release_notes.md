@@ -1,5 +1,10 @@
 # Release Notes
 
+## v1.7.2
+#### Usages
+* Add first iteration of german translations
+
+
 ## v1.7.1
 #### Developers
 * Alerts plugin is now enabled on 2d window by default
