@@ -1,8 +1,18 @@
 # Release Notes
 
+## v1.7.4
+#### Usages
+* Archived models can now be loaded in multi-model if the first model loaded is archived
+
+
+## v1.7.3
+#### Usages
+* Add first iteration of Spanish translations
+
+
 ## v1.7.2
 #### Usages
-* Add first iteration of german translations
+* Add first iteration of German translations
 
 
 ## v1.7.1
