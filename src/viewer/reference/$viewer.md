@@ -199,7 +199,7 @@ Some default events are sent to the local and global context.
 | `plugin-created`        | { pluginName: `string`, plugin: `Object`} | Sent when a [plugin](/viewer/plugins/overview.html) is created.                                                                          |
 | `plugin-destroyed`      | { pluginName: `string`, plugin: `Object`} | Sent when a [plugin](/viewer/plugins/overview.html) is destroyed.                                                                        |
 | `plugin-menu-open`      | plugin: `Object`                          | Sent when a [plugin as button](/viewer/plugins/plugin_as_button.html#plugin-as-button) is openned                                        |
-| `plugin-destroyed`      | plugin: `Object`                          | Sent when a [plugin as button](/viewer/plugins/plugin_as_button.html#plugin-as-button) is closed.                                        |
+| `plugin-menu-close`      | plugin: `Object`                          | Sent when a [plugin as button](/viewer/plugins/plugin_as_button.html#plugin-as-button) is closed.                                        |
 | **Global context only** |                                           |                                                                                                                                          |
 | `window-open`           | window: `Object`                          | Sent when a [window](/viewer/customize_the_ui.html#window) is selected on the window selector, displayed when a window is splitted. |
 | `window-close`          | window: `Object`                          | Sent when a [window](/viewer/customize_the_ui.html#window) is closed.                                                                    |
