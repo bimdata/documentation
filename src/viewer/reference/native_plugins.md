@@ -137,7 +137,8 @@ This plugin display the 3D representation of the IFC.
 | `annotation-create` | [`{ id, annotation }`](https://xeokit.github.io/xeokit-sdk/docs/class/src/plugins/AnnotationsPlugin/Annotation.js~Annotation.html) | Emitted when an annotation marker is created. | `localContext` and `globalContext` |
 | `annotation-click`  | [`{ id, annotation }`](https://xeokit.github.io/xeokit-sdk/docs/class/src/plugins/AnnotationsPlugin/Annotation.js~Annotation.html) | Emitted when an annotation marker is clicked. | `localContext` and `globalContext` |
 | `annotation-delete` | `{ id }`                                                                                                                           | Emitted when an annotation marker is deleted. | `localContext` and `globalContext` |
-| `annotation-clear`  | No payload                                                                                                                         | Emitted when annotation marker are cleared    | `localContext` and `globalContext` |
+| `annotation-clear`  | No payload                                                                                                                         | Emitted when annotation marker are cleared.   | `localContext` and `globalContext` |
+| `3d-camera-update`  | `{eye: [number,number,number], look: [number,number,number], up: [number,number,number]}`                                          | Emitted when the camera is updated            | `globalContext`                    |
 
 ### API
 
@@ -163,6 +164,18 @@ This plugin is displayed if there is only one window and the header is displayed
 - name: viewer2d
 
 This plugin display the 2D representation of the IFC.
+
+### Instance API
+
+| Name                                                                                                                   | Description                                                                                                                                                     |
+| :--------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `viewer: E2D.Viewer`                                                                                                   | The [engine 2D viewer](https://2d-engine.bimdata.io).                                                                                                           |
+| `spaceNamesDisplayed: boolean`                                                                                         | **Default** to `true`. If `true`, the space names are displayed.                                                                                                |
+| `doorsDisplayed: boolean`                                                                                              | **Default** to `false`. If `true`, the doors are displayed.                                                                                                     |
+| `compassDisplayed: boolean`                                                                                            | **Default** to `true`. If `true`, the compass is displayed.                                                                                                     |
+| `camera3DSynchronization: boolean`                                                                                     | **Default** to `false`. If `true`, the camera follows the rotation of a 3D camera and an icon representing the 3D camera position is displayed.                 |
+| `hideAll(): void`                                                                                                      | Hide all objects except the camera object displayed if `camera3DSynchronization` is on.                                                                         |
+| `syncRotationFrom3DCamera(eye: [number,number,number], look: [number,number,number],up: [number,number,number]): void` | **Default** arguments are `eye = [0, 0, 0], look = [0, 0, 0],up = [0, 1, 0]`. Synchronize the roation between the given 3D camera parameters and the 2D camera. |
 
 ### Events
 
