@@ -165,18 +165,6 @@ This plugin is displayed if there is only one window and the header is displayed
 
 This plugin display the 2D representation of the IFC.
 
-### Instance API
-
-| Name                                                                                                                   | Description                                                                                                                                                     |
-| :--------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `viewer: E2D.Viewer`                                                                                                   | The [engine 2D viewer](https://2d-engine.bimdata.io).                                                                                                           |
-| `spaceNamesDisplayed: boolean`                                                                                         | **Default** to `true`. If `true`, the space names are displayed.                                                                                                |
-| `doorsDisplayed: boolean`                                                                                              | **Default** to `false`. If `true`, the doors are displayed.                                                                                                     |
-| `compassDisplayed: boolean`                                                                                            | **Default** to `true`. If `true`, the compass is displayed.                                                                                                     |
-| `camera3DSynchronization: boolean`                                                                                     | **Default** to `false`. If `true`, the camera follows the rotation of a 3D camera and an icon representing the 3D camera position is displayed.                 |
-| `hideAll(): void`                                                                                                      | Hide all objects except the camera object displayed if `camera3DSynchronization` is on.                                                                         |
-| `syncRotationFrom3DCamera(eye: [number,number,number], look: [number,number,number],up: [number,number,number]): void` | **Default** arguments are `eye = [0, 0, 0], look = [0, 0, 0],up = [0, 1, 0]`. Synchronize the roation between the given 3D camera parameters and the 2D camera. |
-
 ### Events
 
 | Name                | Payload           | Description                          | Emitted on                         |
@@ -192,10 +180,17 @@ This API is available from this object on the `2d` window:
 const viewer2dPlugin = this.$viewer.localContext.getPlugin("viewer2d");
 ```
 
-| Name               | Type      | Description                                                      |
-| :----------------- | :-------- | :--------------------------------------------------------------- |
-| `selectOnClick`    | `boolean` | **Default** to `true`. If true, clicking an object select it.    |
-| `highlightOnHover` | `boolean` | **Default** to `true`. If true, hovering an object highlight it. |
+| Name                                                                                                                   | Description                                                                                                                                                     |
+| :--------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `selectOnClick: boolean`                                                                                               | **Default** to `true`. If true, clicking an object select it.                                                                                                   |
+| `highlightOnHover: boolean`                                                                                            | **Default** to `true`. If true, hovering an object highlight it.                                                                                                |
+| `viewer: E2D.Viewer`                                                                                                   | The [engine 2D viewer](https://2d-engine.bimdata.io).                                                                                                           |
+| `spaceNamesDisplayed: boolean`                                                                                         | **Default** to `true`. If `true`, the space names are displayed.                                                                                                |
+| `doorsDisplayed: boolean`                                                                                              | **Default** to `false`. If `true`, the doors are displayed.                                                                                                     |
+| `compassDisplayed: boolean`                                                                                            | **Default** to `true`. If `true`, the compass is displayed.                                                                                                     |
+| `camera3DSynchronization: boolean`                                                                                     | **Default** to `false`. If `true`, the camera follows the rotation of a 3D camera and an icon representing the 3D camera position is displayed.                 |
+| `hideAll(): void`                                                                                                      | Hide all objects except the camera object displayed if `camera3DSynchronization` is on.                                                                         |
+| `syncRotationFrom3DCamera(eye: [number,number,number], look: [number,number,number],up: [number,number,number]): void` | **Default** arguments are `eye = [0, 0, 0], look = [0, 0, 0],up = [0, 1, 0]`. Synchronize the roation between the given 3D camera parameters and the 2D camera. |
 
 ## 2D measurements
 
