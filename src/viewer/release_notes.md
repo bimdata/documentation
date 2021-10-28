@@ -1,20 +1,53 @@
 # Release Notes
 
+## v1.7.4
+#### Usages
+* Archived models can now be loaded in multi-model if the first model loaded is archived
+
+
+## v1.7.3
+#### Usages
+* Add first iteration of Spanish translations
+
+
+## v1.7.2
+#### Usages
+* Add first iteration of German translations
+
+
+## v1.7.1
+#### Developers
+* Alerts plugin is now enabled on 2d window by default
+#### Bugfixes
+* Update api client to fix issues with `getExtensions`, `updateExtensions`, `createClassificationElementRelations` and `listClassificationElementRelations` methods
+
 ## v1.7.0
 #### Usages
 * New menu to select windowed plugins
+* New UI to manage viewers and windows
+* You can now open properties in a new window
 * Add ability to take 2D screenshots with annotations
 * 3D lights have been improved
+* Viewpoint is no more reset when loading another model in the viewer
+* Improved 2D rendering
 * 2D plan are now aligned to the screen
+* 2D now have a compass
+* UX improvements with 2D zoom
+* 2D improve path measure validation
 
 #### Developers
 * Add `2d-model-loaded` and `2d-model-unloaded` [events](/viewer/reference/native_plugins.html#events-2)
 * The new 2D engine is now [documented](https://2d-engine.bimdata.io). You can develop plugin drawing stuff in 2D!
 * Windows can now have an [icon](/viewer/customize_the_ui.html#window-configuration-object)
+* Add 3D annotations [events](https://developers-staging.bimdata.io/viewer/reference/native_plugins.html#events)
 
 #### Bugfixes
 * Fix 2D crash if the page loading the viewer doesn't allow `eval` or `new Function()`
 * Fix rare 2D crash
+* Improve 2D performances on some models
+* Fix some French BCF translations
+* Fix many small bugs on some browsers
+* Object state is now correctly set when opening a new 3D window
 
 
 ## v1.6.2
