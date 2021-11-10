@@ -1,5 +1,20 @@
 # Release Notes
 
+
+## v1.8.0
+
+#### Usages
+* 2D Measurement can now snap to lines. Press CTRL (or cmd) while measuring.
+* 3D and 2D camera synchronization is now available in 2D parameters.
+* IFC Entities (IfcWall, IfcDoor, etc) are now translated in French (If you want to help us translate them into other languages, please contact us!)
+* BCF search now filters on all BCF fields and not only on the title.
+* Upgraded Spanish translation
+
+#### Developers
+* 2D engine now uses the same coordinates as the 3D engine. You can build even more powerful 2D and 3D interactions.
+* Events now have an option `getLastEvent`. If `true`, the last event (if any) is instantly triggered. It is useful for state synchronization on plugin initialization.
+
+
 ## v1.7.4
 #### Usages
 * Archived models can now be loaded in multi-model if the first model loaded is archived
