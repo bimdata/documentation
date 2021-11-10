@@ -149,6 +149,16 @@ $viewer.state.selectObjectsByUuids(uuids, options); // Selects objects by uuids
 state.hub.on("objects-selected", ({ ids, options }) => {
   console.log("Do something.");
 });
+
+state.hub.on(
+  "ifcs-loaded",
+  ({ ifcs }) => {
+    console.log("Do something.");
+  },
+  {
+    getLastEvent: true, // immediately trigger the callback with the last loaded ifcs if they exists.
+  }
+);
 ```
 
 `options` is a custom object passed at some [setters](#setters).
@@ -172,6 +182,10 @@ state.hub.on("objects-selected", ({ ids, options }) => {
 | `objects-xrayed`        | { objects: Array, options: Object }                  |
 | `objects-unxrayed`      | { objects: Array, options: Object }                  |
 | `objects-colorized`     | { objects: Array, color: HEXColor, options: Object } |
+
+:::tip
+For more information about the state hub interface, see [the hub reference](hubs.html).
+:::
 
 ## Undo Redo
 
