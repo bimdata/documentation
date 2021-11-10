@@ -1,5 +1,9 @@
 # Release Notes
 
+## v1.8.1
+
+#### Developers
+* `getLastEvent` is now referenced in `index.d.ts`. Don't forget to use it (even with .js files) to bring auto-complete in your development tools.
 
 ## v1.8.0
 
