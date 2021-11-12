@@ -1,12 +1,16 @@
 # Release Notes
 
-## v1.8.1
+## v1.8.2
+#### Developers
+* Add [`translateIfcEntities` option](/viewer/reference/native_plugins.html#structure-and-properties)
 
+
+## v1.8.1
 #### Developers
 * `getLastEvent` is now referenced in `index.d.ts`. Don't forget to use it (even with .js files) to bring auto-complete in your development tools.
 
-## v1.8.0
 
+## v1.8.0
 #### Usages
 * 2D Measurement can now snap to lines. Press CTRL (or cmd) while measuring.
 * 3D and 2D camera synchronization is now available in 2D parameters.

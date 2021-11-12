@@ -102,11 +102,12 @@ This plugin is actually two plugins merged together. The `structure` plugin that
 
 ### Configuration
 
-| Name             | Type      | Description                                                          |
-| :--------------- | :-------- | :------------------------------------------------------------------- |
-| `merge`          | `boolean` | **Default** to `false`. Add the merge ifcs option on the structure.  |
-| `export`         | `boolean` | **Default** to `false`. Add the export ifcs option on the structure. |
-| `editProperties` | `boolean` | **Default** to `false`. Allows editing properties.                   |
+| Name                   | Type      | Description                                                          |
+| :--------------------- | :-------- | :------------------------------------------------------------------- |
+| `merge`                | `boolean` | **Default** to `false`. Add the merge ifcs option on the structure.  |
+| `export`               | `boolean` | **Default** to `false`. Add the export ifcs option on the structure. |
+| `editProperties`       | `boolean` | **Default** to `false`. Allows editing properties.                   |
+| `translateIfcEntities` | `boolean` | **Default** to `false`. Enable IFC Entites translation.              |
 
 ### Instance API
 
