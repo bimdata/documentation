@@ -1,17 +1,17 @@
 # Introduction
 This document explains how to install BIMData.io applications on your servers.
 
-You can test our products on our [SaaS Platform](https://connect.bimdata.io/signup/?next=https://platform.bimdata.io).
+You can test our products on our [SaaS Platform](https://platform.bimdata.io).
 
 ## How to have access to on-premises
-You must have contacted our sales services to have access to the necessary resources for the installation.
+You must contact our [sales services](contact@bimdata.io) to have access to the necessary resources for the installation.
 
 ## Architecture
 The BIMData.io softwares are separated into multiple components, each one with its role.
 
 ### Web applications
 Web applications are the components with which the users interact:
-  - **Bimdata Connect**: manage the authentication and the right permissions,
+  - **Bimdata Connect**: manage users and authentication,
   - **Bimdata API**: to interact with the data,
   - **Bimdata Platform**: allow the use of the previous components in our ergonomic interface.  
     The plaform is split in two components:
@@ -21,8 +21,7 @@ Web applications are the components with which the users interact:
     The Marketplace is split in two components:
       - **Marketplace_front**
       - **Marketplace_back**
-  - **Bimdata Share**
-  - **Bimdata Archive**
+  - **Bimdata Archive**:  to download zip archives from the DMS.
 
 ### Workers
 Workers are the components that will be used to extract, transform, convert or produce
@@ -44,8 +43,8 @@ Bimdata.io softwares need other components to work:
   - [RabbitMQ](https://www.rabbitmq.com): an open-source message broker used for asynchronous communications between our components.
 
 They can also use some optional components:
-  - an SMTP server used to send mail,
-  - an Object Storage (like S3) used to store uploaded files.
+  - an SMTP server to send mail,
+  - an Object Storage (like S3) to store uploaded files.
 
 There are a lot of different components, it can be complicated to understand their interactions,
 so we hope this diagram can help you to apprehend the different network flows:

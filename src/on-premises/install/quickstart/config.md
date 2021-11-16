@@ -77,10 +77,10 @@ Object storage (Swift):
 | api_secret_key                      | `"{{ vault_api_secret_key }}"`                                             | You should not change this.                                 |
 ||||
 | connect_secret_key                  | `"{{ vault_connect_secret_key }}"`                                         | You should not change this.                                 |
-| connect_client_id                   | `"{{ 'connect_client_id' \| to_uuid(namespace=uuid_namespace) }}"`         | You should not change this.                                 |
-| connect_client_secret               | `"{{ 'connect_client_secret' \| to_uuid(namespace=uuid_namespace) }}"`     | You should not change this.                                 |
+| connect_client_id                   | `"{{ 'connect_client_id' | to_uuid(namespace=uuid_namespace) }}"`          | You should not change this.                                 |
+| connect_client_secret               | `"{{ 'connect_client_secret' | to_uuid(namespace=uuid_namespace) }}"`      | You should not change this.                                 |
 | connect_invitation_secret           | `"{{ vault_connect_invitation_secret }}"`                                  | You should not change this.                                 |
-| connect_invitation_client           | `"{{ 'connect_invitation_client' \| to_uuid(namespace=uuid_namespace) }}"` | You should not change this.                                 |
+| connect_invitation_client           | `"{{ 'connect_invitation_client' | to_uuid(namespace=uuid_namespace) }}"`  | You should not change this.                                 |
 | connect_invitation_client_secret    | `"{{ vault_connect_invitation_client_secret }}"`                           | You should not change this.                                 |
 ||||
 | platform_back_secret_key            | `"{{ vault_platform_back_secret_key }}"`                                   | You should not change this.                                 |
@@ -112,7 +112,7 @@ Object storage (Swift):
 | workers_preview_instance            | 1                                                                          | Number of replicas deployed on *each* server.               |
 | workers_preview_cpu                 | 1                                                                          | Number of CPUs allocated for each replica.                  |
 ||||
-| uuid_namespace                      | `"{{ app_dns_domain \| to_uuid }}"`                                        | Use to generate needed UUIDs.                               |
+| uuid_namespace                      | `"{{ app_dns_domain | to_uuid }}"`                                         | Use to generate needed UUIDs.                               |
 | master_token                        | `"{{ vault_master_token }}"`                                               | Master token use for authentication between workers and API.|
 | app_env                             | "on-premises"                                                              | Environnement definition for some app. Must not be changed. |
 | mapbox_token                        | `"{{ vault_mapbox_token }}"`                                               | Token for authentication on the Mapbox API.                 |
