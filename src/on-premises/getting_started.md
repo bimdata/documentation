@@ -28,10 +28,8 @@ Workers are the components that will be used to extract, transform, convert or p
 data from models or other documents. There are a lot of different workers:
   - GLTF:
   - SVG:
-  - BVH:
   - XKT:
   - Preview:
-  - Optimize:
   - Extract:
   - Export:
   - Merge:
@@ -39,8 +37,8 @@ data from models or other documents. There are a lot of different workers:
 ### Third-party components
 Bimdata.io softwares need other components to work:
   - [Keycloak](https://www.keycloak.org/): an open-source identify and access management solution used for the authentication,
-  - [Postgresql](https://www.postgresql.org/): an open-source relational database used to store structured data,
-  - [RabbitMQ](https://www.rabbitmq.com): an open-source message broker used for asynchronous communications between our components.
+  - [Postgresql](https://www.postgresql.org/): an open-source relational database used to store structured data; Used by all BIMData.io backends and keycloak,
+  - [RabbitMQ](https://www.rabbitmq.com): an open-source message broker used for asynchronous communications between our components. Used by Workers.
 
 They can also use some optional components:
   - an SMTP server to send mail,

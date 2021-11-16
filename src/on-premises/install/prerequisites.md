@@ -19,7 +19,7 @@ For the High availability, the prerequisites are the same as the *Recommended*
 configuration with more servers: each server need to have at least two instances.
 
 ## Software
-Bimdata softwares are distributed with their dependencies in the form of Docker Images.
+BIMData.io softwares are distributed with their dependencies in the form of Docker Images.
 This facilitated the installation but makes it necessary to use a technology capable of
 running the containers (Docker, Containerd, etc.).
 
@@ -28,7 +28,7 @@ Moreover, here the minimal version for the third party components:
 | Component       | Needed Version |
 | --------------- |:--------------:|
 | Keycloak        | >=11           |
-| Postgres        | >=10           |
+| Postgres        | >=11           |
 | RabbitMQ        | AMQP 0-9-1     |
 
 ## Databases
@@ -36,7 +36,6 @@ Five databases are necessary for the proper functioning of our applications:
   - one for the API,
   - one for the platform,
   - one for Connect,
-  - one for share,
   - one for Keycloak.
 
 One Postgresql extension is necessary: `hstore`. Our apps will create it when needed,
@@ -58,7 +57,6 @@ Here are the ports to open for the good communication of all the elements. Each 
 | Web-front-end   	 | TCP      | 8080     	| Keycloak         	  |                   	|
 | Web-front-end   	 | TCP      | 15672    	| RabbitMQ         	  | Admin interface   	|
 | Web-front-end      | TCP      | 8080      | Archive             |                     |
-| Web-front-end      | TCP      | 3000      | Share               |                     |
 |                                                                                   |||||
 | API             	 | TCP      | 80 / 443 	| Web-front-end    	  |                   	|
 | Connect         	 | TCP      | 80 / 443 	| Web-front-end    	  |                   	|
@@ -71,7 +69,6 @@ Here are the ports to open for the good communication of all the elements. Each 
 | Connect         	 | TCP      | 5432     	| Postgres         	  |                   	|
 | Keycloak        	 | TCP      | 5432     	| Postgres         	  |                   	|
 | Platform (back) 	 | TCP      | 5432     	| Postgres         	  |                   	|
-| Share              | TCP      | 5432     	| Postgres         	  |                   	|
 |                                                                                   |||||
 | API             	 | TCP      | 5672     	| RabbitMQ         	  |                   	|
 | Workers         	 | TCP      | 5672     	| RabbitMQ         	  |                   	|

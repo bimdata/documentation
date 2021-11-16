@@ -13,7 +13,6 @@ This lists all variables you can use to configure our playbook.
 | platform_front_dns_name     | `"platform.{{ app_dns_domain }}"`        | DNS name use for the Platform URL.                     |
 | iam_dns_name                | `"iam.{{ app_dns_domain }}"`             | DNS name use for the Keycloak (identity provider) URL. |
 | documentation_dns_name      |`"doc.{{ app_dns_domain }}"`              | DNS name use for the documentation URL.                |
-| share_dns_name              |`"share.{{ app_dns_domain }}"`            | DNS name use for the share URL.                        |  
 | archive_dns_name            |`"archive.{{ app_dns_domain }}"`          | DNS name use for the archive URL.                      |
 :::
 
@@ -50,7 +49,7 @@ Each name needs to be defined in the corresponding authoritative DNS server. Thi
 | Variables                  | Default value                      | Description                                                 |
 |----------------------------|------------------------------------|-------------------------------------------------------------|
 | bimdata_path               | "/opt/bimdata"                     | Where we will install our needed files on the servers.      |
-| bimdata_docker_volume_path | `"{{ bimdata_path }}/data"`        | Where will your data will be store on the servers.          |
+| bimdata_docker_volume_path | `"{{ bimdata_path }}/data"`        | Where will your data will be stored on the servers.          |
 | bimdata_dockerfiles_path   | `"{{ bimdata_path }}/dockerfiles"` | Where we store the dockerfiles use to start the containers. |
 :::
 
@@ -176,10 +175,6 @@ to access our docker registry for example.
 | db_iam_name             | "iam"                                   | Database name for Keycloak.            |
 | db_iam_user             | "iam"                                   | Postgres user for Keycloak.            |
 | db_iam_password         | `"{{ vault_db_iam_password }}"`         | Postgres password for Keycloak.        |
-||||
-| db_share_name           | "share"                                 | Database name for Share.               |
-| db_share_user           | "share"                                 | Postgres user for Share.               |
-| db_share_password       | `"{{ vault_db_share_password }}"`       | Postgres password for Share.           |
 :::
 
 If `use_external_db: false` AND if the [db] server is different from the [app] server (in the inventory)
@@ -194,7 +189,6 @@ with the [db] server on these ports.
 | db_connect_external_port     | 5433                                                                   | Postgres external port for Connect.                                                      |
 | db_platform_external_port    | 5434                                                                   | Postgres external port for the Platform.                                                 |
 | db_iam_external_port         | 5435                                                                   | Postgres external port for Keycloak.                                                     |
-| db_share_external_port       | 5436                                                                   | Postgres external port for Share.                                                        |
 | db_server_addr               | `"{{ hostvars[groups['db'][0]]['ansible_default_ipv4']['address'] }}"` | Use to determine the IP that will be use for Postgres connection between [app] and [db]. |
 :::
 
@@ -222,8 +216,6 @@ with the [db] server on these ports.
 | docker_iam_tag                          | latest                                                     | Keycloak docker tag.                                                      |
 | docker_documentation_image              | `"{{ docker_private_registry }}/on-prem/documentation"`    | Documentation docker image.                                               |
 | docker_documentation_tag                | latest                                                     | Documentation docker tag.                                                 |
-| docker_share_image                      | `"{{ docker_private_registry }}/on-prem/share"`            | Share docker image.                                                       |
-| docker_share_tag                        | latest                                                     | Share docker tag.                                                         |
 | docker_archive_image                    | `"{{ docker_private_registry }}/on-prem/archive"`          | Archive docker image.                                                     |
 | docker_archive_tag                      | latest                                                     | Archive docker tag.                                                       |
 | docker_workers_export_image             | `"{{ docker_private_registry }}/on-prem/workers"`          | Worker export docker image.                                               |
@@ -318,8 +310,6 @@ You should not have to modify these variables in most cases.
 | tls_rabbitmq_admin_cert    | ""                                        | RabbitMQ TLS Certificate (PEM format). (Only needed if use_external_rabbitmq: false.)                                          |
 | tls_documentation_key      | `"{{ vault_tls_documentation_key }}"`     | Documentation TLS key (PEM format).                                                                                            |
 | tls_documentation_cert     | ""                                        | Documentation TLS Certificate (PEM format).                                                                                    |
-| tls_share_key              | `"{{ vault_tls_share_key }}"`             | Share TLS key (PEM format).                                                                                                    |
-| tls_share_cert             | ""                                        | Share TLS Certificate (PEM format).                                                                                            |
 | tls_archive_key            | `"{{ vault_tls_archive_key }}"`           | Archive TLS key (PEM format).                                                                                                  |
 | tls_archive_cert           | ""                                        | Archive TLS Certificate (PEM format).                                                                                          |
 :::
