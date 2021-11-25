@@ -22,6 +22,7 @@ Web applications are the components with which the users interact:
       - **Marketplace_front**
       - **Marketplace_back**
   - **Bimdata Archive**:  to download zip archives from the DMS.
+  - **Bimdata Documentation**: a copy of our documentation, in the right version, so you can always access it.
 
 ### Workers
 Workers are the components that will be used to extract, transform, convert or produce

@@ -57,6 +57,7 @@ Here are the ports to open for the good communication of all the elements. Each 
 | Web-front-end   	 | TCP      | 8080     	| Keycloak         	  |                   	|
 | Web-front-end   	 | TCP      | 15672    	| RabbitMQ         	  | Admin interface   	|
 | Web-front-end      | TCP      | 8080      | Archive             |                     |
+| Web-front-end      | TCP      | 80        | Documentation       |                     |
 |                                                                                   |||||
 | API             	 | TCP      | 80 / 443 	| Web-front-end    	  |                   	|
 | Connect         	 | TCP      | 80 / 443 	| Web-front-end    	  |                   	|
