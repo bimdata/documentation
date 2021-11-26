@@ -70,6 +70,7 @@ Here are the ports to open for the good communication of all the elements. Each 
 | Connect         	 | TCP      | 5432     	| Postgres         	  |                   	|
 | Keycloak        	 | TCP      | 5432     	| Postgres         	  |                   	|
 | Platform (back) 	 | TCP      | 5432     	| Postgres         	  |                   	|
+| Marketplace (back) | TCP      | 5432     	| Postgres         	  |                   	|
 |                                                                                   |||||
 | API             	 | TCP      | 5672     	| RabbitMQ         	  |                   	|
 | Workers         	 | TCP      | 5672     	| RabbitMQ         	  |                   	|
