@@ -1,21 +1,22 @@
 # Bimdata API
 
 ## URLs of Bimdata apps
-| Variables   | Default value           | Description             |
-|-------------|-------------------------|-------------------------|
-| API_URL     | "http://localhost:8000" | Bimdata API URL.        |
-| CONNECT_URL | "http://localhost:8001" | Bimdata Connect URL.    |
+| Variables   | Default value | Description                |
+|-------------|---------------|----------------------------|
+| API_URL     | ""            | Bimdata API URL.           |
+| CONNECT_URL | ""            | Bimdata Connect URL.       |
+| DOC_URL     | ""            | Bimdata Documentation URL. |
 
 ## Database configuration
 There variables are needed for the database authentication.
 
 | Variables            | Default value    | Description                |
 |----------------------|------------------|----------------------------|
-| DB_NAME              | "bimdata"        | Postgresql database name.  |
-| DB_USER              | "bimdata"        | Postgresql user.           |
-| DB_PASSWORD          | "bimdata"        | Postgresql password.       |
-| DB_HOST              | "127.0.0.1"      | Postgresql server address. |
-| DB_PORT              | "5432"           | Postgresql server port.    |
+| DB_HOST              |                  | Postgresql server address. |
+| DB_PORT              |                  | Postgresql server port.    |
+| DB_NAME              |                  | Postgresql database name.  |
+| DB_USER              |                  | Postgresql user.           |
+| DB_PASSWORD          |                  | Postgresql password.       |
 
 If your Postgresql cluster use read-only replicas, you can configure the API
 with these variables to distribute the read-only requests through all of them.
@@ -23,29 +24,29 @@ Each of these variable is a comma separated list. If each replica have a differe
 configuration, the order in each list matter: the first element `REPLICA_DB_HOSTS`
 will use the first port in `REPLICA_DB_PORTS` and so on.
 
-| Variables            | Default value    | Description                                                                              |
-|----------------------|------------------|------------------------------------------------------------------------------------------|
-| REPLICA_DB_HOSTS     | ""               | list of postgresql read-only replicas server address.                                    |
-| REPLICA_DB_PORTS     | ""               | list of postgresql read-only replicas server port. Needed if REPLICA_DB_HOSTS not empty. |
-| REPLICA_DB_NAMES     | ""               | list of postgresql read-only database name. Take same value as DB_NAME by default.       |
-| REPLICA_DB_USERS     | ""               | list of postgresql read-only database user. Take same value as DB_USER by default.       |
-| REPLICA_DB_PASSWORDS | ""               | list of postgresql read-only database user. Take same value as DB_USER by default.       |
+| Variables            | Default value       | Description                                           |
+|----------------------|---------------------|-------------------------------------------------------|
+| REPLICA_DB_HOSTS     | ""                  | list of postgresql read-only replicas server address. |
+| REPLICA_DB_PORTS     | Same as DB_PORT     | list of postgresql read-only replicas server port.    |
+| REPLICA_DB_NAMES     | Same as DB_NAME     | list of postgresql read-only database name.           |
+| REPLICA_DB_USERS     | Same as DB_USER     | list of postgresql read-only database user.           |
+| REPLICA_DB_PASSWORDS | Same as DB_PASSWORD | list of postgresql read-only database user.           |
 
 ## RabbitMQ configuration
 | Variables         | Default value | Description              |
 |-------------------|---------------|--------------------------|
-| RABBITMQ_HOST     | "127.0.0.1"   | RabbitMQ server address. |
-| RABBITMQ_PORT     | "5672"        | RabbitMQ server port.    |
-| RABBITMQ_USER     | "bimdata"     | RabbitMQ username.       |
-| RABBITMQ_PASSWORD | "bimdata"     | RabbitMQ password.       |
+| RABBITMQ_HOST     |               | RabbitMQ server address. |
+| RABBITMQ_PORT     |               | RabbitMQ server port.    |
+| RABBITMQ_USER     |               | RabbitMQ username.       |
+| RABBITMQ_PASSWORD |               | RabbitMQ password.       |
 
 ## OpenID configuration
 ::: v-pre
 | Variables                    | Default value           | Description            |
 |------------------------------|-------------------------|------------------------|
-| OIDC_PROVIDER_ENDPOINT       | "http://localhost:8080" | OIDC provider address. |
-| OIDC_PROVIDER_ADMIN_LOGIN    | "keycloak@bimdata.io"   | OIDC admin username.   |
-| OIDC_PROVIDER_ADMIN_PASSWORD | "123"                   | OIDC admin password.   |
+| IAM_URL                      |                         | OIDC provider address. |
+| IAM_ADMIN_LOGIN              |                         | OIDC admin username.   |
+| IAM_ADMIN_PASSWORD           |                         | OIDC admin password.   |
 :::
 
 ## Storage configuration
@@ -57,26 +58,53 @@ That's why we recommande using an object storage for production.
 To enable Swift usage, you need to set `SWIFT_AUTH_URL`, and if this variable is
 set, alors the other variables `SWIFT_*` need to be set.
 
-| Variables            | Default value | Description                                        |
-|----------------------|---------------|----------------------------------------------------|
-| SWIFT_AUTH_URL       | ""            | Swift URL auth server                              |
-| SWIFT_TENANT_ID      | ""            | Swift tenant ID.                                   |
-| SWIFT_TENANT_NAME    | ""            | Swift tenant name.                                 |
-| SWIFT_USERNAME       | ""            | Swift username .                                   |
-| SWIFT_PASSWORD       | ""            | Swift password.                                    |
-| SWIFT_TEMP_URL_KEY   | ""            | Swift temporary URL key.                           |
-| SWIFT_CONTAINER_NAME | ""            | Swift container name use to store the files.       |
+| Variables                                | Default value                                                                                | Description                                                                                                        |
+|------------------------------------------|----------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|
+| SWIFT_AUTH_URL                           |                                                                                              | The URL for the auth server.                                                                                       |
+| SWIFT_USERNAME                           |                                                                                              | The username to use to authenticate.                                                                               |
+| SWIFT_PASSWORD                           |                                                                                              | The key (password) to use to authenticate.                                                                         |
+| SWIFT_AUTH_VERSION                       | 3                                                                                            | The version of the authentication protocol to use.                                                                 |
+| SWIFT_TENANT_NAME / SWIFT_PROJECT_NAME   | None                                                                                         | The tenant/project name to use when authenticating.                                                                |
+| SWIFT_TENANT_ID / SWIFT_PROJECT_ID       | None                                                                                         | The tenant/project id to use when authenticating.                                                                  |
+| SWIFT_USER_DOMAIN_NAME                   | None                                                                                         | The domain name we authenticate to.                                                                                |
+| SWIFT_USER_DOMAIN_ID                     | "default"                                                                                    | The domain id we authenticate to.                                                                                  |
+| SWIFT_PROJECT_DOMAIN_NAME                | "default"                                                                                    | The domain name our project is located in.                                                                         |
+| SWIFT_PROJECT_DOMAIN_ID                  | None                                                                                         | The domain id our project is located in.                                                                           |
+| SWIFT_REGION_NAME                        | None                                                                                         | OpenStack region if needed. Check with your provider.                                                              |
+| SWIFT_CONTAINER_NAME                     | None                                                                                         | The container in which to store the files.                                                                         |
+| SWIFT_STATIC_CONTAINER_NAME              | None                                                                                         | Alternate container for storing staticfiles.                                                                       |
+| SWIFT_AUTO_CREATE_CONTAINER              | True                                                                                         | Should the container be created if it does not exist?                                                              |
+| SWIFT_AUTO_CREATE_CONTAINER_PUBLIC       | False                                                                                        | Set the auto created container as public on creation                                                               |
+| SWIFT_AUTO_CREATE_CONTAINER_ALLOW_ORIGIN | "*"                                                                                          | Set the container's X-Container-Meta-Access-Control-Allow-Origin value, to support CORS requests.                  |
+| SWIFT_AUTO_BASE_URL                      | True                                                                                         | Query the authentication server for the base URL.                                                                  |
+| SWIFT_BASE_URL                           | None                                                                                         | The base URL from which the files can be retrieved.                                                                |
+| SWIFT_NAME_PREFIX                        | ""                                                                                           | Prefix that gets added to all filenames.                                                                           |
+| SWIFT_USE_TEMP_URLS                      | True                                                                                         | Generate temporary URLs for file access (allows files to be accessed without a permissive ACL).                    |
+| SWIFT_TEMP_URL_KEY                       | None                                                                                         | Temporary URL key.                                                                                                 |
+| SWIFT_TEMP_URL_DURATION                  | 2 * 60 * 60                                                                                  | How long a temporary URL remains valid, in seconds.                                                                |
+| SWIFT_EXTRA_OPTIONS                      | {}                                                                                           | Extra options.                                                                                                     |
+| SWIFT_STATIC_AUTO_BASE_URL               | True                                                                                         | Query the authentication server for the static base URL.                                                           |
+| SWIFT_STATIC_BASE_URL                    | None                                                                                         | The base URL from which the static files can be retrieved,                                                         |
+| SWIFT_STATIC_NAME_PREFIX                 | None                                                                                         | Prefix that gets added to all static filenames.                                                                    |
+| SWIFT_CONTENT_TYPE_FROM_FD               | False                                                                                        | Determine the files mimetypes from the actual content rather than from their filename (default).                   |
+| SWIFT_FULL_LISTING                       | True                                                                                         | Ensures to get whole directory contents (by default swiftclient limits it to 10000 entries)                        |
+| SWIFT_AUTH_TOKEN_DURATION                | 60 * 60 * 23                                                                                 | How long a token is expected to be valid in seconds.                                                               |
+| SWIFT_LAZY_CONNECT                       | True                                                                                         | If True swift connection will be obtained on first use, if False it will be obtained during storage instantiation. |
+| SWIFT_GZIP_CONTENT_TYPES                 | [None,"text/plain","application/json","application/octet-stream","image/svg+xml","text/xml"] | List of content type that will be compressed.                                                                      |
+| SWIFT_GZIP_COMPRESSION_LEVEL             | 4                                                                                            | Gzip compression level from 0 to 9. 0 = no compression, 9 = max compression                                        |
+| SWIFT_GZIP_UNKNOWN_CONTENT_TYPE          | True                                                                                         | If set to True and the content-type can't be guessed, gzip anyway                                                  |
+| SWIFT_CACHE_HEADERS                      | False                                                                                        | Headers cache on/off switcher                                                                                      |
 
 ## Email configuration
 
 | Variables            | Default value          | Description                   |
 |----------------------|------------------------|-------------------------------|
-| SMTP_HOST            | "smtp.mandrillapp.com" | SMTP server address.          |
-| SMTP_PORT            | 587                    | SMTP server port.             |
-| SMTP_USE_TLS         | "True"                 | SMTP communication use TLS.   |
-| SMTP_USER            | "BIMData.io"           | SMTP authentication user.     |
-| SMTP_PASS            | False                  | SMTP authentication password. |
-| DEFAULT_FROM_EMAIL   | "no-reply@bimdata.io"  | SMTP default from email.      |
+| SMTP_HOST            |                        | SMTP server address.          |
+| SMTP_PORT            |                        | SMTP server port.             |
+| SMTP_USE_TLS         |                        | SMTP communication use TLS.   |
+| SMTP_USER            |                        | SMTP authentication user.     |
+| SMTP_PASS            |                        | SMTP authentication password. |
+| DEFAULT_FROM_EMAIL   | "support@bimdata.io"   | SMTP default from email.      |
 | MODELS_SUPPORT_EMAIL | []                     |                               |
 
 ### Image configuration
@@ -93,11 +121,15 @@ set, alors the other variables `SWIFT_*` need to be set.
 
 ## Other configuration
 
-| Variables                        | Default value                 | Description |
-|----------------------------------|-------------------------------|-------------|
-| MASTER_TOKEN                     | "123"                         |             |
-| MARKETPLACE_HEADER_SECURE_STRING | "123"                         | Not used?   |
-| ADMIN_URL                        | "http://localhost:8000/admin" |             |
-| ADMIN_INTERFACE                  | False                         |             |
-| ENV                              | "development"                 |             |
-| ALLOWED_HOSTS                    |                               |             |
+| Variables                        | Default value                       | Description                                        |
+|----------------------------------|-------------------------------------|----------------------------------------------------|
+| SECRET_KEY                       | "SET_DEVELOPMENT_DJANGO_SECRET_KEY" |                                                    |
+| MASTER_TOKEN                     | ""                                  |                                                    |
+| DATA_UPLOAD_MAX_MEMORY_SIZE      | 1 * 1024 ** 3                       |                                                    |
+| DATA_UPLOAD_MAX_NUMBER_FIELDS    | 1000                                |                                                    |
+| ADMIN_URL                        | ""                                  | Use to be able to deploy separate admin interface. |
+| ADMIN_INTERFACE                  |                                     | Use to be able to deploy separate admin interface. |
+| DJANGO_SETTINGS_MODULE           | "bimdata.settings.api"              | Use to be able to deploy separate admin interface. |
+| ENV                              | "development"                       |                                                    |
+| ALLOWED_HOSTS                    | []                                  |                                                    |
+| DEBUG                            | False                               | Enable debug mode.                                 |

@@ -13,11 +13,11 @@ There variables are needed for the database authentication.
 
 | Variables            | Default value    | Description                |
 |----------------------|------------------|----------------------------|
-| DB_NAME              | "platform_back"  | Postgresql database name.  |
-| DB_USER              | "platform_back"  | Postgresql user.           |
-| DB_PASSWORD          | "platform_back"  | Postgresql password.       |
-| DB_HOST              | "127.0.0.1"      | Postgresql server address. |
-| DB_PORT              | "5432"           | Postgresql server port.    |
+| DB_HOST              |                  | Postgresql server address. |
+| DB_PORT              |                  | Postgresql server port.    |
+| DB_NAME              |                  | Postgresql database name.  |
+| DB_USER              |                  | Postgresql user.           |
+| DB_PASSWORD          |                  | Postgresql password.       |
 
 If your Postgresql cluster use read-only replicas, you can configure the API
 with these variables to distribute the read-only requests through all of them.
@@ -25,13 +25,13 @@ Each of these variable is a comma separated list. If each replica have a differe
 configuration, the order in each list matter: the first element `REPLICA_DB_HOSTS`
 will use the first port in `REPLICA_DB_PORTS` and so on.
 
-| Variables            | Default value    | Description                                                                              |
-|----------------------|------------------|------------------------------------------------------------------------------------------|
-| REPLICA_DB_HOSTS     | ""               | list of postgresql read-only replicas server address.                                    |
-| REPLICA_DB_PORTS     | ""               | list of postgresql read-only replicas server port. Needed if REPLICA_DB_HOSTS not empty. |
-| REPLICA_DB_NAMES     | ""               | list of postgresql read-only database name. Take same value as DB_NAME by default.       |
-| REPLICA_DB_USERS     | ""               | list of postgresql read-only database user. Take same value as DB_USER by default.       |
-| REPLICA_DB_PASSWORDS | ""               | list of postgresql read-only database user. Take same value as DB_USER by default.       |
+| Variables            | Default value       | Description                                           |
+|----------------------|---------------------|-------------------------------------------------------|
+| REPLICA_DB_HOSTS     | ""                  | list of postgresql read-only replicas server address. |
+| REPLICA_DB_PORTS     | Same as DB_PORT     | list of postgresql read-only replicas server port.    |
+| REPLICA_DB_NAMES     | Same as DB_NAME     | list of postgresql read-only database name.           |
+| REPLICA_DB_USERS     | Same as DB_USER     | list of postgresql read-only database user.           |
+| REPLICA_DB_PASSWORDS | Same as DB_PASSWORD | list of postgresql read-only database user.           |
 
 ## RabbitMQ configuration
 | Variables         | Default value | Description              |
