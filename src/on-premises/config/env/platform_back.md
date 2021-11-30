@@ -2,11 +2,11 @@
 
 ## URLs of Bimdata apps
 
-| Variables         | Default value           | Description                 |
-|-------------------|-------------------------|-----------------------------|
-| API_URL           | "http://localhost:8081" | Bimdata API URL.            |
-| APP_URL           | "http://localhost:8080" | Bimdata platform front URL. |
-| PLATFORM_BACK_URL | "http://127.0.0.1:8082" | Bimdata platform back URL.  |
+| Variables         | Default value  | Description                 |
+|-------------------|----------------|-----------------------------|
+| API_URL           | ""             | Bimdata API URL.            |
+| PLATFORM_URL      | ""             | Bimdata platform front URL. |
+| PLATFORM_BACK_URL | ""             | Bimdata platform back URL.  |
 
 ## Database configuration
 There variables are needed for the database authentication.
@@ -27,37 +27,30 @@ will use the first port in `REPLICA_DB_PORTS` and so on.
 
 | Variables            | Default value       | Description                                           |
 |----------------------|---------------------|-------------------------------------------------------|
-| REPLICA_DB_HOSTS     | ""                  | list of postgresql read-only replicas server address. |
+| REPLICA_DB_HOSTS     | None                | list of postgresql read-only replicas server address. |
 | REPLICA_DB_PORTS     | Same as DB_PORT     | list of postgresql read-only replicas server port.    |
 | REPLICA_DB_NAMES     | Same as DB_NAME     | list of postgresql read-only database name.           |
 | REPLICA_DB_USERS     | Same as DB_USER     | list of postgresql read-only database user.           |
 | REPLICA_DB_PASSWORDS | Same as DB_PASSWORD | list of postgresql read-only database user.           |
 
-## RabbitMQ configuration
-| Variables         | Default value | Description              |
-|-------------------|---------------|--------------------------|
-| RABBITMQ_HOST     | "127.0.0.1"   | RabbitMQ server address. |
-| RABBITMQ_PORT     | "5672"        | RabbitMQ server port.    |
-| RABBITMQ_USER     | "bimdata"     | RabbitMQ username.       |
-| RABBITMQ_PASSWORD | "bimdata"     | RabbitMQ password.       |
-
-
 ## OpenID configuration
 ::: v-pre
-| Variables                    | Default value           | Description            |
-|------------------------------|-------------------------|------------------------|
-| OIDC_OP_ISSUER               | "http://localhost:8000" | OIDC provider address. |
+| Variables         | Default value | Description            |
+|-------------------|---------------|------------------------|
+| IAM_URL           |               | OIDC provider address. |
+| IAM_CLIENT_ID     |               | OIDC client ID.        |
+| IAM_CLIENT_SECRET |               | OIDC client secret.    |
 :::
 
 ## Email configuration
-| Variables            | Default value          | Description                   |
-|----------------------|------------------------|-------------------------------|
-| SMTP_HOST            | "smtp.mandrillapp.com" | SMTP server address.          |
-| SMTP_PORT            | 587                    | SMTP server port.             |
-| SMTP_USE_TLS         | "True"                 | SMTP communication use TLS.   |
-| SMTP_USER            | "BIMData.io"           | SMTP authentication user.     |
-| SMTP_PASS            | False                  | SMTP authentication password. |
-| DEFAULT_FROM_EMAIL   | "support@bimdata.io"   | SMTP default from email.      |
+| Variables            | Default value        | Description                   |
+|----------------------|----------------------|-------------------------------|
+| SMTP_HOST            |                      | SMTP server address.          |
+| SMTP_PORT            |                      | SMTP server port.             |
+| SMTP_USE_TLS         |                      | SMTP communication use TLS.   |
+| SMTP_USER            |                      | SMTP authentication user.     |
+| SMTP_PASS            |                      | SMTP authentication password. |
+| DEFAULT_FROM_EMAIL   | "support@bimdata.io" | SMTP default from email.      |
 
 ### Image configuration
 | Variables            | Default value | Description                                            |
@@ -71,16 +64,14 @@ will use the first port in `REPLICA_DB_PORTS` and so on.
 | PROCESS_TASKS        | 0             | 0 or 1. Configure if django process_tasks.             |
 
 ## Other configuration
-| Variables                        | Default value                                      | Description |
-|----------------------------------|----------------------------------------------------|-------------|
-| ENV                              | "development"                                      |             |
-| ALLOWED_HOSTS                    |                                                    |             |
-| ADMIN_INTERFACE                  | True                                               |             |
-| SECRET_KEY                       | 7rvr*q1&_eqcetu^2x#2q+4&g8(&n&6*68+6xd#mxqs^6-u2rp |             |
-| WEBHOOKS_SECRET                  | 123                                                |             |
-| MASTER_TOKEN                     | 123                                                |             |
-| REQUESTS_CA_BUNDLE               | ""                                                 |             |
-
-FLUENTD_SERVER = environ.get("FLUENTD_SERVER", "172.17.0.1")
-FLUENTD_PORT = environ.get("FLUENTD_PORT", 24224)
-FLUENTD_TAG = "app.bimdata.platformback"
+| Variables                        | Default value                          | Description                                        |
+|----------------------------------|----------------------------------------|----------------------------------------------------|
+| ENV                              | "development"                          |                                                    |
+| ALLOWED_HOSTS                    | []                                     |                                                    |
+| DEBUG                            | False                                  |                                                    |
+| ADMIN_INTERFACE                  |                                        | Use to be able to deploy separate admin interface. |
+| DJANGO_SETTINGS_MODULE           | "platform_back.settings.platform_back" | Use to be able to deploy separate admin interface. |
+| SECRET_KEY                       | "SET_DEVELOPMENT_DJANGO_SECRET_KEY"    |                                                    |
+| WEBHOOKS_SECRET                  | ""                                     |                                                    |
+| MASTER_TOKEN                     | ""                                     |                                                    |
+| REQUESTS_CA_BUNDLE               | ""                                     |                                                    |
