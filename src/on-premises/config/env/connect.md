@@ -36,12 +36,11 @@ will use the first port in `REPLICA_DB_PORTS` and so on.
 
 ### OpenID configuration
 ::: v-pre
-| Variables                   | Default value           | Description            |
-|-----------------------------|-------------------------|------------------------|
-| IAM_URL                     | "http://localhost:8080" | OIDC provider address. |
-| IAM_ADMIN_LOGIN             | "keycloak@bimdata.io"   | OIDC admin username.   |
-| IAM_ADMIN_PASSWORD          | "123"                   | OIDC admin password.   |
-| IDENTITY_PROVIDER_CLIENT_ID | ""                      |                        |
+| Variables                   | Default value | Description            |
+|-----------------------------|---------------|------------------------|
+| IAM_URL                     | ""            | OIDC provider address. |
+| IAM_ADMIN_LOGIN             | ""            | OIDC admin username.   |
+| IAM_ADMIN_PASSWORD          | ""            | OIDC admin password.   |
 :::
 
 ### Storage configuration
@@ -91,11 +90,11 @@ set, alors the other variables `SWIFT_*` need to be set.
 
 | Variables          | Default value          | Description                   |
 |--------------------|------------------------|-------------------------------|
-| SMTP_HOST          | "smtp.mandrillapp.com" | SMTP server address.          |
-| SMTP_PORT          | 587                    | SMTP server port.             |
-| SMTP_USE_TLS       | "True"                 | SMTP communication use TLS.   |
-| SMTP_USER          | "BIMData.io"           | SMTP authentication user.     |
-| SMTP_PASS          | False                  | SMTP authentication password. |
+| SMTP_HOST          | None                   | SMTP server address.          |
+| SMTP_PORT          |                        | SMTP server port.             |
+| SMTP_USE_TLS       |                        | SMTP communication use TLS.   |
+| SMTP_USER          |                        | SMTP authentication user.     |
+| SMTP_PASS          |                        | SMTP authentication password. |
 | DEFAULT_FROM_EMAIL | "no-reply@bimdata.io"  | SMTP default from email.      |
 
 ### Image configuration
@@ -118,11 +117,10 @@ set, alors the other variables `SWIFT_*` need to be set.
 | INVITATION_SECRET           | ""                                                   |             |
 | INVITATION_CLIENT_ID        | ""                                                   |             |
 | INVITATION_CLIENT_SECRET    | ""                                                   |             |
-| IDENTITY_PROVIDER_CLIENT_ID | ""                                                   |             |
 | SECRET_KEY                  | "SET_DEVELOPMENT_DJANGO_SECRET_KEY"                  |             |
 | ENV                         | "development"                                        |             |
 | ALLOWED_HOSTS               | []                                                   |             |
 | ADMIN_INTERFACE             | False                                                |             |
-| ADMIN_URL                   | "http://localhost:8001/admin"                        |             |
+| ADMIN_URL                   | ""                                                   |             |
 | DEBUG                       | False                                                |             |
 | DATA_UPLOAD_MAX_MEMORY_SIZE | 1 * 1024 ** 3                                        |             |
