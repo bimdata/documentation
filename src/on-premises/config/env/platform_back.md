@@ -1,4 +1,4 @@
-# Bimdata API
+# Bimdata Platform Back
 
 ## URLs of Bimdata apps
 

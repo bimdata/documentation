@@ -1,6 +1,6 @@
-## Bimdata Connect
+# Bimdata Connect
 
-### URLs of Bimdata apps
+## URLs of Bimdata apps
 
 | Variables    | Default value | Description                |
 |--------------|---------------|----------------------------|
@@ -9,7 +9,7 @@
 | DOC_URL      | ""            | Bimdata Documentation URL. |
 | PLATFORM_URL | ""            | Bimdata Platform URL.      |
 
-### Database configuration
+## Database configuration
 There variables are needed for the database authentication.
 
 | Variables            | Default value    | Description                |
@@ -34,7 +34,7 @@ will use the first port in `REPLICA_DB_PORTS` and so on.
 | REPLICA_DB_USERS     | Same as DB_USER     | list of postgresql read-only database user.           |
 | REPLICA_DB_PASSWORDS | Same as DB_PASSWORD | list of postgresql read-only database user.           |
 
-### OpenID configuration
+## OpenID configuration
 ::: v-pre
 | Variables                   | Default value | Description            |
 |-----------------------------|---------------|------------------------|
@@ -43,7 +43,7 @@ will use the first port in `REPLICA_DB_PORTS` and so on.
 | IAM_ADMIN_PASSWORD          | ""            | OIDC admin password.   |
 :::
 
-### Storage configuration
+## Storage configuration
 By default, the API use a local storage in `/opt/storage` to store all the uploaded datas.
 But these datas are not serve by the API itself. It's necessary to configure a web
 server, like other static files.
@@ -97,7 +97,7 @@ set, alors the other variables `SWIFT_*` need to be set.
 | SMTP_PASS          |                        | SMTP authentication password. |
 | DEFAULT_FROM_EMAIL | "no-reply@bimdata.io"  | SMTP default from email.      |
 
-### Image configuration
+## Image configuration
 
 | Variables            | Default value | Description                                            |
 |----------------------|---------------|--------------------------------------------------------|
@@ -109,7 +109,7 @@ set, alors the other variables `SWIFT_*` need to be set.
 | APPLY_MIGRATION      | 1             | 0 or 1. Configure if django migrate during init.       |
 | PROCESS_TASKS        | 0             | 0 or 1. Configure if django process_tasks.             |
 
-### Other configuration
+## Other configuration
 
 | Variables                   | Default value                                        | Description |
 |-----------------------------|------------------------------------------------------|-------------|

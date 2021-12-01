@@ -1,6 +1,6 @@
-## Bimdata Platform
+# Bimdata Platform Front
 
-### URLs of Bimdata apps
+## URLs of Bimdata apps
 
 | Variables                  | Default value | Description                 |
 |----------------------------|---------------|-----------------------------|
@@ -13,14 +13,14 @@
 | VUE_APP_URL_MARKETPLACE    |               | Bimdata marketplace URL.    |
 | VUE_APP_URL_OLD_PLATFORM   |               | Bimdata old platform URL.   |
 
-### OpenID configuration
+## OpenID configuration
 | Variables                             | Default value | Description                                 |
 |---------------------------------------|---------------|---------------------------------------------|
 | VUE_APP_IAM_BASE_URL                  |               | OIDC provider address.                      |
 | VUE_APP_OIDC_CLIENT_ID                |               | Your Client ID                              |
 | VUE_APP_AUTHORIZED_IDENTITY_PROVIDERS |               | Comma separated list of identity provider   |
 
-### Other configuration
+## Other configuration
 | Variables                           | Default value | Description                                                                  |
 |-------------------------------------|---------------|------------------------------------------------------------------------------|
 | VUE_APP_MAPBOX_TOKEN                |               | Mapbox token use to show the map.                                            |
