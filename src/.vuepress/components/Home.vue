@@ -44,7 +44,7 @@
         </BIMDataCard> -->
         <BIMDataCard>
           <template #content>
-            <img :src="$withBase('/assets/img/bimdata_icon-platform.svg')" alt="" />
+            <img :src="$withBase('/assets/img/bimdata_icon-on_premises.svg')" alt="" />
             <h5 class="bimdata-h5 color-primary">On-Premises</h5>
             <p>BIMData's On-Premises provides you the possibility to host our solutions on your servers.</p>
             <RouterLink to="/on-premises/getting_started.html">
