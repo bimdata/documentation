@@ -98,14 +98,13 @@ function getOnpremSidebar() {
       title: "Configuration",
       children: [
         {
-          title: "Containers env",
+          title: "Containers environment",
           children: [
             "config/env/api",
             "config/env/connect",
             "config/env/platform_front",
             "config/env/platform_back",
             "config/env/archive",
-            "config/env/share",
             "config/env/workers",
           ]
         }
