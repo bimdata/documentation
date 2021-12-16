@@ -2,6 +2,7 @@ module.exports = {
   "/api/": getApiSidebar(),
   "/plateform/": [],
   "/viewer/": getViewerSidebar(),
+  "/on-premises/": getOnpremSidebar(),
 };
 
 function getApiSidebar() {
@@ -73,5 +74,41 @@ function getViewerSidebar() {
     },
     "migration_guide",
     "release_notes",
+  ];
+}
+
+function getOnpremSidebar() {
+  return [
+    "getting_started",
+    {
+      title: "Installation",
+      children: [
+        "install/prerequisites",
+        {
+          title: "Quickstart",
+          children: [
+            "install/quickstart/install",
+            "install/quickstart/config",
+          ],
+        },
+        "install/high_availability",
+      ],
+    },
+    {
+      title: "Configuration",
+      children: [
+        {
+          title: "Containers environment",
+          children: [
+            "config/env/api",
+            "config/env/connect",
+            "config/env/platform_front",
+            "config/env/platform_back",
+            "config/env/archive",
+            "config/env/workers",
+          ]
+        }
+      ]
+    },
   ];
 }

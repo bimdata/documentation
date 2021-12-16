@@ -15,6 +15,7 @@ module.exports = {
     nav: [
       { text: 'API', link: '/api/introduction/overview.html' },
       { text: 'Viewer', link: '/viewer/' },
+      { text: 'On Premises', link: '/on-premises/getting_started.html'},
     ],
     sidebar,
     searchPlaceholder: 'Search'
