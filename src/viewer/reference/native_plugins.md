@@ -141,7 +141,7 @@ This plugin display the 3D representation of the IFC.
 | `annotation-clear`  | No payload                                                                                                                         | Emitted when annotation marker are cleared.   | `localContext` and `globalContext` |
 | `3d-camera-update`  | `{eye: [number,number,number], look: [number,number,number], up: [number,number,number]}`                                          | Emitted when the camera is updated            | `globalContext`                    |
 
-### API
+### Instance API
 
 This API is available from this object on the `3d` window:
 
@@ -149,10 +149,15 @@ This API is available from this object on the `3d` window:
 const viewer3dPlugin = this.$viewer.localContext.getPlugin("viewer3d");
 ```
 
-| Name               | Type      | Description                                                      |
-| :----------------- | :-------- | :--------------------------------------------------------------- |
-| `selectOnClick`    | `boolean` | **Default** to `true`. If true, clicking an object select it.    |
-| `highlightOnHover` | `boolean` | **Default** to `true`. If true, hovering an object highlight it. |
+| Name                                       | Type      | Description                                                                                                           |
+| :----------------------------------------- | :-------- | :-------------------------------------------------------------------------------------------------------------------- |
+| `selectOnClick`                            | `boolean` | **Default** to `true`. If true, clicking an object select it.                                                         |
+| `highlightOnHover`                         | `boolean` | **Default** to `true`. If true, hovering an object highlight it.                                                      |
+| `getProjection(): string`                  | `method`  | Return current projection                                                                                             |
+| `fitViewObjects([uuids]): void`            | `method`  | Fit the camera view so all specified objects fit in the screen. Apply to all objects if array is empty or undefined.  |
+| `getViewpoint(snapshot=true): object`      | `method`  | Returns the BCF Viewpoint of the current view. If `snapshot` is `false`, it skips the screenshot (better performances)|
+| `getCameraPosition(): object`              | `method`  | Returns camera position of the current view as defined in the BCF standard.                                           |
+| `setCameraPosition(cameraPosition): void`  | `method`  | Set camera position as defined in the BCF standard.                                                                   |
 
 ## Window split
 
@@ -173,7 +178,7 @@ This plugin display the 2D representation of the IFC.
 | `2d-model-loaded`   | `{ ifc, plugin }` | Emitted when a 2D model is loaded.   | `localContext` and `globalContext` |
 | `2d-model-unloaded` | `{ ifc, plugin }` | Emitted when a 2D model is unloaded. | `localContext` and `globalContext` |
 
-### API
+### Instance API
 
 This API is available from this object on the `2d` window:
 
