@@ -7,7 +7,7 @@
 | Applications + databases   | 4 cores    | 16 GB     | 500GB SSD   |
 | Model processing (workers) | 4 cores    | 16 GB     | 120 GB SSD  |
 
-### Recommanded
+### Recommended
 | Server                     | CPU        | RAM       | Disk        |
 |:--------------------------:|:----------:|:---------:|:-----------:|
 | Applications               | 8 cores    | 32 GB     | 120 GB SSD  |
