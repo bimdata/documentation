@@ -4,7 +4,7 @@ A scope is an important concept using the API. Using scopes is a way to handle t
 
 ## What’s a scope?
 
-A scope is a limitation to the data on a given resource. A scope is described by two words: the resource and the limitation, i.e. ifc:write Access Token is validated by the BIMData Connect authentication service and the scopes are attached to an Access Token.
+A scope is a limitation to the data on a given resource. A scope is described by two words: the resource and the limitation, i.e. model:write Access Token is validated by the BIMData Connect authentication service and the scopes are attached to an Access Token.
 
 ::: tip Note
 
@@ -29,22 +29,22 @@ The limitations are:
 - check:read, check:write
 - cloud:read, cloud:manage
 - document:read, document:write
-- ifc:read, ifc:write, ifc:token_manage
+- model:read, model:write, model:token_manage
 - org:manage
-- user:read
+- user:read, user:write
 - webhook:manage
 
-| Resource         | Read | Write | Manage |
-| ---------------- | :--: | ----: | -----: |
-| bcf              |  x   |     x |        |
-| check            |  x   |     x |        |
-| cloud            |  x   |       |      x |
-| document         |  x   |     x |        |
-| ifc              |  x   |     x |        |
-| org              |      |       |      x |
-| user             |  x   |       |        |
-| webhook          |      |       |      x |
-| IFC access token |      |       |      x |
+| Resource           | Read | Write | Manage |
+| ------------------ | :--: | ----: | -----: |
+| bcf                |  x   |     x |        |
+| check              |  x   |     x |        |
+| cloud              |  x   |       |      x |
+| document           |  x   |     x |        |
+| model              |  x   |     x |        |
+| org                |      |       |      x |
+| user               |  x   |     x |        |
+| webhook            |      |       |      x |
+| Model access token |      |       |      x |
 
 ## How to set the scopes of your application
 
