@@ -4,20 +4,6 @@ In this fourth tutorial, we will learn how to customize de context menu.
 
 ## Step by step
 
-### Clear the default commands
-
-To simplify this tutorial, we clear the context menu of the 3d window using the configuration object of the `makeBIMDataViewer` function:
-
-```javascript {3-5}
-const viewer = makeBIMDataViewer({
-  plugins: {
-    viewer3d: {
-      defaultContextMenuCommands: false,
-    },
-  },
-});
-```
-
 ### Add custom command
 
 Now we add a command that is displayed only if one element is selected. To do so, we register a new plugin with no UI (component) but a `startupScript` method:
@@ -97,7 +83,6 @@ const viewer = makeBIMDataViewer({
       navCube: false,
       help: false,
       modelLoader: "hidden",
-      defaultContextMenuCommands: false,
     },
     "viewer3d-parameters": false,
     "window-split": false,

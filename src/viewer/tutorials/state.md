@@ -68,7 +68,6 @@ const viewer = makeBIMDataViewer({
       navCube: false,
       help: false,
       modelLoader: "hidden",
-      defaultContextMenuCommands: false,
 
     },
     "viewer3d-parameters": false,

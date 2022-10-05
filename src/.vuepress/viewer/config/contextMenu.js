@@ -24,7 +24,6 @@ export default function(viewerId) {
         navCube: false,
         help: false,
         modelLoader: "hidden",
-        defaultContextMenuCommands: false,
       },
       "viewer3d-parameters": false,
       "window-split": false,
