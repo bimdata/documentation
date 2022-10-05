@@ -1,25 +1,25 @@
 # State
 
-The state contains [IFCs](#ifc) and [objects](#object) logic. It is located on the `$viewer` object:
+The state contains [Models](#model) and [objects](#object) logic. It is located on the `$viewer` object:
 
 ```javascript
 $viewer.state;
 ```
 
-## IFC
+## Model
 
-An [IFC](https://github.com/bimdata/javascript-api-client/blob/master/docs/Ifc.md) object with `structure`, `objects` and `uuids` properties.
+An [Model](https://github.com/bimdata/javascript-api-client/blob/master/docs/Model.md) object with `structure`, `objects` and `uuids` properties.
 
-- `structure`: the object returned by fetching [ifc](https://github.com/bimdata/javascript-api-client/blob/master/docs/Ifc.md) `structureFile`.
-- `objects`: an Array of all ifc [objects](#object).
-- `uuids`: a Map to retrieve ifc [object](#object) by uuid (ex: ifc.uuids.get("myuuid"))
+- `structure`: the object returned by fetching [model](https://github.com/bimdata/javascript-api-client/blob/master/docs/Model.md) `structureFile`.
+- `objects`: an Array of all model [objects](#object).
+- `uuids`: a Map to retrieve model [object](#object) by uuid (ex: model.uuids.get("myuuid"))
 
 ## Object
 
 ```typescript
 interface object {
   id: number;
-  ifcId: number;
+  model: Model;
   visible: boolean;
   pickable: boolean;
   selected: boolean;
@@ -41,15 +41,15 @@ interface object {
 
 ## Getters
 
-Getters allows to quickly access ifcs and objects with specific properties.
+Getters allows to quickly access models and objects with specific properties.
 
 ```javascript
-const allIfcs = state.ifcs;
+const allModels = state.models;
 ```
 
 | Name                                                       | Description                                            |
 | :--------------------------------------------------------- | :----------------------------------------------------- |
-| `ifcs`                                                     | Returns all ifcs.                                      |
+| `models`                                                   | Returns all models.                                    |
 | `objects`                                                  | Returns all objects.                                   |
 | `getIfc(ifcId)`                                            | Returns the ifc with the specified id.                 |
 | `getObject(objectId)`                                      | Returns the object with the specified id.              |
@@ -71,7 +71,7 @@ In addition of the previous getters, there are Map getters that return a `Map` i
 
 | Name                              | Description                                                                                                                                    |
 | :-------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ifcsMap: Map<string, Object>`    | Returns a Map with all ifcs. `keys` are ifc ids.                                                                                               |
+| `modelsMap: Map<string, Object>`    | Returns a Map with all model. `keys` are model ids.                                                                                               |
 | `objectsMap: Map<string, Object>` | Returns a Map with all objects. `keys` are object ids.                                                                                         |
 | `uuidsMap: Map<string, Object[]>` | Returns a Map with all objects. `keys` are object uuids. As object uuids may not be unique, uuidsMap.get("some_uuid") always returns an array. |
 
@@ -95,23 +95,23 @@ const objectId = 1;
 state.selectObjects([objectId], options);
 ```
 
-| Name                                   | Description                                                   |
-| :------------------------------------- | :------------------------------------------------------------ |
-| Ifcs setter                            |                                                               |
-| `loadIfcs(ifcIds: number[])`           | **Async** Load ifcs with the specified ids. and returns them. |
-| `unloadIfcs(ifcIds: number[])`         | Unload ifcs with the specified ids.                           |
-| Objects setter                         |                                                               |
-| `selectObjects(ids, options)`          | Select objects.                                               |
-| `deselectObjects(ids, options)`        | Deselect objects.                                             |
-| `highlightObjects(ids, options)`       | Highlight objects.                                            |
-| `unhighlightObjects(ids, options)`     | Unhighlight objects.                                          |
-| `showObjects(ids, options)`            | Show objects.                                                 |
-| `hideObjects(ids, options)`            | Hide objects.                                                 |
-| `xrayObjects(ids, options)`            | Xray objects.                                                 |
-| `unxrayObjects(ids, options)`          | Unxray objects.                                               |
-| `colorizeObjects(ids, color, options)` | Color objects with HEXColor (ex: "#FFFFFF").                  |
-| `isolateObjects(ids, options)`         | Isolate objects.                                              |
-| `reintegrateObjects()`                 | Unisolate objects (opposite action of `isolateObjects`).      |
+| Name                                   | Description                                                     |
+| :------------------------------------- | :-------------------------------------------------------------- |
+| Models setter                          |                                                                 |
+| `async loadModels(modelIds: number[])` | **Async** Load models with the specified ids. and returns them. |
+| `unloadModels(modelIds: number[])`     | Unload models with the specified ids.                           |
+| Objects setter                         |                                                                 |
+| `selectObjects(ids, options)`          | Select objects.                                                 |
+| `deselectObjects(ids, options)`        | Deselect objects.                                               |
+| `highlightObjects(ids, options)`       | Highlight objects.                                              |
+| `unhighlightObjects(ids, options)`     | Unhighlight objects.                                            |
+| `showObjects(ids, options)`            | Show objects.                                                   |
+| `hideObjects(ids, options)`            | Hide objects.                                                   |
+| `xrayObjects(ids, options)`            | Xray objects.                                                   |
+| `unxrayObjects(ids, options)`          | Unxray objects.                                                 |
+| `colorizeObjects(ids, color, options)` | Color objects with HEXColor (ex: "#FFFFFF").                    |
+| `isolateObjects(ids, options)`         | Isolate objects.                                                |
+| `reintegrateObjects()`                 | Unisolate objects (opposite action of `isolateObjects`).        |
 
 The `options` object on setters is passed as property on the event payload. It could be interesting in some special case when a plugin update objects and listen to the same object change event. If the plugin sent the event, it may be appropriate to do not react on the corresponding event:
 
@@ -153,12 +153,12 @@ state.hub.on("objects-selected", ({ ids, options }) => {
 });
 
 state.hub.on(
-  "ifcs-loaded",
-  ({ ifcs }) => {
+  "models-loaded",
+  ({ models }) => {
     console.log("Do something.");
   },
   {
-    getLastEvent: true, // immediately trigger the callback with the last loaded ifcs if they exists.
+    getLastEvent: true, // immediately trigger the callback with the last loaded models if they exists.
   }
 );
 ```
@@ -169,9 +169,9 @@ state.hub.on(
 
 | Name                    | Payload                                              |
 | :---------------------- | :--------------------------------------------------- |
-| **Ifcs events**         |                                                      |
-| `ifcs-loaded`           | { ifcs: ifc[] }                                      |
-| `ifcs-unloaded`         | { ifcs: ifc[] }                                      |
+| **Models events**       |                                                      |
+| `models-loaded`         | { models: Model[] }                                  |
+| `models-unloaded`       | { models: Model[] }                                  |
 | **Objects events**      |                                                      |
 | `objects-added`         | { objects: Array }                                   |
 | `objects-removed`       | { objects: Array }                                   |
@@ -188,7 +188,3 @@ state.hub.on(
 :::tip
 For more information about the state hub interface, see [the hub reference](hubs.html).
 :::
-
-## Undo Redo
-
-The state is binded to `ctrl + z` (and `cmd + z`) and `ctrl + y` (and `cmd + y`) shortcuts to undo or redo modifications respectively. The majority of the state modifications can be undone or re-done except highlight changes.

@@ -6,7 +6,6 @@ The `$viewer` object can be accessed using `this` on a component, or as the firs
 <b>$viewer</b>
 │ <a href="/viewer/reference/context_menu.html">contextMenu</a>
 │ <a href="/viewer/reference/state.html">state</a>
-│ logger
 │
 └─── <b>api</b>
 │ │ apiUrl
@@ -37,26 +36,6 @@ The `$viewer` object can be accessed using `this` on a component, or as the firs
 │ │ modals
 
 </pre>
-
-## logger
-
-`logger` is an object that allows to log messages at different levels. The options available are `INFO`, `WARNING` and `ERROR`. The methods to log messages are `info`, `warn` and `error`.
-
-To set the level of the `logger`:
-
-```javascript
-$viewer.logger.level = "INFO";
-```
-
-To log messages:
-
-```javascript
-const myMessage = "A simple message.";
-
-$viewer.logger.info(myMessage); // logged if logger level is "INFO"
-$viewer.logger.warn(myMessage); // logged if logger level is "INFO" of "WARNING"
-$viewer.logger.error(myMessage); // always logged
-```
 
 ## api
 
