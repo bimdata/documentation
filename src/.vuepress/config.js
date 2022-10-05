@@ -4,7 +4,7 @@ module.exports = {
   title: "Documentation",
   head: [
     ['link', { rel: 'icon', href: '/assets/img/favicon.svg', type: "image/svg+xml" }],
-    ['script', { src: "https://www.unpkg.com/@bimdata/viewer@1.8.1" }]
+    ['script', { src: "https://www.unpkg.com/@bimdata/viewer@1.9.0-rc.165" }]
   ],
   themeConfig: {
     logo: '/assets/img/logo.svg',

@@ -18,6 +18,3 @@ As mentionned, it can be customized as needed:
 
 ### 2D + spatial structure:
 ![An image](/assets/img/viewer/Viewer-2_windows.png)
-
-### Only spatial structure:
-![An image](/assets/img/viewer/Viewer-1_window.png)
