@@ -8,7 +8,7 @@ $viewer.state;
 
 ## Model
 
-An [Model](https://github.com/bimdata/javascript-api-client/blob/master/docs/Model.md) object with `structure`, `objects` and `uuids` properties.
+A [Model](https://github.com/bimdata/javascript-api-client/blob/master/docs/Model.md) object with `structure`, `objects` and `uuids` properties.
 
 - `structure`: the object returned by fetching [model](https://github.com/bimdata/javascript-api-client/blob/master/docs/Model.md) `structureFile`.
 - `objects`: an Array of all model [objects](#object).
