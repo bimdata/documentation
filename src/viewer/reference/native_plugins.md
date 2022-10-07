@@ -277,4 +277,12 @@ It is possible to configure the UI of plugins displayed as viewer (viewer 3d, vi
 | :------------ | :----------------------------------------------------------------------------------------------------------------------------------------- |
 | `modelLoader` | Can be `hidden` or `disabled`. If `hidden`, models will be loaded but the list won't be shown. If `diabled`, the model wont be loaded too. |
 
-modelLoader
+```javascript
+const viewerConfig = {
+  plugins: {
+    viewer3d: {
+      modelLoader: "hidden",
+    },
+  },
+};
+```

@@ -260,6 +260,28 @@ bimdataViewer.mount("#app", {
 
 <img width="100%" src="/assets/img/viewer/Viewer-3_windows.png" alt='Layout 3 windows'>
 
+## Embed Design System
+
+The [BIMData design system](https://design.bimdata.io/) is globally available on the viewer and can be use to quickly stylize the components:
+
+```javascript
+const component = {
+  template: `
+    <div style="display: flex; justify-content: center; align-items: center; height: 100%; flex-direction: column;">
+      <p>Plugin Window component content.</p>
+      <BIMDataButton color="primary" fill radius @click="onClick">Click Me !</BimdataButton>
+    </div>
+  `,
+  methods: {
+    onClick() {
+      console.log("button clicked !");
+    },
+  },
+};
+```
+
+In this example, there is no need to import [`BIMDataButton`](https://design.bimdata.io/components/buttons).
+
 ## Complete UI example
 
 ```html
@@ -293,15 +315,16 @@ bimdataViewer.mount("#app", {
     bimdataViewer.registerPlugin({
       name: "windowPlugin",
       component: {
-        render(h) {
-          return h(
-            "div",
-            {
-              style:
-                "display: flex; justify-content: center; align-items: center; height: 100%;",
-            },
-            "Plugin Window component content."
-          );
+        template: `
+          <div style="display: flex; justify-content: center; align-items: center; height: 100%; flex-direction: column;">
+            <p>Plugin Window component content.</p>
+            <BIMDataButton color="primary" fill radius @click="onClick">Click Me !</BimdataButton>
+          </div>
+        `,
+        methods: {
+          onClick() {
+            console.log("button clicked !");
+          },
         },
       },
       window: {

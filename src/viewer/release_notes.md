@@ -25,23 +25,18 @@
 
 #### Developers
 
-* Exposed ModelsLoader and NoModelWindowPlaceHolder components TODO doc (Add customFilter to ModelLoader)
-* add modelLoader viewer cfg + help for viewer3d (#721)
-* CHANGE from 1.9: cfg.modelLoader now accepts 'hidden' and 'disabled' (#770)
-* add the ability to hide the model loader
-// TODO doc + regroup
-
-* upgrade xeokit dependency to 2.2
-* upgrade bimdata 2d-engine dependency to 1.14
+* [Exposed Modelsloader](/viewer/reference/global_components.html#modelsloader)
+* Upgrade xeokit dependency to 2.2
+* Upgrade bimdata 2d-engine dependency to 1.14
 * Command Manager removed
 * Logger removed
 * Warning plugin removed
-* add getLocalContexts(windowName) on $viewer // Doc
-* Embed BIMData design system // Doc
+* Add getLocalContexts(windowName) on [$viewer](/viewer/reference/$viewer.html)
+* [Embed BIMData design system](/viewer/customize_the_ui.html#embed-design-system)
 * Improve state performances
-* Customizable colors // Doc...
-* Use BIMData model API // change api ?
-* Refactor state: change ifc to model // Doc
+* Customizable colors
+* Use BIMData model API
+* Refactor state: change ifc to model
 
 #### Bugfixes
 

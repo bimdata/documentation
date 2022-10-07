@@ -6,34 +6,35 @@ The `$viewer` object can be accessed using `this` on a component, or as the firs
 <b>$viewer</b>
 │ <a href="/viewer/reference/context_menu.html">contextMenu</a>
 │ <a href="/viewer/reference/state.html">state</a>
+| getLocalContexts(windowName): LocalContext[];
 │
 └─── <b>api</b>
-│ │ apiUrl
-│ │ cloudId
-│ │ projectId
-│ │ accessToken
-│ │ apiClient
-│ │ getRawElements(ifcId)
+│ │ apiUrl: string;
+│ │ cloudId: number;
+│ │ projectId: number;
+│ │ accessToken: string;
+│ │ apiClient: ApiClient;
+│ │ getRawElements(ifcId): RawElements;
 │
 └─── <b>localContext</b>
-│ │ getPlugin(pluginName)
-│ │ loading
-│ │ incrementSpinnerProcesses()
-│ │ decrementSpinnerProcesses()
-│ │ registerShortcut(shortcut)
-│ │ unregisterShortcut(shortcutName)
-│ │ hub
-│ │ modals
+│ │ getPlugin(pluginName): Plugin;
+│ │ loading: boolean;
+│ │ incrementSpinnerProcesses(): void;
+│ │ decrementSpinnerProcesses(): void;
+│ │ registerShortcut(shortcut): void;
+│ │ unregisterShortcut(shortcutName): void;
+│ │ hub: Hub;
+│ │ modals: ModalManager;
 │
 └─── <b>globalContext</b>
-│ │ getPlugins(pluginName)
-│ │ loading
-│ │ incrementSpinnerProcesses()
-│ │ decrementSpinnerProcesses()
-│ │ registerShortcut(shortcut)
-│ │ unregisterShortcut(shortcutName)
-│ │ hub
-│ │ modals
+│ │ getPlugins(pluginName): Plugin[];
+│ │ loading: boolean;
+│ │ incrementSpinnerProcesses(): void;
+│ │ decrementSpinnerProcesses(): void;
+│ │ registerShortcut(shortcut): void;
+│ │ unregisterShortcut(shortcutName): void;
+│ │ hub: Hub;
+│ │ modals: ModalManager;
 
 </pre>
 
