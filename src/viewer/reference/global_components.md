@@ -33,8 +33,9 @@ The `ModelsLoader` has the following interface:
 | Property                                                             | Description                                                                                             |
 | :------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------ |
 | **Event handlers**                                                   |                                                                                                         |
-| `load-models(models)`                                                | Trigger when the user click on an unloaded [model](/viewer/reference/state.html#model).                                                       |
-| `unload-models(models)`                                              | Trigger when the user click on an loaded [model](/viewer/reference/state.html#model).                                                         |
+| `load-models(models)`                                                | Trigger when the user click on an unloaded [model](/viewer/reference/state.html#model).                 |
+| `unload-models(models)`                                              | Trigger when the user click on an loaded [model](/viewer/reference/state.html#model).                   |
 | **Props**                                                            |                                                                                                         |
 | `multi: boolean`                                                     | If false, radio buttons are displayed instead of checkboxes and only one model can be loaded at a time. |
-| `types: ["IFC", "POINT_CLOUD", "PDF", "METABUILDING", "DWG", "DXF"]` | Used to filter the [models](/viewer/reference/state.html#model) displayed on the list.                                                        |
+| `types: ["IFC", "POINT_CLOUD", "PDF", "METABUILDING", "DWG", "DXF"]` | Used to filter the [models](/viewer/reference/state.html#model) displayed on the list.                  |
+| `customFilter: Function`                                             | An optional function to filter the models.                                                              |
