@@ -219,16 +219,40 @@ This API is available from this object on the `dwg` window:
 const viewerDWGPlugin = this.$viewer.localContext.getPlugin("dwg");
 ```
 
-| Name                                                                                                                   | Description                                                                                                                                                     |
-| :--------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `selectOnClick: boolean`                                                                                               | **Default** to `true`. If true, clicking an object select it.                                                                                                   |
-| `highlightOnHover: boolean`                                                                                            | **Default** to `true`. If true, hovering an object highlight it.                                                                                                |
-| `viewer: E2D.Viewer`                                                                                                   | The [engine 2D viewer](https://2d-engine.bimdata.io).                                                                                                           |
-| `hideAll(): void`                                                                                                      | Hide all objects.                                                                         |
+| Name                        | Description                                                      |
+| :-------------------------- | :--------------------------------------------------------------- |
+| `selectOnClick: boolean`    | **Default** to `true`. If true, clicking an object select it.    |
+| `highlightOnHover: boolean` | **Default** to `true`. If true, hovering an object highlight it. |
+| `viewer: E2D.Viewer`        | The [engine 2D viewer](https://2d-engine.bimdata.io).            |
+| `hideAll(): void`           | Hide all objects.                                                |
 
 ## Viewer DXF
 
-Same api as the [DWG viewer](#viewer-dwg).
+- name: dxf
+
+This plugin display the DXF representation of the IFC.
+
+### Events
+
+| Name                 | Payload           | Description                           | Emitted on                         |
+| :------------------- | :---------------- | :------------------------------------ | :--------------------------------- |
+| `dxf-model-loaded`   | `{ dxf, plugin }` | Emitted when a DXF model is loaded.   | `localContext` and `globalContext` |
+| `dxf-model-unloaded` | `{ dxf, plugin }` | Emitted when a DXF model is unloaded. | `localContext` and `globalContext` |
+
+### Instance API
+
+This API is available from this object on the `dxf` window:
+
+```javascript
+const viewerDXFPlugin = this.$viewer.localContext.getPlugin("dxf");
+```
+
+| Name                        | Description                                                      |
+| :-------------------------- | :--------------------------------------------------------------- |
+| `selectOnClick: boolean`    | **Default** to `true`. If true, clicking an object select it.    |
+| `highlightOnHover: boolean` | **Default** to `true`. If true, hovering an object highlight it. |
+| `viewer: E2D.Viewer`        | The [engine 2D viewer](https://2d-engine.bimdata.io).            |
+| `hideAll(): void`           | Hide all objects.                                                |
 
 ## Viewer Plan
 
@@ -244,9 +268,9 @@ This API is available from this object on the `dwg` window:
 const viewerPlanPlugin = this.$viewer.localContext.getPlugin("plan");
 ```
 
-| Name                                                                                                                   | Description                                                                                                                                                     |
-| :--------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `viewer: E2D.Viewer`                                                                                                   | The [engine 2D viewer](https://2d-engine.bimdata.io).                                                                                                           |
+| Name                 | Description                                           |
+| :------------------- | :---------------------------------------------------- |
+| `viewer: E2D.Viewer` | The [engine 2D viewer](https://2d-engine.bimdata.io). |
 
 ## 2D measurements
 
