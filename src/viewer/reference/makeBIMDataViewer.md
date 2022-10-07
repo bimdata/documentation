@@ -20,7 +20,7 @@ The returned object of the `makeBIMDataViewer` function have the following inter
 | `registerWindow(window: Object): void`                                             | Register a window                                                            |
 | `unregisterWindow(windowName: string): void`                                       | Unregister the corresponding window.                                         |
 | `setAccessToken(accessToken: string): void`                                        | Set the access token.                                                        |
-| `async loadModels(modelIds: number[]): Object[]`                                             | Load the corresponding models.                                                 |
+| `async loadModels(modelIds: number[]): Object[]`                                   | Load the corresponding models.                                               |
 
 It takes a configuration `object` that accept the following properties :
 
@@ -49,13 +49,13 @@ const bimdataViewer = makeBIMDataViewer({
 
 The `api` properties are:
 
-| Name          | Type       | Description                  |
-| :------------ | :--------- | :--------------------------- |
+| Name          | Type       | Description                    |
+| :------------ | :--------- | :----------------------------- |
 | `modelIds`    | `number[]` | An array of model ids to load. |
-| `cloudId`     | `number`   | The cloud id.                |
-| `projectId`   | `number`   | The project id.              |
-| `accessToken` | `string`   | The access token.            |
-| `apiUrl`      | `string`   | The BIMData api url.         |
+| `cloudId`     | `number`   | The cloud id.                  |
+| `projectId`   | `number`   | The project id.                |
+| `accessToken` | `string`   | The access token.              |
+| `apiUrl`      | `string`   | The BIMData api url.           |
 
 ## ui
 
@@ -81,14 +81,14 @@ const bimdataViewer = makeBIMDataViewer({
 
 The `ui` properties are:
 
-| Name                    | Type      | Description                                                             |
-| :---------------------- | :-------- | :---------------------------------------------------------------------- |
-| `style.backgroundColor` | `string`  | A css color applied to the viewer background.                           |
-| `menuVisible`           | `boolean` | **Default** to `true`. If `false`, the menu is hidden.                |
-| `windowManager`         | `boolean` | **Default** to `true`. If `false`, the window manager tools are hidden. |
-| `version`               | `boolean` | **Default** to `true`. If `false`, the viewer version is hidden.        |
-| `bimdataLogo`           | `boolean` | **Default** to `true`. If `false`, the BIMData logo is hidden.          |
-| `contextMenu`           | `boolean` | **Default** to `true`. If `false`, the context menu is disabled.        |
+| Name                    | Type      | Description                                                                                  |
+| :---------------------- | :-------- | :------------------------------------------------------------------------------------------- |
+| `style.backgroundColor` | `string`  | A css color applied to the viewer background.                                                |
+| `menuVisible`           | `boolean` | **Default** to `true`. If `false`, the [menu](/viewer/customize_the_ui.html#menu) is hidden. |
+| `windowManager`         | `boolean` | **Default** to `true`. If `false`, the window manager tools are hidden.                      |
+| `version`               | `boolean` | **Default** to `true`. If `false`, the viewer version is hidden.                             |
+| `bimdataLogo`           | `boolean` | **Default** to `true`. If `false`, the BIMData logo is hidden.                               |
+| `contextMenu`           | `boolean` | **Default** to `true`. If `false`, the context menu is disabled.                             |
 
 ## plugins
 
