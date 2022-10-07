@@ -16,7 +16,6 @@ Major features:
 - Improved integration in [various web environments](/viewer/getting_started.html#installation).
 - Better performances.
 - Improved multi-models loading and positioning.
-- [Offline support](/viewer/reference/offline.html#offline-mode).
 - [Undo/Redo (CTRL-Z)](/viewer/reference/state.html#undo-redo) on state change actions.
 
 

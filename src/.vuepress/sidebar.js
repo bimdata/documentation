@@ -69,7 +69,6 @@ function getViewerSidebar() {
         "reference/hubs",
         "reference/state",
         "reference/context_menu",
-        "reference/offline",
         "reference/global_components",
       ],
     },
