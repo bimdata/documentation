@@ -12,7 +12,7 @@ You can quickly launch the BIMData Viewer with demo identifications.
   <head>
     <meta charset="utf-8" />
     <title>BIMDataViewer - Quick start</title>
-    <script src="https://www.unpkg.com/@bimdata/viewer@1.8.1"></script>
+    <script src="https://www.unpkg.com/@bimdata/viewer@1.9.0-rc.165"></script>
   </head>
 
   <body>
@@ -23,7 +23,7 @@ You can quickly launch the BIMData Viewer with demo identifications.
     <script>
       const bimdataViewer = makeBIMDataViewer({
         api: {
-          ifcIds: [15097],
+          modelIds: [15097],
           cloudId: 10344,
           projectId: 237466,
           accessToken: "TAbdyPzoQeYgVSMe4GUKoCEfYctVhcwJ",
@@ -66,7 +66,7 @@ export default {
   mounted() {
     const bimdataViewer = makeBIMDataViewer({
       api: {
-        ifcIds: [15097],
+        modelIds: [15097],
         cloudId: 10344,
         projectId: 237466,
         accessToken: "TAbdyPzoQeYgVSMe4GUKoCEfYctVhcwJ",
@@ -94,7 +94,7 @@ Then, you can display them on the viewer using their identifications :
 ```javascript
 const bimdataViewer = makeBIMDataViewer({
   api: {
-    ifcIds: [XXX, XXX], // Your ifc ids
+    modelIds: [XXX, XXX], // Your model ids
     cloudId: XXX, // Your cloud id
     projectId: XXX, // Your project id
     accessToken: XXX, // Your access token
@@ -118,20 +118,24 @@ const viewer = makeBIMDataViewer(
     bimdataLogo: false,
   },
   plugins: {
-    header: false,
-    "window-split": false,
-    "structure-properties": false,
     bcf: false,
-    projection: false,
-    section: false,
     fullscreen: false,
+    measure3d: false,
+    projection: false,
     search: false,
+    section: false,
+    "structure-properties": false,
     viewer3d: {
-      navCube: false, // get rid of the navcube
+      navCube: false,
+      help: false,
+      modelLoader: "hidden",
     },
+    "viewer3d-parameters": false,
+    "window-split": false,
   }
 );
 ```
+
 The result :
 
 ![Viewer with one window empty](/assets/img/viewer/Viewer-1_window_empty.png)

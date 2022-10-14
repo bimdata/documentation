@@ -130,30 +130,37 @@ Try opening the plugin 3 (the right button on the last bottom-right window).
 
 ## Complete code example
 
-```javascript {75-110,126-130}
+```javascript
 // Configure the viewer
 const viewer = makeBIMDataViewer({
-  ui: {
-    headerVisible: false,
-    contextMenu: {
-      defaultCommands: false,
-    },
-  },
   api: {
-    ifcIds: [15097],
+    modelIds: [15097],
     cloudId: 10344,
     projectId: 237466,
     accessToken: "TAbdyPzoQeYgVSMe4GUKoCEfYctVhcwJ",
   },
+  ui: {
+    version: false,
+    bimdataLogo: false,
+    menuVisible: false,
+  },
   plugins: {
     bcf: false,
-    "structure-properties": false,
     fullscreen: false,
-    section: false,
-    search: false,
+    measure3d: false,
     projection: false,
-    windowSelector: false,
-  },
+    search: false,
+    section: false,
+    "structure-properties": false,
+    viewer3d: {
+      navCube: false,
+      help: false,
+      modelLoader: "hidden",
+
+    },
+    "viewer3d-parameters": false,
+    "window-split": false,
+  }
 });
 
 // Create components

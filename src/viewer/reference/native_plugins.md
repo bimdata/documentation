@@ -149,15 +149,15 @@ This API is available from this object on the `3d` window:
 const viewer3dPlugin = this.$viewer.localContext.getPlugin("viewer3d");
 ```
 
-| Name                                       | Type      | Description                                                                                                           |
-| :----------------------------------------- | :-------- | :-------------------------------------------------------------------------------------------------------------------- |
-| `selectOnClick`                            | `boolean` | **Default** to `true`. If true, clicking an object select it.                                                         |
-| `highlightOnHover`                         | `boolean` | **Default** to `true`. If true, hovering an object highlight it.                                                      |
-| `getProjection(): string`                  | `method`  | Return current projection                                                                                             |
-| `fitViewObjects([uuids]): void`            | `method`  | Fit the camera view so all specified objects fit in the screen. Apply to all objects if array is empty or undefined.  |
-| `getViewpoint(snapshot=true): object`      | `method`  | Returns the BCF Viewpoint of the current view. If `snapshot` is `false`, it skips the screenshot (better performances)|
-| `getCameraPosition(): object`              | `method`  | Returns camera position of the current view as defined in the BCF standard.                                           |
-| `setCameraPosition(cameraPosition): void`  | `method`  | Set camera position as defined in the BCF standard.                                                                   |
+| Name                                      | Type      | Description                                                                                                            |
+| :---------------------------------------- | :-------- | :--------------------------------------------------------------------------------------------------------------------- |
+| `selectOnClick`                           | `boolean` | **Default** to `true`. If true, clicking an object select it.                                                          |
+| `highlightOnHover`                        | `boolean` | **Default** to `true`. If true, hovering an object highlight it.                                                       |
+| `getProjection(): string`                 | `method`  | Return current projection                                                                                              |
+| `fitViewObjects([uuids]): void`           | `method`  | Fit the camera view so all specified objects fit in the screen. Apply to all objects if array is empty or undefined.   |
+| `getViewpoint(snapshot=true): object`     | `method`  | Returns the BCF Viewpoint of the current view. If `snapshot` is `false`, it skips the screenshot (better performances) |
+| `getCameraPosition(): object`             | `method`  | Returns camera position of the current view as defined in the BCF standard.                                            |
+| `setCameraPosition(cameraPosition): void` | `method`  | Set camera position as defined in the BCF standard.                                                                    |
 
 ## Window split
 
@@ -198,6 +198,80 @@ const viewer2dPlugin = this.$viewer.localContext.getPlugin("viewer2d");
 | `hideAll(): void`                                                                                                      | Hide all objects except the camera object displayed if `camera3DSynchronization` is on.                                                                         |
 | `syncRotationFrom3DCamera(eye: [number,number,number], look: [number,number,number],up: [number,number,number]): void` | **Default** arguments are `eye = [0, 0, 0], look = [0, 0, 0],up = [0, 1, 0]`. Synchronize the roation between the given 3D camera parameters and the 2D camera. |
 
+## Viewer DWG
+
+- name: dwg
+
+This plugin display the DWG representation of the IFC.
+
+### Events
+
+| Name                 | Payload           | Description                           | Emitted on                         |
+| :------------------- | :---------------- | :------------------------------------ | :--------------------------------- |
+| `dwg-model-loaded`   | `{ dwg, plugin }` | Emitted when a DWG model is loaded.   | `localContext` and `globalContext` |
+| `dwg-model-unloaded` | `{ dwg, plugin }` | Emitted when a DWG model is unloaded. | `localContext` and `globalContext` |
+
+### Instance API
+
+This API is available from this object on the `dwg` window:
+
+```javascript
+const viewerDWGPlugin = this.$viewer.localContext.getPlugin("dwg");
+```
+
+| Name                        | Description                                                      |
+| :-------------------------- | :--------------------------------------------------------------- |
+| `selectOnClick: boolean`    | **Default** to `true`. If true, clicking an object select it.    |
+| `highlightOnHover: boolean` | **Default** to `true`. If true, hovering an object highlight it. |
+| `viewer: E2D.Viewer`        | The [engine 2D viewer](https://2d-engine.bimdata.io).            |
+| `hideAll(): void`           | Hide all objects.                                                |
+
+## Viewer DXF
+
+- name: dxf
+
+This plugin display the DXF representation of the IFC.
+
+### Events
+
+| Name                 | Payload           | Description                           | Emitted on                         |
+| :------------------- | :---------------- | :------------------------------------ | :--------------------------------- |
+| `dxf-model-loaded`   | `{ dxf, plugin }` | Emitted when a DXF model is loaded.   | `localContext` and `globalContext` |
+| `dxf-model-unloaded` | `{ dxf, plugin }` | Emitted when a DXF model is unloaded. | `localContext` and `globalContext` |
+
+### Instance API
+
+This API is available from this object on the `dxf` window:
+
+```javascript
+const viewerDXFPlugin = this.$viewer.localContext.getPlugin("dxf");
+```
+
+| Name                        | Description                                                      |
+| :-------------------------- | :--------------------------------------------------------------- |
+| `selectOnClick: boolean`    | **Default** to `true`. If true, clicking an object select it.    |
+| `highlightOnHover: boolean` | **Default** to `true`. If true, hovering an object highlight it. |
+| `viewer: E2D.Viewer`        | The [engine 2D viewer](https://2d-engine.bimdata.io).            |
+| `hideAll(): void`           | Hide all objects.                                                |
+
+## Viewer Plan
+
+- name: plan
+
+This plugin displays bitmap plans.
+
+### Instance API
+
+This API is available from this object on the `dwg` window:
+
+```javascript
+const viewerPlanPlugin = this.$viewer.localContext.getPlugin("plan");
+```
+
+| Name                 | Description                                           |
+| :------------------- | :---------------------------------------------------- |
+| `viewer: E2D.Viewer` | The [engine 2D viewer](https://2d-engine.bimdata.io). |
+
 ## 2D measurements
 
 - name: measure2d
@@ -218,3 +292,21 @@ Parameters are saved in local storage
 
 A plugin as un button that allows to configure door openings and space names.
 Parameters are saved in local storage
+
+# Viewer plugins
+
+It is possible to configure the UI of plugins displayed as viewer (viewer 3d, viewer 2d, viewer plan, viewer dwg, viewer dxf):
+
+| Property      | Description                                                                                                                                |
+| :------------ | :----------------------------------------------------------------------------------------------------------------------------------------- |
+| `modelLoader` | Can be `"hidden"` or `"disabled"`. If `hidden`, the component isn't shown but it will load models defined in the viewer parameters. If `disabled`, the models won't be loaded and you must load them manually |
+
+```javascript
+const viewerConfig = {
+  plugins: {
+    viewer3d: {
+      modelLoader: "hidden",
+    },
+  },
+};
+```

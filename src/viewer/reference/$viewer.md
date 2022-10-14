@@ -6,57 +6,37 @@ The `$viewer` object can be accessed using `this` on a component, or as the firs
 <b>$viewer</b>
 │ <a href="/viewer/reference/context_menu.html">contextMenu</a>
 │ <a href="/viewer/reference/state.html">state</a>
-│ logger
+| getLocalContexts(windowName): LocalContext[];
 │
 └─── <b>api</b>
-│ │ apiUrl
-│ │ cloudId
-│ │ projectId
-│ │ accessToken
-│ │ apiClient
-│ │ getRawElements(ifcId)
+│ │ apiUrl: string;
+│ │ cloudId: number;
+│ │ projectId: number;
+│ │ accessToken: string;
+│ │ apiClient: ApiClient;
+│ │ getRawElements(ifcId): RawElements;
 │
 └─── <b>localContext</b>
-│ │ getPlugin(pluginName)
-│ │ loading
-│ │ incrementSpinnerProcesses()
-│ │ decrementSpinnerProcesses()
-│ │ registerShortcut(shortcut)
-│ │ unregisterShortcut(shortcutName)
-│ │ hub
-│ │ modals
+│ │ getPlugin(pluginName): Plugin;
+│ │ loading: boolean;
+│ │ incrementSpinnerProcesses(): void;
+│ │ decrementSpinnerProcesses(): void;
+│ │ registerShortcut(shortcut): void;
+│ │ unregisterShortcut(shortcutName): void;
+│ │ hub: Hub;
+│ │ modals: ModalManager;
 │
 └─── <b>globalContext</b>
-│ │ getPlugins(pluginName)
-│ │ loading
-│ │ incrementSpinnerProcesses()
-│ │ decrementSpinnerProcesses()
-│ │ registerShortcut(shortcut)
-│ │ unregisterShortcut(shortcutName)
-│ │ hub
-│ │ modals
+│ │ getPlugins(pluginName): Plugin[];
+│ │ loading: boolean;
+│ │ incrementSpinnerProcesses(): void;
+│ │ decrementSpinnerProcesses(): void;
+│ │ registerShortcut(shortcut): void;
+│ │ unregisterShortcut(shortcutName): void;
+│ │ hub: Hub;
+│ │ modals: ModalManager;
 
 </pre>
-
-## logger
-
-`logger` is an object that allows to log messages at different levels. The options available are `INFO`, `WARNING` and `ERROR`. The methods to log messages are `info`, `warn` and `error`.
-
-To set the level of the `logger`:
-
-```javascript
-$viewer.logger.level = "INFO";
-```
-
-To log messages:
-
-```javascript
-const myMessage = "A simple message.";
-
-$viewer.logger.info(myMessage); // logged if logger level is "INFO"
-$viewer.logger.warn(myMessage); // logged if logger level is "INFO" of "WARNING"
-$viewer.logger.error(myMessage); // always logged
-```
 
 ## api
 

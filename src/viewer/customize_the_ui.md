@@ -3,17 +3,16 @@
 ## Overview
 
 <p align="center">
-  <img width="48%" src="/assets/img/viewer/Viewer-1_window.png" alt="Viewer with one window.">
-  <img width="48%" src="/assets/img/viewer/Viewer-2_windows.png" alt="Viewer with two windows.">
+  <img width="100%" src="/assets/img/viewer/Viewer-3_windows.png" alt="Viewer with three windows.">
 </p>
 <p align="center">
-  <img width="48%" src="/assets/img/viewer/Viewer-3_windows.png" alt="Viewer with three windows.">
-  <img width="48%" src="/assets/img/viewer/Viewer-1_window_special.png" alt="Viewer with one window without header.">
+  <img width="49%" src="/assets/img/viewer/Viewer-2_windows.png" alt="Viewer with two windows.">
+  <img width="49%" src="/assets/img/viewer/Viewer-1_window_special.png" alt="Viewer with one window without header.">
 </p>
 
 The viewer UI is composed of three main parts :
 
-- First, there is the [header](#header). The header is where some useful actions can be performed like accessing the main menu, loading models or customizing the rest of the UI using the window manager. The header is not displayed on the bottom-right image. It is a special case where user only wants a floating header and a button (top-right) to customize windows.
+- First, there is the [menu](#menu). The menu is where some useful actions can be performed like customizing the rest of the UI using the window manager. The menu is not displayed on the bottom-right image. It is a special case where the user wants to hide it. By default, a button (top-right) is automatically added to customize the windows.
 - Next, there is the main view where [windows](#window) are displayed. The user can resize, add, delete, split or swap windows to create his own workspace, according to his needs. On the images above there is one, two or three windows with spatial arborescence, a 2d and 3d representations of the model displayed on different windows.
 - Last, there are [plugins](#plugin) displayed on windows. Different display possibilities are shown on the image below (full, left, right, small...).
 
@@ -21,20 +20,20 @@ The viewer UI is composed of three main parts :
   <img width="70%" src="/assets/img/viewer/Viewer-1_window_plugins.png" alt="Viewer with opened plugins.">
 </p>
 
-## Header
+## Menu
 
-By default, the header is always displayed as a top bar. However, it can be changed if only one window is present, or totally removed if you need to.
+By default, the menu is always displayed as a top bar. However, it can be changed if only one window is present, or totally removed if you need to.
 
-### Flying header
+### Hidden menu
 
-To display the flying header instead of the top bar on a single window, the `flyingHeader` property on a [window configuration object](#window-configuration-object) must be set to `true`.
+To hide the menu on a single window, the `menu` property on a [window configuration object](#window-configuration-object) must be set to `false`.
 
 ```javascript
 const bimdataViewer = makeBIMDataViewer(/* {...} */);
 
 const windowConfigurationObject = {
   name: "windowName",
-  flyingHeader: true,
+  menu: false,
   plugins: [
     /* plugins */
   ],
@@ -43,37 +42,36 @@ const windowConfigurationObject = {
 bimdataViewer.registerWindow(windowConfigurationObject);
 ```
 
-Then, if this window is displayed, the header will be displayed `flying` like on the image below.
+Then, if this window is displayed, the menu will be hidden like on the image below.
 
 <p align="center">
   <img width="70%" src="/assets/img/viewer/Viewer-1_window_special.png" alt="Flying header on siple window.">
 </p>
 
-::: warning
-The flying header can only be enabled when one window is displayed. If there is more than one windows displayed, even if they have the flyingHeader property set to true, the header will be displayed as a top bar.
-:::
-
-### No header
-
-In some case, you may want to get rid of the header. To do so, you must use the configuration object of the `makeBIMDataViewer` method, and use the `ui.headerVisible` property :
+If there is more than one windows displayed, even if they have the menu property set to false, the header will be displayed as a top bar. To completely hide it, set the viewer `ui.menuVisible` property to false:
 
 ```javascript
 const bimdataViewer = makeBIMDataViewer({
   /* */
   ui: {
-    headerVisible: false,
+    menuVisible: false,
   },
 });
 ```
 
 ### Window manager tools
 
-The header contains the window manager tools. It is displayed on the right of the bar or as a right plugin if the header is displayed `flying`.
+The menu contains the window manager tools.
 
-<div style="text-align:center;">
-  <Icon name="screenConfig" size="xxxl" />
-  <p><em>Window manager tools icon.</em></p>
-</div>
+<p align="center">
+  <img width="300px" src="/assets/img/viewer/Viewer-menu-window-manager.png" alt="Menu window manager.">
+</p>
+
+It is displayed on the right of the bar or as a right plugin if the menu is hidden.
+
+<p align="center">
+  <img width="300px" src="/assets/img/viewer/Viewer-no-menu-window-manager.png" alt="No menu window manager.">
+</p>
 
 You can choose to disable it to do not let the user update the UI:
 
@@ -101,7 +99,7 @@ A window is composed of [plugins](#plugin) and can be registered using two ways 
 | `label`: `string`         | The label that is displayed to the user. Can be a key to be translated like : "viewer3d.window_label".                                         |
 | `plugins`: `array`        | An array of plugins which will be added to the window.                                                                                         |
 | `icon.imgUri`: `string`   | A string that is injected into an `img` HTML element as a src. This image will be displayed while selecting the window on the window selector       |
-| `flyingHeader`: `boolean` | Default to false. If true, the header bar is replaced by a flying header and a window manager button if this window is the only one displayed. |
+| `menu`: `boolean` | Default to `true`. If `false`, the menu is hidden if there is only one window displayed. |
 
 ```javascript
 const bimdataViewer = makeBIMDataViewer(/* {...} */);
@@ -183,11 +181,7 @@ The `simple` mode display the component in a small div adapted for small menu in
 
 The `free` mode display the component in a div. The developer of the plugin is responsible to decide the style of the component because the div is related to the component size.
 
-The `panel` mode open the component in a Panel. The panel height is 100% of the window (minus few margins) and it can be unpined. Once unpined, the panel can be resized and moved inside the window like on the gif below.
-
-<p align="center">
-  <img src="/assets/img/viewer/Viewer-panel.gif" alt="Viewer Panel.">
-</p>
+The `panel` mode open the component in a Panel. The panel height is 100% of the window.
 
 ### Window content
 
@@ -266,6 +260,28 @@ bimdataViewer.mount("#app", {
 
 <img width="100%" src="/assets/img/viewer/Viewer-3_windows.png" alt='Layout 3 windows'>
 
+## Embed Design System
+
+The [BIMData design system](https://design.bimdata.io/) is globally available on the viewer and can be use to quickly stylize the components:
+
+```javascript
+const component = {
+  template: `
+    <div style="display: flex; justify-content: center; align-items: center; height: 100%; flex-direction: column;">
+      <p>Plugin Window component content.</p>
+      <BIMDataButton color="primary" fill radius @click="onClick">Click Me !</BimdataButton>
+    </div>
+  `,
+  methods: {
+    onClick() {
+      console.log("button clicked !");
+    },
+  },
+};
+```
+
+In this example, there is no need to import [`BIMDataButton`](https://design.bimdata.io/components/buttons).
+
 ## Complete UI example
 
 ```html
@@ -276,7 +292,7 @@ bimdataViewer.mount("#app", {
 
     const bimdataViewer = makeBIMDataViewer({
       api: {
-        ifcIds: [15097],
+        modelIds: [15097],
         cloudId: 10344,
         projectId: 237466,
         accessToken: "TAbdyPzoQeYgVSMe4GUKoCEfYctVhcwJ", // Demo token
@@ -299,15 +315,16 @@ bimdataViewer.mount("#app", {
     bimdataViewer.registerPlugin({
       name: "windowPlugin",
       component: {
-        render(h) {
-          return h(
-            "div",
-            {
-              style:
-                "display: flex; justify-content: center; align-items: center; height: 100%;",
-            },
-            "Plugin Window component content."
-          );
+        template: `
+          <div style="display: flex; justify-content: center; align-items: center; height: 100%; flex-direction: column;">
+            <p>Plugin Window component content.</p>
+            <BIMDataButton color="primary" fill radius @click="onClick">Click Me !</BimdataButton>
+          </div>
+        `,
+        methods: {
+          onClick() {
+            console.log("button clicked !");
+          },
         },
       },
       window: {

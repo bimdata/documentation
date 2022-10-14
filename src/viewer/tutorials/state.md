@@ -42,30 +42,37 @@ If the viewer3d window is too small, you can resize it by dragging the vertical 
 
 ## Complete code example
 
-```javascript {136-143,149}
+```javascript {143-150}
 // Configure the viewer
 const viewer = makeBIMDataViewer({
-  ui: {
-    headerVisible: false,
-    contextMenu: {
-      defaultCommands: false,
-    },
-  },
   api: {
-    ifcIds: [15097],
+    modelIds: [15097],
     cloudId: 10344,
     projectId: 237466,
     accessToken: "TAbdyPzoQeYgVSMe4GUKoCEfYctVhcwJ",
   },
+  ui: {
+    version: false,
+    bimdataLogo: false,
+    menuVisible: false,
+  },
   plugins: {
     bcf: false,
-    "structure-properties": false,
     fullscreen: false,
-    section: false,
-    search: false,
+    measure3d: false,
     projection: false,
-    windowSelector: false,
-  },
+    search: false,
+    section: false,
+    "structure-properties": false,
+    viewer3d: {
+      navCube: false,
+      help: false,
+      modelLoader: "hidden",
+
+    },
+    "viewer3d-parameters": false,
+    "window-split": false,
+  }
 });
 
 // Create components

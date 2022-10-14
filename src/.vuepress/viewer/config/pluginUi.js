@@ -1,25 +1,33 @@
 export default function(viewerId) {
   // Configure the viewer
   const viewer = makeBIMDataViewer({
-    ui: {
-      headerVisible: false,
-    },
     api: {
-      ifcIds: [2283],
-      cloudId: 515,
-      projectId: 756,
-      accessToken: "fc83e49ca9444d3ea41d212599f39040",
-      apiUrl: "https://api-staging.bimdata.io",
+      modelIds: [15097],
+      cloudId: 10344,
+      projectId: 237466,
+      accessToken: "TAbdyPzoQeYgVSMe4GUKoCEfYctVhcwJ",
+    },
+    ui: {
+      version: false,
+      bimdataLogo: false,
+      menuVisible: false,
     },
     plugins: {
       bcf: false,
-      "structure-properties": false,
       fullscreen: false,
-      section: false,
-      search: false,
+      measure3d: false,
       projection: false,
-      windowSelector: false,
-    },
+      search: false,
+      section: false,
+      "structure-properties": false,
+      viewer3d: {
+        navCube: false,
+        help: false,
+        modelLoader: "hidden",
+      },
+      "viewer3d-parameters": false,
+      "window-split": false,
+    }
   });
 
   // Create components

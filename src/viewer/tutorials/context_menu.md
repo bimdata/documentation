@@ -4,24 +4,6 @@ In this fourth tutorial, we will learn how to customize de context menu.
 
 ## Step by step
 
-### Clear the default commands
-
-To simplify this tutorial, we clear the context menu from its default commands using the configuration object of the `makeBIMDataViewer` function:
-
-```javascript {3-5}
-const viewer = makeBIMDataViewer({
-  ui: {
-    contextMenu: {
-      defaultCommands: false,
-    },
-  },
-});
-```
-
-::: tip Note
-Some plugin may register their own context menu commands like the viewer 3D for the fit view command. This command will not be cleared by this configuration as it is not a default context menu command.
-:::
-
 ### Add custom command
 
 Now we add a command that is displayed only if one element is selected. To do so, we register a new plugin with no UI (component) but a `startupScript` method:
@@ -75,30 +57,36 @@ Try selecting objects, right clicking on the entire UI or on the open component 
 
 ## Complete code example
 
-```javascript {5-7,88-102,125-134,139}
+```javascript
 // Configure the viewer
 const viewer = makeBIMDataViewer({
-  ui: {
-    headerVisible: false,
-    contextMenu: {
-      defaultCommands: false,
-    },
-  },
   api: {
-    ifcIds: [15097],
+    modelIds: [15097],
     cloudId: 10344,
     projectId: 237466,
     accessToken: "TAbdyPzoQeYgVSMe4GUKoCEfYctVhcwJ",
   },
+  ui: {
+    version: false,
+    bimdataLogo: false,
+    menuVisible: false,
+  },
   plugins: {
     bcf: false,
-    "structure-properties": false,
     fullscreen: false,
-    section: false,
-    search: false,
+    measure3d: false,
     projection: false,
-    windowSelector: false,
-  },
+    search: false,
+    section: false,
+    "structure-properties": false,
+    viewer3d: {
+      navCube: false,
+      help: false,
+      modelLoader: "hidden",
+    },
+    "viewer3d-parameters": false,
+    "window-split": false,
+  }
 });
 
 // Create components

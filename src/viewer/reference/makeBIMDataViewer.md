@@ -20,7 +20,7 @@ The returned object of the `makeBIMDataViewer` function have the following inter
 | `registerWindow(window: Object): void`                                             | Register a window                                                            |
 | `unregisterWindow(windowName: string): void`                                       | Unregister the corresponding window.                                         |
 | `setAccessToken(accessToken: string): void`                                        | Set the access token.                                                        |
-| `loadIfcs(ifcIds: number[]): Object[]`                                             | Load the corresponding ifcs.                                                 |
+| `async loadModels(modelIds: number[]): Object[]`                                   | Load the corresponding models.                                               |
 
 It takes a configuration `object` that accept the following properties :
 
@@ -39,7 +39,7 @@ Example :
 ```javascript
 const bimdataViewer = makeBIMDataViewer({
   api: {
-    ifcIds: [15097],
+    modelIds: [15097],
     cloudId: 10344,
     projectId: 237466,
     accessToken: "TAbdyPzoQeYgVSMe4GUKoCEfYctVhcwJ",
@@ -49,13 +49,13 @@ const bimdataViewer = makeBIMDataViewer({
 
 The `api` properties are:
 
-| Name          | Type       | Description                  |
-| :------------ | :--------- | :--------------------------- |
-| `ifcIds`      | `number[]` | An array of IFC ids to load. |
-| `cloudId`     | `number`   | The cloud id.                |
-| `projectId`   | `number`   | The project id.              |
-| `accessToken` | `string`   | The access token.            |
-| `apiUrl`      | `string`   | The BIMData api url.         |
+| Name          | Type       | Description                    |
+| :------------ | :--------- | :----------------------------- |
+| `modelIds`    | `number[]` | An array of model ids to load. |
+| `cloudId`     | `number`   | The cloud id.                  |
+| `projectId`   | `number`   | The project id.                |
+| `accessToken` | `string`   | The access token.              |
+| `apiUrl`      | `string`   | The BIMData api url.           |
 
 ## ui
 
@@ -81,14 +81,14 @@ const bimdataViewer = makeBIMDataViewer({
 
 The `ui` properties are:
 
-| Name                    | Type      | Description                                                             |
-| :---------------------- | :-------- | :---------------------------------------------------------------------- |
-| `style.backgroundColor` | `string`  | A css color applied to the viewer background.                           |
-| `headerVisible`         | `boolean` | **Default** to `true`. If `false`, the header is hidden.                |
-| `windowManager`         | `boolean` | **Default** to `true`. If `false`, the window manager tools are hidden. |
-| `version`               | `boolean` | **Default** to `true`. If `false`, the viewer version is hidden.        |
-| `bimdataLogo`           | `boolean` | **Default** to `true`. If `false`, the BIMData logo is hidden.          |
-| `contextMenu`           | `boolean` | **Default** to `true`. If `false`, the context menu is disabled.        |
+| Name                    | Type      | Description                                                                                  |
+| :---------------------- | :-------- | :------------------------------------------------------------------------------------------- |
+| `style.backgroundColor` | `string`  | A css color applied to the viewer background.                                                |
+| `menuVisible`           | `boolean` | **Default** to `true`. If `false`, the [menu](/viewer/customize_the_ui.html#menu) is hidden. |
+| `windowManager`         | `boolean` | **Default** to `true`. If `false`, the window manager tools are hidden.                      |
+| `version`               | `boolean` | **Default** to `true`. If `false`, the viewer version is hidden.                             |
+| `bimdataLogo`           | `boolean` | **Default** to `true`. If `false`, the BIMData logo is hidden.                               |
+| `contextMenu`           | `boolean` | **Default** to `true`. If `false`, the context menu is disabled.                             |
 
 ## plugins
 
@@ -133,37 +133,4 @@ const bimdataViewer = makeBIMDataViewer({
 
 :::tip
 For more details about native plugins, see [the native plugins reference](/viewer/reference/native_plugins.html).
-:::
-
-Another option is available on the `plugins` object:
-
-```javascript
-addPlugins: false
-```
-
-If `true`, a button is displayed on the window selector to fetch new plugins from the BIMData.io Marketplace.
-
-## logger
-
-- **Type**: `Object`
-- **Details**: An object to set the logger level.
-
-`logger.level` can be set to "INFO", "WARNING" (default) or "ERROR".
-
-```javascript
-const bimdataViewer = makeBIMDataViewer({
-  // ...
-  logger: {
-    level: "INFO"
-  },
-});
-```
-
-## offlineOptions
-
-- **Type**: `Object`
-- **Details**: An object to configure the offline behaviour of the BIMData viewer.
-
-:::tip
-For more informations, see the [offline reference](./offline.html).
 :::
