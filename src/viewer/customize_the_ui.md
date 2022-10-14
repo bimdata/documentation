@@ -22,7 +22,7 @@ The viewer UI is composed of three main parts :
 
 ## Menu
 
-By default, the emnu is always displayed as a top bar. However, it can be changed if only one window is present, or totally removed if you need to.
+By default, the menu is always displayed as a top bar. However, it can be changed if only one window is present, or totally removed if you need to.
 
 ### Hidden menu
 
