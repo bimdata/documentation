@@ -134,6 +134,7 @@ This plugin display the 3D representation of the IFC.
 
 | Name                | Payload                                                                                                                            | Description                                   | Emitted on                         |
 | :------------------ | :--------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------- | :--------------------------------- |
+| `3d-model-loading`  | `{ ifc, plugin }`                                                                                                                  | Emitted when a 3D model is called.            | `localContext` and `globalContext` |
 | `3d-model-loaded`   | `{ ifc, model, plugin }`                                                                                                           | Emitted when a 3D model is loaded.            | `localContext` and `globalContext` |
 | `annotation-create` | [`{ id, annotation }`](https://xeokit.github.io/xeokit-sdk/docs/class/src/plugins/AnnotationsPlugin/Annotation.js~Annotation.html) | Emitted when an annotation marker is created. | `localContext` and `globalContext` |
 | `annotation-click`  | [`{ id, annotation }`](https://xeokit.github.io/xeokit-sdk/docs/class/src/plugins/AnnotationsPlugin/Annotation.js~Annotation.html) | Emitted when an annotation marker is clicked. | `localContext` and `globalContext` |
