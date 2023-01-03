@@ -110,8 +110,6 @@ state.selectObjects([objectId], options);
 | `xrayObjects(ids, options)`            | Xray objects.                                                   |
 | `unxrayObjects(ids, options)`          | Unxray objects.                                                 |
 | `colorizeObjects(ids, color, options)` | Color objects with HEXColor (ex: "#FFFFFF").                    |
-| `isolateObjects(ids, options)`         | Isolate objects.                                                |
-| `reintegrateObjects()`                 | Unisolate objects (opposite action of `isolateObjects`).        |
 
 The `options` object on setters is passed as property on the event payload. It could be interesting in some special case when a plugin update objects and listen to the same object change event. If the plugin sent the event, it may be appropriate to do not react on the corresponding event:
 

@@ -159,6 +159,9 @@ const viewer3dPlugin = this.$viewer.localContext.getPlugin("viewer3d");
 | `getViewpoint(snapshot=true): object`     | `method`  | Returns the BCF Viewpoint of the current view. If `snapshot` is `false`, it skips the screenshot (better performances) |
 | `getCameraPosition(): object`             | `method`  | Returns camera position of the current view as defined in the BCF standard.                                            |
 | `setCameraPosition(cameraPosition): void` | `method`  | Set camera position as defined in the BCF standard.                                                                    |
+| `isolateObjects(ids, options)`            | `method`  | Objects with ids not included in `ids` are set to `xrayed = true` & `pickable = false`.                                |
+| `isolateObjectsByUuids(uuids, options)`   | `method`  | The same as `isolateObjects` but with `uuids` instead of `ids`.                                                           |
+| `reintegrateObjects()`                    | `method`  | Unisolate objects (opposite action of `isolateObjects`).                                                               |
 
 ## Window split
 
@@ -298,8 +301,8 @@ Parameters are saved in local storage
 
 It is possible to configure the UI of plugins displayed as viewer (viewer 3d, viewer 2d, viewer plan, viewer dwg, viewer dxf):
 
-| Property      | Description                                                                                                                                |
-| :------------ | :----------------------------------------------------------------------------------------------------------------------------------------- |
+| Property      | Description                                                                                                                                                                                                   |
+| :------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `modelLoader` | Can be `"hidden"` or `"disabled"`. If `hidden`, the component isn't shown but it will load models defined in the viewer parameters. If `disabled`, the models won't be loaded and you must load them manually |
 
 ```javascript
