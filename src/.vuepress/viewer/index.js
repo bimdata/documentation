@@ -16,7 +16,14 @@ const configs = new Map([
   ["hubs", hubs],
 ]);
 
-function makeViewer(config, id) {
+let isViewerLoaded = false;
+
+async function makeViewer(config, id) {
+  if (!isViewerLoaded) {
+    await import(/* webpackIgnore: true */ "https://www.unpkg.com/@bimdata/viewer@1.9.0-rc.165");
+    isViewerLoaded = true;
+  }
+
   if (configs.has(config)) {
     return configs.get(config)(id);
   } else {
