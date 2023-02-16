@@ -52,3 +52,30 @@ const myPluginComponent = {
   },
 };
 ```
+
+## Open/Close parameters
+
+You can also provide any parameter you want when you call `$open` or `$close`.
+These paramters will be passed to the `onOpen` or `onClose` method respectively.
+
+Example:
+```js
+const myPluginComponent = {
+  template: `
+    <button @click="onClick">
+      Click me
+    </button>
+  `,
+  data() {
+    return { count: 0 };
+  },
+  onOpen(msg) {
+    console.log("open message: ", msg);
+  },
+  methods: {
+    onClick() {
+      this.$open(`count = ${this.count++}`);
+    }
+  }
+};
+```
