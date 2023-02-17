@@ -17,7 +17,7 @@ export default {
   mounted() {
     localStorage.setItem("BIMDataViewer_helpShown", true);
 
-    const bimdataViewer = makeViewer(
+    makeViewer(
       this.config,
       "documentation-bimdata-viewer"
     );

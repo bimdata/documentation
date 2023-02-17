@@ -128,7 +128,7 @@ const vm = bimdataViewer.mount("#app");
 <code-block title="Version 1.x">
 
 ```html
-<script src="https://unpkg.com/@bimdata/viewer@^1.8.1" charset="utf-8"></script>
+<script src="https://cdn.jsdelivr.net/npm/@bimdata/viewer@1.9.3" charset="utf-8"></script>
 ```
 </code-block>
 </code-group>
