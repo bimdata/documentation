@@ -12,15 +12,16 @@ const bimdataViewer = makeBIMDataViewer({
 
 The returned object of the `makeBIMDataViewer` function have the following interface:
 
-| Property                                                                           | Description                                                                  |
-| :--------------------------------------------------------------------------------- | :--------------------------------------------------------------------------- |
-| `mount(containerElementOrSelector: HTMLElement | string, layout?: Object): Object` | Mount the viewer on the corresponding DOM element with the specified layout. |
-| `setLocale(locale: string): void`                                                  | Set the locale of the viewer. Available locales are `en` or `fr`.            |
-| `registerPlugin(plugin: Object, cfg: Object): void`                                | Register a plugin.                                                           |
-| `registerWindow(window: Object): void`                                             | Register a window                                                            |
-| `unregisterWindow(windowName: string): void`                                       | Unregister the corresponding window.                                         |
-| `setAccessToken(accessToken: string): void`                                        | Set the access token.                                                        |
-| `async loadModels(modelIds: number[]): Object[]`                                   | Load the corresponding models.                                               |
+| Property                                                                           | Description                                                                                                                                                                         |
+| :--------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `mount(containerElementOrSelector: HTMLElement | string, layout?: Object): Object` | Mount the viewer on the corresponding DOM element with the specified layout.                                                                                                        |
+| `setLocale(locale: string): void`                                                  | Set the locale of the viewer. Available locales are `en` or `fr`.                                                                                                                   |
+| `registerPlugin(plugin: Object, cfg: Object): void`                                | Register a plugin.                                                                                                                                                                  |
+| `registerWindow(window: Object): void`                                             | Register a window                                                                                                                                                                   |
+| `unregisterWindow(windowName: string): void`                                       | Unregister the corresponding window.                                                                                                                                                |
+| `setAccessToken(accessToken: string): void`                                        | Set the access token.                                                                                                                                                               |
+| `async loadModels(modelIds: number[]): Object[]`                                   | Load the corresponding models.                                                                                                                                                      |
+| `destroy(): void`                                                                  | Destroy the viewer. All the plugins will be destroyed and the DOM won't react anymore. If you remove the viewer's div without calling this method, there will be a huge memory leak |
 
 It takes a configuration `object` that accept the following properties :
 
