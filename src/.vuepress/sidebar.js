@@ -72,7 +72,6 @@ function getViewerSidebar() {
         "reference/global_components",
       ],
     },
-    "migration_guide",
     "release_notes",
   ];
 }
