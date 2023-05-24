@@ -17,20 +17,26 @@ The `$viewer` object can be accessed using `this` on a component, or as the firs
 │ │ getRawElements(ifcId): RawElements;
 │
 └─── <b>localContext</b>
-│ │ getPlugin(pluginName): Plugin;
+│ │ getPlugin(pluginName): Plugin; // DEPRECATED
+│ │ plugins: Map&lt;string, Plugin&gt;;
 │ │ loading: boolean;
-│ │ incrementSpinnerProcesses(): void;
-│ │ decrementSpinnerProcesses(): void;
+│ │ incrementSpinnerProcesses(): void; // DEPRECATED
+│ │ loadingProcessStart(): void;
+│ │ decrementSpinnerProcesses(): void; // DEPRECATED
+│ │ loadingProcessEnd(): void;
 │ │ registerShortcut(shortcut): void;
 │ │ unregisterShortcut(shortcutName): void;
 │ │ hub: Hub;
 │ │ modals: ModalManager;
 │
 └─── <b>globalContext</b>
-│ │ getPlugins(pluginName): Plugin[];
+│ │ getPlugins(pluginName): Plugin[]; // DEPRECATED
+│ │ plugins: Map&lt;string, Plugin[]&gt;;
 │ │ loading: boolean;
-│ │ incrementSpinnerProcesses(): void;
-│ │ decrementSpinnerProcesses(): void;
+│ │ incrementSpinnerProcesses(): void; // DEPRECATED
+│ │ loadingProcessStart(): void;
+│ │ decrementSpinnerProcesses(): void; // DEPRECATED
+│ │ loadingProcessEnd(): void;
 │ │ registerShortcut(shortcut): void;
 │ │ unregisterShortcut(shortcutName): void;
 │ │ hub: Hub;
@@ -79,7 +85,7 @@ The result is an object where keys are uuids and value are the element data form
 
 The `globalContext` and the `localContext` objects are related to [windows](/viewer/customize_the_ui.html#window) and the viewer UI in general. The `globalContext` is the whole UI while the `localContext` is the [window](/viewer/customize_the_ui.html#window) where the code is executed.
 
-These two objects share a similar API except for the `getPlugin(pluginName)` and `getPlugins(pluginName)` methods. A plugin must have a unique name in a window, but many plugins with the same name can be instanciated in the viewer if they belong to different windows. That is why `globalContext.getPlugins(pluginName)` returns an Array of plugins, while `localContext.getPlugin(pluginName)` returns a simple plugin (if it exists).
+A plugin must have a unique name in a window, but many plugins with the same name can be instanciated in the viewer if they belong to different windows. That is why `globalContext.plugins.get(pluginName)` returns an Array of plugins, while `localContext.plugins.get(pluginName)` returns a simple plugin.
 
 ### Spinners
 
@@ -87,10 +93,10 @@ You can start a spinner to indicate to the user that he needs to wait. You can c
 
 ```javascript
 // A spinner on the whole UI
-this.$viewer.localContext.incrementSpinnerProcesses();
+this.$viewer.localContext.loadingProcessStart();
 
 // A spinner on the current window
-this.$viewer.globalContext.incrementSpinnerProcesses();
+this.$viewer.globalContext.loadingProcessStart();
 ```
 
 <div style="display: flex; justify-content: space-around;">
@@ -105,8 +111,8 @@ this.$viewer.globalContext.incrementSpinnerProcesses();
 To stop spinners:
 
 ```javascript
-this.$viewer.localContext.decrementSpinnerProcesses();
-this.$viewer.globalContext.decrementSpinnerProcesses();
+this.$viewer.localContext.loadingProcessEnd();
+this.$viewer.globalContext.loadingProcessEnd();
 ```
 
 The `loading` property on the `globalContext` and the `localContext` objects indicates if a spinner is running on the related context.
