@@ -16,12 +16,12 @@ BIMData API is composed of five APIs:
 ### Model API
 
 - Upload Models
-  - IFC
-  - DWF
+  - IFC (2x3 to 4.3)
+  - DWG
   - DXF
   - PDF
-  - Point Clouds
-  - plan images
+  - Point Clouds (las, laz, ply, xyz, e57)
+  - plan images (jpg, png)
 - Retrieve and update Model’s data in real-time
 - 3D models throught [glTF format](https://www.khronos.org/gltf/)
 
