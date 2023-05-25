@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { BIMDataIcon } from "@bimdata/design-system"
+import BIMDataIcon from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataIcon.js";
 
 export default {
   components: {
