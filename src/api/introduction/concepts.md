@@ -1,8 +1,10 @@
 # Concepts
 
-## Cloud
+## Cloud (or Space)
 
 A cloud is a set of projects sharing the same configuration. Each projects contains your models, your Document Management System and BCFs. Cloud administrators are also projects admin by default, they can see every [user](#user) in their cloud and change everyone’s roles. Cloud [users](#user) can’t see cloud collaborators. This means that a contractor on a project can’t see every collaborators of the company.
+
+On BIMData Platform, cloud have been renamed "Space". For compatibility reasons, we did not rename every route on the API. Cloud and Spaces are two names for the same entity.
 
 ![BIMData Connect](/assets/img/api/API-cloud.png)
 

@@ -1,4 +1,7 @@
-# Share data
+# Access Data between API and Platform
+
+Your application don't automatically have access to your user's data.
+If you want to see API data on the BIMData Platform, you must invite yourself on a cloud created with your app.
 
 ## How can I share data between my app and BIMData Platform?
 You can invite your user in the Cloud you created with your app:
