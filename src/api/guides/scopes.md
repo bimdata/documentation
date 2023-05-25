@@ -8,9 +8,9 @@ A scope is a limitation to the data on a given resource. A scope is described by
 
 ::: tip Note
 
-About scopes and oAuth 2.0
+About scopes
 
-OAuth 2.0 scopes provide a way to limit the amount of access that is granted to an access token. For example, an access token issued to a client app may be granted READ and WRITE access to protected resources, or just READ access. You can implement your APIs to enforce any scope or combination of scopes you wish. So, if a client receives a token that has READ scope, and it tries to call an API endpoint that requires WRITE access, the call will fail.
+Scopes provide a way to limit the amount of access that is granted to an access token. For example, an access token issued to a client app may be granted READ and WRITE access to protected resources, or just READ access. You can implement your APIs to enforce any scope or combination of scopes you wish. So, if a client receives a token that has READ scope, and it tries to call an API endpoint that requires WRITE access, the call will fail.
 
 source : [https://docs.apigee.com/api-platform/security/oauth/working-scopes](https://docs.apigee.com/api-platform/security/oauth/working-scopes)
 :::
@@ -25,26 +25,19 @@ The limitations are:
 
 ## List of scopes available
 
-- bcf:read, bcf:write
-- check:read, check:write
-- cloud:read, cloud:manage
-- document:read, document:write
-- model:read, model:write, model:token_manage
-- org:manage
-- user:read, user:write
-- webhook:manage
+- `bcf:read`: Can do GET requests on BCF routes
+- `bcf:write`: Can do POST, PATCH, DELETE requests on BCF routes
+- `cloud:read`: Can list cloud users
+- `cloud:manage`: Can do POST, PATCH, DELETE on cloud routes and change users permissions
+- `document:read`: Can do GET requests on DMS routes
+- `document:write`: Can do POST, PATCH, DELETE requests on DMS routes
+- `model:read`: Can do GET requests on model routes
+- `model:write`: Can do POST, PATCH, DELETE requests on model routes
+- `org:manage`: Can invite users, manage DMS tags, users groups, create projects and manage [ProjectAccessTokens](/api/guides/authentication.html#i-want-to-run-bimdata-viewer-on-my-website)
+- `user:read`: Can go GET requests on current user (works only with user impersonation)
+- `user:write`: Can accept invitation requets (works only with user impersonation)
+- `webhook:manage`: Can call webhook routes
 
-| Resource           | Read | Write | Manage |
-| ------------------ | :--: | ----: | -----: |
-| bcf                |  x   |     x |        |
-| check              |  x   |     x |        |
-| cloud              |  x   |       |      x |
-| document           |  x   |     x |        |
-| model              |  x   |     x |        |
-| org                |      |       |      x |
-| user               |  x   |     x |        |
-| webhook            |      |       |      x |
-| Model access token |      |       |      x |
 
 ## How to set the scopes of your application
 

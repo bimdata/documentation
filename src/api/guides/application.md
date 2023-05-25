@@ -1,37 +1,5 @@
 # Create your application
 
-## Which app will you create?
-
-The implementation of your app depends on your needs. You can create several types of applications.
-
-### Backend-less application
-
-Choose this way if you are developing a backend-less application.
-
-These applications:
-- Could share data with other applications like BIMData Platform or any other third-party app.
-- Must use BIMData Connect users credentials system.
-- Are usually mobile apps or small Javascript apps.
-
-### Application with a backend
-
-#### With BIMData Connect Users
-
-Choose this way if your app has a backend (PHP, NodeJS, Python, .NET, etc.).
-
-These applications:
-- Could share data with other applications like BIMData Platform or any other third-party app.
-- must use BIMData Connect users credentials system.
-
-#### Without Users
-
-Chose this way if you don’t want to use BIMData Connect users (You may want to create an IFC Access Token).
-
-These applications:
-- Have to manage their own users and authorizations.
-- can’t share data with other BIMData applications.
-- Have an easier setup.
-
 ## How-To create your application on BIMData Connect
 
 - Create an account on the [https://connect.bimdata.io](https://connect.bimdata.io) website.
