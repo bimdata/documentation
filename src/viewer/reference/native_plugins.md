@@ -1,7 +1,7 @@
 # Native plugins
 
 The BIMDataViewer is shipped with native plugins that allow basic interaction with ifcs/models.
-To enabled/disabled/configure them, use their name with the corresponding configuration on the `plugins` section
+To enable/disable/configure them, use their name with the corresponding configuration on the `plugins` section
 of the `makeBIMDataViewer` configuration object.
 
 Example:
@@ -34,13 +34,25 @@ $viewer.globalContext
 
 - name: bcf
 
-The BCF plugin allows to interact with the BIMData BCF API by opening the BCF Manager plugin.
+The BCF plugin allows to interact with the BIMData BCF API by opening the [BCF Manager plugin](#bcf-manager).
+This is a button plugin that can be added to any **viewer** window (`2d`, `3d`, `dwg`, `plan`).
+
+::: tip Note
+In order to use BCF features you have to enable the **BCF Manager plugin** (enabled by default).<br/>
+The **BCF** plugin will be useless if BCF Manager is not enabled.
+:::
 
 ### Configuration
 
-| Name        | Type     | Description                              | Default | Version |
-| :---------- | :------- | :--------------------------------------- | :------ | :------ |
-| `topicGuid` | `string` | **guid** of the topic to open on startup |         | 2.0.0   |
+| Name        | Type     | Description |
+| :---------- | :------- | :---------- |
+| `topicGuid` | `string` | **guid** of the topic that will be opened automatically when the plugin is mounted |
+
+## BCF Manager
+
+- name: bcfManager
+
+The BCF Manager plugin is a window plugin that provides a complete UI to view/create/update/delete BCF topics in the current project.
 
 ## Fullscreen
 
