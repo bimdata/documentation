@@ -30,16 +30,6 @@
             </RouterLink>
           </template>
         </BIMDataCard>
-        <!-- <BIMDataCard>
-          <template #content>
-            <img :src="$withBase('/assets/img/bimdata_icon-platform.svg')" alt="" />
-            <h3 class="color-primary">Platform</h3>
-            <p>BIMData's API provides you tools to upload IFCs, manage your files and retreive your model data.</p>
-            <RouterLink to="/platform/">
-              <BIMDataButton width="165px" color="primary" fill radius>Platform</BIMDataButton>
-            </RouterLink>
-          </template>
-        </BIMDataCard> -->
         <BIMDataCard>
           <template #content>
             <img :src="$withBase('/assets/img/bimdata_icon-on_premises.svg')" alt="" />
