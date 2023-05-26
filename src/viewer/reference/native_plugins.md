@@ -1,6 +1,8 @@
 # Native plugins
 
-The BIMDataViewer is shipped with native plugins that allow basic interaction with ifcs/models. To enabled/disabled/configure them, use their name with the corresponding configuration on the `plugins` section of the `makeBIMDataViewer` configuration object.
+The BIMDataViewer is shipped with native plugins that allow basic interaction with ifcs/models.
+To enable/disable/configure them, use their name with the corresponding configuration on the `plugins` section
+of the `makeBIMDataViewer` configuration object.
 
 Example:
 
@@ -32,19 +34,25 @@ $viewer.globalContext
 
 - name: bcf
 
-The BCF plugin allows to interact with the BIMData BCF API by default. It is possible to change the target API using its configuration.
+The BCF plugin allows to interact with the BIMData BCF API by opening the [BCF Manager plugin](#bcf-manager).
+This is a button plugin that can be added to any **viewer** window (`2d`, `3d`, `dwg`, `plan`).
+
+::: tip Note
+In order to use BCF features you have to enable the **BCF Manager plugin** (enabled by default).<br/>
+The **BCF** plugin will be useless if BCF Manager is not enabled.
+:::
 
 ### Configuration
 
-| Name                 | Type             | Description                                                                                                                                                                                                          | Default             | Version |
-| :------------------- | :--------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------ | :------ |
-| `headers`            | `object`         | Additionnal headers to send to the BCF API                                                                                                                                                                           | {}                  | 1.2.0   |
-| `apiUrl`             | `string`         | The BCF API URL.                                                                                                                                                                                                     | BIMData API URL     | 1.2.0   |
-| `projectId`          | `object`         | Override the project ID                                                                                                                                                                                              | viewer's project id | 1.2.0   |
-| `fetchUsers`         | `async function` | Define another method to fetch user list (used in `assigned_to` field)                                                                                                                                               | null                | 1.3.0   |
-| `mergeUsers`         | `boolean`        | Set if users fetched with fetchUsers must be merged with users on BIMData API or should override the list                                                                                                            | true                | 1.3.0   |
-| `fetchCurrentUser`   | `async function` | Change the method to retrive BCF current-user. Defaults to BCF standard method. Must be return the same object than standard current-user route. Emitted BCF Topics and Comments will use the id of the current user | null                | 1.4.0   |
-| `showAllAnnotations` | `boolean`        | If true, all annotations for all BCF in list will be shown                                                                                                                                                           | false               | 1.5.0   |
+| Name        | Type     | Description |
+| :---------- | :------- | :---------- |
+| `topicGuid` | `string` | **guid** of the topic that will be opened automatically when the plugin is mounted |
+
+## BCF Manager
+
+- name: bcfManager
+
+The BCF Manager plugin is a window plugin that provides a complete UI to view/create/update/delete BCF topics in the current project.
 
 ## Fullscreen
 
@@ -56,7 +64,8 @@ A plugin as button that allows to request fullscreen on the window it lays in.
 
 - name: projection
 
-A plugin as button that sends projection type information on the `localContext.hub` when user change it through the UI. It **requires** the `viewer3d` plugin.
+A plugin as button that sends projection type information on the `localContext.hub` when user change it through the UI.
+It **requires** the `viewer3d` plugin.
 
 ## Search
 
@@ -68,7 +77,8 @@ A plugin as button that allows to search object by uuids or names.
 
 - name: section
 
-A plugin as button that allows to create section planes in the `viewer3d` plugin. As mentionned, it **requires** the `viewer3d` plugin to work properly.
+A plugin as button that allows to create section planes in the `viewer3d` plugin.
+As mentionned, it **requires** the `viewer3d` plugin to work properly.
 
 ## Window selector
 
@@ -98,7 +108,8 @@ The `structure` plugin displays the tree structures of the IFCs.
 
 - name: structure-properties
 
-This plugin is actually two plugins merged together. The `structure` plugin that displays the tree structures of the IFCs. The `properties` plugin that displays the properties of the selected objects.
+This plugin is actually two plugins merged together. The `structure` plugin that displays the tree structures of the IFCs.
+The `properties` plugin that displays the properties of the selected objects.
 
 ### Configuration
 
@@ -132,15 +143,16 @@ This plugin display the 3D representation of the IFC.
 
 ### Events
 
-| Name                | Payload                                                                                                                            | Description                                   | Emitted on                         |
-| :------------------ | :--------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------- | :--------------------------------- |
-| `3d-model-loading`  | `{ ifc, plugin }`                                                                                                                  | Emitted when a 3D model is loading.           | `localContext` and `globalContext` |
-| `3d-model-loaded`   | `{ ifc, model, plugin }`                                                                                                           | Emitted when a 3D model is loaded.            | `localContext` and `globalContext` |
-| `annotation-create` | [`{ id, annotation }`](https://xeokit.github.io/xeokit-sdk/docs/class/src/plugins/AnnotationsPlugin/Annotation.js~Annotation.html) | Emitted when an annotation marker is created. | `localContext` and `globalContext` |
-| `annotation-click`  | [`{ id, annotation }`](https://xeokit.github.io/xeokit-sdk/docs/class/src/plugins/AnnotationsPlugin/Annotation.js~Annotation.html) | Emitted when an annotation marker is clicked. | `localContext` and `globalContext` |
-| `annotation-delete` | `{ id }`                                                                                                                           | Emitted when an annotation marker is deleted. | `localContext` and `globalContext` |
-| `annotation-clear`  | No payload                                                                                                                         | Emitted when annotation marker are cleared.   | `localContext` and `globalContext` |
-| `3d-camera-update`  | `{eye: [number,number,number], look: [number,number,number], up: [number,number,number]}`                                          | Emitted when the camera is updated            | `globalContext`                    |
+| Name                  | Payload | Description | Emitted on                         |
+| :-------------------- | :------ | :---------- | :--------------------------------- |
+| `3d-model-loading`    | `{ ifc, plugin }` | Emitted when a 3D model is loading. | `localContext` and `globalContext` |
+| `3d-model-loaded`     | `{ model, plugin }` | Emitted when a 3D model is loaded. | `localContext` and `globalContext` |
+| `3d-model-unloaded`   | `{ model, plugin }` | Emitted when a 3D model is unloaded. | `localContext` and `globalContext` |
+| `annotation-create`   | [`{ id, annotation }`](https://xeokit.github.io/xeokit-sdk/docs/class/src/plugins/AnnotationsPlugin/Annotation.js~Annotation.html) | Emitted when an annotation marker is created. | `localContext` and `globalContext` |
+| `annotation-click`    | [`{ id, annotation }`](https://xeokit.github.io/xeokit-sdk/docs/class/src/plugins/AnnotationsPlugin/Annotation.js~Annotation.html) | Emitted when an annotation marker is clicked. | `localContext` and `globalContext` |
+| `annotation-delete`   | `{ id }` | Emitted when an annotation marker is deleted. | `localContext` and `globalContext` |
+| `annotation-clear`    | No payload | Emitted when annotation marker are cleared. | `localContext` and `globalContext` |
+| `3d-camera-update`    | `{ eye: number[], look: number[], up: number[] }` | Emitted when the camera is updated | `globalContext` |
 
 ### Instance API
 
@@ -150,18 +162,27 @@ This API is available from this object on the `3d` window:
 const viewer3dPlugin = this.$viewer.localContext.getPlugin("viewer3d");
 ```
 
-| Name                                      | Type      | Description                                                                                                            |
-| :---------------------------------------- | :-------- | :--------------------------------------------------------------------------------------------------------------------- |
-| `selectOnClick`                           | `boolean` | **Default** to `true`. If true, clicking an object select it.                                                          |
-| `highlightOnHover`                        | `boolean` | **Default** to `true`. If true, hovering an object highlight it.                                                       |
-| `getProjection(): string`                 | `method`  | Return current projection                                                                                              |
-| `fitViewObjects([uuids]): void`           | `method`  | Fit the camera view so all specified objects fit in the screen. Apply to all objects if array is empty or undefined.   |
-| `getViewpoint(snapshot=true): object`     | `method`  | Returns the BCF Viewpoint of the current view. If `snapshot` is `false`, it skips the screenshot (better performances) |
-| `getCameraPosition(): object`             | `method`  | Returns camera position of the current view as defined in the BCF standard.                                            |
-| `setCameraPosition(cameraPosition): void` | `method`  | Set camera position as defined in the BCF standard.                                                                    |
-| `isolateObjects(ids, options)`            | `method`  | Objects with ids not included in `ids` are set to `xrayed = true` & `pickable = false`.                                |
-| `isolateObjectsByUuids(uuids, options)`   | `method`  | The same as `isolateObjects` but with `uuids` instead of `ids`.                                                           |
-| `reintegrateObjects()`                    | `method`  | Unisolate objects (opposite action of `isolateObjects`).                                                               |
+| Name | Description |
+| :--- | :---------- |
+| `getLoadedModels(): object[]` | Get the list of models that are currently loaded in this viewer |
+| `loadModels(models: object[]): Promise<void>` | Load the specified models in this viewer |
+| `unloadModels(models: object[]): Promise<void>` | Unload the specified models |
+| `getViewpoint(snapshot: boolean): object` | Returns the BCF Viewpoint of the current view. If `snapshot` is `false` (`true` by default), it skips the screenshot (better performances) |
+| `setViewpoint(viewpoint: object, options: object): void` | Set the camera view according to the given BCF viewpoint |
+| `annotationMode: boolean` | Is annotation mode enabled |
+| `startAnnotationMode(callback: Function): void` | Enable annotation mode |
+| `stopAnnotationMode(): void` | Disable annotation mode |
+| `fitView(uuids: string[]): void` | Fit the camera view so all specified objects fit in the screen. Apply to all objects if array is empty or undefined. |
+| `showUI(): void` | Show all UI elements (plugins, models selector, help, etc...) in the viewer window |
+| `hideUI(options: { exceptions: string[] }): void` | Hide UI elements (plugins, models selector, help, etc...) in the viewer window, except those specified the `exceptions` options |
+| `selectOnClick: boolean` | **Default** to `true`. If true, clicking an object select it. |
+| `highlightOnHover: boolean` | **Default** to `true`. If true, hovering an object highlight it. |
+| `getProjection(): string` | Return current projection |
+| `changeProjection(projection: string): void` | Set current projection |
+| `isolateObjects(ids: string[], options: object): void` | Objects with ids not included in `ids` are set to `xrayed = true` & `pickable = false`. |
+| `isolateObjectsByUuids(uuids: string[], options: object): void` | The same as `isolateObjects` but with `uuids` instead of `ids`. |
+| `reintegrateObjects(): void` | Unisolate objects (opposite action of `isolateObjects`). |
+
 
 ## Window split
 
@@ -177,10 +198,10 @@ This plugin display the 2D representation of the IFC.
 
 ### Events
 
-| Name                | Payload           | Description                          | Emitted on                         |
-| :------------------ | :---------------- | :----------------------------------- | :--------------------------------- |
-| `2d-model-loaded`   | `{ ifc, plugin }` | Emitted when a 2D model is loaded.   | `localContext` and `globalContext` |
-| `2d-model-unloaded` | `{ ifc, plugin }` | Emitted when a 2D model is unloaded. | `localContext` and `globalContext` |
+| Name                | Payload             | Description                          | Emitted on                         |
+| :------------------ | :------------------ | :----------------------------------- | :--------------------------------- |
+| `2d-model-loaded`   | `{ model, plugin }` | Emitted when a 2D model is loaded.   | `localContext` and `globalContext` |
+| `2d-model-unloaded` | `{ model, plugin }` | Emitted when a 2D model is unloaded. | `localContext` and `globalContext` |
 
 ### Instance API
 
@@ -190,30 +211,41 @@ This API is available from this object on the `2d` window:
 const viewer2dPlugin = this.$viewer.localContext.getPlugin("viewer2d");
 ```
 
-| Name                                                                                                                   | Description                                                                                                                                                     |
-| :--------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `selectOnClick: boolean`                                                                                               | **Default** to `true`. If true, clicking an object select it.                                                                                                   |
-| `highlightOnHover: boolean`                                                                                            | **Default** to `true`. If true, hovering an object highlight it.                                                                                                |
-| `viewer: E2D.Viewer`                                                                                                   | The [engine 2D viewer](https://2d-engine.bimdata.io).                                                                                                           |
-| `spaceNamesDisplayed: boolean`                                                                                         | **Default** to `true`. If `true`, the space names are displayed.                                                                                                |
-| `doorsDisplayed: boolean`                                                                                              | **Default** to `false`. If `true`, the doors are displayed.                                                                                                     |
-| `compassDisplayed: boolean`                                                                                            | **Default** to `true`. If `true`, the compass is displayed.                                                                                                     |
-| `camera3DSynchronization: boolean`                                                                                     | **Default** to `false`. If `true`, the camera follows the rotation of a 3D camera and an icon representing the 3D camera position is displayed.                 |
-| `hideAll(): void`                                                                                                      | Hide all objects except the camera object displayed if `camera3DSynchronization` is on.                                                                         |
-| `syncRotationFrom3DCamera(eye: [number,number,number], look: [number,number,number],up: [number,number,number]): void` | **Default** arguments are `eye = [0, 0, 0], look = [0, 0, 0],up = [0, 1, 0]`. Synchronize the roation between the given 3D camera parameters and the 2D camera. |
+| Name | Description |
+| :--- | :---------- |
+| `viewer: E2D.Viewer` | The [engine 2D viewer](https://2d-engine.bimdata.io). |
+| `getLoadedModels(): object[]` | Get the list of models that are currently loaded in this viewer |
+| `loadModels(models: object[]): Promise<void>` | Load the specified models in this viewer. **Note:** currently only one 2D model can be loaded at a time, thus only the first model in the list will be loaded. |
+| `unloadModels(models: object[]): Promise<void>` | Unload the specified models |
+| `getViewpoint(): Promise<object>` | Returns a promise that resolve to a BCF Viewpoint of the current view |
+| `setViewpoint(viewpoint: object): void` | Set the camera view according to the given BCF viewpoint |
+| `annotationMode: boolean` | Is annotation mode enabled |
+| `startAnnotationMode(callback: Function): void` | Enable annotation mode |
+| `stopAnnotationMode(): void` | Disable annotation mode |
+| `fitView(objects: object[]): void` | Fit the camera view so all specified objects fit in the screen. Apply to all objects if array is empty or undefined. |
+| `showUI(): void` | Show all UI elements (plugins, models selector, help, etc...) in the viewer window |
+| `hideUI(options: { exceptions: string[] }): void` | Hide UI elements (plugins, models selector, help, etc...) in the viewer window, except those specified the `exceptions` options |
+| `selectOnClick: boolean` | **Default** to `true`. If true, clicking an object select it. |
+| `highlightOnHover: boolean` | **Default** to `true`. If true, hovering an object highlight it. |
+| `spaceNamesDisplayed: boolean` | **Default** to `true`. If `true`, the space names are displayed. |
+| `doorsDisplayed: boolean` | **Default** to `false`. If `true`, the doors are displayed. |
+| `compassDisplayed: boolean` | **Default** to `true`. If `true`, the compass is displayed. |
+| `camera3DSynchronization: boolean` | **Default** to `false`. If `true`, the camera follows the rotation of a 3D camera and an icon representing the 3D camera position is displayed. |
+| `syncRotationFrom3DCamera(eye: number[], look: number[], up: number[]): void` | **Default** arguments are `eye = [0, 0, 0], look = [0, 0, 0],up = [0, 1, 0]`. Synchronize the roation between the given 3D camera parameters and the 2D camera. |
+| `selectedStorey: object` | Currently selected (displayed) storey |
 
 ## Viewer DWG
 
 - name: dwg
 
-This plugin display the DWG representation of the IFC.
+This plugin display DWG models.
 
 ### Events
 
-| Name                 | Payload           | Description                           | Emitted on                         |
-| :------------------- | :---------------- | :------------------------------------ | :--------------------------------- |
-| `dwg-model-loaded`   | `{ dwg, plugin }` | Emitted when a DWG model is loaded.   | `localContext` and `globalContext` |
-| `dwg-model-unloaded` | `{ dwg, plugin }` | Emitted when a DWG model is unloaded. | `localContext` and `globalContext` |
+| Name                 | Payload             | Description                           | Emitted on                         |
+| :------------------- | :------------------ | :------------------------------------ | :--------------------------------- |
+| `dwg-model-loaded`   | `{ model, plugin }` | Emitted when a DWG model is loaded.   | `localContext` and `globalContext` |
+| `dwg-model-unloaded` | `{ model, plugin }` | Emitted when a DWG model is unloaded. | `localContext` and `globalContext` |
 
 ### Instance API
 
@@ -225,48 +257,46 @@ const viewerDWGPlugin = this.$viewer.localContext.getPlugin("dwg");
 
 | Name                        | Description                                                      |
 | :-------------------------- | :--------------------------------------------------------------- |
+| `viewer: E2D.Viewer`        | The [engine 2D viewer](https://2d-engine.bimdata.io).            |
+| `getLoadedModels(): object[]` | Get the list of models that are currently loaded in this viewer |
+| `loadModels(models: object[]): Promise<void>` | Load the specified models in this viewer. **Note:** currently only one DWG model can be loaded at a time, thus only the first model in the list will be loaded. |
+| `unloadModels(models: object[]): Promise<void>` | Unload the specified models |
+| `getViewpoint(): Promise<object>` | Returns a promise that resolve to a BCF Viewpoint of the current view |
+| `setViewpoint(viewpoint: object): void` | Set the camera view according to the given BCF viewpoint |
+| `annotationMode: boolean` | Is annotation mode enabled |
+| `startAnnotationMode(callback: Function): void` | Enable annotation mode |
+| `stopAnnotationMode(): void` | Disable annotation mode |
+| `fitView(objects: object[]): void` | Fit the camera view so all specified objects fit in the screen. Apply to all objects if array is empty or undefined. |
+| `showUI(): void` | Show all UI elements (plugins, models selector, help, etc...) in the viewer window |
+| `hideUI(options: { exceptions: string[] }): void` | Hide UI elements (plugins, models selector, help, etc...) in the viewer window, except those specified the `exceptions` options |
 | `selectOnClick: boolean`    | **Default** to `true`. If true, clicking an object select it.    |
 | `highlightOnHover: boolean` | **Default** to `true`. If true, hovering an object highlight it. |
-| `viewer: E2D.Viewer`        | The [engine 2D viewer](https://2d-engine.bimdata.io).            |
 | `hideAll(): void`           | Hide all objects.                                                |
 
 ## Viewer DXF
 
 - name: dxf
 
-This plugin display the DXF representation of the IFC.
+This plugin display DXF models.
 
-### Events
-
-| Name                 | Payload           | Description                           | Emitted on                         |
-| :------------------- | :---------------- | :------------------------------------ | :--------------------------------- |
-| `dxf-model-loaded`   | `{ dxf, plugin }` | Emitted when a DXF model is loaded.   | `localContext` and `globalContext` |
-| `dxf-model-unloaded` | `{ dxf, plugin }` | Emitted when a DXF model is unloaded. | `localContext` and `globalContext` |
-
-### Instance API
-
-This API is available from this object on the `dxf` window:
-
-```javascript
-const viewerDXFPlugin = this.$viewer.localContext.getPlugin("dxf");
-```
-
-| Name                        | Description                                                      |
-| :-------------------------- | :--------------------------------------------------------------- |
-| `selectOnClick: boolean`    | **Default** to `true`. If true, clicking an object select it.    |
-| `highlightOnHover: boolean` | **Default** to `true`. If true, hovering an object highlight it. |
-| `viewer: E2D.Viewer`        | The [engine 2D viewer](https://2d-engine.bimdata.io).            |
-| `hideAll(): void`           | Hide all objects.                                                |
+**Events** and **Instance API** are the same as the [Viewer DWG](#viewer-dwg).
 
 ## Viewer Plan
 
 - name: plan
 
-This plugin displays bitmap plans.
+This plugin displays bitmap plans (PDF, PNG, JPG, METABUILDING models).
+
+### Events
+
+| Name                 | Payload             | Description                            | Emitted on                         |
+| :------------------- | :------------------ | :------------------------------------- | :--------------------------------- |
+| `dwg-model-loaded`   | `{ model, plugin }` | Emitted when a plan model is loaded.   | `localContext` and `globalContext` |
+| `dwg-model-unloaded` | `{ model, plugin }` | Emitted when a plan model is unloaded. | `localContext` and `globalContext` |
 
 ### Instance API
 
-This API is available from this object on the `dwg` window:
+This API is available from this object on the `plan` window:
 
 ```javascript
 const viewerPlanPlugin = this.$viewer.localContext.getPlugin("plan");
@@ -275,6 +305,27 @@ const viewerPlanPlugin = this.$viewer.localContext.getPlugin("plan");
 | Name                 | Description                                           |
 | :------------------- | :---------------------------------------------------- |
 | `viewer: E2D.Viewer` | The [engine 2D viewer](https://2d-engine.bimdata.io). |
+| `getLoadedModels(): object[]` | Get the list of models that are currently loaded in this viewer |
+| `loadModels(models: object[]): Promise<void>` | Load the specified models in this viewer. **Note:** currently only one plan model can be loaded at a time, thus only the first model in the list will be loaded. |
+| `unloadModels(models: object[]): Promise<void>` | Unload the specified models |
+| `getViewpoint(): Promise<object>` | Returns a promise that resolve to a BCF viewpoint of the current view |
+| `setViewpoint(viewpoint: object): Promise<void>` | (*async*) Set the camera view according to the given BCF viewpoint |
+| `annotationMode: boolean` | Is annotation mode enabled |
+| `startAnnotationMode(callback: Function): void` | Enable annotation mode |
+| `stopAnnotationMode(): void` | Disable annotation mode |
+| `fitView({ bitmaps: object[] }): void` | Set the camera view so the given bitmaps fit in the screen. **Note:** currently only the first bitmap of the list will be taken into account. |
+| `showUI(): void` | Show all UI elements (plugins, models selector, help, etc...) in the viewer window |
+| `hideUI(options: { exceptions: string[] }): void` | Hide UI elements (plugins, models selector, help, etc...) in the viewer window, except those specified the `exceptions` options |
+| `selectedStorey: object` | Currently selected (displayed) storey (`null` if not a METABUILDING model) |
+| `bitmaps: object[]` | Array of loaded bitmaps |
+| `pdfPages: object[]` | Array of pages models (for multipage PDF) |
+| `pdfPageIndex: number` | Current PDF page index (for multipage PDF) |
+| `nextPdfPage(): Promise<void>` | (*async*) Switch to the next PDF page (if any) |
+| `prevPdfPage(): Promise<void>` | (*async*) Switch to the previouos PDF page (if any) |
+| `setPdfPage(index: number): Promise<void>` | (*async*) Go to the specified PDF page (if it exist). **Note:** pages are indexed from 0 to n-1. |
+| `exportAsPNG(): Promise<string>` | (*async*) Get a base64 URL of PNG screenshot of the viewer |
+| `exportAsJPG(): Promise<string>` | (*async*) Get a base64 URL of JPG screenshot of the viewer |
+| `exportAsPDF(): Promise<object>` | (*async*) Generate and return a [jsPDF](https://artskydj.github.io/jsPDF/docs/jsPDF.html) document with the viewer content |
 
 ## 2D measurements
 
