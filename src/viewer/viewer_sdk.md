@@ -6,7 +6,7 @@ In this section, you get tutorials and references for installing and using the [
 
 ## Setup
 
-First, you have to clone the sdk repo and install SDK dependecies :
+First, you have to clone the sdk repo and install SDK dependencies :
 
 ```bash
 git clone https://github.com/bimdata/bimdata-viewer-sdk.git
@@ -33,7 +33,7 @@ npm run dev
 
 ### Usage
 
-When going on [http://localhost:8080](http://localhost:8080), a simple interface will parse your projects and models and let you open the one you want.
+When going on [http://localhost:8080](http://localhost:8080), a simple interface will let you open the project and model you want.
 You can directly open one by opening an URL using specific Ids, for example : [http://localhost:8080/viewer?cloudId=391&projectId=634&ifcId=1491](http://localhost:8080/viewer?cloudId=391&projectId=634&ifcId=1491)
 
 ## Create your plugin
@@ -42,7 +42,7 @@ You can directly open one by opening an URL using specific Ids, for example : [h
 npm run init-plugin
 ```
 
-This tool asks you a couple of questions about the plugin you develop and generate from your answers basic files for your plugin.
+This tool asks you a couple of questions about the plugin you develop and generate from your answers boilerplate files for your plugin.
 
 Files are created in the directory `src/plugins/{name_of_your_plugin}`.
 
