@@ -1,19 +1,17 @@
 <template>
   <div class="bimdata-documentation__home">
     <Navbar />
-    <section class="bimdata-documentation__home__header">
+    <section class="bimdata-documentation__home__header m-b-48">
       <h1 class="bimdata-h1">Documentation</h1>
-      <div class="home_illustration flex items-center justify-center">
+      <div class="home_illustration flex items-center justify-center m-b-18">
         <img :src="$withBase('/assets/img/home_illu.svg')" alt="" />
       </div>
       <div class="home_links flex justify-center">
         <BIMDataCard>
           <template #content>
             <img :src="$withBase('/assets/img/bimdata_icon-viewer.svg')" alt="" />
-            <h5 class="bimdata-h5 color-primary">Viewer</h5>
-            <p>
-              BIMData provides you a customizable 3D Viewer, to see and manipulate your models.
-            </p>
+            <h3 class="color-primary">Viewer</h3>
+            <p>BIMData provides you a customizable 3D Viewer, to see and manipulate your models.</p>
             <RouterLink to="/viewer/">
               <BIMDataButton width="165px" color="primary" fill radius>Viewer</BIMDataButton>
             </RouterLink>
@@ -22,7 +20,7 @@
         <BIMDataCard>
           <template #content>
             <img :src="$withBase('/assets/img/bimdata_icon-api.svg')" alt="" />
-            <h5 class="bimdata-h5 color-primary">API</h5>
+            <h3 class="color-primary">API</h3>
             <p>
               BIMData's API provides you tools to upload IFCs, manage your files and retreive your
               model data.
@@ -32,21 +30,14 @@
             </RouterLink>
           </template>
         </BIMDataCard>
-        <!-- <BIMDataCard>
-          <template #content>
-            <img :src="$withBase('/assets/img/bimdata_icon-platform.svg')" alt="" />
-            <h5 class="bimdata-h5 color-primary">Platform</h5>
-            <p>BIMData's API provides you tools to upload IFCs, manage your files and retreive your model data.</p>
-            <RouterLink to="/platform/">
-              <BIMDataButton width="165px" color="primary" fill radius>Platform</BIMDataButton>
-            </RouterLink>
-          </template>
-        </BIMDataCard> -->
         <BIMDataCard>
           <template #content>
             <img :src="$withBase('/assets/img/bimdata_icon-on_premises.svg')" alt="" />
-            <h5 class="bimdata-h5 color-primary">On-Premises</h5>
-            <p>BIMData's On-Premises provides you the possibility to host our solutions on your servers.</p>
+            <h3 class="color-primary">On-Premises</h3>
+            <p>
+              BIMData's On-Premises provides you the possibility to host our solutions on your
+              servers.
+            </p>
             <RouterLink to="/on-premises/getting_started.html">
               <BIMDataButton width="165px" color="primary" fill radius>On-Premises</BIMDataButton>
             </RouterLink>
@@ -54,19 +45,19 @@
         </BIMDataCard>
       </div>
     </section>
-    <section class="bimdata-documentation__home__content">
+    <section class="bimdata-documentation__home__content m-b-48">
       <h2 class="bimdata-h2">How Can We Help?</h2>
-      <p class="bimdata-text">
+      <p class="color-granite">
         Here are a few items we think might help you get started faster with BIMData.io depending on
         your needs.
       </p>
-      <div class="flex justify-center m-t-24">
-        <BIMDataCard class="m-r-24">
+      <div class="flex justify-center m-t-30">
+        <BIMDataCard class="m-r-12" borderRadius="6px">
           <template #content>
             <div class="flex items-center justify-center m-b-24">
               <img :src="$withBase('/assets/img/bimdata_icon-ifc.svg')" alt="" />
             </div>
-            <h4 class="bimdata-h4 color-primary">IFC</h4>
+            <h4 class="color-primary">IFC</h4>
             <p>
               Build BIM tools by freeing yourself from technical complexity to focus on your
               business.
@@ -79,15 +70,13 @@
             </a>
           </template>
         </BIMDataCard>
-        <BIMDataCard class="m-r-24">
+        <BIMDataCard class="m-r-12" borderRadius="6px">
           <template #content>
             <div class="flex items-center justify-center m-b-24">
               <img :src="$withBase('/assets/img/bimdata_icon-bcf.svg')" alt="" />
             </div>
-            <h4 class="bimdata-h4 color-primary">BCF</h4>
-            <p>
-              Access, create, share, export your BCFs with our BCF API.
-            </p>
+            <h4 class="color-primary">BCF</h4>
+            <p>Access, create, share, export your BCFs with our BCF API.</p>
             <a
               href="https://developers-staging.bimdata.io/api/introduction/overview.html#apis"
               target="_blank"
@@ -96,24 +85,24 @@
             </a>
           </template>
         </BIMDataCard>
-        <BIMDataCard class="m-r-24">
+        <BIMDataCard class="m-r-12" borderRadius="6px">
           <template #content>
             <div class="flex items-center justify-center m-b-24">
               <img :src="$withBase('/assets/img/bimdata_icon-open_source.svg')" alt="" />
             </div>
-            <h4 class="bimdata-h4 color-primary">Open source</h4>
+            <h4 class="color-primary">Open source</h4>
             <p>You can install our platform on your own server.</p>
-            <a href="https://github.com/bimdata/platform" target="_blank">
+            <a href="https://github.com/bimdata/platform-next" target="_blank">
               <BIMDataButton width="125px" color="secondary" fill radius>Discover</BIMDataButton>
             </a>
           </template>
         </BIMDataCard>
-        <BIMDataCard>
+        <BIMDataCard class="m-r-12" borderRadius="6px">
           <template #content>
             <div class="flex items-center justify-center m-b-24">
               <img :src="$withBase('/assets/img/bimdata_icon-plugin.svg')" alt="" />
             </div>
-            <h4 class="bimdata-h4 color-primary">Plugin</h4>
+            <h4 class="color-primary">Plugin</h4>
             <p>Develop your own plugins to increase the efficiency of your tools.</p>
             <a
               href="https://developers-staging.bimdata.io/viewer/customize_the_ui.html#plugin"
@@ -123,6 +112,18 @@
             </a>
           </template>
         </BIMDataCard>
+        <BIMDataCard borderRadius="6px">
+          <template #content>
+            <div class="flex items-center justify-center m-b-24">
+              <img :src="$withBase('/assets/img/bimdata_icon-viewer_sdk.svg')" alt="" />
+            </div>
+            <h4 class="color-primary">Viewer SDK</h4>
+            <p>You can develop, test, build, package and share your plugin easily.</p>
+            <RouterLink to="/viewer/viewer_sdk.html">
+              <BIMDataButton width="125px" color="secondary" fill radius>Explore</BIMDataButton>
+            </RouterLink>
+          </template>
+        </BIMDataCard>
       </div>
     </section>
     <section class="bimdata-documentation__home__ds p-y-24">
@@ -130,9 +131,12 @@
         <div class="bimdata-documentation__home__ds__img">
           <img :src="$withBase('/assets/img/bimdata_img-ds.png')" alt="" />
         </div>
-        <div class="bimdata-documentation__home__ds__text">
-          <h2 class="bimdata-h2">Design <span class="color-secondary">System</span></h2>
-          <p class="color-tertiary-darkest">
+        <div class="bimdata-documentation__home__ds__right">
+          <div class="bimdata-documentation__home__ds__right--icon">
+            <img :src="$withBase('/assets/img/design-system_logo.png')" alt="" />
+          </div>
+          <h2 class="bimdata-h2 m-b-12">Design System</h2>
+          <p class="color-granite m-y-12">
             We have developed a Vue.js library that contains a set of components and demos for
             building interactive user interfaces. It is composed of UI patterns and components,
             typography, colours and associated tools, iconography, functional elements/components.
@@ -144,21 +148,21 @@
         </div>
       </div>
     </section>
-    <section class="bimdata-documentation__home__questions">
+    <section class="bimdata-documentation__home__questions p-y-42">
       <h2 class="bimdata-h2">Do you have a question ?</h2>
-      <p class="bimdata-text color-tertiary-darkest">
+      <p class="bimdata-text color-granite">
         We're always here to help. Check out our support, contact our super helpful
         <a href="mailto:support@bimdata.io" class="color-primary">support team</a>.
       </p>
-      <p class="bimdata-text color-tertiary-darkest">
+      <p class="bimdata-text color-granite">
         Your data will be treated in accordance with our
         <a href="https://bimdata.io/en/terms-of-services/" class="color-primary" target="_blank"
           >Privacy Policy</a
         >, which sets out the rights you have in respect of your data.
       </p>
     </section>
-    <section class="bimdata-documentation__home__footer p-y-24">
-      <h2 class="bimdata-h2">Ready <span class="color-secondary">to build ?</span></h2>
+    <section class="bimdata-documentation__home__footer p-y-42">
+      <h2 class="bimdata-h2 m-b-12">Ready to build ?</h2>
       <div class="flex justify-center items-center">
         <a href="https://connect.bimdata.io/" target="_blank">
           <BIMDataButton width="125px" color="secondary" fill radius class="m-r-18"
@@ -176,7 +180,8 @@
 </template>
 
 <script>
-import { BIMDataCard, BIMDataButton } from "@bimdata/design-system";
+import BIMDataButton from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataButton.js";
+import BIMDataCard from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataCard.js";
 
 import Navbar from "@vuepress/theme-default/components/Navbar.vue";
 
@@ -193,12 +198,6 @@ export default {
 @import "../../../node_modules/@bimdata/design-system/dist/css/design-system.css";
 @import "../../../node_modules/@bimdata/design-system/dist/scss/_BIMDataVariables.scss";
 .bimdata-documentation__home {
-  section {
-    margin-bottom: 60px;
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
   /* custom HEADER HOME */
   &__header {
     margin-top: calc(60px + 34px);
@@ -219,7 +218,7 @@ export default {
           align-items: center;
           justify-content: center;
         }
-        h5 {
+        h3 {
           position: relative;
           &::after {
             content: "";
@@ -228,7 +227,7 @@ export default {
             height: 2px;
             bottom: -7px;
             left: calc(50% - (16px / 2));
-            background-color: $color-secondary;
+            background-color: var(--color-secondary);
           }
         }
         p {
@@ -252,41 +251,48 @@ export default {
   &__footer {
     text-align: center;
     h2 {
+      margin: 0 0 12px;
+      padding: 0;
       border: none;
+    }
+    p {
+      margin: 0;
+      line-height: 1.5;
     }
   }
   /* custom CONTENT HOME */
   &__content {
     .bimdata-card {
       padding: 16px;
-      width: 274px;
+      width: 204px;
+      border: 1px solid var(--color-silver-light);
+      box-shadow: none;
+      transition: all ease 0.2s;
       .flex {
-        height: 77px;
-      }
-      h4 {
-        margin: 0;
-        position: relative;
-        &::before {
-          content: "";
-          position: absolute;
-          width: 12px;
-          height: 1px;
-          top: -9px;
-          left: calc(50% - (12px / 2));
-          background-color: $color-secondary;
+        height: 47px;
+        img {
+          height: 40px;
         }
       }
+      h4 {
+        margin-bottom: 12px;
+      }
       p {
-        min-height: 70px;
+        margin-bottom: 12px;
+        min-height: 85px;
       }
       .bimdata-btn {
         margin: auto;
+      }
+      &:hover {
+        box-shadow: var(--box-shadow);
+        transition: all ease 0.2s;
       }
     }
   }
   /* custom DESIGN SYSTEM SECTION */
   &__ds {
-    background-color: $color-tertiary-lightest;
+    background-color: #f0f5ff;
     .flex {
       margin: auto;
       width: 1200px;
@@ -296,27 +302,35 @@ export default {
         width: 436px;
       }
     }
-    &__text {
+    &__right {
       margin-left: 62px;
       h2 {
+        padding: 0;
         border: none;
         position: relative;
-        &::before {
-          content: "";
-          position: absolute;
-          width: 46px;
-          height: 5px;
-          left: 0;
-          top: -32px;
-          background-color: $color-secondary;
+      }
+      &--icon {
+        background: white;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+          height: 32px;
         }
       }
     }
   }
+  &__questions {
+    margin: 0;
+    background: #dce7ff;
+  }
   /* custom FOOTER HOME */
   &__footer {
-    background-color: $color-primary;
-    color: $color-white;
+    background-color: var(--color-primary);
+    color: var(--color-white);
   }
 }
 </style>
@@ -329,7 +343,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0px 2px 10px rgba($color-black, 0.1);
+  box-shadow: 0px 2px 10px var(--box-shadow);
   .home-link {
     width: 130px;
     .can-hide {
@@ -349,9 +363,9 @@ export default {
       input {
         width: 217px;
         border: none;
-        color: $color-primary;
+        color: var(--color-primary);
         border-radius: 3px;
-        background-color: $color-tertiary-lightest;
+        background-color: var(--color-silver-light);
       }
     }
     .nav-links {
@@ -366,12 +380,12 @@ export default {
         height: 100%;
         display: flex;
         align-items: center;
-        color: $color-primary;
+        color: var(--color-primary);
         &:hover {
-          border-bottom: 2px solid rgba($color-secondary, 0.3);
+          border-bottom: 2px solid #fdf3d4;
         }
         &.router-link-active {
-          border-bottom: 2px solid $color-secondary;
+          border-bottom: 2px solid var(--color-secondary);
         }
         span {
           display: none;

@@ -59,6 +59,7 @@ function getViewerSidebar() {
         "plugins/i18n",
       ],
     },
+    "viewer_sdk",
     {
       title: "Reference",
       children: [
