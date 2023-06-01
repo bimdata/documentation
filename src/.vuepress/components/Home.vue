@@ -180,8 +180,8 @@
 </template>
 
 <script>
-import BIMDataButton from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataButton.js";
-import BIMDataCard from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataCard.js";
+import { BIMDataButton, BIMDataCard } from "@bimdata/design-system";
+//import BIMDataCard from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataCard.js";
 
 import Navbar from "@vuepress/theme-default/components/Navbar.vue";
 
@@ -227,7 +227,7 @@ export default {
             height: 2px;
             bottom: -7px;
             left: calc(50% - (16px / 2));
-            background-color: var(--color-secondary);
+            background-color: $color-secondary;
           }
         }
         p {
@@ -265,7 +265,7 @@ export default {
     .bimdata-card {
       padding: 16px;
       width: 204px;
-      border: 1px solid var(--color-silver-light);
+      border: 1px solid $color-tertiary-lightest;
       box-shadow: none;
       transition: all ease 0.2s;
       .flex {
@@ -285,7 +285,7 @@ export default {
         margin: auto;
       }
       &:hover {
-        box-shadow: var(--box-shadow);
+        box-shadow: 0px 2px 10px rgba($color-black, 0.1);
         transition: all ease 0.2s;
       }
     }
@@ -329,8 +329,8 @@ export default {
   }
   /* custom FOOTER HOME */
   &__footer {
-    background-color: var(--color-primary);
-    color: var(--color-white);
+    background-color: $color-primary;
+    color: $color-white;
   }
 }
 </style>
@@ -343,7 +343,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0px 2px 10px var(--box-shadow);
+  box-shadow: 0px 2px 10px rgba($color-black, 0.1);
   .home-link {
     width: 130px;
     .can-hide {
@@ -363,9 +363,9 @@ export default {
       input {
         width: 217px;
         border: none;
-        color: var(--color-primary);
+        color: $color-primary;
         border-radius: 3px;
-        background-color: var(--color-silver-light);
+        background-color: $color-tertiary-lightest;
       }
     }
     .nav-links {
@@ -380,12 +380,12 @@ export default {
         height: 100%;
         display: flex;
         align-items: center;
-        color: var(--color-primary);
+        color: $color-primary;
         &:hover {
           border-bottom: 2px solid #fdf3d4;
         }
         &.router-link-active {
-          border-bottom: 2px solid var(--color-secondary);
+          border-bottom: 2px solid $color-secondary;
         }
         span {
           display: none;
