@@ -26,7 +26,7 @@ $viewer.contextMenu;
 | `label: string`     | The text displayed on the menu.                                                                                                   |
 | `picto: string`     | Usually a letter to show the associated shortcut.                                                                                 |
 | `execute()`         | The function to execute when the command is clicked.                                                                              |
-| `predicate()?`      | An optionnal predicate function that is run when the context menu opens. The command is displayed if the function returns `true`. |
+| `predicate()?`      | An optional predicate function that is run when the context menu opens. The command is displayed if the function returns `true`. If the predicate is an `async` function, the command is displayed when the `Promise` returned by the function resolves. |
 | `group?: number`    | The group the command belongs to. **Default** to 0.                                                                               |
 | `position?: number` | The position where to display the command in its group. **Default** to 0.                                                         |
 

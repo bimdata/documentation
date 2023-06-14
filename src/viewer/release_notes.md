@@ -70,6 +70,53 @@ export default defineConfig(() => {
 });
 ```
 
+## v1.10.1
+
+#### Usages
+
+* Add Point Cloud Viewer section plugin
+* Add spinner while loading models on Point Cloud Viewer
+* Add PDF Viewer multipage & export features
+* Add BCF import/export features
+* The viewer embed native Roboto Font
+* New Smartview Plugin
+* Viewer DWG handles hatches / textures
+* Viewer 3D handles duplicated uuids - It is now possible to open two versions of the same model on the same Viewer 3D.
+* New viewer 2D shortcut help modal
+* Add nav-cube to Point Cloud Viewer
+* Rework DWG Layers
+* Show properties for systems and zones
+* Distinguish objects property sets from type property sets in the properties plugin
+
+#### Developers
+
+* Improved annotation api
+* [Add Viewer Plan "pdf-page-changed" event](/viewer/reference/native_plugins.html#viewer-plan)
+* [Add ability to pass params to plugin onOpen/onClose methods](/viewer/plugins/plugin_as_button.html#open-close-parameters)
+* Add viewer common interface
+* [Context menu handles async predicates](/viewer/reference/context_menu.html#command-interface)
+* [New bimdataViewer `destroy` method to propertly clean it](/viewer/reference/makeBIMDataViewer.html#makebimdataviewer)
+* [New `setObjectsOpacity` method on the Viewer3D plugin](/viewer/reference/native_plugins.html#viewer-3d)
+* [Point Cloud Viewer has `xeokitSdk` exposed and its `viewer` property is renamed as `xeokit`](/viewer/reference/native_plugins.html#viewer-point-cloud)
+* [Add Viewer Plan 'plan-model-loaded' and 'plan-model-unloaded' events](/viewer/reference/native_plugins.html#viewer-plan)
+
+#### Bugfixes
+
+* Exported PDF have correct annotation size
+* Viewer DWG correctly handles unvisible objects when a new model is loaded
+* Viewer DWG handles opacity & stroke opacity
+* Selection is deactivated when annotation mode is turned on
+* Fix annotation API transform style - remove the `transform: translate(-50%, -50%)` native style
+* Update some english translations
+* Fix elevation loading on react and angular
+* Fix IFC Export
+* Fix select behaviour on GLTF models
+* Fix structure plugin translation types
+* Fix DWG texts anchors
+* An error when attempting to load an already loaded model
+* Do not clear object selection when opening BCF creation form
+* Handle deprecated BIMDataAPI IfcApi methods properly
+
 ## v1.9.0
 
 #### Usages
