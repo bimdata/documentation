@@ -126,6 +126,26 @@ The `properties` plugin that displays the properties of the selected objects.
 | :-------------------- | :----------------------------------- |
 | `reloadTrees(): void` | Reload the trees of the loaded IFCs. |
 
+## Viewer Point Cloud
+
+- name: pointCloud
+
+This plugin display the 3D point cloud representation of the IFC.
+
+### Instance API
+
+This API is available from this object on the `pointCloud` window:
+
+```javascript
+const pointCloudPlugin = this.$viewer.localContext.getPlugin("pointCloud");
+```
+
+| Name | Description |
+| :--- | :---------- |
+| `xeokit` | [The `xeokitSdk` viewer](https://xeokit.github.io/xeokit-sdk/docs/class/src/viewer/Viewer.js~Viewer.html) |
+| `xeokitSdk` | [The xeokitSdk](https://xeokit.github.io/xeokit-sdk/docs/) |
+
+
 ## Viewer 3D
 
 - name: viewer3d
@@ -164,6 +184,8 @@ const viewer3dPlugin = this.$viewer.localContext.getPlugin("viewer3d");
 
 | Name | Description |
 | :--- | :---------- |
+| `xeokit` | [The `xeokitSdk` viewer](https://xeokit.github.io/xeokit-sdk/docs/class/src/viewer/Viewer.js~Viewer.html) |
+| `xeokitSdk` | [The xeokitSdk](https://xeokit.github.io/xeokit-sdk/docs/) |
 | `getLoadedModels(): object[]` | Get the list of models that are currently loaded in this viewer |
 | `loadModels(models: object[]): Promise<void>` | Load the specified models in this viewer |
 | `unloadModels(models: object[]): Promise<void>` | Unload the specified models |
@@ -182,7 +204,14 @@ const viewer3dPlugin = this.$viewer.localContext.getPlugin("viewer3d");
 | `isolateObjects(ids: string[], options: object): void` | Objects with ids not included in `ids` are set to `xrayed = true` & `pickable = false`. |
 | `isolateObjectsByUuids(uuids: string[], options: object): void` | The same as `isolateObjects` but with `uuids` instead of `ids`. |
 | `reintegrateObjects(): void` | Unisolate objects (opposite action of `isolateObjects`). |
-
+| `setObjectsVisible(ids: string[], visible: boolean)`| Update the `visible` property of the corresponding objects. |
+| `setObjectsSelected(ids: string[], selected: boolean)`| Update the `selected` property of the corresponding objects. |
+| `setObjectsColorized(ids: string[], color: boolean)`| Update the `colorized` property of the corresponding objects. |
+| `setObjectsHighlighted(ids: string[], highlighted: boolean)`| Update the `highlighted` property of the corresponding objects. |
+| `setObjectsPickable(ids: string[], pickable: boolean)`| Update the `pickable` property of the corresponding objects. |
+| `setObjectsXrayed(ids: string[], xrayed: boolean)`| Update the `xrayed` property of the corresponding objects. |
+| `setObjectsOpacity(ids: string[], opacity: boolean)`| Update the `opacity` property of the corresponding objects. |
+| `setObjectsCulled(ids: string[], culled: boolean)`| Update the `culled` property of the corresponding objects. |
 
 ## Window split
 
@@ -291,8 +320,9 @@ This plugin displays bitmap plans (PDF, PNG, JPG, METABUILDING models).
 
 | Name                 | Payload             | Description                            | Emitted on                         |
 | :------------------- | :------------------ | :------------------------------------- | :--------------------------------- |
-| `dwg-model-loaded`   | `{ model, plugin }` | Emitted when a plan model is loaded.   | `localContext` and `globalContext` |
-| `dwg-model-unloaded` | `{ model, plugin }` | Emitted when a plan model is unloaded. | `localContext` and `globalContext` |
+| `plan-model-loaded`   | `{ model, plugin }` | Emitted when a plan model is loaded.   | `localContext` and `globalContext` |
+| `plan-model-unloaded` | `{ model, plugin }` | Emitted when a plan model is unloaded. | `localContext` and `globalContext` |
+| `pdf-page-changed`    | `{ model, page }` | Emitted when a pdf page is changed. | `localContext` only |
 
 ### Instance API
 
