@@ -1,8 +1,12 @@
 # Viewer SDK
 
+
+
 We have pre-configured a **VueJS** environment to develop BIMData Viewer plugins. You can develop, test, build, package and share your plugin easily. 
 
 In this section, you get tutorials and references for installing and using the [BIMData Viewer SDK](https://github.com/bimdata/bimdata-viewer-sdk)
+
+<img src="/assets/img/viewer/sdk-landing.jpg" style="border:1px solid #dfe2e5; border-radius: 20px;">
 
 ## Setup
 

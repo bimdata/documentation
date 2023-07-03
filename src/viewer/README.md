@@ -14,7 +14,7 @@ This is a simple example of the BIMData Viewer in one of its simplest form:
 As mentionned, it can be customized as needed:
 
 ### 3D + 2D + spatial structure:
-![An image](/assets/img/viewer/Viewer-3_windows.png)
+![Image of 3D viewer, 2D viewer and spatial structure side by side](/assets/img/viewer/Viewer-3_windows.png)
 
 ### 2D + spatial structure:
-![An image](/assets/img/viewer/Viewer-2_windows.png)
+![Image of 2D viewer and spatial structure side by side](/assets/img/viewer/Viewer-2_windows.png)
