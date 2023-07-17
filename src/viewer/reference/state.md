@@ -141,6 +141,32 @@ $viewer.state.selectObjects(ids, options); // Selects objects by ids
 $viewer.state.selectObjectsByUuids(uuids, options); // Selects objects by uuids
 ```
 
+## Annotations
+
+The state provide a way to manage a set of annotation objects.
+
+```typescript
+interface Annotation {
+  // Coordinates
+  x: number;
+  y: number; 
+  z: numnber;
+  // Vue component used to render annotation on viewer
+  component: Object;
+  // Optional props to pass to the annotation component
+  props?: Object;
+}
+```
+
+Annotation related fields and methods:
+
+| Name                                    | Description                                                     |
+| :-------------------------------------- | :-------------------------------------------------------------- |
+| `annotations`                           | The list of all annotations (read only)                         |
+| `addAnnotation(annotation, options)`    | Add an annotation to the state                                  |
+| `removeAnnotation(annotation, options)` | Remove the given annotation from state                          |
+| `clearAnnotations()`                    | Remove all annotations from state                               |
+
 ## Hub
 
 `state.hub` allows to listen for [state update events](#events) :
@@ -182,6 +208,10 @@ state.hub.on(
 | `objects-xrayed`        | { objects: Array, options: Object }                  |
 | `objects-unxrayed`      | { objects: Array, options: Object }                  |
 | `objects-colorized`     | { objects: Array, color: HEXColor, options: Object } |
+| **Annotation events**   |                                                      |
+| `annotation-added`      | { annotation: Object, options: Object }              |
+| `annotation-updated`    | { annotation: Object }                               |
+| `annotation-removed`    | { annotation: Object, options: Object }              |
 
 :::tip
 For more information about the state hub interface, see [the hub reference](hubs.html).
