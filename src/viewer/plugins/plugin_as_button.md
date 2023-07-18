@@ -4,7 +4,7 @@ A plugin component will have a special API if it is registered as a [window butt
 
 ## onOpen and onClose
 
-`onOpen` and `onClose` methods prevent user from spam clicking a plugin button. It will not be possible to the user to open or close the plugin if the returned [Promise](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Promise) is not resolved.
+`onOpen` and `onClose` methods prevent user from spam clicking a plugin button. It will not be possible to the user to open or close the plugin if the returned [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) is not resolved.
 
 As their names suggest, `onOpen` is run when the user request the plugin to be opened,
 while `onClose` is run when the user request the plugin to be closed.
@@ -41,7 +41,8 @@ These methods are useful when an action needs to be awaited before the plugin ca
 
 ## $open and $close
 
-A plugin can be opened or closed using the UI (by clicking) but you may want to do it programmatically using javascript. To do so, you can use `$open` or `$close` methods available on `this`.
+A plugin can be opened or closed using the UI (by clicking) but you may want to do it programmatically using javascript.
+To do so, you can use `$open` or `$close` methods available on `this`.
 
 Example: a plugin component opened at startup and that close itself after 2 seconds.
 ```javascript

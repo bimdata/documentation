@@ -12,12 +12,12 @@ You can quickly launch the BIMData Viewer with demo identifications.
   <head>
     <meta charset="utf-8" />
     <title>BIMDataViewer - Quick start</title>
-    <script src="https://cdn.jsdelivr.net/npm/@bimdata/viewer@1.9.3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@bimdata/viewer@1.10.2"></script>
   </head>
 
   <body>
     <div style="height: 100vh;">
-      <div id="app"></div>
+      <div id="viewer"></div>
     </div>
 
     <script>
@@ -30,7 +30,7 @@ You can quickly launch the BIMData Viewer with demo identifications.
         },
       });
 
-      const vm = bimdataViewer.mount("#app");
+      const vm = bimdataViewer.mount("#viewer");
     </script>
   </body>
 </html>
@@ -112,7 +112,10 @@ UI elements like plugins, viewer version and BIMData logo can be configured. To 
 Here is an example to get an empty 3d viewer :
 
 ```javascript
-const viewer = makeBIMDataViewer(
+const viewer = makeBIMDataViewer({
+  api: {
+    // ...
+  },
   ui: {
     version: false,
     bimdataLogo: false,
@@ -133,7 +136,7 @@ const viewer = makeBIMDataViewer(
     "viewer3d-parameters": false,
     "window-split": false,
   }
-);
+});
 ```
 
 The result :

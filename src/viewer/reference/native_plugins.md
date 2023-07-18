@@ -27,7 +27,7 @@ Example:
 ```javascript
 $viewer.globalContext
   .getPlugins("structure-properties")
-  .forEach((plugin) => plugin.reloadTrees());
+  .forEach(plugin => plugin.reloadTrees());
 ```
 
 ## BCF

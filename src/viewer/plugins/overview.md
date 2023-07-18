@@ -1,6 +1,6 @@
 # Overview
 
-The main goal of the BIMData viewer is to display plugins that can interact with the state, the UI or other plugins. It is shipped with native ones like a 3d viewer, a 2d viewer, a spacial structure, a BCF and many others. This native plugins are designed to meet the basic needs of a user that want to interact with his models.
+The main goal of the BIMData viewer is to display plugins that can interact with the state, the UI or other plugins. It is shipped with native ones like a 3d viewer, a 2d viewer, a spacial structure, a BCF manager and many others. These native plugins are designed to meet the basic needs of a user that want to interact with his models.
 
 However, you may want to add your own features to the viewer. To do so, the BIMData viewer provides a rich API through plugins to let you implement your own ideas.
 
@@ -15,33 +15,33 @@ Here is a list of some addition you may want to do:
 
 ## How to develop a plugin
 
-A plugin is mainly either a [Vuejs 2.x component](https://vuejs.org/v2/guide/components.html) or/and a simple function that is run when the viewer is mouted into the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model).
+A plugin is mainly either a [Vue component](https://vuejs.org/guide/essentials/component-basics.html) or/and a simple function that is run when the viewer is mounted into the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model).
 
 ::: tip
-To learn what is a Vuejs 2.x component, [visite the Vuejs documentation](https://vuejs.org/v2/guide/components.html).
+To learn what is a Vue component, [have a look at the Vue documentation](https://vuejs.org/guide/introduction.html).
 :::
 
-Both component and function have access to the [`$viewer`](/viewer/reference/$viewer.html) object. It can be accessed using `this` on a component, or as the first parameter of the startupScript method. This object allows to interact with the viewer core.
+Both component and function have access to the [`$viewer`](/viewer/reference/$viewer.html) object. It can be accessed using `this` on a component, or as the first parameter of the `startupScript` method. This object allows to interact with the viewer core.
 
 ### Plugin as a function
 
-To develop a plugin as a **function**, you must provide a function on the startupScript property of the configuration object of the `registerPlugin` method. The first argument of this function is the [`$viewer`](/viewer/reference/$viewer.html)object.
+To develop a plugin as a **function**, you must provide a function on the `startupScript` property of the configuration object of the `registerPlugin()` method. The first argument of this function is the [`$viewer`](/viewer/reference/$viewer.html) object.
 
 ### Plugin as a component
 
-To develop a plugin as a **component**, you must provide a Vuejs 2.x component on the `component` property of the configuration object of the `registerPlugin` method.
+To develop a plugin as a **component**, you must provide a Vue component on the `component` property of the configuration object of the `registerPlugin()` method.
 
 ::: tip
-Here is some usefull links you should need to develop your own plugin with a component:
+Here are some usefull links you should need to develop your own plugin with a component:
 - [Plugin UI configuration documentation](/viewer/customize_the_ui.html#plugin) to see the UI possibilities.
 - [Plugin as button API](/viewer/plugins/plugin_as_button.html) to bind a behavior on the user interactions.
 :::
 
 ### Function and Component registration example
 
-See below a plugin registered with both a startup script function and a vuejs component that can be displayed on the viewer windows.
+See below a plugin registered with both a startup script function and a Vue component that can be displayed on the viewer windows.
 
-The Vue.js 2.x component:
+The Vue component:
 
 ```javascript
 const myComponent = {
@@ -49,17 +49,19 @@ const myComponent = {
   methods: {
     onClick() {
       const visibleObjects = this.$viewer.state.visibleObjects;
-      console.log("This is the visible objects:", visibleObjects);
+      console.log("These are the visible objects:", visibleObjects);
     },
   },
   template: `
-      <div>
-        <button type="button" @click="onClick">Click to log visible objects.</button>
-      </div>`,
+    <div>
+      <button type="button" @click="onClick">
+        Click to log visible objects.
+      </button>
+    </div>`,
 };
 ```
 
-The startupScript function:
+The *startupScript* function:
 
 ```javascript
 const myFunction = ($viewer) => {
@@ -75,12 +77,13 @@ The registration:
 import makeBIMDataViewer from "@bimdata/viewer";
 
 const bimdataViewer = makeBIMDataViewer({
-  /**/
+  /* ... */
 });
 
 bimdataViewer.registerPlugin({
   name: "myPlugin",
   component: myComponent,
   startupScript: myFunction,
+  addToWindows: ["3d"]
 });
 ```
