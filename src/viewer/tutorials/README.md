@@ -15,7 +15,7 @@ The simplest way is to start with the following code (`index.html`):
   <head>
     <meta charset="utf-8" />
     <title>BIMDataViewer - Tutorials</title>
-    <script src="https://cdn.jsdelivr.net/npm/@bimdata/viewer@1.9.3"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@bimdata/viewer@2.0.0-beta.14"></script>
   </head>
 
   <body>
