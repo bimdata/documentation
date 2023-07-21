@@ -193,3 +193,40 @@ Some default events are sent to the local and global context.
 ## utils
 
 This objects is used to store utilities like the `getRawElements(ifcId)` method.
+
+## Local State
+
+Two models can be loaded independently on different windows (like "2d", "3d" ...). However, using the [global state](/viewer/reference/state.html), it is not possible to know which model is loaded on a specified window. The `localContext` is the concrete API to interact with the abstract window and in addition of the previously mentionned properties, there is other ones that can considered as the properties of a local state.
+
+These local state properties are as follows:
+
+<pre style="color: white;">
+
+──── <b>localContext</b>
+│ │ <b>- Reactive properties that can be used in vue template, watcher, computed...</b>
+│ │ loadedModels: StateModel[];
+│ │ loadedModelIds: number[];
+│ │ loadingModelIds: number[];
+│ │ modelTypes: string[];
+│ │ multiModel: boolean;
+│ │ <b>- Methods to mutate the local state</b>
+│ │ loadModels(ids: number[]): Promise&lt;boolean&gt;;
+│ │ unloadModels(ids: number[]): boolean;
+│ │ toggleModel(id: number): Promise&lt;boolean&gt;;
+
+</pre>
+
+The following example shows how to react on a local state mutation:
+
+```js
+// a custom plugin
+export default {
+  created() {
+    this.$watch(
+      () => this.$viewer.localContext.loadedModelIds,
+      ids => console.log(`These model ids are loaded into the window ${this.$viewer.localContext.window.name}.`);
+    );
+  },
+};
+
+```
