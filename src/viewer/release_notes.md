@@ -2,9 +2,33 @@
 
 ## v2.0.0
 
+### BREAKING-CHANGES
+
+#### Vue 3
+
 Update to [Vue.js framework version 3](https://vuejs.org/).
 This brings some breaking changes in the writting of plugins due to the major version increase.
 Please follow [this guide](https://v3-migration.vuejs.org/) to update your plugins.
+
+#### Import via CDN
+
+The UMD build is no longer available. To use the global `makeBIMDataViewer` function, you need to update the url and add `type="module"` in the script tag.
+
+Before:
+```js
+<script src="https://cdn.jsdelivr.net/npm/@bimdata/viewer@1.10.0/dist/bimdata-viewer.min.js"></script>
+<script>
+    const bimdataViewer = makeBIMDataViewer({ ... });
+</script>
+```
+
+Now:
+```js
+<script type="module" src="https://cdn.jsdelivr.net/npm/@bimdata/viewer@2.0.0/dist/bimdata-viewer.esm.min.js"></script>
+<script>
+    const bimdataViewer = makeBIMDataViewer({ ... });
+</script>
+```
 
 ### FEATURES
 

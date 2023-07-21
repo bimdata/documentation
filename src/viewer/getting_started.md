@@ -12,7 +12,7 @@ You can quickly launch the BIMData Viewer with demo identifications.
   <head>
     <meta charset="utf-8" />
     <title>BIMDataViewer - Quick start</title>
-    <script src="https://cdn.jsdelivr.net/npm/@bimdata/viewer@1.10.2"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@bimdata/viewer@2.0.0-beta.14"></script>
   </head>
 
   <body>
