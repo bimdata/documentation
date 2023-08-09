@@ -189,7 +189,7 @@ const viewer3dPlugin = this.$viewer.localContext.getPlugin("viewer3d");
 | `getLoadedModels(): object[]` | Get the list of models that are currently loaded in this viewer |
 | `loadModels(models: object[]): Promise<void>` | Load the specified models in this viewer |
 | `unloadModels(models: object[]): Promise<void>` | Unload the specified models |
-| `getViewpoint(snapshot: boolean): object` | Returns the BCF Viewpoint of the current view. If `snapshot` is `false` (`true` by default), it skips the screenshot (better performances) |
+| `getViewpoint(snapshot: boolean): Promise<object>` | Returns the BCF Viewpoint of the current view. If `snapshot` is `false` (`true` by default), it skips the screenshot (better performances) |
 | `setViewpoint(viewpoint: object, options: object): void` | Set the camera view according to the given BCF viewpoint |
 | `annotationMode: boolean` | Is annotation mode enabled |
 | `startAnnotationMode(callback: Function): void` | Enable annotation mode |
