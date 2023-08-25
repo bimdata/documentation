@@ -144,6 +144,17 @@ const pointCloudPlugin = this.$viewer.localContext.getPlugin("pointCloud");
 | :--- | :---------- |
 | `xeokit` | [The `xeokitSdk` viewer](https://xeokit.github.io/xeokit-sdk/docs/class/src/viewer/Viewer.js~Viewer.html) |
 | `xeokitSdk` | [The xeokitSdk](https://xeokit.github.io/xeokit-sdk/docs/) |
+| `getLoadedModels(): object[]` | Get the list of models that are currently loaded in this viewer |
+| `loadModels(models: object[]): Promise<void>` | Load the specified models in this viewer |
+| `unloadModels(models: object[]): Promise<void>` | Unload the specified models |
+| `getViewpoint(snapshot: boolean): Promise<object>` | Returns the BCF Viewpoint of the current view. If `snapshot` is `false` (`true` by default), it skips the screenshot (better performances) |
+| `setViewpoint(viewpoint: object, options: object): void` | Set the camera view according to the given BCF viewpoint |
+| `annotationMode: boolean` | Is annotation mode enabled |
+| `startAnnotationMode(callback: Function): void` | Enable annotation mode |
+| `stopAnnotationMode(): void` | Disable annotation mode |
+| `fitView(uuids: string[]): void` | Fit the camera view so all specified objects fit in the screen. Apply to all objects if array is empty or undefined. |
+| `showUI(): void` | Show all UI elements (plugins, models selector, help, etc...) in the viewer window |
+| `hideUI(options: { exceptions: string[] }): Promise<void>` | Hide UI elements (plugins, models selector, help, etc...) in the viewer window, except those specified the `exceptions` options |
 
 
 ## Viewer 3D
@@ -196,7 +207,7 @@ const viewer3dPlugin = this.$viewer.localContext.getPlugin("viewer3d");
 | `stopAnnotationMode(): void` | Disable annotation mode |
 | `fitView(uuids: string[]): void` | Fit the camera view so all specified objects fit in the screen. Apply to all objects if array is empty or undefined. |
 | `showUI(): void` | Show all UI elements (plugins, models selector, help, etc...) in the viewer window |
-| `hideUI(options: { exceptions: string[] }): void` | Hide UI elements (plugins, models selector, help, etc...) in the viewer window, except those specified the `exceptions` options |
+| `hideUI(options: { exceptions: string[] }): Promise<void>` | Hide UI elements (plugins, models selector, help, etc...) in the viewer window, except those specified the `exceptions` options |
 | `selectOnClick: boolean` | **Default** to `true`. If true, clicking an object select it. |
 | `highlightOnHover: boolean` | **Default** to `true`. If true, hovering an object highlight it. |
 | `getProjection(): string` | Return current projection |
@@ -253,7 +264,7 @@ const viewer2dPlugin = this.$viewer.localContext.getPlugin("viewer2d");
 | `stopAnnotationMode(): void` | Disable annotation mode |
 | `fitView(objects: object[]): void` | Fit the camera view so all specified objects fit in the screen. Apply to all objects if array is empty or undefined. |
 | `showUI(): void` | Show all UI elements (plugins, models selector, help, etc...) in the viewer window |
-| `hideUI(options: { exceptions: string[] }): void` | Hide UI elements (plugins, models selector, help, etc...) in the viewer window, except those specified the `exceptions` options |
+| `hideUI(options: { exceptions: string[] }): Promise<void>` | Hide UI elements (plugins, models selector, help, etc...) in the viewer window, except those specified the `exceptions` options |
 | `selectOnClick: boolean` | **Default** to `true`. If true, clicking an object select it. |
 | `highlightOnHover: boolean` | **Default** to `true`. If true, hovering an object highlight it. |
 | `spaceNamesDisplayed: boolean` | **Default** to `true`. If `true`, the space names are displayed. |
@@ -297,7 +308,7 @@ const viewerDWGPlugin = this.$viewer.localContext.getPlugin("dwg");
 | `stopAnnotationMode(): void` | Disable annotation mode |
 | `fitView(objects: object[]): void` | Fit the camera view so all specified objects fit in the screen. Apply to all objects if array is empty or undefined. |
 | `showUI(): void` | Show all UI elements (plugins, models selector, help, etc...) in the viewer window |
-| `hideUI(options: { exceptions: string[] }): void` | Hide UI elements (plugins, models selector, help, etc...) in the viewer window, except those specified the `exceptions` options |
+| `hideUI(options: { exceptions: string[] }): Promise<void>` | Hide UI elements (plugins, models selector, help, etc...) in the viewer window, except those specified the `exceptions` options |
 | `selectOnClick: boolean`    | **Default** to `true`. If true, clicking an object select it.    |
 | `highlightOnHover: boolean` | **Default** to `true`. If true, hovering an object highlight it. |
 | `hideAll(): void`           | Hide all objects.                                                |
@@ -345,7 +356,7 @@ const viewerPlanPlugin = this.$viewer.localContext.getPlugin("plan");
 | `stopAnnotationMode(): void` | Disable annotation mode |
 | `fitView({ bitmaps: object[] }): void` | Set the camera view so the given bitmaps fit in the screen. **Note:** currently only the first bitmap of the list will be taken into account. |
 | `showUI(): void` | Show all UI elements (plugins, models selector, help, etc...) in the viewer window |
-| `hideUI(options: { exceptions: string[] }): void` | Hide UI elements (plugins, models selector, help, etc...) in the viewer window, except those specified the `exceptions` options |
+| `hideUI(options: { exceptions: string[] }): Promise<void>` | Hide UI elements (plugins, models selector, help, etc...) in the viewer window, except those specified the `exceptions` options |
 | `selectedStorey: object` | Currently selected (displayed) storey (`null` if not a METABUILDING model) |
 | `bitmaps: object[]` | Array of loaded bitmaps |
 | `pdfPages: object[]` | Array of pages models (for multipage PDF) |
