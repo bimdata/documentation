@@ -172,7 +172,7 @@ This plugin display the 3D representation of the IFC.
 | `edges`         | `boolean` | **Default** to `true`. Add model edges.                                                      |
 | `enableOffsets` | `boolean` | **Default** to `False`. Allow model objects to be translated. This increase GPU memory usage |
 | `enableDynamicLOD` | `boolean` | **Default** to `True`. If FPS are too low, complex objects will be hidden during camera moves. This allow a better navigation on low-end computers or with very big models. . This decrease GPU memory usage |
-| `home` | `boolean` | **Default** to `True`.  Reinitialise point of view and reintitlises 3D viewer|
+| `home` | `boolean` | **Default** to `True`.  Reinitialize point of view and reset all objects state (visibility, x-ray)|
 | `navigationVersionsModel` | `boolean` | **Default** to `True`.  Allows navigation between various version of models|
 
 
