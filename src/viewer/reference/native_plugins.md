@@ -132,6 +132,13 @@ The `properties` plugin that displays the properties of the selected objects.
 
 This plugin display the 3D point cloud representation of the IFC.
 
+
+### Events
+
+| Name                  | Payload | Description | Emitted on                         |
+| :-------------------- | :------ | :---------- | :--------------------------------- |
+| `pointcloud-model-loaded`     | `{ model, plugin }` | Emitted when a model is loaded. | `localContext` and `globalContext` |
+
 ### Instance API
 
 This API is available from this object on the `pointCloud` window:
