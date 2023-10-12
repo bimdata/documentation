@@ -7,7 +7,7 @@ env:
 
 jobs:
   build-and-push:
-    runs-on: self-hosted
+    runs-on: [self-hosted, common]
     if: contains('
       refs/heads/develop
       refs/heads/release
@@ -38,7 +38,7 @@ jobs:
             docker-registry.bimdata.io/bimdata/${{ env.app }}:${{ github.sha }}
             docker-registry.bimdata.io/bimdata/${{ env.app }}:${{ env.tag }}
   deploy:
-    runs-on: self-hosted
+    runs-on: [self-hosted, common]
     needs: build-and-push
     steps:
       - name: Login to BIMData Docker Registry
