@@ -12,13 +12,24 @@ Each event corresponds to a set of actions.
 | ----------------------- | ----------------------------------------------------- |
 | bcf.topic.creation      | a BCF Topic is created                                |
 | bcf.topic.update        | a BCF Topic is updated                                |
+| bcf.topic.deletion      | a BCF Topic is deleted                                |
 | bcf.comment.creation    | a BCF comment is created                              |
 | bcf.comment.update      | a BCF comment is updated                              |
+| bcf.comment.deletion    | a BCF comment is deleted                              |
 | bcf.topic.full.creation | a BCF Topic is created, send a FullTopic object       |
 | bcf.topic.full.update   | a BCF Topic is updated, send a FullTopic object       |
 | ifc.process_update      | the status of an IFC is changed (when it’s processed) |
 | project.update          | a project is updated                                  |
 | project.creation        | a project is created                                  |
+| visa.creation           | a validation on a document is created                 |
+| visa.update             | a validation is updated                               |
+| visa.validation.add     | a user responds to a validation demand                |
+| visa.validation.remove  | a user delete a response to a validation demand       |
+| document.creation       | a document is uploaded                                |
+| document.update         | a document is updated                                 |
+
+If you need more webhooks, please contact us at [support@bimdata.io](mailto:support@bimdata.io).
+
 
 ## Payload
 
