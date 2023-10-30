@@ -1,4 +1,4 @@
-# Hubs
+# Event hubs
 
 In the previous tutorials, we already used the state hub to listen to object modification events:
 
