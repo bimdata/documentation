@@ -20,6 +20,53 @@ The viewer UI is composed of three main parts :
   <img width="70%" src="/assets/img/viewer/Viewer-1_window_plugins.png" alt="Viewer with opened plugins.">
 </p>
 
+## Colors
+
+You can change the colors of the viewer. All plugins using BIMData Design System will be impacted too.
+
+All customizable colors are defined in the [BIMData Design System documentation](https://design.bimdata.io/guidelines-utilities/colors)
+
+You don't need to overide all colors. You can overide only the colors you want to change.
+
+Values are strings representing any valid CSS value ("red", "#FF0000", "rgb(255, 0, 0)", etc).
+
+```javascript
+const bimdataViewer = makeBIMDataViewer({
+  /* */
+  ui: {
+    style: {
+      backgroundColor: "",
+      colorPrimary: "",
+      colorPrimaryLighter: "",
+      colorPrimaryLight: "",
+      colorPrimaryDark: "",
+      colorSecondary: "",
+      colorSecondaryLight: "",
+      colorSecondaryLighter: "",
+      colorSecondaryDark: "",
+      colorSilverLight: "",
+      colorSilver: "",
+      colorSilverDark: "",
+      colorGraniteLight: "",
+      colorGranite: "",
+      colorSuccess: "",
+      colorSuccessLight: "",
+      colorSuccessLighter: "",
+      colorSuccessDark: "",
+      colorWarning: "",
+      colorWarningLight: "",
+      colorWarningLighter: "",
+      colorWarningDark: "",
+      colorHigh: "",
+      colorHighLight: "",
+      colorHighLighter: "",
+      colorHighDark: "",
+      colorText: "",
+    },
+  },
+});
+```
+
 ## Menu
 
 By default, the menu is always displayed as a top bar. However, it can be changed if only one window is present, or totally removed if you need to.
