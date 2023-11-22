@@ -26,20 +26,20 @@ Example:
 
 ```javascript
 $viewer.globalContext
-  .getPlugins("structure-properties")
+  .plugins.get("structure-properties")
   .forEach(plugin => plugin.reloadTrees());
 ```
 
 ## BCF
 
-- name: bcf
+- name: `bcf`
 
 The BCF plugin allows to interact with the BIMData BCF API by opening the [BCF Manager plugin](#bcf-manager).
-This is a button plugin that can be added to any **viewer** window (`2d`, `3d`, `dwg`, `plan`).
+This is a button plugin that can be added to any [**viewer window**](./viewer_plugins.md).
 
-::: tip Note
-In order to use BCF features you have to enable the **BCF Manager plugin** (enabled by default).<br/>
-The **BCF** plugin will be useless if BCF Manager is not enabled.
+::: warning Note
+In order to use BCF features you have to enable the [**BCF Manager plugin**](#bcf-manager) (enabled by default).<br/>
+The BCF plugin will be useless if BCF Manager is not enabled.
 :::
 
 ### Configuration
@@ -50,51 +50,45 @@ The **BCF** plugin will be useless if BCF Manager is not enabled.
 
 ## BCF Manager
 
-- name: bcfManager
+- name: `bcfManager`
 
 The BCF Manager plugin is a window plugin that provides a complete UI to view/create/update/delete BCF topics in the current project.
 
 ## Fullscreen
 
-- name: fullscreen
+- name: `fullscreen`
 
 A plugin as button that allows to request fullscreen on the window it lays in.
 
 ## Projection
 
-- name: projection
+- name: `projection`
 
 A plugin as button that sends projection type information on the `localContext.hub` when user change it through the UI.
 It **requires** the `viewer3d` plugin.
 
 ## Search
 
-- name: search
+- name: `search`
 
 A plugin as button that allows to search object by uuids or names.
 
 ## Section
 
-- name: section
+- name: `section`
 
 A plugin as button that allows to create section planes in the `viewer3d` plugin.
 As mentionned, it **requires** the `viewer3d` plugin to work properly.
 
-## Window selector
-
-- name: windowSelector
-
-This plugin is displayed on windows if no plugins are present on them. It displays the available windows registered on the viewer.
-
 ## Split
 
-- name: split
+- name: `split`
 
 Disabled by default, the split plugin add the ability to split the ifc according to the selection, through a command on the context menu.
 
 ## Structure
 
-- name: structure
+- name: `structure`
 
 The `structure` plugin displays the tree structures of the IFCs.
 
@@ -106,7 +100,7 @@ The `structure` plugin displays the tree structures of the IFCs.
 
 ## Structure and properties
 
-- name: structure-properties
+- name: `structure-properties`
 
 This plugin is actually two plugins merged together. The `structure` plugin that displays the tree structures of the IFCs.
 The `properties` plugin that displays the properties of the selected objects.
@@ -126,100 +120,55 @@ The `properties` plugin that displays the properties of the selected objects.
 | :-------------------- | :----------------------------------- |
 | `reloadTrees(): void` | Reload the trees of the loaded IFCs. |
 
-## Viewer Point Cloud
+## Window split
 
-- name: pointCloud
+- name: `window-split`
 
-This plugin display the 3D point cloud representation of the IFC.
+This plugin is displayed if there is only one window and the header is displayed flying. It is displayed as button on the top-right of the window, and add the possibility to split the current window by half, and add the new window where the user want (top, bottom, right or left).
 
+## Viewer 3D (IFC)
 
-### Events
+- name: `viewer3d`
 
-| Name                  | Payload | Description | Emitted on                         |
-| :-------------------- | :------ | :---------- | :--------------------------------- |
-| `pointcloud-model-loaded`     | `{ model, plugin }` | Emitted when a model is loaded. | `localContext` and `globalContext` |
-
-### Instance API
-
-This API is available from this object on the `pointCloud` window:
-
-```javascript
-const pointCloudPlugin = this.$viewer.localContext.getPlugin("pointCloud");
-```
-
-| Name | Description |
-| :--- | :---------- |
-| `xeokit` | [The `xeokitSdk` viewer](https://xeokit.github.io/xeokit-sdk/docs/class/src/viewer/Viewer.js~Viewer.html) |
-| `xeokitSdk` | [The xeokitSdk](https://xeokit.github.io/xeokit-sdk/docs/) |
-| `getLoadedModels(): object[]` | Get the list of models that are currently loaded in this viewer |
-| `loadModels(models: object[]): Promise<void>` | Load the specified models in this viewer |
-| `unloadModels(models: object[]): Promise<void>` | Unload the specified models |
-| `getViewpoint(snapshot: boolean): Promise<object>` | Returns the BCF Viewpoint of the current view. If `snapshot` is `false` (`true` by default), it skips the screenshot (better performances) |
-| `setViewpoint(viewpoint: object, options: object): void` | Set the camera view according to the given BCF viewpoint |
-| `annotationMode: boolean` | Is annotation mode enabled |
-| `startAnnotationMode(callback: Function): void` | Enable annotation mode |
-| `stopAnnotationMode(): void` | Disable annotation mode |
-| `fitView(uuids: string[]): void` | Fit the camera view so all specified objects fit in the screen. Apply to all objects if array is empty or undefined. |
-| `showUI(): void` | Show all UI elements (plugins, models selector, help, etc...) in the viewer window |
-| `hideUI(options: { exceptions: string[] }): Promise<void>` | Hide UI elements (plugins, models selector, help, etc...) in the viewer window, except those specified the `exceptions` options |
-
-
-## Viewer 3D
-
-- name: viewer3d
-
-This plugin display the 3D representation of the IFC.
+This plugin allows to view 3D representation of IFC models. This is a [viewer plugin](./viewer_plugins.md).
 
 ### Configuration
 
-| Name                      | Type      | Description                                                                                                                                                                                                 |
-| :------------------------ | :-------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `pivotMarker`             | `boolean` | **Default** to `true`. Add a pivot marker of the rotation center when pivoting.                                                                                                                             |
-| `navCube`                 | `boolean` | **Default** to `true`. Add the navCube to facilitate the 3D navigation.                                                                                                                                     |
-| `edges`                   | `boolean` | **Default** to `true`. Add model edges.                                                                                                                                                                     |
-| `enableOffsets`           | `boolean` | **Default** to `False`. Allow model objects to be translated. This increase GPU memory usage                                                                                                                |
-| `enableDynamicLOD`        | `boolean` | **Default** to `True`. If FPS are too low, complex objects will be hidden during camera moves. This allow a better navigation on low-end computers or with very big models. This decrease GPU memory usage  |
-| `home`                    | `boolean` | **Default** to `True`.  Reinitialize point of view and reset all objects state (visibility, x-ray)                                                                                                          |
-| `navigationVersionsModel` | `boolean` | **Default** to `True`.  Allows navigation between various version of models                                                                                                                                 |
-
-
+| Name                      | Type      | Description |
+| :------------------------ | :-------- | :---------- |
+| `pivotMarker`             | `boolean` | **Default** to `true`. Add a pivot marker of the rotation center when pivoting |
+| `navCube`                 | `boolean` | **Default** to `true`. Add the navCube to facilitate the 3D navigation |
+| `edges`                   | `boolean` | **Default** to `true`. Add model edges |
+| `enableOffsets`           | `boolean` | **Default** to `false`. Allow model objects to be translated. This increase GPU memory usage |
+| `enableDynamicLOD`        | `boolean` | **Default** to `true`. If FPS are too low, complex objects will be hidden during camera moves. This allow a better navigation on low-end computers or with very big models. This decrease GPU memory usage |
+| `home`                    | `boolean` | **Default** to `true`.  Reinitialize point of view and reset all objects state (visibility, x-ray) |
+| `navigationVersionsModel` | `boolean` | **Default** to `true`.  Allows navigation between various version of models |
 
 ### Events
 
-| Name                  | Payload | Description | Emitted on                         |
-| :-------------------- | :------ | :---------- | :--------------------------------- |
-| `3d-model-loading`    | `{ ifc, plugin }` | Emitted when a 3D model is loading. | `localContext` and `globalContext` |
-| `3d-model-loaded`     | `{ model, plugin }` | Emitted when a 3D model is loaded. | `localContext` and `globalContext` |
-| `3d-model-unloaded`   | `{ model, plugin }` | Emitted when a 3D model is unloaded. | `localContext` and `globalContext` |
-| `annotation-create`   | [`{ id, annotation }`](https://xeokit.github.io/xeokit-sdk/docs/class/src/plugins/AnnotationsPlugin/Annotation.js~Annotation.html) | Emitted when an annotation marker is created. | `localContext` and `globalContext` |
-| `annotation-click`    | [`{ id, annotation }`](https://xeokit.github.io/xeokit-sdk/docs/class/src/plugins/AnnotationsPlugin/Annotation.js~Annotation.html) | Emitted when an annotation marker is clicked. | `localContext` and `globalContext` |
-| `annotation-delete`   | `{ id }` | Emitted when an annotation marker is deleted. | `localContext` and `globalContext` |
-| `annotation-clear`    | No payload | Emitted when annotation marker are cleared. | `localContext` and `globalContext` |
-| `3d-camera-update`    | `{ eye: number[], look: number[], up: number[] }` | Emitted when the camera is updated | `globalContext` |
+| Name                | Payload | Description | Emitted on |
+| :------------------ | :------ | :---------- | :--------- |
+| `3d-model-loading`  | `{ ifc, plugin }` | Emitted when a 3D model is loading. | `localContext` and `globalContext` |
+| `3d-model-loaded`   | `{ model, plugin }` | Emitted when a 3D model is loaded. | `localContext` and `globalContext` |
+| `3d-model-unloaded` | `{ model, plugin }` | Emitted when a 3D model is unloaded. | `localContext` and `globalContext` |
+| `annotation-create` | [`{ id, annotation }`](https://xeokit.github.io/xeokit-sdk/docs/class/src/plugins/AnnotationsPlugin/Annotation.js~Annotation.html) | Emitted when an annotation marker is created. | `localContext` and `globalContext` |
+| `annotation-click`  | [`{ id, annotation }`](https://xeokit.github.io/xeokit-sdk/docs/class/src/plugins/AnnotationsPlugin/Annotation.js~Annotation.html) | Emitted when an annotation marker is clicked. | `localContext` and `globalContext` |
+| `annotation-delete` | `{ id }` | Emitted when an annotation marker is deleted. | `localContext` and `globalContext` |
+| `annotation-clear`  | No payload | Emitted when annotation marker are cleared. | `localContext` and `globalContext` |
+| `3d-camera-update`  | `{ eye: number[], look: number[], up: number[] }` | Emitted when the camera is updated | `globalContext` |
 
 ### Instance API
 
-This API is available from this object on the `3d` window:
+This API is available in a `3d` window:
 
 ```javascript
-const viewer3dPlugin = this.$viewer.localContext.getPlugin("viewer3d");
+const viewer3dPlugin = this.$viewer.localContext.plugins.get("viewer3d");
 ```
 
 | Name | Description |
 | :--- | :---------- |
-| `xeokit` | [The `xeokitSdk` viewer](https://xeokit.github.io/xeokit-sdk/docs/class/src/viewer/Viewer.js~Viewer.html) |
-| `xeokitSdk` | [The xeokitSdk](https://xeokit.github.io/xeokit-sdk/docs/) |
-| `getLoadedModels(): object[]` | Get the list of models that are currently loaded in this viewer |
-| `loadModels(models: object[]): Promise<void>` | Load the specified models in this viewer |
-| `unloadModels(models: object[]): Promise<void>` | Unload the specified models |
-| `getViewpoint(snapshot: boolean): Promise<object>` | Returns the BCF Viewpoint of the current view. If `snapshot` is `false` (`true` by default), it skips the screenshot (better performances) |
-| `setViewpoint(viewpoint: object, options: object): void` | Set the camera view according to the given BCF viewpoint |
-| `annotationMode: boolean` | Is annotation mode enabled |
-| `startAnnotationMode(callback: Function): void` | Enable annotation mode |
-| `stopAnnotationMode(): void` | Disable annotation mode |
-| `fitView(uuids: string[]): void` | Fit the camera view so all specified objects fit in the screen. Apply to all objects if array is empty or undefined. |
-| `showUI(): void` | Show all UI elements (plugins, models selector, help, etc...) in the viewer window |
-| `hideUI(options: { exceptions: string[] }): Promise<void>` | Hide UI elements (plugins, models selector, help, etc...) in the viewer window, except those specified the `exceptions` options |
+| `xeokit` | [The Xeokit viewer](https://xeokit.github.io/xeokit-sdk/docs/class/src/viewer/Viewer.js~Viewer.html) |
+| `xeokitSdk` | [The Xeokit SDK](https://xeokit.github.io/xeokit-sdk/docs/) |
 | `selectOnClick: boolean` | **Default** to `true`. If true, clicking an object select it. |
 | `highlightOnHover: boolean` | **Default** to `true`. If true, hovering an object highlight it. |
 | `getProjection(): string` | Return current projection |
@@ -236,17 +185,11 @@ const viewer3dPlugin = this.$viewer.localContext.getPlugin("viewer3d");
 | `setObjectsOpacity(ids: string[], opacity: boolean)`| Update the `opacity` property of the corresponding objects. |
 | `setObjectsCulled(ids: string[], culled: boolean)`| Update the `culled` property of the corresponding objects. |
 
-## Window split
+## Viewer 2D (IFC)
 
-- name: window-split
+- name: `viewer2d`
 
-This plugin is displayed if there is only one window and the header is displayed flying. It is displayed as button on the top-right of the window, and add the possibility to split the current window by half, and add the new window where the user want (top, bottom, right or left).
-
-## Viewer 2D
-
-- name: viewer2d
-
-This plugin display the 2D representation of the IFC.
+This plugin allows 2D representation of an IFC. This is a [viewer plugin](./viewer_plugins.md).
 
 ### Events
 
@@ -257,40 +200,29 @@ This plugin display the 2D representation of the IFC.
 
 ### Instance API
 
-This API is available from this object on the `2d` window:
+This API is available in a `2d` window:
 
 ```javascript
-const viewer2dPlugin = this.$viewer.localContext.getPlugin("viewer2d");
+const viewer2dPlugin = this.$viewer.localContext.plugins.get("viewer2d");
 ```
 
 | Name | Description |
 | :--- | :---------- |
 | `viewer: E2D.Viewer` | The [engine 2D viewer](https://2d-engine.bimdata.io). |
-| `getLoadedModels(): object[]` | Get the list of models that are currently loaded in this viewer |
-| `loadModels(models: object[]): Promise<void>` | Load the specified models in this viewer. **Note:** currently only one 2D model can be loaded at a time, thus only the first model in the list will be loaded. |
-| `unloadModels(models: object[]): Promise<void>` | Unload the specified models |
-| `getViewpoint(): Promise<object>` | Returns a promise that resolve to a BCF Viewpoint of the current view |
-| `setViewpoint(viewpoint: object): void` | Set the camera view according to the given BCF viewpoint |
-| `annotationMode: boolean` | Is annotation mode enabled |
-| `startAnnotationMode(callback: Function): void` | Enable annotation mode |
-| `stopAnnotationMode(): void` | Disable annotation mode |
-| `fitView(objects: object[]): void` | Fit the camera view so all specified objects fit in the screen. Apply to all objects if array is empty or undefined. |
-| `showUI(): void` | Show all UI elements (plugins, models selector, help, etc...) in the viewer window |
-| `hideUI(options: { exceptions: string[] }): Promise<void>` | Hide UI elements (plugins, models selector, help, etc...) in the viewer window, except those specified the `exceptions` options |
 | `selectOnClick: boolean` | **Default** to `true`. If true, clicking an object select it. |
 | `highlightOnHover: boolean` | **Default** to `true`. If true, hovering an object highlight it. |
-| `spaceNamesDisplayed: boolean` | **Default** to `true`. If `true`, the space names are displayed. |
+| `spacesVisible: boolean` | **Default** to `true`. If `true`, the space names are displayed. |
 | `doorsDisplayed: boolean` | **Default** to `false`. If `true`, the doors are displayed. |
 | `compassDisplayed: boolean` | **Default** to `true`. If `true`, the compass is displayed. |
 | `camera3DSynchronization: boolean` | **Default** to `false`. If `true`, the camera follows the rotation of a 3D camera and an icon representing the 3D camera position is displayed. |
 | `syncRotationFrom3DCamera(eye: number[], look: number[], up: number[]): void` | **Default** arguments are `eye = [0, 0, 0], look = [0, 0, 0],up = [0, 1, 0]`. Synchronize the roation between the given 3D camera parameters and the 2D camera. |
-| `selectedStorey: object` | Currently selected (displayed) storey |
+| `selectedStorey: Storey` | Currently selected (displayed) storey |
 
 ## Viewer DWG
 
-- name: dwg
+- name: `dwg`
 
-This plugin display DWG models.
+This plugin allows to view DWG models. This is a [viewer plugin](./viewer_plugins.md).
 
 ### Events
 
@@ -301,43 +233,32 @@ This plugin display DWG models.
 
 ### Instance API
 
-This API is available from this object on the `dwg` window:
+This API is available in a `dwg` window:
 
 ```javascript
-const viewerDWGPlugin = this.$viewer.localContext.getPlugin("dwg");
+const viewerDWGPlugin = this.$viewer.localContext.plugins.get("dwg");
 ```
 
 | Name                        | Description                                                      |
 | :-------------------------- | :--------------------------------------------------------------- |
 | `viewer: E2D.Viewer`        | The [engine 2D viewer](https://2d-engine.bimdata.io).            |
-| `getLoadedModels(): object[]` | Get the list of models that are currently loaded in this viewer |
-| `loadModels(models: object[]): Promise<void>` | Load the specified models in this viewer. **Note:** currently only one DWG model can be loaded at a time, thus only the first model in the list will be loaded. |
-| `unloadModels(models: object[]): Promise<void>` | Unload the specified models |
-| `getViewpoint(): Promise<object>` | Returns a promise that resolve to a BCF Viewpoint of the current view |
-| `setViewpoint(viewpoint: object): void` | Set the camera view according to the given BCF viewpoint |
-| `annotationMode: boolean` | Is annotation mode enabled |
-| `startAnnotationMode(callback: Function): void` | Enable annotation mode |
-| `stopAnnotationMode(): void` | Disable annotation mode |
-| `fitView(objects: object[]): void` | Fit the camera view so all specified objects fit in the screen. Apply to all objects if array is empty or undefined. |
-| `showUI(): void` | Show all UI elements (plugins, models selector, help, etc...) in the viewer window |
-| `hideUI(options: { exceptions: string[] }): Promise<void>` | Hide UI elements (plugins, models selector, help, etc...) in the viewer window, except those specified the `exceptions` options |
 | `selectOnClick: boolean`    | **Default** to `true`. If true, clicking an object select it.    |
 | `highlightOnHover: boolean` | **Default** to `true`. If true, hovering an object highlight it. |
 | `hideAll(): void`           | Hide all objects.                                                |
 
 ## Viewer DXF
 
-- name: dxf
+- name: `dxf`
 
-This plugin display DXF models.
+This plugin allows to view DXF models. This is a [viewer plugin](./viewer_plugins.md).
 
 **Events** and **Instance API** are the same as the [Viewer DWG](#viewer-dwg).
 
 ## Viewer Plan
 
-- name: plan
+- name: `plan`
 
-This plugin displays bitmap plans (PDF, PNG, JPG, METABUILDING models).
+This plugin allows to view bitmap plans (PDF, PNG, JPG, METABUILDING models). This is a [viewer plugin](./viewer_plugins.md).
 
 ### Events
 
@@ -349,72 +270,69 @@ This plugin displays bitmap plans (PDF, PNG, JPG, METABUILDING models).
 
 ### Instance API
 
-This API is available from this object on the `plan` window:
+This API is available in a `plan` window:
 
 ```javascript
-const viewerPlanPlugin = this.$viewer.localContext.getPlugin("plan");
+const viewerPlanPlugin = this.$viewer.localContext.plugins.get("plan");
 ```
 
 | Name                 | Description                                           |
 | :------------------- | :---------------------------------------------------- |
 | `viewer: E2D.Viewer` | The [engine 2D viewer](https://2d-engine.bimdata.io). |
-| `getLoadedModels(): object[]` | Get the list of models that are currently loaded in this viewer |
-| `loadModels(models: object[]): Promise<void>` | Load the specified models in this viewer. **Note:** currently only one plan model can be loaded at a time, thus only the first model in the list will be loaded. |
-| `unloadModels(models: object[]): Promise<void>` | Unload the specified models |
-| `getViewpoint(): Promise<object>` | Returns a promise that resolve to a BCF viewpoint of the current view |
-| `setViewpoint(viewpoint: object): Promise<void>` | (*async*) Set the camera view according to the given BCF viewpoint |
-| `annotationMode: boolean` | Is annotation mode enabled |
-| `startAnnotationMode(callback: Function): void` | Enable annotation mode |
-| `stopAnnotationMode(): void` | Disable annotation mode |
-| `fitView({ bitmaps: object[] }): void` | Set the camera view so the given bitmaps fit in the screen. **Note:** currently only the first bitmap of the list will be taken into account. |
-| `showUI(): void` | Show all UI elements (plugins, models selector, help, etc...) in the viewer window |
-| `hideUI(options: { exceptions: string[] }): Promise<void>` | Hide UI elements (plugins, models selector, help, etc...) in the viewer window, except those specified the `exceptions` options |
-| `selectedStorey: object` | Currently selected (displayed) storey (`null` if not a METABUILDING model) |
-| `bitmaps: object[]` | Array of loaded bitmaps |
-| `pdfPages: object[]` | Array of pages models (for multipage PDF) |
+| `selectedStorey: Storey` | Currently selected (displayed) storey (`null` if not a METABUILDING model) |
+| `bitmaps: any[]`     | Array of loaded bitmaps |
+| `pdfPages: any[]`    | Array of pages models (for multipage PDF) |
 | `pdfPageIndex: number` | Current PDF page index (for multipage PDF) |
 | `nextPdfPage(): Promise<void>` | (*async*) Switch to the next PDF page (if any) |
 | `prevPdfPage(): Promise<void>` | (*async*) Switch to the previouos PDF page (if any) |
 | `setPdfPage(index: number): Promise<void>` | (*async*) Go to the specified PDF page (if it exist). **Note:** pages are indexed from 0 to n-1. |
 | `exportAsPNG(): Promise<string>` | (*async*) Get a base64 URL of PNG screenshot of the viewer |
 | `exportAsJPG(): Promise<string>` | (*async*) Get a base64 URL of JPG screenshot of the viewer |
-| `exportAsPDF(): Promise<object>` | (*async*) Generate and return a [jsPDF](https://artskydj.github.io/jsPDF/docs/jsPDF.html) document with the viewer content |
+| `exportAsPDF(): Promise<any>` | (*async*) Generate and return a [jsPDF](https://artskydj.github.io/jsPDF/docs/jsPDF.html) document with the viewer content |
 
-## 2D measurements
+## Viewer Point Cloud
 
-- name: measure2d
+- name: `pointCloud`
 
-A plugin as un button that allows to measure distances, angles and surfaces in the 2D viewer
-Measurements are saved in local storage
+This plugin allows to view point cloud models. This is a [viewer plugin](./viewer_plugins.md).
+
+### Events
+
+| Name                          | Payload             | Description                       | Emitted on                         |
+| :---------------------------- | :------------------ | :-------------------------------- | :--------------------------------- |
+| `pointcloud-model-loaded`     | `{ model, plugin }` | Emitted when a model is loaded.   | `localContext` and `globalContext` |
+| `pointcloud-model-unloaded`   | `{ model, plugin }` | Emitted when a model is unloaded. | `localContext` and `globalContext` |
+
+### Instance API
+
+This API is available in a `pointCloud` window:
+
+```javascript
+const pointCloudPlugin = this.$viewer.localContext.plugins.get("pointCloud");
+```
+
+| Name | Description |
+| :--- | :---------- |
+| `xeokit` | [The Xeokit viewer](https://xeokit.github.io/xeokit-sdk/docs/class/src/viewer/Viewer.js~Viewer.html) |
+| `xeokitSdk` | [The Xeokit SDK](https://xeokit.github.io/xeokit-sdk/docs/) |
 
 ## 3D parameters
 
-- name: viewer3d-parameters
+- name: `viewer3d-parameters`
 
-A plugin as un button that allows to configure highlight, edges and Spaces visibility.
+A plugin as un button that allows to configure highlight, edges and spaces visibility.
 Parameters are saved in local storage
 
 ## 2D parameters
 
-- name: viewer2d-parameters
+- name: `viewer2d-parameters`
 
 A plugin as un button that allows to configure door openings and space names.
 Parameters are saved in local storage
 
-# Viewer plugins
+## 2D measurements
 
-It is possible to configure the UI of plugins displayed as viewer (viewer 3d, viewer 2d, viewer plan, viewer dwg, viewer dxf):
+- name: `measure2d`
 
-| Property      | Description                                                                                                                                                                                                   |
-| :------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `modelLoader` | Can be `"hidden"` or `"disabled"`. If `hidden`, the component isn't shown but it will load models defined in the viewer parameters. If `disabled`, the models won't be loaded and you must load them manually |
-
-```javascript
-const viewerConfig = {
-  plugins: {
-    viewer3d: {
-      modelLoader: "hidden",
-    },
-  },
-};
-```
+A plugin as un button that allows to measure distances, angles and surfaces in the 2D viewer
+Measurements are saved in local storage

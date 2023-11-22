@@ -13,6 +13,17 @@ npm install @bimdata/bimdata-api-client --save
 
 - Repository: [https://github.com/bimdata/javascript-api-client](https://github.com/bimdata/javascript-api-client)
 
+## Typescript
+
+- Install via NPM:
+```bash
+npm install @bimdata/typescript-fetch-api-client --save
+```
+
+- URL: [https://www.npmjs.com/package/@bimdata/typescript-fetch-api-client](https://www.npmjs.com/package/@bimdata/typescript-fetch-api-client)
+
+- Repository: [https://github.com/bimdata/typescript-fetch-api-client-generator](https://github.com/bimdata/typescript-fetch-api-client-generator)
+
 ## Python
 
 - URL: [https://pypi.org/project/bimdata-api-client/](https://pypi.org/project/bimdata-api-client/)

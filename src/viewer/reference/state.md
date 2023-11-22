@@ -1,144 +1,238 @@
 # State
 
-The state contains [Models](#model) and [objects](#object) logic. It is located on the `$viewer` object:
-
-```javascript
-$viewer.state;
-```
-
-## Model
-
-A [Model](https://github.com/bimdata/javascript-api-client/blob/master/docs/Model.md) object with `structure`, `objects` and `uuids` properties.
-
-- `structure`: the object returned by fetching [model](https://github.com/bimdata/javascript-api-client/blob/master/docs/Model.md) `structureFile`.
-- `objects`: an Array of all model [objects](#object).
-- `uuids`: a Map to retrieve model [object](#object) by uuid (ex: model.uuids.get("myuuid"))
-
-## Object
+The state contains [Models](#models), [Objects](#objects) and [Annotations](#annotations) logic.
+It can be accessed with `$viewer.state`.
 
 ```typescript
-interface object {
+interface State {
+  hub: EventHandler<StateEvents>;
+
+  /**** Models ****/
+  readonly models: Model[];
+  readonly modelsMap: Map<number, Model>;
+  loadModels(ids: number[]): Promise<Model[]>;
+  unloadModels(ids: number[]);
+  getStoreyFromAbsoluteElevation(model: Model, elevation: number): Storey;
+
+  /**** Objects ****/
+  readonly objects: StateObject[];
+  readonly objectsIds: number[];
+  readonly objectsUuids: string[];
+  readonly objectsMap: Map<number, StateObject>;
+  readonly uuidsMap: { get(uuid: string): StateObject[]; };
+  getObject(id: number): StateObject;
+  getObjectsByUuids(uuids: string[]): StateObject[];
+  getObjectsOfType(type: string): StateObject[];
+  getObjectsWithTheSameTypeAs(ids: number[]): StateObject[];
+  getTypesOf(ids: number[]): string[];
+
+  readonly visibleObjects: StateObject[];
+  readonly visibleObjectsIds: number[];
+  readonly visibleObjectsUuids: string[];
+  showObjects(ids: number[], options?: any): void;
+  showObjectsByUuids(uuids: string[], options?: any): void;
+
+  readonly unvisibleObjects: StateObject[];
+  readonly unvisibleObjectsIds: number[];
+  readonly unvisibleObjectsUuids: string[];
+  hideObjects(ids: number[], options?: any): void;
+  hideObjectsByUuids(uuids: string[], options?: any): void;
+
+  readonly pickableObjects: StateObject[];
+  readonly pickableObjectsIds: number[];
+  readonly pickableObjectsUuids: string[];
+  setObjectsPickable(ids: number[], options?: any): void;
+  setObjectsPickableByUuids(uuids: string[], options?: any): void;
+
+  readonly unpickableObjects: StateObject[];
+  readonly unpickableObjectsIds: number[];
+  readonly unpickableObjectsUuids: string[];
+  setObjectsUnpickable(ids: number[], options?: any): void;
+  setObjectsUnpickableByUuids(uuids: string[], options?: any): void;
+
+  readonly selectedObjects: StateObject[];
+  readonly selectedObjectsIds: number[];
+  readonly selectedObjectsUuids: string[];
+  selectObjects(ids: number[], options?: any): void;
+  selectObjectsByUuids(uuids: string[], options?: any): void;
+
+  readonly deselectedObjects: StateObject[];
+  readonly deselectedObjectsIds: number[];
+  readonly deselectedObjectsUuids: string[];
+  deselectObjects(ids: number[], options?: any): void;
+  deselectObjectsByUuids(uuids: string[], options?: any): void;
+
+  readonly highlightedObjects: StateObject[];
+  readonly highlightedObjectsIds: number[];
+  readonly highlightedObjectsUuids: string[];
+  highlightObjects(ids: number[], options?: any): void;
+  highlightObjectsByUuids(uuids: string[], options?: any): void;
+
+  readonly unhighlightedObjects: StateObject[];
+  readonly unhighlightedObjectsIds: number[];
+  readonly unhighlightedObjectsUuids: string[];
+  unhighlightObjects(ids: number[], options?: any): void;
+  unhighlightObjectsByUuids(uuids: string[], options?: any): void;
+
+  readonly xrayedObjects: StateObject[];
+  readonly xrayedObjectsIds: number[];
+  readonly xrayedObjectsUuids: string[];
+  xrayObjects(ids: number[], options?: any): void;
+  xrayObjectsByUuids(uuids: string[], options?: any): void;
+
+  readonly unxrayedObjects: StateObject[];
+  readonly unxrayedObjectsIds: number[];
+  readonly unxrayedObjectsUuids: string[];
+  unxrayObjects(ids: number[], options?: any): void;
+  unxrayObjectsByUuids(uuids: string[], options?: any): void;
+
+  readonly colorizedObjects: StateObject[];
+  readonly colorizedObjectsIds: number[];
+  readonly colorizedObjectsUuids: string[];
+  colorizeObjects(ids: number[], color?: string, options?: any): void;
+  colorizeObjectsByUuids(uuids: string[], color?: string, options?: any): void;
+
+  /**** Annotations ****/
+  readonly annotations: Annotation[];
+  addAnnotation(annotation: Annotation, options?: any): Annotation;
+  removeAnnotation(annotation: Annotation, options?: any): boolean;
+  clearAnnotations(): void;
+}
+```
+
+## Models
+
+A state `Model` is a [model object from API](https://api-staging.bimdata.io/doc#/model/getModel) extended with some additional fields.
+
+```typescript
+interface Model extends ApiModel {
+  structure: Object;
+  uuids: Map<string, StateObject>;
+  objects: StateObject[];
+  storeys: Storey[];
+}
+```
+
+The `structure` object is obtained by fetching and parsing the file pointed by the model `structure_file` property.
+
+The `uuids` map can be used to retrieve model objects directly (using their uuids).
+
+## Objects
+
+```typescript
+interface StateObject {
+  // Properties
   id: number;
+  uuid: string;
+  name: string;
+  longname: string;
+  type: string;
+  object_type: string;
   model: Model;
+  parent: StateObject;
+  children: StateObject[];
+
+  // State
   visible: boolean;
   pickable: boolean;
   selected: boolean;
   highlighted: boolean;
   xrayed: boolean;
-  type: string;
-  uuid: string;
-  name: string;
-  object_type: string;
-  children: ViewerObject[];
-  parent: ViewerObject;
-  descendants: ViewerObject[];
-  ancestors: ViewerObject[];
-  getFirstAncestorWithType: ViewerObject;
-  storey: ViewerObject; // get first ancestor with type "storey"
-  space: ViewerObject; // get first ancestor with type "space"
+  color: string;
+
+  // Advanced getters
+  readonly descendants: StateObject[];
+  readonly ancestors: StateObject[];
+  readonly site: StateObject;
+  readonly building: StateObject;
+  readonly storey: StateObject;
+  readonly layout: StateObject;
+  readonly space: StateObject;
+  getFirstAncestorWithType: (type: string) => StateObject;
 }
 ```
 
-## Getters
+### Objects maps
 
-Getters allows to quickly access models and objects with specific properties.
+| Name                                   | Description                              |
+| :------------------------------------- | :--------------------------------------- |
+| `objectsMap: Map<string, StateObject>` | A Map of all objects keyed by **id**.    |
+| `uuidsMap: Map<string, StateObject[]>` | A Map of all objects keyed by **uuids**. |
 
-```javascript
-const allModels = state.models;
-```
+As object uuids may not be unique, `uuidsMap.get()` always returns an array of objects.
+
+### Objects getters
+
+The state provide getters that allows to quickly access a set of objects with specific properties.
 
 | Name                                                       | Description                                            |
 | :--------------------------------------------------------- | :----------------------------------------------------- |
-| `models`                                                   | Returns all models.                                    |
-| `objects`                                                  | Returns all objects.                                   |
-| `getIfc(ifcId)`                                            | Returns the ifc with the specified id.                 |
-| `getObject(objectId)`                                      | Returns the object with the specified id.              |
+| **properties**                                             |                                                        |
+| `visibleObjects`                                           | List of visible objects.                               |
+| `unvisibleObjects`                                         | List of objects that are not visible.                  |
+| `pickableObjects`                                          | List of pickable objects.                              |
+| `unpickableObjects`                                        | List of objects that are not pickable.                 |
+| `selectedObjects`                                          | List of selected objects.                              |
+| `deselectedObjects`                                        | List of objects that are not selected.                 |
+| `highlightedObjects`                                       | List of highlighted objects.                           |
+| `unhighlightedObjects`                                     | List of objects that are not highlighted.              |
+| `xrayedObjects`                                            | List of xrayed objects.                                |
+| `unxrayedObjects`                                          | List of objects that are not xrayed.                   |
+| `colorizedObjects`                                         | List of colorized objects.                             |
+| **methods**                                                |                                                        |
+| `getObject(id: number)`                                    | Returns the object with the specified id.              |
 | `getObjectsByUuids(uuids: string[])`                       | Returns objects with corresponding uuids.              |
 | `getObjectsOfType(type: string)`                           | Returns objects with corresponding type.               |
-| `getTypesOf(ids: number[] | Set<number>): string[]`        | Returns all the types of the corresponding objects.    |
 | `getObjectsWithTheSameTypeAs(ids: number[] | Set<number>)` | Returns all objects with the same type as objects ids. |
-| `selectedObjects`                                          | Returns selected objects.                              |
-| `deselectedObjects`                                        | Returns deselected objects.                            |
-| `highlightedObjects`                                       | Returns highlighted objects.                           |
-| `unhighlightedObjects`                                     | Returns unhighlighted objects.                         |
-| `visibleObjects`                                           | Returns visible objects.                               |
-| `unvisibleObjects`                                         | Returns unvisible objects.                             |
-| `xrayedObjects`                                            | Returns xrayed objects.                                |
-| `unxrayedObjects`                                          | Returns unxrayed objects.                              |
-| `colorizedObjects`                                         | Returns colorized objects.                             |
+| `getTypesOf(ids: number[] | Set<number>)`                  | Returns all the types of the corresponding objects.    |
 
-In addition of the previous getters, there are Map getters that return a `Map` instead of an `Array`:
-
-| Name                              | Description                                                                                                                                    |
-| :-------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------- |
-| `modelsMap: Map<string, Object>`    | Returns a Map with all model. `keys` are model ids.                                                                                               |
-| `objectsMap: Map<string, Object>` | Returns a Map with all objects. `keys` are object ids.                                                                                         |
-| `uuidsMap: Map<string, Object[]>` | Returns a Map with all objects. `keys` are object uuids. As object uuids may not be unique, uuidsMap.get("some_uuid") always returns an array. |
+**Note:** for convenience, all getter properties have also `ids` and `uuids` equivalent:
 
 ```javascript
-const object = $viewer.state.uuidsMap.get("some_uuid")[0]; // Always returns an array with the corresponding objects.
+$viewer.state.selectedObjects;      // list of selected objects
+$viewer.state.selectedObjectsIds;   // list of selected objects ids
+$viewer.state.selectedObjectsUuids; // list of selected objects uuids
 ```
 
-:::tip
-If you need Array API like `filter`, `some`... Use `state.objects.filter(() => {/* do something */})`.
+## Objects setters
 
-If you need to get an object by uuid, use Map getters that are more performant for this purpose.
-:::
+Setters allows to update the objects state.
 
-## Setters
+| Name                                                            | Description                                     |
+| :-------------------------------------------------------------- | :---------------------------------------------- |
+| `showObjects(ids: number[], options?: any)`                     | Show objects.                                   |
+| `hideObjects(ids: number[], options?: any)`                     | Hide objects.                                   |
+| `setObjectsPickable(ids: number[], options?: any)`              | Set objects as pickable.                        |
+| `setObjectsUnpickable(ids: number[], options?: any)`            | Set objects as unpickable.                      |
+| `selectObjects(ids: number[], options?: any)`                   | Select objects.                                 |
+| `deselectObjects(ids: number[], options?: any)`                 | Deselect objects.                               |
+| `highlightObjects(ids: number[], options?: any)`                | Highlight objects.                              |
+| `unhighlightObjects(ids: number[], options?: any)`              | Unhighlight objects.                            |
+| `xrayObjects(ids: number[], options?: any)`                     | Xray objects.                                   |
+| `unxrayObjects(ids: number[], options?: any)`                   | Unxray objects.                                 |
+| `colorizeObjects(ids: number[], color?: string, options?: any)` | Set objects color (ex: "#FFFFFF").              |
 
-Setters allows to update the state.
+**Note:** as for [getters](#objects-getters), setters have `uuids` equivalent as well:
 
 ```javascript
-const objectId = 1;
-
-state.selectObjects([objectId], options);
+$viewer.state.selectObjects(ids);          // selects objects by ids
+$viewer.state.selectObjectsByUuids(uuids); // selects objects by uuids
 ```
 
-| Name                                   | Description                                                     |
-| :------------------------------------- | :-------------------------------------------------------------- |
-| Models setter                          |                                                                 |
-| `async loadModels(modelIds: number[])` | **Async** Load models with the specified ids. and returns them. |
-| `unloadModels(modelIds: number[])`     | Unload models with the specified ids.                           |
-| Objects setter                         |                                                                 |
-| `selectObjects(ids, options)`          | Select objects.                                                 |
-| `deselectObjects(ids, options)`        | Deselect objects.                                               |
-| `highlightObjects(ids, options)`       | Highlight objects.                                              |
-| `unhighlightObjects(ids, options)`     | Unhighlight objects.                                            |
-| `showObjects(ids, options)`            | Show objects.                                                   |
-| `hideObjects(ids, options)`            | Hide objects.                                                   |
-| `xrayObjects(ids, options)`            | Xray objects.                                                   |
-| `unxrayObjects(ids, options)`          | Unxray objects.                                                 |
-| `colorizeObjects(ids, color, options)` | Color objects with HEXColor (ex: "#FFFFFF").                    |
+Moreover, every setter has an optional `options` argument that can be used to pass additional data to the triggered event payload.
+This provide more flexibility and allows to handle some complex use cases.
 
-The `options` object on setters is passed as property on the event payload. It could be interesting in some special case when a plugin update objects and listen to the same object change event. If the plugin sent the event, it may be appropriate to do not react on the corresponding event:
+An example usage if the `options` argument could be to ensure that a plugin will not "auto-trigger" itself by emitting
+an `"objects-selected"` event while still being able to react to other plugins `"objects-selected"` events:
 
 ```javascript
-this.$viewer.state.selectObjects(ids, { trigger: this });
-
 this.$viewer.state.hub.on("objects-selected", ({ objects, options }) => {
-  if (options.trigger === this) return;
+  if (options.emitter === this) return;
   /* Do something if the event comes from another plugin. */
 });
-```
 
-## IDs and UUIDs
-
-All property getters and setters have `id` and `uuid` equivalent.
-
-For getters, add `Ids` or `Uuids`:
-
-```javascript
-$viewer.state.selectedObjects; // Return the selected objects
-$viewer.state.selectedObjectsIds; // Return the selected objects ids
-$viewer.state.selectedObjectsUuids; // Return the selected objects uuids
-```
-
-For setters, add `ByUuids`:
-
-```javascript
-$viewer.state.selectObjects(ids, options); // Selects objects by ids
-$viewer.state.selectObjectsByUuids(uuids, options); // Selects objects by uuids
+// Pass an `emitter` option to ensure the plugin will not trigger itself
+this.$viewer.state.selectObjects(ids, { emitter: this });
 ```
 
 ## Annotations
@@ -150,11 +244,11 @@ interface Annotation {
   // Coordinates
   x: number;
   y: number; 
-  z: numnber;
+  z: number;
   // Vue component used to render annotation on viewer
-  component: Object;
+  component: any;
   // Optional props to pass to the annotation component
-  props?: Object;
+  props?: any;
 }
 ```
 
@@ -167,51 +261,31 @@ Annotation related fields and methods:
 | `removeAnnotation(annotation, options)` | Remove the given annotation from state                          |
 | `clearAnnotations()`                    | Remove all annotations from state                               |
 
-## Hub
+## Events
 
-`state.hub` allows to listen for [state update events](#events) :
-
-```javascript
-state.hub.on("objects-selected", ({ ids, options }) => {
-  console.log("Do something.");
-});
-
-state.hub.on(
-  "models-loaded",
-  ({ models }) => {
-    console.log("Do something.");
-  },
-  {
-    getLastEvent: true, // immediately trigger the callback with the last loaded models if they exists.
-  }
-);
-```
-
-`options` is a custom object passed at some [setters](#setters).
-
-### Events
-
-| Name                    | Payload                                              |
-| :---------------------- | :--------------------------------------------------- |
-| **Models events**       |                                                      |
-| `models-loaded`         | { models: Model[] }                                  |
-| `models-unloaded`       | { models: Model[] }                                  |
-| **Objects events**      |                                                      |
-| `objects-added`         | { objects: Array }                                   |
-| `objects-removed`       | { objects: Array }                                   |
-| `objects-selected`      | { objects: Array, options: Object }                  |
-| `objects-deselected`    | { objects: Array, options: Object }                  |
-| `objects-highlighted`   | { objects: Array, options: Object }                  |
-| `objects-unhighlighted` | { objects: Array, options: Object }                  |
-| `objects-shown`         | { objects: Array, options: Object }                  |
-| `objects-hidden`        | { objects: Array, options: Object }                  |
-| `objects-xrayed`        | { objects: Array, options: Object }                  |
-| `objects-unxrayed`      | { objects: Array, options: Object }                  |
-| `objects-colorized`     | { objects: Array, color: HEXColor, options: Object } |
-| **Annotation events**   |                                                      |
-| `annotation-added`      | { annotation: Object, options: Object }              |
-| `annotation-updated`    | { annotation: Object }                               |
-| `annotation-removed`    | { annotation: Object, options: Object }              |
+| Name                    | Payload                                                  | Description |
+| :---------------------- | :------------------------------------------------------- | :---------- |
+| **Models events**       |                                                          |             |
+| `models-loaded`         | { models: Model[] }                                      | One or more models have been loaded in the state |
+| `models-unloaded`       | { models: Model[] }                                      | One or more models have been unloaded from the state |
+| **Objects events**      |                                                          |             |
+| `objects-added`         | { objects: StateObject[] }                               | Some objects have been added to the state |
+| `objects-removed`       | { objects: StateObject[] }                               | Some objects have been removed from the state |
+| `objects-shown`         | { objects: StateObject[], options?: any }                | Some objects have been made visible |
+| `objects-hidden`        | { objects: StateObject[], options?: any }                | Some objects have been hidden |
+| `objects-pickable`      | { objects: StateObject[], options?: any }                | Some objects have been made pickable |
+| `objects-unpickable`    | { objects: StateObject[], options?: any }                | Some objects have been made unpickable |
+| `objects-selected`      | { objects: StateObject[], options?: any }                | Some objects have been selected |
+| `objects-deselected`    | { objects: StateObject[], options?: any }                | Some objects have been deselected |
+| `objects-highlighted`   | { objects: StateObject[], options?: any }                | Some objects have been highlighted |
+| `objects-unhighlighted` | { objects: StateObject[], options?: any }                | Some objects have been unhighlighted |
+| `objects-xrayed`        | { objects: StateObject[], options?: any }                | Some objects have been xrayed |
+| `objects-unxrayed`      | { objects: StateObject[], options?: any }                | Some objects have been unxrayed |
+| `objects-colorized`     | { objects: StateObject[], color: string, options?: any } | Some objects have been colorized |
+| **Annotations events**  |                                                          |             |
+| `annotation-added`      | { annotation: Annotation, options?: any }                | An annotation has been added |
+| `annotation-updated`    | { annotation: Annotation, options?: any }                | An annotation has been updated/moved |
+| `annotation-removed`    | { annotation: Annotation, options?: any }                | An annotation has been removed |
 
 :::tip
 For more information about the state hub interface, see [the hub reference](hubs.html).

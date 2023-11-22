@@ -42,7 +42,7 @@ If the viewer3d window is too small, you can resize it by dragging the vertical 
 
 ## Complete code example
 
-```javascript {143-150}
+```javascript
 // Configure the viewer
 const viewer = makeBIMDataViewer({
   api: {
