@@ -290,3 +290,15 @@ Annotation related fields and methods:
 :::tip
 For more information about the state hub interface, see [the hub reference](hubs.html).
 :::
+
+Examples:
+
+```js
+state.hub.on("models-loaded", ({ models }) => {
+  /* Handle newly loaded models */
+});
+
+state.hub.on("objects-selected", ({ objects, options }) => {
+  /* Do something with selected objects */
+});
+```

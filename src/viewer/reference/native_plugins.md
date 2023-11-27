@@ -320,19 +320,19 @@ const pointCloudPlugin = this.$viewer.localContext.plugins.get("pointCloud");
 
 - name: `viewer3d-parameters`
 
-A plugin as un button that allows to configure highlight, edges and spaces visibility.
-Parameters are saved in local storage
+A button plugin that allows to configure highlight, edges and spaces visibility.
+Parameters are saved in local storage.
 
 ## 2D parameters
 
 - name: `viewer2d-parameters`
 
-A plugin as un button that allows to configure door openings and space names.
-Parameters are saved in local storage
+A button plugin that allows to configure door openings and space names.
+Parameters are saved in local storage.
 
 ## 2D measurements
 
 - name: `measure2d`
 
-A plugin as un button that allows to measure distances, angles and surfaces in the 2D viewer
-Measurements are saved in local storage
+A button plugin that allows to measure distances, angles and surfaces in the 2D viewer
+Measurements are saved in local storage.

@@ -76,12 +76,12 @@ more about what you can do with `$viewer.api.apiClient`.
 Here is an example of how to get an IFC element from the API:
 
 ```javascript
-const ifcId = 123;
+const modelId = 123;
 const uuid = "my element uuid";
 
 const element = await this.$viewer.api.apiClient.modelApi.getElement(
   this.$viewer.api.cloudId,
-  ifcId,
+  modelId,
   this.$viewer.api.projectId,
   uuid
 );
@@ -125,8 +125,8 @@ For performance reasons, the API sends a formatted JSON that needs to be rebuilt
 If you want to parse data to filter objects, you probably want to use this method.
 
 ```javascript
-const ifcId = 123;
-const elements = await this.$viewer.api.getRawElements(ifcId);
+const modelId = 123;
+const elements = await this.$viewer.api.getRawElements(modelId);
 ```
 
 The result is an object where keys are uuids and value are the element data formatted like
@@ -135,7 +135,7 @@ the [API response](https://api.bimdata.io/doc#/ifc/getElement).
 ### waitForModelProcess
 
 The `$viewer.api.waitForModelProcess()` method can be used to wait until a given model is processed,
-that is it has a status of `C` (COMPLETED), `E` (ERROR) or `X` (WON'T FIX). It takes a **model** object as parameter.
+i.e. it has a status of `C` (COMPLETED), `E` (ERROR) or `X` (WON'T FIX). It takes a **model** object as parameter.
 
 A typical usage example is when you need to upload a model and then wait for it to be processed before opening it in a viewer.
 
@@ -256,9 +256,9 @@ this.$viewer.globalContext.setSpinner(null);
 ### Modals
 
 In a similar way, you can choose to show a modal on the whole UI or just the current window
-using modal managers available on `globalContext.modals` and `localContext.modals`.
+using modals manager available on `globalContext.modals` and `localContext.modals`.
 
-Modal managers allow to display modals. Modals are queue so if more than one modals are sent to the same modal manager,
+Modal manager allows to display modals. Modals are queued so if more than one modals are sent to the same modals manager,
 they will be displayed in order.
 
 To open a modal, call `pushModal` on a modal manager.

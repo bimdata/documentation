@@ -49,6 +49,6 @@ It is a good idea to do this tutorials in order as code is added to the same fil
 - [Listen and update state](/viewer/tutorials/state.html)
 - [Use event Hubs](/viewer/tutorials/hubs.html)
 
-## What do I do next ?
+## What do I do next?
 
 Once finished, you will have solid knowledge of the main viewer features. The next sections [Customize the UI](/viewer/customize_the_ui.html) and [Develop your plugins](/viewer/plugins/overview.html) covers the respective features in depth and are the logic sequel of these tutorials. You will find features you already saw here with more detailed informations.
