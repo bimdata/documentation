@@ -1,102 +1,225 @@
 # `$viewer`
 
-The `$viewer` object can be accessed using `this` on a component, or as the first parameter of the startupScript method. This object allows to interact with the viewer core. Here is an overview of what it contains:
+The `$viewer` object can be accessed on any component instance (using `this.$viewer`),
+it is also passed as the first argument of the `startupScript` method of a plugin.
+It is the entrypoint to interact with the viewer core.
 
-<pre style="color: white;">
-<b>$viewer</b>
-│ <a href="/viewer/reference/context_menu.html">contextMenu</a>
-│ <a href="/viewer/reference/state.html">state</a>
-| getLocalContexts(windowName): LocalContext[];
-│
-└─── <b>api</b>
-│ │ apiUrl: string;
-│ │ cloudId: number;
-│ │ projectId: number;
-│ │ accessToken: string;
-│ │ apiClient: ApiClient;
-│ │ getRawElements(ifcId): RawElements;
-│
-└─── <b>localContext</b>
-│ │ getPlugin(pluginName): Plugin; // DEPRECATED
-│ │ plugins: Map&lt;string, Plugin&gt;;
-│ │ loading: boolean;
-│ │ incrementSpinnerProcesses(): void; // DEPRECATED
-│ │ loadingProcessStart(): void;
-│ │ decrementSpinnerProcesses(): void; // DEPRECATED
-│ │ loadingProcessEnd(): void;
-│ │ registerShortcut(shortcut): void;
-│ │ unregisterShortcut(shortcutName): void;
-│ │ hub: Hub;
-│ │ modals: ModalManager;
-│
-└─── <b>globalContext</b>
-│ │ getPlugins(pluginName): Plugin[]; // DEPRECATED
-│ │ plugins: Map&lt;string, Plugin[]&gt;;
-│ │ loading: boolean;
-│ │ incrementSpinnerProcesses(): void; // DEPRECATED
-│ │ loadingProcessStart(): void;
-│ │ decrementSpinnerProcesses(): void; // DEPRECATED
-│ │ loadingProcessEnd(): void;
-│ │ registerShortcut(shortcut): void;
-│ │ unregisterShortcut(shortcutName): void;
-│ │ hub: Hub;
-│ │ modals: ModalManager;
+Below is a description of its interface:
 
-</pre>
+```typescript
+interface $Viewer {
+  readonly i18n: i18n;
+  readonly api: Api;
+  readonly state: State;
+  readonly registeredWindows: string[];  // List of registered window names
+  readonly registeredPlugins: string[];  // List of registered plugin names
 
-## api
+  readonly globalContext: GlobalContext;
+  readonly localContext: LocalContext;
+  readonly contextMenu: ContextMenu;
+}
+```
 
-The `$viewer.api` object contains all informations needed to communicate with the [BIMData API](/api/introduction/overview.html).
+## i18n
 
-::: tip
-See [the documentation about the `$viewer.api.apiClient`](/api/external_libraries.html#javascript)
-:::
+`$viewer.i18n` is used to access the viewer internationalization API:
 
-Example: How to get an element from the API
+```typescript
+enum ViewerLocale { "de", "en", "es", "fr", "it" }
+
+interface i18n {
+  i18nVuePlugin: any;
+  registerTranslations(messages: Object): void;  // Register a set of messages
+  changeLocale(locale: ViewerLocale): void;      // Change the current viewer locale
+}
+```
+
+Example usage: register translations that will be used in a plugin template.
 
 ```javascript
-const ifcId = 4;
+this.$viewer.i18n.registerTranslations({
+  en: {
+    hello: "Hello world !"
+  },
+  fr: {
+    hello: "Boujour le monde !"
+  }
+});
+```
+
+## API
+
+The `$viewer.api` object is used to interact with the [BIMData API](/api/introduction/overview.html).
+
+```typescript
+interface Api {
+  readonly apiClient: BIMDataApiClient;
+  readonly apiUrl: string;
+  readonly archiveUrl: string;
+  readonly cloudId: number;
+  readonly projectId: number;
+  readonly permissions: Permissions;
+  accessToken: string;
+
+  getModel(modelId: number): Promise<Model>;
+  getModelStructure(model: Model): Promise<any>;
+  getRawElements(modelId: number): Promise<any>;
+  waitForModelProcess(model: Model): Promise<Model>;
+}
+```
+
+::: tip
+See [the doc of the **typescript-fetch-api-client**](/api/external_libraries.html#typescript) to learn
+more about what you can do with `$viewer.api.apiClient`.
+:::
+
+Here is an example of how to get an IFC element from the API:
+
+```javascript
+const modelId = 123;
 const uuid = "my element uuid";
 
-const element = await new this.$viewer.api.apiClient.IfcApi().getElement(
+const element = await this.$viewer.api.apiClient.modelApi.getElement(
   this.$viewer.api.cloudId,
-  ifcId,
+  modelId,
   this.$viewer.api.projectId,
   uuid
 );
 ```
 
+### Permissions
+
+The `$viewer.api.permissions` object hold a set of flags that tell which actions the user is allowed to perform.
+
+```typescript
+interface Permissions {
+  hasAdminPermission: boolean;
+  hasBcfReadPermission: boolean;
+  hasBcfWritePermission: boolean;
+  hasDocReadPermission: boolean;
+  hasDocWritePermission: boolean;
+  hasModelReadPermission: boolean;
+  hasModelWritePermission: boolean;
+  hasReadPermission: boolean;
+  hasWritePermission: boolean;
+  userRole: string;
+  tokenScopes: {
+    bcf?: string[];
+    model?: string[];
+    document?: string[];
+  };
+  usableScopes: {
+    bcf?: string[];
+    model?: string[];
+    document?: string[];
+  };
+}
+```
+
 ### getRawElements
 
-`getRawElement()` is a special method. It retrieves all objects, their properties, classifications, systems and layers.
+The `$viewer.api.getRawElements()` method retrieves all objects, their properties, classifications, systems and layers.
 
 For performance reasons, the API sends a formatted JSON that needs to be rebuilt in order to be used in javascript.
 
 If you want to parse data to filter objects, you probably want to use this method.
 
 ```javascript
-const ifcId = 4;
-const elements = await new this.$viewer.api.getRawElements(ifcId);
+const modelId = 123;
+const elements = await this.$viewer.api.getRawElements(modelId);
 ```
 
-The result is an object where keys are uuids and value are the element data formatted like the [API response](https://api.bimdata.io/doc#/ifc/getElement)
+The result is an object where keys are uuids and value are the element data formatted like
+the [API response](https://api.bimdata.io/doc#/ifc/getElement).
 
-## global and local contexts
+### waitForModelProcess
 
-The `globalContext` and the `localContext` objects are related to [windows](/viewer/customize_the_ui.html#window) and the viewer UI in general. The `globalContext` is the whole UI while the `localContext` is the [window](/viewer/customize_the_ui.html#window) where the code is executed.
+The `$viewer.api.waitForModelProcess()` method can be used to wait until a given model is processed,
+i.e. it has a status of `C` (COMPLETED), `E` (ERROR) or `X` (WON'T FIX). It takes a **model** object as parameter.
 
-A plugin must have a unique name in a window, but many plugins with the same name can be instanciated in the viewer if they belong to different windows. That is why `globalContext.plugins.get(pluginName)` returns an Array of plugins, while `localContext.plugins.get(pluginName)` returns a simple plugin.
+A typical usage example is when you need to upload a model and then wait for it to be processed before opening it in a viewer.
+
+```javascript
+const processedModel = await this.$viewer.api.waitForModelProcess(model);
+```
+
+## State
+
+The `$viewer.state` object provide a way to interact with [the global state](./state.md).
+
+## Global and Local contexts
+
+The [`globalContext`](./global_context.md) and the [`localContext`](./local_context.md) objects
+are related to [windows](/viewer/customize_the_ui.html#window) and the viewer UI in general.
+The `globalContext` is the whole UI while the `localContext` is the [window](/viewer/customize_the_ui.html#window) where the code is executed.
+
+A plugin must have a unique name in a window, but many plugins with the same name can be instanciated in the viewer if they belong to different windows.
+That is why `globalContext.plugins.get(pluginName)` returns an Array of plugins, while `localContext.plugins.get(pluginName)` returns a simple plugin.
+
+For a more detailed description of the global/local context interfaces, refer to their respective documentation:
+
+ - [Global Context](./global_context.md)
+ - [Local Context](./local_context.md)
+
+### Shortcuts
+
+You can use `globalContext`/`localContext` to register shortcuts that depends on the context.
+
+When triggering a shortcut, the current context is the window the mouse is hovering.
+If two shortcuts are registered on the same key, one on the `localContext`, the other on the `globalContext`,
+the `localContext` shortcut will be executed on keystroke if the mouse is hovering the window,
+else, it will be the `globalContext` one (the mouse is hovering another window or the header).
+
+A shortcut object has the following interface:
+
+```typescript
+interface Shortcut {
+  name: string;       // [Required] A name to identify the shortcut.
+  key: string;        // [Required] This key the shortcut is bound to (case insensitive).
+  ctrlKey: boolean;   // [Default to `false`] Does the `ctrl` (or `meta`) key must be pressed to trigger the shortcut ?
+  shiftKey: boolean;  // [Default to `false`] Does the `shift` key must be pressed to trigger the shortcut ?
+  altKey: boolean;    // [Default to `false`] Does the `alt` key must be pressed to trigger the shortcut ?
+  execute(): void;    // [Required] The function that will be executed when the key is pressed.
+}
+```     
+
+Example usage:
+
+```javascript
+this.$viewer.globalContext.registerShortcut({
+  name: "log",
+  key: "l",
+  ctrlKey: true,
+  execute: () => console.log("Log from global shortcut."),
+});
+
+this.$viewer.localContext.registerShortcut({
+  name: "log",
+  key: "l",
+  ctrlKey: true,
+  execute: () => console.log("Log from local shortcut."),
+});
+```
+
+Shortcuts can be unregistered calling the `unregisterShortcut` with the shortcut name.
+
+```javascript
+this.$viewer.globalContext.unregisterShortcut("log");
+this.$viewer.localContext.unregisterShortcut("log");
+```
 
 ### Spinners
 
-You can start a spinner to indicate to the user that he needs to wait. You can choose to add a spinner on the whole UI or just the current window.
+You can display a spinner to tell the user to wait until some process is finished.
+
+Spinners can be displayed on the whole UI (**globalContext**) or just the current window (**localContext**).
 
 ```javascript
 // A spinner on the whole UI
-this.$viewer.localContext.loadingProcessStart();
+this.$viewer.globalContext.loadingProcessStart();
 
 // A spinner on the current window
-this.$viewer.globalContext.loadingProcessStart();
+this.$viewer.localContext.loadingProcessStart();
 ```
 
 <div style="display: flex; justify-content: space-around;">
@@ -108,29 +231,45 @@ this.$viewer.globalContext.loadingProcessStart();
   <img width="48%" src="/assets/img/viewer/Viewer-local_context.gif" alt="Viewer local context spinner.">
 </p>
 
-To stop spinners:
+To stop spinners use the following methods:
 
 ```javascript
-this.$viewer.localContext.loadingProcessEnd();
 this.$viewer.globalContext.loadingProcessEnd();
+this.$viewer.localContext.loadingProcessEnd();
 ```
 
-The `loading` property on the `globalContext` and the `localContext` objects indicates if a spinner is running on the related context.
+There is a `loading` property (on both `globalContext` and `localContext`) that indicates if a spinner is displayed on the related context.
+
+The global spinner can also be customized via the `setSpinner` method:
+
+```javascript
+// Set custom spinner to be used as global spinner
+this.$viewer.globalContext.setSpinner({
+  component: SpinnerComponent,
+  props: SpinnerProps,
+});
+
+// Reset global spinner to default
+this.$viewer.globalContext.setSpinner(null);
+```
 
 ### Modals
 
-In a similar way, you can choose to show a modal on the whole UI or just the current window using modal managers available on `localContext.modals` and `globalContext.modals`.
+In a similar way, you can choose to show a modal on the whole UI or just the current window
+using modals manager available on `globalContext.modals` and `localContext.modals`.
 
-Modal managers allow to display modals. Modals are queue so if more than one modals are sent to the same modal manager, they will be displayed in order.
+Modal manager allows to display modals. Modals are queued so if more than one modals are sent to the same modals manager,
+they will be displayed in order.
 
 To open a modal, call `pushModal` on a modal manager.
 
 | Property                      | Description                                                                                              |
 | :---------------------------- | :------------------------------------------------------------------------------------------------------- |
 | `pushModal(component, props)` | Add a modal to the queue. `component` is a valid vuejs component. `props` is the component props values. |
+| `clearModal()`                | Clear the current model.                                                                                 |
 
 ```javascript
-this.$viewer.localContext.modals.pushModal(MyModal);
+this.$viewer.localContext.modals.pushModal(MyModalComponent);
 ```
 
 To close a modal, click outside of its content or emit the "close" event inside the modal component.
@@ -139,94 +278,6 @@ To close a modal, click outside of its content or emit the "close" event inside 
 this.$emit("close");
 ```
 
-### Shortcuts
+## Context Menu
 
-You can also register a shortcut that depends on the context. The current context is the window where the mouse is hover. If two shortcuts are registered on the same key, one on the `localContext`, the other on the `globalContext`, the `localContext` shortcut will be executed on keystroke if the mouse is hovering the window, else, it will be the `globalContext` one (the mouse is hovering another window or the header).
-
-A shortcut object have the following interface:
-
-| Property   | Type     | Description                                                                                                                                                                              |
-| :--------- | :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `name`     | String   | **Required**. A name to identify the shortcut.                                                                                                                                           |
-| `key`      | String   | **Required**. Pressing this key will execute the shortcut (Case insensitive). [`key` may be many things](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values). |
-| `execute`  | Function | **Required**. The function that will be executed when the key is pressed.                                                                                                                |
-| `ctrlKey`  | Boolean  | **Default to false**. A boolean indicating that the ctrl key must be pressed in addition to the key to trigger the shortcut. (ctrl and meta keys are treated as the same key)            |
-| `shiftKey` | Boolean  | **Default to false**. A boolean indicating that the shift key must be pressed in addition to the key to trigger the shortcut.                                                            |
-| `altKey`   | Boolean  | **Default to false**. A boolean indicating that the alt key must be pressed in addition to the key to trigger the shortcut.                                                              |
-
-```javascript
-this.$viewer.localContext.registerShortcut({
-  name: "log",
-  key: "l",
-  ctrlKey: true,
-  execute: () => console.log("Log from local shortcut."),
-});
-
-this.$viewer.globalContext.registerShortcut({
-  name: "log",
-  key: "l",
-  ctrlKey: true,
-  execute: () => console.log("Log from global shortcut."),
-});
-```
-
-Shortcuts can be unregistered calling the `unregisterShortcut` with the shortcut name.
-
-```javascript
-this.$viewer.globalContext.unregisterShortcut("log");
-```
-
-### Events
-
-Some default events are sent to the local and global context.
-
-| Name                    | Payload                                   | Description                                                                                                                              |
-| :---------------------- | :---------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------- |
-| `plugin-created`        | { pluginName: `string`, plugin: `Object`} | Sent when a [plugin](/viewer/plugins/overview.html) is created.                                                                          |
-| `plugin-destroyed`      | { pluginName: `string`, plugin: `Object`} | Sent when a [plugin](/viewer/plugins/overview.html) is destroyed.                                                                        |
-| `plugin-menu-open`      | plugin: `Object`                          | Sent when a [plugin as button](/viewer/plugins/plugin_as_button.html#plugin-as-button) is openned                                        |
-| `plugin-menu-close`      | plugin: `Object`                          | Sent when a [plugin as button](/viewer/plugins/plugin_as_button.html#plugin-as-button) is closed.                                        |
-| **Global context only** |                                           |                                                                                                                                          |
-| `window-open`           | window: `Object`                          | Sent when a [window](/viewer/customize_the_ui.html#window) is selected on the window selector, displayed when a window is splitted. |
-| `window-close`          | window: `Object`                          | Sent when a [window](/viewer/customize_the_ui.html#window) is closed.                                                                    |
-
-## utils
-
-This objects is used to store utilities like the `getRawElements(ifcId)` method.
-
-## Local State
-
-Two models can be loaded independently on different windows (like "2d", "3d" ...). However, using the [global state](/viewer/reference/state.html), it is not possible to know which model is loaded on a specified window. The `localContext` is the concrete API to interact with the abstract window and in addition of the previously mentionned properties, there is other ones that can considered as the properties of a local state.
-
-These local state properties are as follows:
-
-<pre style="color: white;">
-
-──── <b>localContext</b>
-│ │ <b>- Reactive properties that can be used in vue template, watcher, computed...</b>
-│ │ loadedModels: StateModel[];
-│ │ loadedModelIds: number[];
-│ │ loadingModelIds: number[];
-│ │ modelTypes: string[];
-│ │ multiModel: boolean;
-│ │ <b>- Methods to mutate the local state</b>
-│ │ loadModels(ids: number[]): Promise&lt;boolean&gt;;
-│ │ unloadModels(ids: number[]): boolean;
-│ │ toggleModel(id: number): Promise&lt;boolean&gt;;
-
-</pre>
-
-The following example shows how to react on a local state mutation:
-
-```js
-// a custom plugin
-export default {
-  created() {
-    this.$watch(
-      () => this.$viewer.localContext.loadedModelIds,
-      ids => console.log(`These model ids are loaded into the window ${this.$viewer.localContext.window.name}.`);
-    );
-  },
-};
-
-```
+You can manage [the viewer context menu](./context_menu.md) with `$viewer.contextMenu`.

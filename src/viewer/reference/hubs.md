@@ -2,7 +2,7 @@
 tags: ["event", "events"]
 ---
 
-# Hubs
+# Event Hubs
 
 A Hub is an event manager. It allows to register event handler and to trigger events.
 

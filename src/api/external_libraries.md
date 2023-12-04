@@ -2,16 +2,18 @@
 
 We’re currently maintaining two external libraries auto-generated from [our OpenAPI specification file](https://api.bimdata.io/doc#/) using [openapi-generator](https://github.com/OpenAPITools/openapi-generator).
 
-## Javascript
+## Typescript
 
 - Install via NPM:
 ```bash
-npm install @bimdata/bimdata-api-client --save
+npm install @bimdata/typescript-fetch-api-client --save
 ```
 
-- URL: [https://www.npmjs.com/package/@bimdata/bimdata-api-client](https://www.npmjs.com/package/@bimdata/bimdata-api-client)
+- URL: [https://www.npmjs.com/package/@bimdata/typescript-fetch-api-client](https://www.npmjs.com/package/@bimdata/typescript-fetch-api-client)
 
-- Repository: [https://github.com/bimdata/javascript-api-client](https://github.com/bimdata/javascript-api-client)
+- Repository: [https://github.com/bimdata/typescript-fetch-api-client-generator](https://github.com/bimdata/typescript-fetch-api-client-generator)
+
+**Note:** the *typescript-fetch-api-client* can be used in JavaScript & TypeScript codebase the same way.
 
 ## Python
 
