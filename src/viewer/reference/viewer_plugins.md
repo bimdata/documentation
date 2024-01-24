@@ -31,7 +31,6 @@ interface ModelViewerConfig {
 
 ```typescript
 interface ModelViewerInstance extends PluginInstance {
-  viewer?: any;
   modelTypes?: string[];
   annotationMode: boolean;
 

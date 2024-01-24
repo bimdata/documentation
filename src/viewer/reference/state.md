@@ -102,7 +102,7 @@ interface State {
 
 ## Models
 
-A state `Model` is a [model object from API](https://api-staging.bimdata.io/doc#/model/getModel) extended with some additional fields.
+A state `Model` is a [model object from API](https://api.bimdata.io/doc#/model/getModel) extended with some additional fields.
 
 ```typescript
 interface Model extends ApiModel {
@@ -116,6 +116,43 @@ interface Model extends ApiModel {
 The `structure` object is obtained by fetching and parsing the file pointed by the model `structure_file` property.
 
 The `uuids` map can be used to retrieve model objects directly (using their uuids).
+
+The `objects` array is the list of model objects.
+
+The `storeys` array is the list of model storeys. `Storey` objects have the following interface:
+
+```typescript
+interface Storey {
+  uuid: string;
+  name: string;
+  model: Model;        // model that contain the storey
+  plans: Plan[];       // list of storey plans
+  object: StateObject; // storey object (from IFC)
+  uuids: Set<string>;  // UUIDs of all storey descendents
+
+  elevation: number;         // vertical position (z) of the storey in model coordinates
+  topElevation: number;      // elevation of the next storey (in model coordinates)
+  absoluteElevation: number; // vertical position of the storey (z) in world coordinates
+  absoluteTopElevation: number; // elevation of the next storey (in world coordinates)
+
+  key: string; // storey unique key
+  selected: boolean;
+}
+
+/** For `ApiModel` fields see: https://api.bimdata.io/doc#/model/getModel */
+interface Plan extends ApiModel {
+  positioning: {
+    x: number;
+    y: number;
+    angle: number;
+    scale: number;
+    opacity: number;
+  };
+
+  key: string; // plan unique key
+  selected: boolean;
+}
+```
 
 ## Objects
 

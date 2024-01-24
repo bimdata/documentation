@@ -191,6 +191,16 @@ const viewer3dPlugin = this.$viewer.localContext.plugins.get("viewer3d");
 
 This plugin allows 2D representation of an IFC. This is a [viewer plugin](./viewer_plugins.md).
 
+### Configuration
+
+| Name                      | Type      | Description |
+| :------------------------ | :-------- | :---------- |
+| `compass`                 | `boolean` | Whether to display compass or not. Defaults to `true`. |
+| `help`                    | `boolean` | Whether to display help button or not. Defaults to `true`. |
+| `modelLoader`             | `string`  | See [viewers config](./viewer_plugins.md#viewers-common-config). Possible values: `"hidden"`, `"disabled"`, allows to control models loader display. By default model loader is displayed and enabled. |
+| `storeySelector`          | `boolean` | Whether to display storey selector or not. Defaults to `true`. |
+| `storeySelectorAutoOpen`  | `boolean` | Whether storey selector should auto open on model loading or not. Defaults to `true`. |
+
 ### Events
 
 | Name                | Payload             | Description                          | Emitted on                         |
@@ -259,6 +269,15 @@ This plugin allows to view DXF models. This is a [viewer plugin](./viewer_plugin
 - name: `plan`
 
 This plugin allows to view bitmap plans (PDF, PNG, JPG, METABUILDING models). This is a [viewer plugin](./viewer_plugins.md).
+
+### Configuration
+
+| Name                      | Type      | Description |
+| :------------------------ | :-------- | :---------- |
+| `help`                    | `boolean` | Whether to display help button or not. Defaults to `true`. |
+| `modelLoader`             | `string`  | See [viewers config](./viewer_plugins.md#viewers-common-config). Possible values: `"hidden"`, `"disabled"`, allows to control models loader display. By default model loader is displayed and enabled. |
+| `storeySelector`          | `boolean` | Whether to display storey selector or not. Defaults to `true`. |
+| `storeySelectorAutoOpen`  | `boolean` | Whether storey selector should auto open on model loading or not. Defaults to `true`. |
 
 ### Events
 
