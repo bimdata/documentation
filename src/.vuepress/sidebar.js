@@ -61,6 +61,12 @@ function getViewerSidebar() {
     },
     "viewer_sdk",
     {
+      title: "Cookbook",
+      children: [
+        "cookbook/plan_annotations"
+      ], 
+    },
+    {
       title: "Reference",
       children: [
         "reference/makeBIMDataViewer",
