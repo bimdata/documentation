@@ -57,6 +57,16 @@ The `api` properties are:
 | `projectId`   | `number`   | The project id.                |
 | `accessToken` | `string`   | The access token.              |
 | `apiUrl`      | `string`   | The BIMData api url.           |
+| `offline`     | `object`   | Offline mode configuration.    |
+
+Here are `offline` configuration options:
+
+| Name          | Type       | Description                    |
+| :------------ | :--------- | :----------------------------- |
+| `enabled`     | `boolean`  | Default to `false`. Enable/Disable offline mode. |
+| `dataFile`    | `object`   | Offline mode configuration.    |
+
+You can refer to [the dedicated page](../offline_mode.md) to learn more about offline mode.
 
 ## ui
 

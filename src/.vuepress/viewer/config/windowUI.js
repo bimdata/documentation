@@ -1,34 +1,8 @@
+import baseConfig from "./baseConfig.js";
+
 export default function(viewerId) {
   // Configure the viewer
-  const viewer = makeBIMDataViewer({
-    api: {
-      modelIds: [15097],
-      cloudId: 10344,
-      projectId: 237466,
-      accessToken: "TAbdyPzoQeYgVSMe4GUKoCEfYctVhcwJ",
-    },
-    ui: {
-      version: false,
-      bimdataLogo: false,
-      menuVisible: false,
-    },
-    plugins: {
-      bcf: false,
-      fullscreen: false,
-      measure3d: false,
-      projection: false,
-      search: false,
-      section: false,
-      "structure-properties": false,
-      viewer3d: {
-        navCube: false,
-        help: false,
-        modelLoader: "hidden",
-      },
-      "viewer3d-parameters": false,
-      "window-split": false,
-    },
-  });
+  const viewer = makeBIMDataViewer(baseConfig);
 
   viewer.registerPlugin({ name: "test" });
 
@@ -46,8 +20,8 @@ export default function(viewerId) {
   viewer.registerWindow(window1);
   viewer.registerWindow(window2);
 
-  // Mount custom layout
-  const customLayout = {
+  // Define layout
+  const layout = {
     ratios: [40, 60],
     children: [
       "3d",
@@ -59,5 +33,5 @@ export default function(viewerId) {
     ],
   };
 
-  viewer.mount(`#${viewerId}`, customLayout);
+  viewer.mount(viewerId, layout);
 }

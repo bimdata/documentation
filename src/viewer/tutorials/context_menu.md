@@ -38,9 +38,7 @@ const component3 = {
       this.$viewer.contextMenu.preventDefault();
       this.$viewer.contextMenu.registerContextCommand({
         label: "My command!",
-        execute: () => {
-          /* do nothing */
-        },
+        execute: () => {/* do nothing */},
       });
     },
   },
@@ -61,15 +59,15 @@ Try selecting objects, right clicking on the entire UI or on the open component 
 // Configure the viewer
 const viewer = makeBIMDataViewer({
   api: {
-    modelIds: [15097],
     cloudId: 10344,
     projectId: 237466,
+    modelIds: [15097],
     accessToken: "TAbdyPzoQeYgVSMe4GUKoCEfYctVhcwJ",
   },
   ui: {
-    version: false,
     bimdataLogo: false,
     menuVisible: false,
+    version: false,
   },
   plugins: {
     bcf: false,
@@ -78,11 +76,14 @@ const viewer = makeBIMDataViewer({
     projection: false,
     search: false,
     section: false,
+    smartview: false,
     "structure-properties": false,
     viewer3d: {
-      navCube: false,
       help: false,
+      home: false,
       modelLoader: "hidden",
+      navCube: false,
+      navigationVersionsModel: false,
     },
     "viewer3d-parameters": false,
     "window-split": false,
@@ -92,6 +93,20 @@ const viewer = makeBIMDataViewer({
 // Create components
 const component1 = {
   name: "Component_1",
+  template: `
+    <div style="height: 100%; display: flex; justify-content: center; align-items: center;">
+      <div>
+        <div style="text-align: center;">
+          <p><b>Listen to global context shortcuts :</b></p>
+          <p>{{ globalMessage || "..." }}</p>
+        </div>
+        <hr>
+        <div style="text-align: center;">
+          <p><b>Listen to local context shortcuts :</b></p>
+          <p>{{ localMessage || "..." }}</p>
+        </div>
+      </div>
+    </div>`,
   data() {
     return {
       globalMessage: null,
@@ -122,30 +137,12 @@ const component1 = {
       execute: () => (this.localMessage = `"m" key pressed LOCALLY`),
     });
   },
-  template: ` <div style="height: 100%; display: flex; justify-content:center; align-items:center;">
-                  <div>
-                    <div style="text-align:center;">
-                      <p><b>Listen to global context shortcuts :</b></p>
-                      <p>{{ globalMessage || "..." }}</p>
-                    </div>
-                    <hr>
-                    <div style="text-align:center;">
-                      <p><b>Listen to local context shortcuts :</b></p>
-                      <p>{{ localMessage || "..." }}</p>
-                    </div>
-                  <div>
-                  </div>`,
 };
 
 const component2 = {
   name: "Component_2",
   template: `
-    <div
-      style="height: 100%;
-      display: flex;
-      justify-content:center;
-      align-items:center;"
-    >
+    <div style="height: 100%; display: flex; justify-content: center; align-items: center;">
       Component 2
     </div>`,
 };
@@ -158,9 +155,7 @@ const component3 = {
       this.$viewer.contextMenu.preventDefault();
       this.$viewer.contextMenu.registerContextCommand({
         label: "My command!",
-        execute: () => {
-          /* do nothing */
-        },
+        execute: () => {/* do nothing */},
       });
     },
   },
@@ -217,8 +212,8 @@ const window2 = {
 viewer.registerWindow(window1);
 viewer.registerWindow(window2);
 
-// Mount custom layout
-const customLayout = {
+// Define layout
+const layout = {
   ratios: [40, 60],
   children: [
     "3d",
@@ -230,5 +225,5 @@ const customLayout = {
   ],
 };
 
-viewer.mount("#viewerId", customLayout);
+viewer.mount("#viewerId", layout);
 ```

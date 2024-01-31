@@ -1,39 +1,26 @@
+import baseConfig from "./baseConfig";
+
 export default function(viewerId) {
   // Configure the viewer
-  const viewer = makeBIMDataViewer({
-    api: {
-      modelIds: [15097],
-      cloudId: 10344,
-      projectId: 237466,
-      accessToken: "TAbdyPzoQeYgVSMe4GUKoCEfYctVhcwJ",
-    },
-    ui: {
-      version: false,
-      bimdataLogo: false,
-      menuVisible: false,
-    },
-    plugins: {
-      bcf: false,
-      fullscreen: false,
-      measure3d: false,
-      projection: false,
-      search: false,
-      section: false,
-      "structure-properties": false,
-      viewer3d: {
-        navCube: false,
-        help: false,
-        modelLoader: "hidden",
-
-      },
-      "viewer3d-parameters": false,
-      "window-split": false,
-    }
-  });
+  const viewer = makeBIMDataViewer(baseConfig);
 
   // Create components
   const component1 = {
     name: "Component_1",
+    template: `
+      <div style="height: 100%; display: flex; justify-content: center; align-items: center;">
+        <div>
+          <div style="text-align: center;">
+            <p><b>Listen to global context shortcuts :</b></p>
+            <p>{{ globalMessage || "..." }}</p>
+          </div>
+          <hr>
+          <div style="text-align: center;">
+            <p><b>Listen to local context shortcuts :</b></p>
+            <p>{{ localMessage || "..." }}</p>
+          </div>
+        </div>
+      </div>`,
     data() {
       return {
         globalMessage: null,
@@ -64,23 +51,17 @@ export default function(viewerId) {
         execute: () => (this.localMessage = `"m" key pressed LOCALLY`),
       });
     },
-    template: ` <div style="height: 100%; display: flex; justify-content:center; align-items:center;">
-                  <div>
-                    <div style="text-align:center;">
-                      <p><b>Listen to global context shortcuts :</b></p>
-                      <p>{{ globalMessage || "..." }}</p>
-                    </div>
-                    <hr>
-                    <div style="text-align:center;">
-                      <p><b>Listen to local context shortcuts :</b></p>
-                      <p>{{ localMessage || "..." }}</p>
-                    </div>
-                  <div>
-                  </div>`,
   };
 
   const component2 = {
     name: "Component_2",
+    template: `
+      <div style="height: 100%; display: flex; justify-content: center; align-items: center;">
+        <div style="text-align: center;">
+          <p><b>Local context "custom-event" message :</b></p>
+          <p>{{ message || "..." }}</p>
+        </div>
+      </div>`,
     data() {
       return {
         message: null,
@@ -96,18 +77,6 @@ export default function(viewerId) {
     created() {
       this.$viewer.localContext.hub.on("custom-event", event => this.message = event.message);
     },
-    template: `
-    <div
-      style="height: 100%;
-      display: flex;
-      justify-content:center;
-      align-items:center;"
-    >
-      <div style="text-align:center;">
-        <p><b>Local context "custom-event" message :</b></p>
-        <p>{{ message || "..." }}</p>
-      </div>
-    </div>`,
   };
 
   const component3 = {
@@ -118,9 +87,7 @@ export default function(viewerId) {
         this.$viewer.contextMenu.preventDefault();
         this.$viewer.contextMenu.registerContextCommand({
           label: "My command!",
-          execute: () => {
-            /* do nothing */
-          },
+          execute: () => {/* do nothing */},
         });
       },
     },
@@ -192,8 +159,8 @@ export default function(viewerId) {
   viewer.registerWindow(window1);
   viewer.registerWindow(window2);
 
-  // Mount custom layout
-  const customLayout = {
+  // Define layout
+  const layout = {
     ratios: [40, 60],
     children: [
       "3d",
@@ -205,5 +172,5 @@ export default function(viewerId) {
     ],
   };
 
-  viewer.mount(`#${viewerId}`, customLayout);
+  viewer.mount(viewerId, layout);
 }

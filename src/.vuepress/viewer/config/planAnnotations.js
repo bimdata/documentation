@@ -1,3 +1,5 @@
+import baseConfig from "./baseConfig.js";
+
 const PlanAnnotationsPlugin = {
   name: "planAnnotations",
   addToWindows: ["plan"],
@@ -103,32 +105,25 @@ const PlanAnnotation = {
 };
 
 export default function(viewerId) {
-  const viewer = makeBIMDataViewer({
-    locale: "fr",
+  const config = {
     api: {
       accessToken: "fZ5CP4g2QQlj2KBXxqdl2jTNokiESIde",
       cloudId: 11520,
       projectId: 245620,
       modelIds: [1173804],
     },
-    ui: {
-      version: false,
-      bimdataLogo: false,
-    },
     plugins: {
-      bcf: false,
-      fullscreen: false,
-      measure2d: false,
+      ...baseConfig.plugins,
       plan: {
         help: false,
         modelLoader: "hidden",
       },
-      "right-angled": false,
-      "window-split": false,
     }
-  });
+  };
+
+  const viewer = makeBIMDataViewer(config);
 
   viewer.registerPlugin(PlanAnnotationsPlugin);
 
-  viewer.mount(`#${viewerId}`, "plan");
+  viewer.mount(viewerId, "plan");
 }

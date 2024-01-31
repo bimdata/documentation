@@ -64,14 +64,9 @@ We want our plugins to be displayed differently on windows, so we will customise
 const component1 = {
   name: "Component_1",
   template: `
-  <div
-    style="height: 100%;
-    display: flex;
-    justify-content:center;
-    align-items:center;"
-  >
-    Component 1
-  </div>`,
+    <div style="height: 100%; display: flex; justify-content: center; align-items: center;">
+      Component 1
+    </div>`,
 };
 
 // The same for component2
@@ -139,126 +134,119 @@ viewer.mount("#viewerId", "3d");
 ## Resulting viewer
 
 <ClientOnly>
-  <BIMDataViewer config="pluginUi"/>
+  <BIMDataViewer config="pluginUI"/>
 </ClientOnly>
 
 ## Complete code example
 
 ```javascript
-  // Configure the viewer
-  const viewer = makeBIMDataViewer({
-    api: {
-      modelIds: [15097],
-      cloudId: 10344,
-      projectId: 237466,
-      accessToken: "TAbdyPzoQeYgVSMe4GUKoCEfYctVhcwJ",
+// Configure the viewer
+const viewer = makeBIMDataViewer({
+  api: {
+    cloudId: 10344,
+    projectId: 237466,
+    modelIds: [15097],
+    accessToken: "TAbdyPzoQeYgVSMe4GUKoCEfYctVhcwJ",
+  },
+  ui: {
+    bimdataLogo: false,
+    menuVisible: false,
+    version: false,
+  },
+  plugins: {
+    bcf: false,
+    fullscreen: false,
+    measure3d: false,
+    projection: false,
+    search: false,
+    section: false,
+    smartview: false,
+    "structure-properties": false,
+    viewer3d: {
+      help: false,
+      home: false,
+      modelLoader: "hidden",
+      navCube: false,
+      navigationVersionsModel: false,
     },
-    ui: {
-      version: false,
-      bimdataLogo: false,
-      menuVisible: false,
-    },
-    plugins: {
-      bcf: false,
-      fullscreen: false,
-      measure3d: false,
-      projection: false,
-      search: false,
-      section: false,
-      "structure-properties": false,
-      viewer3d: {
-        navCube: false,
-        help: false,
-        modelLoader: "hidden",
-      },
-      "viewer3d-parameters": false,
-      "window-split": false,
-    }
-  });
+    "viewer3d-parameters": false,
+    "window-split": false,
+  }
+});
 
-  // Create components
-  const component1 = {
-    name: "Component_1",
-    template: `
-    <div
-      style="height: 100%;
-      display: flex;
-      justify-content:center;
-      align-items:center;"
-    >
+// Create components
+const component1 = {
+  name: "Component_1",
+  template: `
+    <div style="height: 100%; display: flex; justify-content: center; align-items: center;">
       Component 1
     </div>`,
-  };
+};
 
-  const component2 = {
-    name: "Component_2",
-    template: `
-    <div
-      style="height: 100%;
-      display: flex;
-      justify-content:center;
-      align-items:center;"
-    >
+const component2 = {
+  name: "Component_2",
+  template: `
+    <div style="height: 100%; display: flex; justify-content: center; align-items: center;">
       Component 2
     </div>`,
-  };
+};
 
-  const component3 = {
-    name: "Component_3",
-    template: "<div>Component 3</div>",
-  };
+const component3 = {
+  name: "Component_3",
+  template: "<div>Component 3</div>",
+};
 
-  // Create and register plugins
-  const plugin1 = {
-    name: "plugin1",
-    component: component1,
-  };
+// Create and register plugins
+const plugin1 = {
+  name: "plugin1",
+  component: component1,
+};
 
-  const plugin2 = {
-    name: "plugin2",
-    component: component2,
-  };
+const plugin2 = {
+  name: "plugin2",
+  component: component2,
+};
 
-  const plugin3 = {
-    name: "plugin3",
-    component: component3,
-    button: {
-      position: "right",
-      content: "simple",
-      keepOpen: true,
+const plugin3 = {
+  name: "plugin3",
+  component: component3,
+  button: {
+    position: "right",
+    content: "simple",
+    keepOpen: true,
+  },
+};
+
+viewer.registerPlugin(plugin1);
+viewer.registerPlugin(plugin2);
+viewer.registerPlugin(plugin3);
+
+// Create and register windows
+const window1 = {
+  name: "window1",
+  plugins: ["plugin1"],
+};
+
+const window2 = {
+  name: "window2",
+  plugins: ["plugin2", "plugin3"],
+};
+
+viewer.registerWindow(window1);
+viewer.registerWindow(window2);
+
+// Define layout
+const layout = {
+  ratios: [40, 60],
+  children: [
+    "3d",
+    {
+      ratios: [50, 50],
+      direction: "column",
+      children: ["window1", "window2"],
     },
-  };
+  ],
+};
 
-  viewer.registerPlugin(plugin1);
-  viewer.registerPlugin(plugin2);
-  viewer.registerPlugin(plugin3);
-
-  // Create and register windows
-  const window1 = {
-    name: "window1",
-    plugins: ["plugin1"],
-  };
-
-  const window2 = {
-    name: "window2",
-    plugins: ["plugin2", "plugin3"],
-  };
-
-  viewer.registerWindow(window1);
-  viewer.registerWindow(window2);
-
-  // Mount custom layout
-  const customLayout = {
-    ratios: [40, 60],
-    children: [
-      "3d",
-      {
-        ratios: [50, 50],
-        direction: "column",
-        children: ["window1", "window2"],
-      },
-    ],
-  };
-
-  viewer.mount("#viewerId", customLayout);
+viewer.mount("#viewerId", layout);
 ```

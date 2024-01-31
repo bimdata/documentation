@@ -14,15 +14,15 @@ We first create a viewer with a specific configuration:
 ```javascript
 const viewer = makeBIMDataViewer({
   api: {
-    modelIds: [15097],
     cloudId: 10344,
     projectId: 237466,
+    modelIds: [15097],
     accessToken: "TAbdyPzoQeYgVSMe4GUKoCEfYctVhcwJ",
   },
   ui: {
-    version: false,
     bimdataLogo: false,
     menuVisible: false,
+    version: false,
   },
   plugins: {
     bcf: false,
@@ -31,11 +31,14 @@ const viewer = makeBIMDataViewer({
     projection: false,
     search: false,
     section: false,
+    smartview: false,
     "structure-properties": false,
     viewer3d: {
-      navCube: false,
       help: false,
+      home: false,
       modelLoader: "hidden",
+      navCube: false,
+      navigationVersionsModel: false,
     },
     "viewer3d-parameters": false,
     "window-split": false,
@@ -78,7 +81,7 @@ Finally, we create a custom layout and mount the viewer into the DOM using the `
 - Our two custom windows on the right, with "window1" on top on "window2".
 
 ```javascript
-const customLayout = {
+const layout = {
   ratios: [40, 60],
   children: [
     "3d",
@@ -90,7 +93,7 @@ const customLayout = {
   ],
 };
 
-viewer.mount("#viewerId", customLayout);
+viewer.mount("#viewerId", layout);
 ```
 
 ::: warning
@@ -109,14 +112,15 @@ viewer.mount("#viewerId", customLayout);
 // Configure the viewer
 const viewer = makeBIMDataViewer({
   api: {
-    modelIds: [15097],
     cloudId: 10344,
     projectId: 237466,
+    modelIds: [15097],
     accessToken: "TAbdyPzoQeYgVSMe4GUKoCEfYctVhcwJ",
   },
   ui: {
-    version: false,
     bimdataLogo: false,
+    menuVisible: false,
+    version: false,
   },
   plugins: {
     bcf: false,
@@ -125,11 +129,14 @@ const viewer = makeBIMDataViewer({
     projection: false,
     search: false,
     section: false,
+    smartview: false,
     "structure-properties": false,
     viewer3d: {
-      navCube: false,
       help: false,
+      home: false,
       modelLoader: "hidden",
+      navCube: false,
+      navigationVersionsModel: false,
     },
     "viewer3d-parameters": false,
     "window-split": false,
@@ -153,8 +160,8 @@ const window2 = {
   plugins: ["test"],
 };
 
-// Mount custom layout
-const customLayout = {
+// Define layout
+const layout = {
   ratios: [40, 60],
   children: [
     "3d",
@@ -166,5 +173,5 @@ const customLayout = {
   ],
 };
 
-viewer.mount("#viewerId", customLayout);
+viewer.mount("#viewerId", layout);
 ```

@@ -33,9 +33,23 @@ This means when the component is created, it register a global and a local short
 
 The rest of the code is used to display message on the UI when <kbd>m</kbd> keys are pressed. You can find the code described previously on the created component life cycle hook. See [Vuejs component](https://vuejs.org/v2/guide/components.html) for more informations.
 
-```javascript{21-32}
+```javascript
 const component1 = {
   name: "Component_1",
+  template: `
+    <div style="height: 100%; display: flex; justify-content: center; align-items: center;">
+      <div>
+        <div style="text-align: center;">
+          <p><b>Listen to global context shortcuts :</b></p>
+          <p>{{ globalMessage || "..." }}</p>
+        </div>
+        <hr>
+        <div style="text-align: center;">
+          <p><b>Listen to local context shortcuts :</b></p>
+          <p>{{ localMessage || "..." }}</p>
+        </div>
+      </div>
+    </div>`,
   data() {
     return {
       globalMessage: null,
@@ -66,19 +80,6 @@ const component1 = {
       execute: () => (this.localMessage = `"m" key pressed LOCALLY`),
     });
   },
-  template: ` <div style="height: 100%; display: flex; justify-content:center; align-items:center;">
-                <div>
-                  <div style="text-align:center;">
-                    <p><b>Listen to global context shortcuts :</b></p>
-                    <p>{{ globalMessage || "..." }}</p>
-                  </div>
-                  <hr>
-                  <div style="text-align:center;">
-                    <p><b>Listen to local context shortcuts :</b></p>
-                    <p>{{ localMessage || "..." }}</p>
-                  </div>
-                </div>
-              </div>`,
 };
 ```
 
@@ -92,19 +93,19 @@ Press the key <kbd>m</kbd> hovering the viewer on different areas.
 
 ## Complete code example
 
-```javascript {24-69}
+```javascript
 // Configure the viewer
 const viewer = makeBIMDataViewer({
   api: {
-    modelIds: [15097],
     cloudId: 10344,
     projectId: 237466,
+    modelIds: [15097],
     accessToken: "TAbdyPzoQeYgVSMe4GUKoCEfYctVhcwJ",
   },
   ui: {
-    version: false,
     bimdataLogo: false,
     menuVisible: false,
+    version: false,
   },
   plugins: {
     bcf: false,
@@ -113,11 +114,14 @@ const viewer = makeBIMDataViewer({
     projection: false,
     search: false,
     section: false,
+    smartview: false,
     "structure-properties": false,
     viewer3d: {
-      navCube: false,
       help: false,
+      home: false,
       modelLoader: "hidden",
+      navCube: false,
+      navigationVersionsModel: false,
     },
     "viewer3d-parameters": false,
     "window-split": false,
@@ -127,6 +131,20 @@ const viewer = makeBIMDataViewer({
 // Create components
 const component1 = {
   name: "Component_1",
+  template: `
+    <div style="height: 100%; display: flex; justify-content: center; align-items: center;">
+      <div>
+        <div style="text-align: center;">
+          <p><b>Listen to global context shortcuts :</b></p>
+          <p>{{ globalMessage || "..." }}</p>
+        </div>
+        <hr>
+        <div style="text-align: center;">
+          <p><b>Listen to local context shortcuts :</b></p>
+          <p>{{ localMessage || "..." }}</p>
+        </div>
+      </div>
+    </div>`,
   data() {
     return {
       globalMessage: null,
@@ -157,30 +175,12 @@ const component1 = {
       execute: () => (this.localMessage = `"m" key pressed LOCALLY`),
     });
   },
-  template: ` <div style="height: 100%; display: flex; justify-content:center; align-items:center;">
-                <div>
-                  <div style="text-align:center;">
-                    <p><b>Listen to global context shortcuts :</b></p>
-                    <p>{{ globalMessage || "..." }}</p>
-                  </div>
-                  <hr>
-                  <div style="text-align:center;">
-                    <p><b>Listen to local context shortcuts :</b></p>
-                    <p>{{ localMessage || "..." }}</p>
-                  </div>
-                </div>
-              </div>`,
 };
 
 const component2 = {
   name: "Component_2",
   template: `
-    <div
-      style="height: 100%;
-      display: flex;
-      justify-content:center;
-      align-items:center;"
-    >
+    <div style="height: 100%; display: flex; justify-content: center; align-items: center;">
       Component 2
     </div>`,
 };
@@ -229,8 +229,8 @@ const window2 = {
 viewer.registerWindow(window1);
 viewer.registerWindow(window2);
 
-// Mount custom layout
-const customLayout = {
+// Define layout
+const layout = {
   ratios: [40, 60],
   children: [
     "3d",
@@ -242,5 +242,5 @@ const customLayout = {
   ],
 };
 
-viewer.mount("#viewerId", customLayout);
+viewer.mount("#viewerId", layout);
 ```

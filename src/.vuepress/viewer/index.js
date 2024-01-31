@@ -1,7 +1,7 @@
 import contextMenu from "./config/contextMenu.js";
 import hubs from "./config/hubs.js";
 import planAnnotations from "./config/planAnnotations.js";
-import pluginUi from "./config/pluginUi.js";
+import pluginUI from "./config/pluginUI.js";
 import shortcuts from "./config/shortcuts.js";
 import simple from "./config/simple.js";
 import state from "./config/state.js";
@@ -11,7 +11,7 @@ const configs = new Map([
   ["contextMenu", contextMenu],
   ["hubs", hubs],
   ["planAnnotations", planAnnotations],
-  ["pluginUi", pluginUi],
+  ["pluginUI", pluginUI],
   ["shortcuts", shortcuts],
   ["simple", simple],
   ["state", state],
@@ -19,13 +19,11 @@ const configs = new Map([
 ]);
 
 async function makeViewer(config, id) {
-  await import(/* webpackIgnore: true */ "https://cdn.jsdelivr.net/npm/@bimdata/viewer@2.0.0-beta.104");
+  await import(/* webpackIgnore: true */ "https://cdn.jsdelivr.net/npm/@bimdata/viewer@2.0.0-beta.109");
   if (configs.has(config)) {
     return configs.get(config)(id);
   } else {
-    throw new Error(
-      `Impossible to make viewer because a config named ${config} does not exist.`
-    );
+    throw new Error(`Fail to setup viewer, config ${config} does not exist.`);
   }
 }
 

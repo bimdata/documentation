@@ -1,6 +1,6 @@
 <template>
-  <div class="documentation-bimdata-viewer-container">
-    <div id="documentation-bimdata-viewer"></div>
+  <div class="bimdata-viewer-container">
+    <div id="viewer"></div>
   </div>
 </template>
 
@@ -16,17 +16,13 @@ export default {
   },
   mounted() {
     localStorage.setItem("BIMDataViewer_helpShown", true);
-
-    makeViewer(
-      this.config,
-      "documentation-bimdata-viewer"
-    );
+    makeViewer(this.config, "#viewer");
   },
 };
 </script>
 
-<style>
-.documentation-bimdata-viewer-container {
+<style scoped>
+.bimdata-viewer-container {
   height: 500px;
 }
 </style>

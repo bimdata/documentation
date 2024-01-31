@@ -60,6 +60,7 @@ function getViewerSidebar() {
       ],
     },
     "viewer_sdk",
+    "offline_mode",
     {
       title: "Cookbook",
       children: [
