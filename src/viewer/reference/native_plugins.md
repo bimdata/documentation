@@ -113,6 +113,42 @@ The `properties` plugin that displays the properties of the selected objects.
 | `export`               | `boolean` | **Default** to `false`. Add the export ifcs option on the structure. |
 | `editProperties`       | `boolean` | **Default** to `false`. Allows editing properties.                   |
 | `translateIfcEntities` | `boolean` | **Default** to `false`. Enable IFC Entites translation.              |
+| `customTranslations`   | `Object`  | Provide custom translations for IFC types (see example below).       |
+
+Here is an example usage of the `customTranslations` configuration:
+
+```js
+const customTranslations = {
+  fr: {
+    IfcBeam: "Poutre",
+    IfcDoor: "Porte",
+    IfcSlab: "Dalle",
+    IfcSpace: "Pièce / Espace",
+    IfcWall: "Mur / Paroi",
+    IfcWindow: "Fenêtre / Ouverture",
+    // etc...
+  },
+  en: {
+    IfcBeam: "Beam",
+    IfcDoor: "Custom Door name",
+    IfcSlab: "Slab",
+    IfcSpace: "Space",
+    IfcWall: "Wall",
+    IfcWindow: "Window",
+    // etc...
+  },
+};
+
+const viewer = makeBIMDataViewer({
+  // ...
+  plugins: {
+    "structure-properties": {
+      translateIfcEntities: true, // has to be true to display translations
+      customTranslations,
+    }
+  }
+});
+```
 
 ### Instance API
 
