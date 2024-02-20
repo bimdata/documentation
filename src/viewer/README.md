@@ -2,14 +2,14 @@
 
 ## Introduction
 
-The BIMData Viewer is a tool for interacting with models of different formats like
+The BIMData Viewer is a tool for interacting with models of different formats like :
 - <div style="align-items: center; display: flex; gap: 12px; margin-bottom: 6px;"><BIMDataIconFileIfc /> IFC </div>
 - <div style="align-items: center; display: flex; gap: 12px; margin-bottom: 6px;"><BIMDataIconFilePlan /> Image (PDF, PNG, JPG) </div>
 - <div style="align-items: center; display: flex; gap: 12px; margin-bottom: 6px;"><BIMDataIconFileDwg /> DWG </div>
 - <div style="align-items: center; display: flex; gap: 12px; margin-bottom: 6px;"><BIMDataIconFileDxf /> DXF </div>
 - <div style="align-items: center; display: flex; gap: 12px; margin-bottom: 6px;"><BIMDataIconFilePointCloud /> Point Cloud (PLY, LAS, LAZ). </div>
 
-Each format is handled by its own native built-in viewer and interactions include display, navigation, measurement and annotation.
+Each format is handled by its own native built-in viewer and interactions include **display**, **navigation**, **measurement** and **annotation**.
 
 To use your own models on the BIMData Viewer, you can upload them using the [BIMData API](/api/introduction/overview.html) or using the [BIMData platform](https://platform.bimdata.io/).
 
@@ -19,7 +19,7 @@ To use your own models on the BIMData Viewer, you can upload them using the [BIM
 
 ## Installation
 
-You can directly download the BIMDataViewer from a **CDN** or install the `@bimdata/viewer` package using **NPM**.
+You can install the [`@bimdata/viewer` package](https://www.npmjs.com/package/@bimdata/viewer) using **NPM** or directly download the BIMDataViewer from a **CDN**.
 
 <code-group>
 
