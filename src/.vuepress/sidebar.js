@@ -37,7 +37,6 @@ function getApiSidebar() {
 function getViewerSidebar() {
   return [
     "",
-    "getting_started",
     {
       title: "Tutorials",
       children: [
@@ -62,9 +61,10 @@ function getViewerSidebar() {
     "viewer_sdk",
     "offline_mode",
     {
-      title: "Cookbook",
+      title: "Examples",
+      path: "examples/",
       children: [
-        "cookbook/plan_annotations"
+        "examples/plan_annotations"
       ], 
     },
     {

@@ -1,6 +1,6 @@
 # makeBIMDataViewer
 
-`makeBIMDataViewer` is the function that is available after [importing the viewer](/viewer/getting_started.html).
+`makeBIMDataViewer` is the function that is available after importing the viewer.
 
 ```javascript
 import makeBIMDataViewer from "@bimdata/viewer";

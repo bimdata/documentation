@@ -6,6 +6,7 @@ import shortcuts from "./config/shortcuts.js";
 import simple from "./config/simple.js";
 import state from "./config/state.js";
 import windowUI from "./config/windowUI.js";
+import defaultConfig from "./config/default.js";
 
 const configs = new Map([
   ["contextMenu", contextMenu],
@@ -16,10 +17,11 @@ const configs = new Map([
   ["simple", simple],
   ["state", state],
   ["windowUI", windowUI],
+  ["default", defaultConfig],
 ]);
 
 async function makeViewer(config, id) {
-  await import(/* webpackIgnore: true */ "https://cdn.jsdelivr.net/npm/@bimdata/viewer@2.0.0-beta.109");
+  await import(/* webpackIgnore: true */ "https://cdn.jsdelivr.net/npm/@bimdata/viewer@2.0.0-beta.121");
   if (configs.has(config)) {
     return configs.get(config)(id);
   } else {
