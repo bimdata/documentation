@@ -1,6 +1,6 @@
 # Graphical User Interface
 
-The 4 main elements of the BIMDataViewer GUI are the **Header**, the **Windows**, the **Plugins** and the **Context Menu**.
+The main elements of the BIMDataViewer GUI are the **Header**, the **Windows**, the **Plugins**, the **Context Menu** and the **Shorcuts**.
 
 ## Header and Windows
 
@@ -40,8 +40,10 @@ Plugins can also be displayed as a side button, on the left or right of the wind
 
 <img width=250px src="/assets/img/viewer/viewer-gui-plugin-button-free.png" alt="Viewer GUI plugin button free.">
 
-## Context Menu
+## Context Menu & Shortcuts
 
-The context menu is usually displayed while right clicking on the screen. It takes into account the context of the click to display the corresponding commands.
+The context menu and the shortcuts take into account the context of the request. In this way, it is possible to launch a specific action in a particular window when a keyboard key is pressed while the mouse is hovering that window. In the same way, it is possible to add to the context menu only a list of commands specific to the place where the click was made.
+
+The context menu is usually displayed while right clicking on the screen.
 
 <img width=250px src="/assets/img/viewer/viewer-gui-context-menu.png" alt="Viewer GUI context menu.">
