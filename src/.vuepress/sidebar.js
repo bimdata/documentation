@@ -38,6 +38,13 @@ function getViewerSidebar() {
   return [
     "",
     {
+      title: "Guide",
+      children: [
+        "guide/",
+        "guide/style_and_personalization",
+      ],
+    },
+    {
       title: "Tutorials",
       children: [
         "tutorials/",

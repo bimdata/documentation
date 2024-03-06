@@ -55,7 +55,7 @@
         text-align: center;
         cursor: pointer;
         transition: all 0.3s;
-        height: calc(100% - 40px); // 20px margin * 2
+        height: calc(100% - 80px); // 20px margin * 2 + 20px padding * 2
 
         &:hover {
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);

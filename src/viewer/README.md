@@ -9,11 +9,11 @@ The BIMData Viewer is a tool for interacting with models of different formats li
 - <div style="align-items: center; display: flex; gap: 12px; margin-bottom: 6px;"><BIMDataIconFileDxf /> DXF </div>
 - <div style="align-items: center; display: flex; gap: 12px; margin-bottom: 6px;"><BIMDataIconFilePointCloud /> Point Cloud (PLY, LAS, LAZ). </div>
 
-Each format is handled by its own native built-in viewer and interactions include **display**, **navigation**, **measurement** and **annotation**.
+Each model format is handled by its own native built-in viewer and interactions include **display**, **navigation**, **measurement** and **annotation**.
 
-To use your own models on the BIMData Viewer, you can upload them using the [BIMData API](/api/introduction/overview.html) or using the [BIMData platform](https://platform.bimdata.io/).
+The BIMData Viewer is binded to the [BIMData API](/api/introduction/overview.html) and you can directly upload models using it or using the [BIMData platform](https://platform.bimdata.io/).
 
-[The UI can be customized](/viewer/customize_the_ui.html) to organize the workspace as you need and a flexible javascript API allows to create custom plugin to prefectly match your business.
+[The UI can be customized](/viewer/customize_the_ui.html) to organize the workspace as you need and a flexible javascript API using [<svg class="logo" viewBox="0 0 128 128" width="18" height="18" data-v-0495d436=""><path fill="#42b883" d="M78.8,10L64,35.4L49.2,10H0l64,110l64-110C128,10,78.8,10,78.8,10z" data-v-0495d436=""></path><path fill="#35495e" d="M78.8,10L64,35.4L49.2,10H25.6L64,76l38.4-66H78.8z" data-v-0495d436=""></path></svg> Vue.js 3](https://vuejs.org/) allows to create custom plugin to prefectly match your business.
 
 <ViewerMainPage />
 
