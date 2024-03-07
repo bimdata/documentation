@@ -48,6 +48,7 @@ function getViewerSidebar() {
         "guide/keyboard_shortcuts",
         "guide/$viewer",
         "guide/style_and_personalization",
+        "guide/offline_mode",
       ],
     },
     {
@@ -78,7 +79,6 @@ function getViewerSidebar() {
       ],
     },
     "viewer_sdk",
-    "offline_mode",
     "release_notes",
   ];
 }
