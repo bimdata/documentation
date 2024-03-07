@@ -1,6 +1,6 @@
 # Plan Annotations
 
-This *recipe* will show you how to create a plugin that use the annotation API
+This example will show you how to create a plugin that use the annotation API
 to create, edit and delete annotations on a PDF plan.
 
 The plugin will be a button that you can click to add an annotation anywhere on a plan.
