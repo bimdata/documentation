@@ -45,6 +45,30 @@ function getViewerSidebar() {
       ],
     },
     {
+      title: "Examples",
+      path: "/viewer/examples/",
+      children: [
+        "examples/gui_layout",
+        "examples/plan_annotations",
+      ], 
+    },
+    {
+      title: "Reference",
+      children: [
+        "reference/makeBIMDataViewer",
+        "reference/mount",
+        "reference/$viewer",
+        "reference/state",
+        "reference/global_context",
+        "reference/local_context",
+        "reference/context_menu",
+        "reference/native_plugins",
+        "reference/viewer_plugins",
+        "reference/global_components",
+        "reference/hubs",
+      ],
+    },
+    {
       title: "Tutorials",
       children: [
         "tutorials/",
@@ -67,29 +91,6 @@ function getViewerSidebar() {
     },
     "viewer_sdk",
     "offline_mode",
-    {
-      title: "Examples",
-      path: "examples/",
-      children: [
-        "examples/plan_annotations"
-      ], 
-    },
-    {
-      title: "Reference",
-      children: [
-        "reference/makeBIMDataViewer",
-        "reference/mount",
-        "reference/$viewer",
-        "reference/state",
-        "reference/global_context",
-        "reference/local_context",
-        "reference/context_menu",
-        "reference/native_plugins",
-        "reference/viewer_plugins",
-        "reference/global_components",
-        "reference/hubs",
-      ],
-    },
     "release_notes",
   ];
 }
