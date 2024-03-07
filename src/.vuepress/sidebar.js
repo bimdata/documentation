@@ -41,6 +41,11 @@ function getViewerSidebar() {
       title: "Guide",
       children: [
         "guide/",
+        "guide/window_and_plugin",
+        "guide/header",
+        "guide/context_menu",
+        "guide/keyboard_shortcuts",
+        "guide/$viewer",
         "guide/style_and_personalization",
       ],
     },
