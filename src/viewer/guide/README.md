@@ -40,6 +40,10 @@ Plugins can also be displayed as a side button, on the left or right of the wind
 
 <img width=250px src="/assets/img/viewer/viewer-gui-plugin-button-free.png" alt="Viewer GUI plugin button free.">
 
+:::tip
+Checkout [the example about the GUI Layout](../examples/gui_layout.html) for practical application.
+:::
+
 ## Context Menu & Keyboard Shortcuts
 
 The context menu and the keyboard shortcuts take into account the context of the request. In this way, it is possible to launch a specific action in a particular window when a keyboard key is pressed while the mouse is hovering that window. In the same way, it is possible to add to the context menu only a list of commands specific to the place where the click was made.
