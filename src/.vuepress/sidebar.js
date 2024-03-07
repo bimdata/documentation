@@ -60,6 +60,7 @@ function getViewerSidebar() {
     },
     {
       title: "Reference",
+      path: "/viewer/reference/",
       children: [
         "reference/window",
         "reference/plugin",
@@ -74,18 +75,6 @@ function getViewerSidebar() {
         "reference/viewer_plugins",
         "reference/global_components",
         "reference/hubs",
-      ],
-    },
-    {
-      title: "Tutorials",
-      children: [
-        "tutorials/",
-        "tutorials/make_your_own_window_layout",
-        "tutorials/add_plugins_on_windows",
-        "tutorials/shortcuts",
-        "tutorials/context_menu",
-        "tutorials/state",
-        "tutorials/hubs",
       ],
     },
     "viewer_sdk",

@@ -1,3 +1,8 @@
+---
+tags:
+  - $viewer
+---
+
 # `$viewer`
 
 The `$viewer` object can be accessed on any component instance (using `this.$viewer`),
