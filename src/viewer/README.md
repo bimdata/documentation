@@ -74,7 +74,7 @@ You can install the [`@bimdata/viewer` package](https://www.npmjs.com/package/@b
       <div id="viewer"></div>
     </div>
 
-    <script>
+    <script type="module">
       const bimdataViewer = makeBIMDataViewer({
         api: {
           // demo identifications
