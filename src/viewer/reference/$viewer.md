@@ -163,6 +163,25 @@ A typical usage example is when you need to upload a model and then wait for it 
 const processedModel = await this.$viewer.api.waitForModelProcess(model);
 ```
 
+### setOfflineMode
+
+The `$viewer.api.setOfflineMode()` method is used to toggle offline mode on or off.
+Here is its signature:
+
+```ts
+setOfflineMode(enabled: boolean, dataFile: string | Promise<Blob>): Promise<void>;
+```
+
+The first parameter is a boolean that control offline state (`true`: enabled, `false`: disabled).
+
+The second argument is optional and is only used when offline mode is set to `true`.
+It tells the viewer where/how to find the *offline package* it needs to work in offline mode.
+It can be either an url (string) that point to the package and will be fetched using
+the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) or
+a promise that will resolve to a [Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob) of that package.
+
+Refer to the [Offline Mode](../offline_mode.md) page for more information on how to work with offline mode.
+
 ## State
 
 The `$viewer.state` object provide a way to interact with [the global state](./state.md).
