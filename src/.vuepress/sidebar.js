@@ -41,7 +41,8 @@ function getViewerSidebar() {
       title: "Guide",
       children: [
         "guide/",
-        "guide/window_and_plugin",
+        "guide/window",
+        "guide/plugin",
         "guide/header",
         "guide/context_menu",
         "guide/keyboard_shortcuts",
@@ -60,6 +61,8 @@ function getViewerSidebar() {
     {
       title: "Reference",
       children: [
+        "reference/window",
+        "reference/plugin",
         "reference/makeBIMDataViewer",
         "reference/mount",
         "reference/$viewer",
@@ -83,15 +86,6 @@ function getViewerSidebar() {
         "tutorials/context_menu",
         "tutorials/state",
         "tutorials/hubs",
-      ],
-    },
-    "customize_the_ui",
-    {
-      title: "Develop your plugins",
-      children: [
-        "plugins/overview",
-        "plugins/plugin_as_button",
-        "plugins/i18n",
       ],
     },
     "viewer_sdk",
