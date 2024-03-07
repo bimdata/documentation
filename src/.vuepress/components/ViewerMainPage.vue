@@ -14,7 +14,7 @@
                 <div class="bimdata-viewer-main-page__card__title">Examples</div>
                 <div class="bimdata-viewer-main-page__card__emoji">🏗️</div>
                 <div class="bimdata-viewer-main-page__card__detail">
-                    A series of practical guides to help you learn how to use the BIMDataViewer.
+                    A series of practical examples to help you learn how to use the BIMDataViewer.
                 </div>
             </div>
         </RouterLink>
