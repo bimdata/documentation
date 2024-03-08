@@ -2,7 +2,7 @@
   <div>
     <div style="display: flex; align-items: center; gap: 15px;">
       <div>Filter : </div>
-      <BIMDataInput v-model="filter" placeholder="keyword" width="200px" />
+      <BIMDataInput v-model="filter" placeholder="keyword" width="200px" ref="filterInput"/>
     </div>
     <ul style="list-style: none; padding: 0;">
       <li v-for="item in filteredReference" :key="item.title">
@@ -40,8 +40,16 @@ export default {
           link: "/viewer/reference/global_context.html"
         },
         {
+          title: "Header",
+          link: "/viewer/reference/header.html"
+        },
+        {
           title: "Hubs",
           link: "/viewer/reference/hubs.html"
+        },
+        {
+          title: "Keyboard Shortcuts",
+          link: "/viewer/reference/keyboard_shortcuts.html"
         },
         {
           title: "Local Context",
@@ -58,6 +66,10 @@ export default {
         {
           title: "Native Plugins",
           link: "/viewer/reference/native_plugins.html"
+        },
+        {
+          title: "Offline Model",
+          link: "/viewer/reference/offline_model.html"
         },
         {
           title: "Plugin",
@@ -82,6 +94,9 @@ export default {
     filteredReference() {
       return this.reference.filter(item => item.title.toLowerCase().includes(this.filter.toLowerCase()));
     }
+  },
+  mounted() {
+    this.$refs.filterInput.focus();
   }
 }
 </script>

@@ -1,3 +1,4 @@
+
 # Plugin
 
 The viewer is shipped with native BIMData plugins but others can be added to add new features and more possibilities. A plugin is mainly either a [Vuejs component](https://vuejs.org/v2/guide/components.html) or/and a simple function that is run when the viewer is mounted into the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model).
@@ -31,7 +32,7 @@ The registerPlugin method take an object as argument. The options are the follow
 | `window`: `object`         | An [object](#window) used to register a window with this plugin in it.                          |
 | `addToWindows`: `string[]` | An array of [window](#window) name in which to include this plugin.                              |
 
-## Button
+## Plugin as button
 
 | Property                | Description                                                                                                                 |
 | :---------------------- | :-------------------------------------------------------------------------------------------------------------------------- |
@@ -60,7 +61,8 @@ The `free` mode display the component in a div. The developer of the plugin is r
 
 The `panel` mode open the component in a Panel. The panel height is 100% of the window.
 
-## Window content
+
+## Plugin as window content
 
 A plugin that is not displayed as a button is displayed on the window content. The viewer 3D and the viewer 2D are plugins displayed this way.
 
@@ -80,61 +82,210 @@ export default {
 
 There is no [button](#button) configuration in this file. The viewer 3D is registered as "viewer3d" and a window named "3d" is created with the viewer 3d plugin as a child.
 
-## mount
+## How to develop a plugin
 
-TODO : put in another place
+A plugin is mainly either a [Vue component](https://vuejs.org/guide/essentials/component-basics.html) or/and a simple function that is run when the viewer is mounted into the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model).
 
-Once created, the BIMDataViewer must be mounted to a [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) element in order to be displayed to the user.
+::: tip
+To learn what is a Vue component, [have a look at the Vue documentation](https://vuejs.org/guide/introduction.html).
+:::
 
-```javascript
-bimdataViewer.mount("#app"); // 'app' is the id of an existing element.
-```
+Both component and function have access to the [`$viewer`](/viewer/reference/$viewer.html) object. It can be accessed using `this` on a component, or as the first parameter of the `startupScript` method. This object allows to interact with the viewer core.
 
-The mount method take an optional second argument: the [`layout`](#layout). The [`layout`](#layout) is the configuration of the windows displayed at startup. The default value is "3d", which is the name of a window registered by default. The "3d" window includes many BIMData plugins like "viewer3d", "section", "projection", "structure-properties"...
+### Plugin as a function
 
-## Layout
+To develop a plugin as a **function**, you must provide a function on the `startupScript` property of the configuration object of the `registerPlugin()` method. The first argument of this function is the [`$viewer`](/viewer/reference/$viewer.html) object.
 
-The layout object can be either a `string` or an `object`.
+### Plugin as a component
 
-- If `string`, it must be the name of a registered window.
-- If `object`, the `layout` is a recursive object representing a container of window names. A container have ratios that represent the amount of space taken by given windows, a direction that can be "column" or "row"(default) and an array of children. A child can be a window name as `string` or another container as `object`.
+To develop a plugin as a **component**, you must provide a Vue component on the `component` property of the configuration object of the `registerPlugin()` method.
 
-Examples :
+::: tip
+Here are some usefull links you should need to develop your own plugin with a component:
+- [Plugin UI configuration documentation](/viewer/customize_the_ui.html#plugin) to see the UI possibilities.
+- [Plugin as button API](/viewer/plugins/plugin_as_button.html) to bind a behavior on the user interactions.
+:::
 
-### A simple window name
+### Example
 
-```javascript
-bimdataViewer.mount("#app", "3d");
-```
+TODO put in examples
 
-<img width="100%" src="/assets/img/viewer/Viewer-1_window_special.png" alt='Layout "3d"'>
+See below a plugin registered with both a startup script function and a Vue component that can be displayed on the viewer windows.
 
-### A container with two windows
-
-```javascript
-bimdataViewer.mount("#app", {
-  ratios: [40, 60],
-  direction: "row",
-  children: ["structure", "2d"],
-});
-```
-
-<img width="100%" src="/assets/img/viewer/Viewer-2_windows.png" alt='Layout row 2 windows'>
-
-### Nested containers
+The Vue component:
 
 ```javascript
-bimdataViewer.mount("#app", {
-  ratios: [55, 45],
-  direction: "column",
-  children: [
-    {
-      ratios: [50, 50],
-      children: ["structure", "2d"],
+const myComponent = {
+  name: "myPluginComponent",
+  methods: {
+    onClick() {
+      const visibleObjects = this.$viewer.state.visibleObjects;
+      console.log("These are the visible objects:", visibleObjects);
     },
-    "3d",
-  ],
+  },
+  template: `
+    <div>
+      <button type="button" @click="onClick">
+        Click to log visible objects.
+      </button>
+    </div>`,
+};
+```
+
+The *startupScript* function:
+
+```javascript
+const myFunction = ($viewer) => {
+  $viewer.state.hub.on("objects-selected", (objects) =>
+    console.log("New objects are selected", objects)
+  );
+};
+```
+
+The registration:
+
+```javascript
+import makeBIMDataViewer from "@bimdata/viewer";
+
+const bimdataViewer = makeBIMDataViewer({
+  /* ... */
+});
+
+bimdataViewer.registerPlugin({
+  name: "myPlugin",
+  component: myComponent,
+  startupScript: myFunction,
+  addToWindows: ["3d"]
 });
 ```
 
-<img width="100%" src="/assets/img/viewer/Viewer-3_windows.png" alt='Layout 3 windows'>
+## Plugin as button
+
+A plugin component will have a special API if it is registered as a [window button](/viewer/customize_the_ui.html#button).
+
+### onOpen and onClose
+
+`onOpen` and `onClose` methods prevent user from spam clicking a plugin button. It will not be possible to the user to open or close the plugin if the returned [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) is not resolved.
+
+As their names suggest, `onOpen` is run when the user request the plugin to be opened,
+while `onClose` is run when the user request the plugin to be closed.
+
+::: tip
+The plugin can be opened or closed using the UI (by clicking) or [programmatically using javascript](#open-and-close).
+:::
+
+```javascript
+const myComponent = {
+  async onOpen() {
+    await new Promise((res) => setTimeout(res, 1000));
+  },
+  onClose() {
+    return new Promise((res) => setTimeout(res, 2000));
+  },
+  methods: {
+    onClick() {
+      console.log("clicked !");
+    },
+  },
+  template: `
+    <div>
+      <button type="button" @click="onClick">Click me!</button>
+    </div>`,
+};
+```
+
+The result:
+
+![Viewer async plugin](/assets/img/viewer/Viewer-async_plugin.gif)
+
+These methods are useful when an action needs to be awaited before the plugin can be opened or closed again.
+
+### $open and $close
+
+A plugin can be opened or closed using the UI (by clicking) but you may want to do it programmatically using javascript.
+To do so, you can use `$open` or `$close` methods available on `this`.
+
+Example: a plugin component opened at startup and that close itself after 2 seconds.
+```javascript
+const myPluginComponent = {
+  mounted() {
+    this.$open();
+    setTimeout(() => this.$close(), 2000);
+  },
+};
+```
+
+### Open/Close parameters
+
+You can also provide any parameter you want when you call `$open` or `$close`.
+These paramters will be passed to the `onOpen` or `onClose` method respectively.
+
+Example:
+```js
+const myPluginComponent = {
+  template: `
+    <button @click="onClick">
+      Click me
+    </button>
+  `,
+  data() {
+    return { count: 0 };
+  },
+  onOpen(msg) {
+    console.log("open message: ", msg);
+  },
+  methods: {
+    onClick() {
+      this.$open(`count = ${this.count++}`);
+    }
+  }
+};
+```
+
+## i18n
+
+It is possible to add internationalization for plugins.
+
+### Translate text
+
+To add i18n files, use the `i18n` plugin property. To translate a text, use `$t("pluginName.textKey")`.
+
+Example:
+
+```javascript
+const EN = {
+  "textKey": "This text is in english.",
+};
+
+const FR = {
+  "textKey": "Ce texte est en français",
+};
+
+const myPlugin = {
+  name: "myPlugin",
+  i18n: {
+    en: EN,
+    fr: FR,
+  },
+  component: {
+    template: "<div>{{ $t('myPlugin.textKey') }}</div>"
+  }
+};
+```
+
+### Set the viewer locale
+
+To set the viewer local, use the `locale` property of the [makeBIMDataViewer](/viewer/reference/makeBIMDataViewer.html) configuration object:
+
+```javascript
+const viewer = makeBIMDataViewer({
+  locale: "en",
+});
+```
+
+The available locales are:
+- English: en (default)
+- French: fr 
+- Spanish: es
+- German: de
+- Italian: it
