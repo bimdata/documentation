@@ -1,11 +1,8 @@
 <template>
   <div>
-    <div style="display: flex; align-items: center; gap: 15px;">
-      <div>Filter : </div>
-      <BIMDataInput v-model="filter" placeholder="keyword" width="200px" ref="filterInput"/>
-    </div>
+    <SearchBox searchPaths="/viewer/reference/"/>
     <ul style="list-style: none; padding: 0;">
-      <li v-for="item in filteredReference" :key="item.title">
+      <li v-for="item in reference" :key="item.title">
         <a :href="item.link">{{ item.title }}</a>
       </li>
     </ul>
@@ -15,13 +12,15 @@
 <script>
 import { BIMDataInput } from "@bimdata/design-system";
 
+import SearchBox from './SearchBox.vue';
+
 export default {
   components: {
-    BIMDataInput
+    BIMDataInput,
+    SearchBox
   },
   data() {
     return {
-      filter: "",
       reference: [
         {
           title: "$viewer",
@@ -90,14 +89,6 @@ export default {
       ]
     }
   },
-  computed: {
-    filteredReference() {
-      return this.reference.filter(item => item.title.toLowerCase().includes(this.filter.toLowerCase()));
-    }
-  },
-  mounted() {
-    this.$refs.filterInput.focus();
-  }
 }
 </script>
 
