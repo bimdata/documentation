@@ -17,8 +17,6 @@ const myPlugin = {
 }
 ```
 
-
-
 ## Colors 🎨
 
 You can change the colors of the viewer and the BIMData Design System components.
