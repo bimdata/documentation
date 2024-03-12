@@ -10,19 +10,6 @@ const bimdataViewer = makeBIMDataViewer({
 });
 ```
 
-The returned object of the `makeBIMDataViewer` function have the following interface:
-
-| Property                                                                           | Description                                                                                                                                                                         |
-| :--------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `mount(containerElementOrSelector: HTMLElement | string, layout?: Object): Object` | Mount the viewer on the corresponding DOM element with the specified layout.                                                                                                        |
-| `setLocale(locale: string): void`                                                  | Set the locale of the viewer. Available locales are `en` or `fr`.                                                                                                                   |
-| `registerPlugin(plugin: Object, cfg: Object): void`                                | Register a plugin.                                                                                                                                                                  |
-| `registerWindow(window: Object): void`                                             | Register a window                                                                                                                                                                   |
-| `unregisterWindow(windowName: string): void`                                       | Unregister the corresponding window.                                                                                                                                                |
-| `setAccessToken(accessToken: string): void`                                        | Set the access token.                                                                                                                                                               |
-| `async loadModels(modelIds: number[]): Object[]`                                   | Load the corresponding models.                                                                                                                                                      |
-| `destroy(): void`                                                                  | Destroy the viewer. All the plugins will be destroyed and the DOM won't react anymore. If you remove the viewer's div without calling this method, there will be a huge memory leak |
-
 It takes a configuration `object` that accept the following properties :
 
 ## locale
@@ -61,10 +48,10 @@ The `api` properties are:
 
 Here are `offline` configuration options:
 
-| Name          | Type       | Description                    |
-| :------------ | :--------- | :----------------------------- |
-| `enabled`     | `boolean`  | Default to `false`. Enable/Disable offline mode. |
-| `dataFile`    | `object`   | Offline mode configuration.    |
+| Name       | Type      | Description                                      |
+| :--------- | :-------- | :----------------------------------------------- |
+| `enabled`  | `boolean` | Default to `false`. Enable/Disable offline mode. |
+| `dataFile` | `object`  | Offline mode configuration.                      |
 
 You can refer to [the dedicated page](../offline_mode.md) to learn more about offline mode.
 
@@ -81,32 +68,32 @@ const bimdataViewer = makeBIMDataViewer({
     style: {
       backgroundColor: "FFFFFF",
     },
-    headerVisible: false,
-    windowManager: false,
+    header: false,
     version: false,
     bimdataLogo: false,
     contextMenu: false,
+    resizable: true,
   },
 });
 ```
 
 The `ui` properties are:
 
-| Name                    | Type      | Description                                                                                  |
-| :---------------------- | :-------- | :------------------------------------------------------------------------------------------- |
-| `style.backgroundColor` | `string`  | A css color applied to the viewer background.                                                |
-| `menuVisible`           | `boolean` | **Default** to `true`. If `false`, the [menu](/viewer/customize_the_ui.html#menu) is hidden. |
-| `windowManager`         | `boolean` | **Default** to `true`. If `false`, the window manager tools are hidden.                      |
-| `version`               | `boolean` | **Default** to `true`. If `false`, the viewer version is hidden.                             |
-| `bimdataLogo`           | `boolean` | **Default** to `true`. If `false`, the BIMData logo is hidden.                               |
-| `contextMenu`           | `boolean` | **Default** to `true`. If `false`, the context menu is disabled.                             |
+| Name                    | Type      | Description                                                                 |
+| :---------------------- | :-------- | :-------------------------------------------------------------------------- |
+| `style.backgroundColor` | `string`  | A css color applied to the viewer background.                               |
+| `header`                | `boolean` | **Default** to `true`. If `false`, the header is hidden.                    |
+| `version`               | `boolean` | **Default** to `true`. If `false`, the viewer version is hidden.            |
+| `bimdataLogo`           | `boolean` | **Default** to `true`. If `false`, the BIMData logo is hidden.              |
+| `contextMenu`           | `boolean` | **Default** to `true`. If `false`, the context menu is disabled.            |
+| `resizable`             | `boolean` | **Default** to `true`. If `false`, the layout is not resizable from the UI. |
 
 ## plugins
 
-- **Type**: `Object`
-- **Details**: An object to customize the BIMData viewer native plugins.
+- **Type**: `Object` | `boolean`
+- **Details**: An object to customize the BIMData viewer native plugins. If false, no native plugins are available.
 
-Each property is a plugin name and the value is either a boolean or an object. An object is considered as true and the object content is provided to the plugin instance on `this.$options.$cfg`.
+Each property is a plugin name and the value is either a boolean or an object. An object is considered as true and the object content is provided to the plugin instance on `this.$plugin.settings`.
 
 Some native plugins are enabled by default and others disabled. To enabled plugins that are disabled by default, you must provide their names with `true` or an object with plugin specific options.
 
@@ -145,3 +132,16 @@ const bimdataViewer = makeBIMDataViewer({
 :::tip
 For more details about native plugins, see [the native plugins reference](/viewer/reference/native_plugins.html).
 :::
+
+The returned object of the `makeBIMDataViewer` function have the following interface:
+
+| Property                                            | Description                                                                                                                                                                         |
+| :-------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `mount(containerElementOrSelector: HTMLElement      | string, layout?: Object): Object`                                                                                                                                                   | Mount the viewer on the corresponding DOM element with the specified layout. |
+| `setLocale(locale: string): void`                   | Set the locale of the viewer. Available locales are `en` or `fr`.                                                                                                                   |
+| `registerPlugin(plugin: Object, cfg: Object): void` | Register a plugin.                                                                                                                                                                  |
+| `registerWindow(window: Object): void`              | Register a window                                                                                                                                                                   |
+| `unregisterWindow(windowName: string): void`        | Unregister the corresponding window.                                                                                                                                                |
+| `setAccessToken(accessToken: string): void`         | Set the access token.                                                                                                                                                               |
+| `async loadModels(modelIds: number[]): Object[]`    | Load the corresponding models.                                                                                                                                                      |
+| `destroy(): void`                                   | Destroy the viewer. All the plugins will be destroyed and the DOM won't react anymore. If you remove the viewer's div without calling this method, there will be a huge memory leak |

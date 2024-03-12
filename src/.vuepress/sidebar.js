@@ -60,6 +60,7 @@ function getViewerSidebar() {
         "reference/plugin",
         "reference/makeBIMDataViewer",
         "reference/mount",
+        "reference/layout",
         "reference/$viewer",
         "reference/state",
         "reference/global_context",
