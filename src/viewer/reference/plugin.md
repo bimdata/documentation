@@ -1,11 +1,9 @@
 
 # Plugin
 
-The viewer is shipped with native BIMData plugins but others can be added to add new features and more possibilities. A plugin is mainly either a [Vuejs component](https://vuejs.org/v2/guide/components.html) or/and a simple function that is run when the viewer is mounted into the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model).
+The viewer is shipped with native plugins but others can be added to add new features and more possibilities. A plugin is mainly either a [Vuejs 3.x component](https://vuejs.org/guide/essentials/component-basics.html) or/and a simple function that is run once when the viewer is mounted into the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model).
 
-::: tip
-See the [plugins documentation](/viewer/plugins/overview.html) to know how to develop a plugin and add new features to the viewer.
-:::
+## Registration and Plugin API
 
 A plugin is added to the viewer by registering it :
 
@@ -18,161 +16,123 @@ const bimdataViewer = makeBIMDataViewer(/* {...} */);
 bimdataViewer.registerPlugin(MyPlugin);
 ```
 
-## Plugin registration API
+The registerPlugin method take an Plugin as argument :
 
-The registerPlugin method take an object as argument. The options are the followings:
+| Property                   | Description                                                                                                                                                     |
+| :------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`: `string`           | **Required** The name of the plugin. Must be unique.                                                                                                            |
+| `component`: `object`      | A Vuejs (v3.x) component.                                                                                                                                       |
+| `i18n`: `object`           | An object containing translations for internationalization.                                                                                                     |
+| `startupScript($viewer)`   | A function that is executed when the viewer is mounted, with [`$viewer`](/viewer/reference/$viewer.html) as argument.                                           |
+| `button`: `object`         | An [object](#plugin-as-button) that describe the display of the plugin if the plugin is shown as button.                                                        |
+| `window`: `Window`         | An [Window configuration object](./window.html) used to register a window with this plugin in it. This plugin is automatically aded to the window.plugins list. |
+| `addToWindows`: `string[]` | An array of [window](./window.html) name in which to include this plugin.                                                                                       |
+| `isViewer`: `boolean`      | *Default* to false. Defines if this plugin must be considered as a `viewer`. See viewer common interface.                                                       |
+| `settings`: `Object`       | An object with the corresponding options passed to the makeBIMDataViewer(cfg) method. (cfg: { plugins: { name: thisObject }})                                   |
 
-| Property                   | Description                                                                                     |
-| :------------------------- | :---------------------------------------------------------------------------------------------- |
-| `name`: `string`           | **Required** The name of the plugin. Must be unique.                                            |
-| `component`: `object`      | A Vuejs (v2.x) component.                                                                       |
-| `i18n`: `object`           | An object containing translations for internationalization.                                     |
-| `startupScript($viewer)`   | A function that is executed when the viewer is mounted, with [`$viewer`](/viewer/reference/$viewer.html) as argument. |
-| `button`: `object`         | An [object](#button) that describe the display of the plugin if the plugin is shown as button.  |
-| `window`: `object`         | An [object](#window) used to register a window with this plugin in it.                          |
-| `addToWindows`: `string[]` | An array of [window](#window) name in which to include this plugin.                              |
+Note that additional custom data are forward to the registered Plugin to let you configure your plugins as you need to.
+
+Once registered, the plugin is available on the viewer with the same interface as the object used to register it.
+
+## Plugin instance
+
+Once registered, the plugin is on the list of the registered plugins. But when a window is loaded with a particular plugin as a child, the resulting plugin is a plugin instance. A unique copy of the registered plugin, with additional APIs.
+
+The Plugin Instance inherites all of the [Plugin APIs](#registration-and-plugin-api). The additional APIs are the followings:
+
+| Property                      | Description                                                                                                      |
+| :---------------------------- | :--------------------------------------------------------------------------------------------------------------- |
+| `open`: `Function`            | Used to open the plugin as button component. Arguments are passed to the `onOpen` option API of the component.   |
+| `close`: `Function`           | Used to close the plugin as button component. Arguments are passed to the `onClose` option API of the component. |
+| `isOpen`: `boolean`           | `true` if the plugin as button component is open.                                                                |
+| `show`: `Function`            | Used to show the plugin component.                                                                               |
+| `hide`: `Function`            | Used to hide the plugin component.                                                                               |
+| `shown`: `boolean`            | `true` if the plugin component is shown.                                                                         |
+| `loading`: `boolean`          | `true` if the plugin component is openning or closing. Used in case of async plugin as button component.         |
+| `componentInstance`: `Object` | The [Vuejs 3.x component](https://vuejs.org/guide/essentials/component-basics.html) instance.                    |
+| `buttonText`: `string`        | The text displayed on the plugin button. (getter & setter)                                                       |
+
+## Plugin component
+
+A plugin component is a [Vuejs 3.x component](https://vuejs.org/guide/essentials/component-basics.html) with somme additional features.
+
+By default, a plugin component is displayed on the window content. (the orange area on the image below)
+
+<img width=250px src="/assets/img/viewer/viewer-gui-plugin-default.png" alt="Viewer GUI plugin default.">
+
+Some additional properties are natively available on the component instance: (`this` on computed, lifeCycles, methods...)
+
+- `$viewer`, the entry point of the BIMDataViewer internal API.
+- `$plugin`, the entry point of the plugin API, a [Plugin Instance](#plugin-instance).
+
+::: warning
+If a component uses the Vue.js composition API, `$viewer` and `$plugin` need to be injected.
+:::
+
+```js
+setup() {
+  const $viewer = inject("$viewer");
+  const $plugin = inject("$plugin");
+
+  // ...
+}
+```
+
+For more convenience, some of the [Plugin Instance](#plugin-instance) APIs are available on the component instance, with a `$` in front of it:
+
+- `$show`: Function, a `function` to show the plugin component.
+- `$hide`: Function, a `function` to hide the plugin component.
+- `$open`: Function, a `function` to open the plugin component (plugin as button only). 
+- `$close`: Function, a `function` to close the plugin component (plugin as button only).
+- `$isOpen`: boolean, `true` if the plugin component is open (plugin as button only).
+- `$loading`: boolean, `true` if the plugin component is openning or closing (async plugin as button only).
+- `$shown`: boolean, `true` if the plugin is shown.
 
 ## Plugin as button
 
-| Property                | Description                                                                                                                 |
-| :---------------------- | :-------------------------------------------------------------------------------------------------------------------------- |
-| `position`: `string`    | "left" or "right". The position of the button in the window.                                                                |
-| `content`: `string`     | "simple", "panel" or "free"(default). Different way to display the component when the button is clicked. (see images below) |
-| `tooltip`: `string`     | A string that is displayed when the plugin button is hovered. It can be a key to be translated ex: "myPluginName.tooltip"   |
-| `keepOpen`: `boolean`   | Default to `false`. If `true`, the plugin stay open even if the user click away from it.                                      |
-| `icon.imgUri`: `string` | An uri to an image for the button.                                                                                          |
+Another way to display a plugin component is as a button. To do so, when registering a plugin, the `pluginToRegister.button` object must implement the following interface:
+
+| Property                    | Description                                                                                                                            |
+| :-------------------------- | :------------------------------------------------------------------------------------------------------------------------------------- |
+| `position`: `string`        | "left" or "right". The position of the button in the window.                                                                           |
+| `stance`: `number`          | A `number` used to sort the plugin as buttons registered on the same side of a window.                                                 |
+| `tooltip`: `string`         | A string that is displayed when the plugin button is hovered. It can be a key to be translated ex: "myPluginName.tooltip"              |
+| `content`: `string`         | "simple", "panel" or "free"(default). [Different way to display the component](../guide/#plugin-as-button) when the button is clicked. |
+| `keepOpen`: `boolean`       | Default to `false`. If `true`, the plugin stay open even if the user click away from it.                                               |
+| `icon.imgUri`: `string`     | An uri to an image for the button.                                                                                                     |
+| `iconOpen.imgUri`: `string` | An uri to an image for the button when the plugin is displayed (open).                                                                 |
 
 If only the `icon` is defined, the corresponding image is always displayed on the button.
 A similar option, iconOpen can be defined to display a different icon when the button is open.
 
-The images below show the different way to display plugin as button. (top-left : content = `simple`, top-right : content = `free`, bottom : content = `panel`)
+### Content
 
-<p align="center">
-  <img src="/assets/img/viewer/Viewer-PluginButton-simple.png" alt="Viewer plugin button simple.">
-  <img src="/assets/img/viewer/Viewer-PluginButton-free.png" alt="Viewer plugin button free.">
-</p>
-<p align="center">
-  <img src="/assets/img/viewer/Viewer-PluginButton-panel.png" alt="Viewer plugin button panel.">
-</p>
+A plugin as button can be displayed in 3 different ways, defined by the plugin `content` property.
 
-The `simple` mode display the component in a small div adapted for small menu interfaces like switching between few options.
+- **simple** : plugin content displayed close to its corresponding button, on a small window.
 
-The `free` mode display the component in a div. The developer of the plugin is responsible to decide the style of the component because the div is related to the component size.
+<img width=250px src="/assets/img/viewer/viewer-gui-plugin-button-simple.png" alt="Viewer GUI plugin button simple.">
 
-The `panel` mode open the component in a Panel. The panel height is 100% of the window.
+- **panel** : plugin content displayed on the whole window height.
 
+<img width=250px src="/assets/img/viewer/viewer-gui-plugin-button-panel.png" alt="Viewer GUI plugin button panel.">
 
-## Plugin as window content
+- **free** : plugin content displayed on the side of the button, without any layout. Its size is determined by its content.
 
-A plugin that is not displayed as a button is displayed on the window content. The viewer 3D and the viewer 2D are plugins displayed this way.
+<img width=250px src="/assets/img/viewer/viewer-gui-plugin-button-free.png" alt="Viewer GUI plugin button free.">
 
-Example: this is the file content (simplified) used to register the viewer 3D:
+### Additional Component API
 
-```javascript
-import Viewer3D from "./Viewer3D.vue";
+A plugin component will have an additional API if it is registered as a button.
 
-export default {
-  name: "viewer3d",
-  component: Viewer3D,
-  window: {
-    name: "3d",
-  },
-};
-```
+#### onOpen and onClose
 
-There is no [button](#button) configuration in this file. The viewer 3D is registered as "viewer3d" and a window named "3d" is created with the viewer 3d plugin as a child.
-
-## How to develop a plugin
-
-A plugin is mainly either a [Vue component](https://vuejs.org/guide/essentials/component-basics.html) or/and a simple function that is run when the viewer is mounted into the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model).
-
-::: tip
-To learn what is a Vue component, [have a look at the Vue documentation](https://vuejs.org/guide/introduction.html).
-:::
-
-Both component and function have access to the [`$viewer`](/viewer/reference/$viewer.html) object. It can be accessed using `this` on a component, or as the first parameter of the `startupScript` method. This object allows to interact with the viewer core.
-
-### Plugin as a function
-
-To develop a plugin as a **function**, you must provide a function on the `startupScript` property of the configuration object of the `registerPlugin()` method. The first argument of this function is the [`$viewer`](/viewer/reference/$viewer.html) object.
-
-### Plugin as a component
-
-To develop a plugin as a **component**, you must provide a Vue component on the `component` property of the configuration object of the `registerPlugin()` method.
-
-::: tip
-Here are some usefull links you should need to develop your own plugin with a component:
-- [Plugin UI configuration documentation](/viewer/customize_the_ui.html#plugin) to see the UI possibilities.
-- [Plugin as button API](/viewer/plugins/plugin_as_button.html) to bind a behavior on the user interactions.
-:::
-
-### Example
-
-TODO put in examples
-
-See below a plugin registered with both a startup script function and a Vue component that can be displayed on the viewer windows.
-
-The Vue component:
-
-```javascript
-const myComponent = {
-  name: "myPluginComponent",
-  methods: {
-    onClick() {
-      const visibleObjects = this.$viewer.state.visibleObjects;
-      console.log("These are the visible objects:", visibleObjects);
-    },
-  },
-  template: `
-    <div>
-      <button type="button" @click="onClick">
-        Click to log visible objects.
-      </button>
-    </div>`,
-};
-```
-
-The *startupScript* function:
-
-```javascript
-const myFunction = ($viewer) => {
-  $viewer.state.hub.on("objects-selected", (objects) =>
-    console.log("New objects are selected", objects)
-  );
-};
-```
-
-The registration:
-
-```javascript
-import makeBIMDataViewer from "@bimdata/viewer";
-
-const bimdataViewer = makeBIMDataViewer({
-  /* ... */
-});
-
-bimdataViewer.registerPlugin({
-  name: "myPlugin",
-  component: myComponent,
-  startupScript: myFunction,
-  addToWindows: ["3d"]
-});
-```
-
-## Plugin as button
-
-A plugin component will have a special API if it is registered as a [window button](/viewer/customize_the_ui.html#button).
-
-### onOpen and onClose
-
-`onOpen` and `onClose` methods prevent user from spam clicking a plugin button. It will not be possible to the user to open or close the plugin if the returned [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) is not resolved.
+`onOpen` and `onClose` are two methods that can be added as options API on plugin component.
 
 As their names suggest, `onOpen` is run when the user request the plugin to be opened,
 while `onClose` is run when the user request the plugin to be closed.
 
-::: tip
-The plugin can be opened or closed using the UI (by clicking) or [programmatically using javascript](#open-and-close).
-:::
+If they return a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), `onOpen` and `onClose` methods can prevent user from spam clicking a plugin button. Indeed, it will not be possible to the user to open or close the plugin if the returned [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) is not resolved.
 
 ```javascript
 const myComponent = {
@@ -200,7 +160,11 @@ The result:
 
 These methods are useful when an action needs to be awaited before the plugin can be opened or closed again.
 
-### $open and $close
+::: tip
+The plugin can be opened or closed using the UI (by clicking) or [programmatically using javascript](#open-and-close).
+:::
+
+#### $open and $close
 
 A plugin can be opened or closed using the UI (by clicking) but you may want to do it programmatically using javascript.
 To do so, you can use `$open` or `$close` methods available on `this`.
@@ -214,8 +178,6 @@ const myPluginComponent = {
   },
 };
 ```
-
-### Open/Close parameters
 
 You can also provide any parameter you want when you call `$open` or `$close`.
 These paramters will be passed to the `onOpen` or `onClose` method respectively.
@@ -240,6 +202,25 @@ const myPluginComponent = {
     }
   }
 };
+```
+
+## startupScript
+
+The `startupScript` option of the plugin registration API allows to register a function that is executed once the viewer is mounted into the DOM. The function has `$viewer` as parameter.
+
+The *startupScript* function:
+
+```javascript
+const myFunction = ($viewer) => {
+  $viewer.state.hub.on("objects-selected", (objects) =>
+    console.log("New objects are selected", objects)
+  );
+};
+
+bimdataViewer.registerPlugin({
+  name: "myPlugin",
+  startupScript: myFunction,
+})
 ```
 
 ## i18n
