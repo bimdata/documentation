@@ -4,6 +4,21 @@
 
 The [BIMData design system](https://design.bimdata.io/) is globally available on the viewer and can be use to quickly stylize the plugin components.
 
+In the following example, the [`BIMDataButton` ](https://design.bimdata.io/components/buttons) is not imported as it is globally available:
+
+```js
+const myPlugin = {
+  template: "<BIMDataButton @click='onClick' >Click !</BIMDataButton>",
+  methods: {
+    onClick() {
+      console.log("clicked !");
+    }
+  }
+}
+```
+
+
+
 ## Colors 🎨
 
 You can change the colors of the viewer and the BIMData Design System components.
