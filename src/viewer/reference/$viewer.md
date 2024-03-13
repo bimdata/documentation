@@ -7,15 +7,29 @@ tags:
 
 The `$viewer` object can be accessed on any component instance (using `this.$viewer`),
 it is also passed as the first argument of the `startupScript` method of a plugin.
-It is the entrypoint to interact with the viewer core.
+It is the entrypoint to interact with the viewer core.:
+If a component uses the Vue.js composition API, `$viewer` needs to be injected:
+
+```js
+setup() {
+  const $viewer = inject("$viewer");
+
+  // ...
+}
+```
 
 Below is a description of its interface:
 
 ```typescript
 interface $Viewer {
+  readonly version: string; // the viewer version
+  readonly locale: string;
   readonly i18n: i18n;
   readonly api: Api;
   readonly state: State;
+  readonly uiSettings: Object; // the settings of the ui property passed to the mabeBIMDataViewer function
+  readonly pluginsCfg: Object; // the settings of the plugins property passed to the mabeBIMDataViewer function
+
   readonly registeredWindows: string[];  // List of registered window names
   readonly registeredPlugins: string[];  // List of registered plugin names
 
@@ -153,13 +167,6 @@ const processedModel = await this.$viewer.api.waitForModelProcess(model);
 The `$viewer.state` object provide a way to interact with [the global state](./state.md).
 
 ## Global and Local contexts
-
-The [`globalContext`](./global_context.md) and the [`localContext`](./local_context.md) objects
-are related to [windows](/viewer/customize_the_ui.html#window) and the viewer UI in general.
-The `globalContext` is the whole UI while the `localContext` is the [window](/viewer/customize_the_ui.html#window) where the code is executed.
-
-A plugin must have a unique name in a window, but many plugins with the same name can be instanciated in the viewer if they belong to different windows.
-That is why `globalContext.plugins.get(pluginName)` returns an Array of plugins, while `localContext.plugins.get(pluginName)` returns a simple plugin.
 
 For a more detailed description of the global/local context interfaces, refer to their respective documentation:
 
