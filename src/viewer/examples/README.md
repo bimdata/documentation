@@ -8,3 +8,4 @@ and develop your own features.
  - [GUI Layout](./gui_layout.md)
  - [Global and Local Context Plugins](./context_plugins.md)
  - [Plan Annotations](./plan_annotations.md)
+ - [Global Components](./global_components.md)

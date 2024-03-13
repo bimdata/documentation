@@ -52,6 +52,7 @@ function getViewerSidebar() {
         "examples/gui_layout",
         "examples/context_plugins",
         "examples/plan_annotations",
+        "examples/global_components",
       ],
     },
     {
