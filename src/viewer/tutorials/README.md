@@ -15,7 +15,6 @@ The simplest way is to start with the following code (`index.html`):
   <head>
     <meta charset="utf-8" />
     <title>BIMDataViewer - Tutorials</title>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@bimdata/viewer@2.0.0-beta.14"></script>
   </head>
 
   <body>
@@ -23,7 +22,8 @@ The simplest way is to start with the following code (`index.html`):
       <div id="viewerId"></div>
     </div>
 
-    <script>
+    <script type="module">
+      import makeBIMDataViewer from "https://cdn.jsdelivr.net/npm/@bimdata/viewer@2.1.0-beta.3";
 
       /******* INSERT COMPLETE CODE EXAMPLES HERE *******/
 
