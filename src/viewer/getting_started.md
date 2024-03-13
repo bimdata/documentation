@@ -12,7 +12,6 @@ You can quickly launch the BIMData Viewer with demo identifications.
   <head>
     <meta charset="utf-8" />
     <title>BIMDataViewer - Quick start</title>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@bimdata/viewer@2.0.0-beta.14"></script>
   </head>
 
   <body>
@@ -20,7 +19,9 @@ You can quickly launch the BIMData Viewer with demo identifications.
       <div id="viewer"></div>
     </div>
 
-    <script>
+    <script type="module">
+      import makeBIMDataViewer from "https://cdn.jsdelivr.net/npm/@bimdata/viewer@2.1.0-beta.3";
+
       const bimdataViewer = makeBIMDataViewer({
         api: {
           modelIds: [15097],
