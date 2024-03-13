@@ -7,7 +7,7 @@ The [BIMData design system](https://design.bimdata.io/) is globally available on
 In the following example, the [`BIMDataButton` ](https://design.bimdata.io/components/buttons) is not imported as it is globally available:
 
 ```js
-const myPlugin = {
+const myPluginComponent = {
   template: "<BIMDataButton @click='onClick' >Click !</BIMDataButton>",
   methods: {
     onClick() {
