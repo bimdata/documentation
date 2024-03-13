@@ -93,6 +93,20 @@ Notice that the `$viewer.localContext` property is context dependent. It returns
 
 `localContext` and `window` can be mistaken as a single entity, but the main difference is that you can load different window using the same localContext. The windows have to be registered first, and then can be loaded using the `bimdataViewer.mount` second argument, or the `localContext.loadWindow` method. The `localContext` is like the *host* that can accept different window to be loaded in it.
 
+#### UI bounds
+
+A good image to see the difference between the bounds of the `localContext` and the `globalContext` is the spinner which is displayed when the `localContext/globalContext.loadingProcessStart()` is called :
+
+<div style="display: flex; justify-content: space-around;">
+  <p><b>Global context spinner</b></p>
+  <p><b>Local context spinner</b></p>
+</div>
+<p align="center">
+  <img width="48%" src="/assets/img/viewer/Viewer-global_context.gif" alt="Viewer global context spinner">
+  <img width="48%" src="/assets/img/viewer/Viewer-local_context.gif" alt="Viewer local context spinner.">
+</p>`
+
+
 :::tip
 [See the global and local context plugins example.](../examples/context_plugins.html)
 :::
