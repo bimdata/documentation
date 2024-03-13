@@ -41,6 +41,7 @@ function getViewerSidebar() {
       title: "Guide",
       children: [
         "guide/",
+        "guide/plugin_interactions",
         "guide/style_and_personalization",
       ],
     },
@@ -50,7 +51,7 @@ function getViewerSidebar() {
       children: [
         "examples/gui_layout",
         "examples/plan_annotations",
-      ], 
+      ],
     },
     {
       title: "Reference",
@@ -60,7 +61,6 @@ function getViewerSidebar() {
         "reference/plugin",
         "reference/makeBIMDataViewer",
         "reference/mount",
-        "reference/layout",
         "reference/$viewer",
         "reference/state",
         "reference/global_context",
