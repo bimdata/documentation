@@ -41,7 +41,7 @@ function getViewerSidebar() {
       title: "Guide",
       children: [
         "guide/",
-        "guide/plugin_interactions",
+        "guide/plugin_essentials",
         "guide/style_and_personalization",
       ],
     },
@@ -50,6 +50,7 @@ function getViewerSidebar() {
       path: "/viewer/examples/",
       children: [
         "examples/gui_layout",
+        "examples/context_plugins",
         "examples/plan_annotations",
       ],
     },
