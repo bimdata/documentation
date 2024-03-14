@@ -215,3 +215,5 @@ You can also add the following rules to your page stylesheet:
   background-color: var(--color-warning);
 }
 ```
+
+Notice the use of the [BIMData css variables](https://design.bimdata.io/guidelines-utilities/variables) like `--color-primary`. It allows to stay in tune with the global theme and to track colors that may have been changed [when the viewer was initialized](../guide/#colors-🎨).
