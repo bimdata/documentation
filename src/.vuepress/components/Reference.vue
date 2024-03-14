@@ -63,10 +63,6 @@ export default {
           link: "/viewer/reference/mount.html"
         },
         {
-          title: "Layout",
-          link: "/viewer/reference/layout.html"
-        },
-        {
           title: "Native Plugins",
           link: "/viewer/reference/native_plugins.html"
         },
