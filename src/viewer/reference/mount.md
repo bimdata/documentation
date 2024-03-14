@@ -29,3 +29,31 @@ A window is represented by a `string` with its name or the following Object:
 | `ratios`    | `number[]`             | **Required**. The amount of space taken by respective children.                 |
 | `children`  | `(string or object)[]` | **Required**. An array of window names as string or other containers as object. |
 | `direction` | `string`               | "column" or "row"(**default**). The direction of the container.                 |
+
+Here is an example of a complex layout:
+
+```js
+const layout = {
+  ratios: [40, 60],
+  children: [
+    "window-1",
+    {
+      direction: "column",
+      ratios: [40, 60],
+      children: [
+        "window-2",
+        {
+          windowName: "window-3",
+          windowState: {
+            modelIds: [4717],
+          },
+        },
+      ],
+    },
+  ],
+};
+```
+
+The result is the following UI layout:
+
+<img width=300px src="/assets/img/viewer/complex-layout.png" alt="Viewer complex mount layouts.">
