@@ -52,7 +52,7 @@ The Plugin Instance inherites all of the [Plugin APIs](#registration-and-plugin-
 | `componentInstance`: `Object` | The [Vuejs 3.x component](https://vuejs.org/guide/essentials/component-basics.html) instance.                    |
 | `buttonText`: `string`        | The text displayed on the plugin button. (getter & setter)                                                       |
 
-## Plugin component
+## Plugin Component Instance
 
 A plugin component is a [Vuejs 3.x component](https://vuejs.org/guide/essentials/component-basics.html) with somme additional features.
 

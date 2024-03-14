@@ -116,5 +116,5 @@ This example shows how to communicate from different plugins across the BIMDataV
 ```
 
 :::tip
-Notice that [PluginInstances](../reference/plugin.html#plugin-instance) and [PluginComponentInstances](../reference/plugin.html#plugin-component) do not use the same API to open the plugin. Also, `globalContext.pluginInstances` return an Array of [PluginInstances](../reference/plugin.html#plugin-instance) because the same plugin can be instantiated many times on different [Windows](../reference/window.html).
+Notice that [PluginInstances](../reference/plugin.html#plugin-instance) and [PluginComponentInstances](../reference/plugin.html#plugin-component-instance) do not use the same API to open the plugin. Also, `globalContext.pluginInstances` return an Array of [PluginInstances](../reference/plugin.html#plugin-instance) because the same plugin can be instantiated many times on different [Windows](../reference/window.html).
 :::
