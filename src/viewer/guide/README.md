@@ -1,6 +1,6 @@
 # Graphical User Interface
 
-This guide shown how to quickly customize the existing BIMDataViewer UI.
+This guide shows how to quickly customize the existing BIMDataViewer UI.
 
 ## Header & Windows
 
