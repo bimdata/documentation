@@ -20,11 +20,11 @@ However, you don't need to master Vue.js to develop a plugin and you can still u
 
 ## Installation
 
-You can install the [`@bimdata/viewer` package](https://www.npmjs.com/package/@bimdata/viewer) using **NPM** or directly download the BIMDataViewer from a **CDN**.
+You can directly download the BIMDataViewer from a **CDN** or you can install the [`@bimdata/viewer` package](https://www.npmjs.com/package/@bimdata/viewer) using **NPM**.
 
 <code-group>
 
-<code-block title="NPM" active>
+<code-block title="CDN" active>
 
 ```html
 <!DOCTYPE html>
@@ -40,7 +40,7 @@ You can install the [`@bimdata/viewer` package](https://www.npmjs.com/package/@b
     </div>
 
     <script type="module">
-      import makeBIMDataViewer from "@bimdata/viewer"; // bundler needed
+      import makeBIMDataViewer from "https://cdn.jsdelivr.net/npm/@bimdata/viewer@2.0.0-beta.14";
 
       const bimdataViewer = makeBIMDataViewer({
         api: {
@@ -59,7 +59,7 @@ You can install the [`@bimdata/viewer` package](https://www.npmjs.com/package/@b
 ```
 </code-block>
 
-<code-block title="CDN">
+<code-block title="NPM">
 
 ```html
 <!DOCTYPE html>
@@ -67,7 +67,6 @@ You can install the [`@bimdata/viewer` package](https://www.npmjs.com/package/@b
   <head>
     <meta charset="utf-8" />
     <title>BIMDataViewer - Quick start</title>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@bimdata/viewer@2.0.0-beta.14"></script>
   </head>
 
   <body>
@@ -76,6 +75,8 @@ You can install the [`@bimdata/viewer` package](https://www.npmjs.com/package/@b
     </div>
 
     <script type="module">
+      import makeBIMDataViewer from "@bimdata/viewer"; // bundler needed
+
       const bimdataViewer = makeBIMDataViewer({
         api: {
           // demo identifications
