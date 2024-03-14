@@ -20,9 +20,9 @@ const myPlugin = bimdataViewer.registerPlugin({
 });
 ```
 
-In this example, myPlugin is a [**Plugin**](../reference/plugin.html). `this.$plugin` allows to get the [**PluginInstance**](../reference/plugin.html#plugin-instance), while `this` it the instance of the Vue.js component, also named [**PluginComponentInstance**](../reference/plugin.html#plugin-component-instance) in the context of the BIMDataViewer.
+In this example, myPlugin is a [**Plugin**](../reference/plugin.html). `this.$plugin` allows to get the [**PluginInstance**](../reference/plugin.html#plugin-instance), while `this` it the instance of the [<svg class="logo" viewBox="0 0 128 128" width="18" height="18" data-v-0495d436=""><path fill="#42b883" d="M78.8,10L64,35.4L49.2,10H0l64,110l64-110C128,10,78.8,10,78.8,10z" data-v-0495d436=""></path><path fill="#35495e" d="M78.8,10L64,35.4L49.2,10H25.6L64,76l38.4-66H78.8z" data-v-0495d436=""></path></svg> Vue.js 3](https://vuejs.org/) component, also named [**PluginComponentInstance**](../reference/plugin.html#plugin-component-instance) in the context of the BIMDataViewer.
 
-Plugins don't necessarily need to be represented (with a `component`), and it can sometimes be useful to register a plugin that will only act as a function for manipulating the viewer. The corresponding API is `startupScript`.
+Plugins don't necessarily need to be represented (with a `component`), and it can sometimes be useful to register a plugin that will only act as a function for manipulating the viewer. The corresponding API is [`startupScript`](../reference/plugin.html#startupscript).
 
 ```js{3}
 const myPlugin = bimdataViewer.registerPlugin({
@@ -54,7 +54,7 @@ const myPlugin = bimdataViewer.registerPlugin({
 
 ### Plugin as button
 
-Plugins can also be displayed as a side button, on the left or right of the [**Windows**](..reference/window.html). By clicking on it, the plugin opens and its content is displayed in 3 different ways:
+[**Plugins**](../reference/plugin.html) can also be displayed as a side button, on the left or right of the [**Windows**](..reference/window.html). By clicking on it, the [**Plugin**](../reference/plugin.html) opens and its content is displayed in 3 different ways:
 
 - **simple** : plugin content displayed close to its corresponding button, on a small [**Windows**](..reference/window.html).
 
@@ -150,7 +150,7 @@ const MyPlugin = {
 
 ## $viewer
 
-`$viewer` is the main entry point for a plugin to interact with other elements of the BIMData viewer. It is globally available and can be accessed directly on the plugin component instance using `this.$viewer`.
+[`$viewer`](../reference/$viewer.html) is the main entry point for a plugin to interact with other elements of the BIMData viewer. It is globally available and can be accessed directly on the plugin component instance using [`this.$viewer`](../reference/$viewer.html).
 
 ```js
 const myPluginComponent = {
@@ -162,15 +162,15 @@ const myPluginComponent = {
 }
 ```
 
-Via `$viewer`, you can access important properties like:
+Via [`$viewer`](../reference/$viewer.html), you can access important properties like:
 
-- `localContext`, used to manipulate the parent [**Window**](../reference/window.html) UI and state.
-- `globalContent`, used to manipulate the global UI.
-- `api`, used to do all the things related to the connection with the BIMData API.
-- `state`, used to manipulate the BIM object states, the annotations and listen to BIM object state changes.
-- `i18n`, used to do internationalization.
+- [`localContext`](../reference/local_context.html), used to manipulate the parent [**Window**](../reference/window.html) UI and state.
+- [`globalContent`](../reference/global_context.html), used to manipulate the global UI.
+- [`api`](../reference/$viewer.html#api), used to do all the things related to the connection with the [BIMData API](/api/introduction/overview.html).
+- [`state`](../reference/state.html), used to manipulate the BIM object states, the annotations and listen to BIM object state changes.
+- [`i18n`](../reference/$viewer.html#i18n), used to do internationalization.
 
-Notice that `$viewer` is also available as first argument of the `startupScript` method and can be injected to be used on component setup method.
+Notice that [`$viewer`](../reference/$viewer.html) is also available as first argument of the [`startupScript`](../reference/plugin.html#startupscript) method and can be [injected](https://vuejs.org/api/composition-api-dependency-injection.html#inject) to be used on [component setup method](https://vuejs.org/api/composition-api-setup.html#composition-api-setup).
 
 ```js
 import { inject } from "vue";
@@ -182,31 +182,39 @@ const myPluginComponent = {
     // ...
   }
 }
+
+const myPlugin = {
+  name: "my-plugin",
+  component: myPluginComponent,
+  startupScript($viewer) {
+    // TODO
+  }
+}
 ```
 
 ## Global & Local Contexts
 
-The `globalContext` and the `localContext` are two essential entities of the BIMDataViewer API.
+The [`globalContent`](../reference/global_context.html) and the [`localContext`](../reference/local_context.html) are two essential entities of the BIMDataViewer API.
 
 ### Global Context
 
-The `globalContext` is the entity to interact with the UI at a global level. It has API to manipulate the [**Window**](../reference/window.html) layout like `open`, `swap`, `close`... It is also the access point for the viewer header API: `globalContext.header`. It is also used to register keyboard shortcuts globally, display loading spinner or display modal on the entire viewer view.
+The [`globalContent`](../reference/global_context.html) is the entity to interact with the UI at a global level. It has API to manipulate the [**Window**](../reference/window.html) layout like `open`, `swap`, `close`... It is also the access point for the viewer [`header` API](../reference/header.html): `globalContext.header`. It is also used to register [keyboard shortcuts](../reference/keyboard_shortcuts.html) globally, display [loading spinner](../reference/$viewer.html#spinners) or display [modal](../reference/$viewer.html#modals) on the entire viewer view.
 
-It can be also considered as the `localContexts` parent. Indeed, it has API to get all viewer's `localContexts`, pluginInstances, pluginComponentInstances...
+It can be also considered as the [`localContexts`](../reference/local_context.html) parent. Indeed, it has API to get all viewer's [`localContexts`](../reference/local_context.html), [**PluginInstances**](../reference/plugin.html#plugin-instance), [**PluginComponentInstances**](../reference/plugin.html#plugin-component-instance)...
 
 ### Local Context
 
-The `localContext` is the entity to interact with the [**Window**](../reference/window.html) UI. It is used to register keyboard shortcuts locally, display loading spinner or display modal bounded on the [**Window**](../reference/window.html) view. It also owns the [**Window**](../reference/window.html) state (loadedModels, modeTypes, selectedStorey...).
+The [`localContext`](../reference/local_context.html) is the entity to interact with the [**Window**](../reference/window.html) UI. It is used to register [keyboard shortcuts](../reference/keyboard_shortcuts.html) locally, display [loading spinner](../reference/$viewer.html#spinners) or display [modal](../reference/$viewer.html#modals) bounded on the [**Window**](../reference/window.html) view. It also owns the [**Window**](../reference/window.html) state (loadedModels, modeTypes, selectedStorey...).
 
-Notice that the `$viewer.localContext` property is context dependent. It returns the corresponding `localContext` of where it is called. In another hand, `$viewer.globalContext` is always the same wherever it is called.
+Notice that the [`$viewer.localContext`](../reference/local_context.html) property is context dependent. It returns the corresponding [`localContext`](../reference/local_context.html) of where it is called. In another hand,  [`$viewer.globalContext`](../reference/global_context.html) is always the same wherever it is called.
 
 #### Difference from Window
 
-`localContext` and [**Window**](../reference/window.html) can be mistaken as a single entity, but the main difference is that you can load different [**Window**](../reference/window.html) using the same localContext. The [**Windows**](../reference/window.html) have to be registered first, and then can be loaded using the `bimdataViewer.mount` second argument, or the `localContext.loadWindow` method. The `localContext` is like the *host* that can accept different [**Window**](../reference/window.html) to be loaded in it.
+[`localContext`](../reference/local_context.html) and [**Window**](../reference/window.html) can be mistaken as a single entity, but the main difference is that you can load different [**Window**](../reference/window.html) using the same localContext. The [**Windows**](../reference/window.html) have to be registered first, and then can be loaded using the [`bimdataViewer.mount`](../reference/mount.html) second argument, or the [`localContext.loadWindow`](../reference/local_context.html#local-state) method. The [`localContext`](../reference/local_context.html) is like the *host* that can accept different [**Window**](../reference/window.html) to be loaded in it.
 
 #### UI bounds
 
-A good image to see the difference between the bounds of the `localContext` and the `globalContext` is the spinner which is displayed when the `globalContext.loadingProcessStart()` or `localContext.loadingProcessStart()` is called :
+A good image to see the difference between the bounds of the [`localContext`](../reference/local_context.html) and the [`globalContent`](../reference/global_context.html) is the spinner which is displayed when the `globalContext.loadingProcessStart()` or `localContext.loadingProcessStart()` is called :
 
 <div style="display: flex; justify-content: space-around;">
   <p><b>Global context spinner</b></p>
