@@ -30,6 +30,16 @@ Now:
 </script>
 ```
 
+- `menuVisible` property of the `makeBIMDataViewer` `ui` configuration changed to `header`:
+
+```js
+// OLD
+makeBIMDataViewer({ ui: { menuVisible: true }});
+
+// NEW
+makeBIMDataViewer({ ui: { header: true }});
+```
+
 ### FEATURES
 
 [Vue.js v3](https://vuejs.org/) brings the new [composition API](https://vuejs.org/guide/introduction.html#composition-api) & the [script setup support](https://vuejs.org/api/sfc-script-setup.html).
