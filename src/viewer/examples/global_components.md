@@ -24,8 +24,6 @@ This example shows how to use the BIMDataViewer [global components](../reference
     }
   </style>
   <title>BIMDataViewer</title>
-  <script type="module"
-    src="https://cdn.jsdelivr.net/npm/@bimdata/viewer@2.0.0-beta.145/dist/bimdata-viewer.esm.min.js"></script>
 </head>
 
 <body>
@@ -33,6 +31,8 @@ This example shows how to use the BIMDataViewer [global components](../reference
     <div id="viewer"></div>
   </div>
   <script type="module">
+    import makeBIMDataViewer from "https://cdn.jsdelivr.net/npm/@bimdata/viewer@2.1.0-beta.3";
+
     const bimdataViewer = makeBIMDataViewer({
       // do not display the header, the bimdata logo and the viewer version
       ui: {

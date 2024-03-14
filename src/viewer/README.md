@@ -40,7 +40,7 @@ You can directly download the BIMDataViewer from a **CDN** or you can install th
     </div>
 
     <script type="module">
-      import makeBIMDataViewer from "https://cdn.jsdelivr.net/npm/@bimdata/viewer@2.0.0-beta.14";
+      import makeBIMDataViewer from "https://cdn.jsdelivr.net/npm/@bimdata/viewer@2.0.1-beta.3";
 
       const bimdataViewer = makeBIMDataViewer({
         api: {
