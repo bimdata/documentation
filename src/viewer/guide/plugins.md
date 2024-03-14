@@ -1,4 +1,4 @@
-# Plugin Essentials
+# Plugins
 
 In the previous part, we covers the differen UI elements used by the BIMData viewer. In this part, we will cover the main aspect you need to know to manipulate the BIMData viewer environment using plugins.
 
@@ -19,7 +19,7 @@ It is like the base blue print for the **PluginInstance**s.
 
 ### PluginInstance
 
-When we load a window containing a plugin as child (`window.plugins = ["myPlugin"]`), the corresponding **Plugin** is used to instanciate a unique copy a the **Plugin**, called a **PluginInstance**.
+When we load a window containing a plugin as child, the corresponding **Plugin** is used to instanciate a unique copy a the **Plugin**, called a **PluginInstance**.
 
 The **PluginInstance** has a specific API to interact with this specific **Plugin** copy.
 
@@ -35,13 +35,51 @@ As **Plugin** is a blue print to instanciante new **PluginInstance**, `plugin.co
 [See the **PluginComponentInstance** reference for more details](../reference/plugin.html#plugin-component).
 :::
 
+TODO add a quick example for plugin as button, plugin as window, startupScript
+
+## Plugins UI
+
+Plugins are window children and can be displayed in different ways.
+
+### Default representation
+
+The default representation is on the window area.
+
+<img width=250px src="/assets/img/viewer/viewer-gui-plugin-default.png" alt="Viewer GUI plugin default.">
+
+### Plugin as button
+
+Plugins can also be displayed as a side button, on the left or right of the window. By clicking on it, the plugin opens and its content is displayed in 3 different ways:
+
+- **simple** : plugin content displayed close to its corresponding button, on a small window.
+
+<img width=250px src="/assets/img/viewer/viewer-gui-plugin-button-simple.png" alt="Viewer GUI plugin button simple.">
+
+- **panel** : plugin content displayed on the whole window height.
+
+<img width=250px src="/assets/img/viewer/viewer-gui-plugin-button-panel.png" alt="Viewer GUI plugin button panel.">
+
+- **free** : plugin content displayed on the side of the button, without any layout. Its size is determined by its content.
+
+<img width=250px src="/assets/img/viewer/viewer-gui-plugin-button-free.png" alt="Viewer GUI plugin button free.">
+
+:::tip
+Checkout [the example about the GUI Layout](../examples/gui_layout.html) for practical application.
+:::
+
+### Context Menu & Keyboard Shortcuts
+
+The context menu and the keyboard shortcuts take into account the context of the request. In this way, it is possible to launch a specific action in a particular window when a keyboard key is pressed while the mouse is hovering that window. In the same way, it is possible to add to the context menu only a list of commands specific to the place where the click was made.
+
+The context menu is usually displayed while right clicking on the screen.
+
+<img width=250px src="/assets/img/viewer/viewer-gui-context-menu.png" alt="Viewer GUI context menu.">
+
 ## $viewer
 
 `$viewer` is the main entry point for a plugin to interact with other elements of the BIMData viewer. It is globally available and can be accessed directly on the plugin component instance using `this.$viewer`.
 
 ```js
-import { inject } from "vue";
-
 const myPluginComponent = {
   created() {
     const $viewer = this.$viewer;
@@ -53,13 +91,13 @@ const myPluginComponent = {
 
 Via `$viewer`, you can access important properties like:
 
-- `api`, used to do all the things related to the connection with the BIMData API.
-- `i18n`, used to do internationalization.
 - `localContext`, used to manipulate the parent window UI and state.
 - `globalContent`, used to manipulate the global UI.
-- `state`, used to manipulate the global state.
+- `api`, used to do all the things related to the connection with the BIMData API.
+- `state`, used to manipulate the BIM object states, the annotations and listen to BIM object state changes.
+- `i18n`, used to do internationalization.
 
-Notice that `$viewer` is also available as first argument of the `sctartupScript` method and can be injected to be used on component setup method.
+Notice that `$viewer` is also available as first argument of the `startupScript` method and can be injected to be used on component setup method.
 
 ```js
 import { inject } from "vue";
@@ -81,7 +119,7 @@ The `globalContext` and the `localContext` are two essential entities of the BIM
 
 The `globalContext` is the entity to interact with the UI at a global level. It has API to manipulate the window layout like `open`, `swap`, `close`... It is also the access point for the viewer header API: `globalContext.header`. It is also used to register keyboard shortcuts globally, display loading spinner or display modal on the entire viewer view.
 
-It can be also considered as the `localContext`s's parent. Indeed, it has API to get all viewer's `localContext`s, pluginInstances, pluginComponentInstances...
+It can be also considered as the `localContexts` parent. Indeed, it has API to get all viewer's `localContexts`, pluginInstances, pluginComponentInstances...
 
 ### Local Context
 
@@ -95,7 +133,7 @@ Notice that the `$viewer.localContext` property is context dependent. It returns
 
 #### UI bounds
 
-A good image to see the difference between the bounds of the `localContext` and the `globalContext` is the spinner which is displayed when the `localContext/globalContext.loadingProcessStart()` is called :
+A good image to see the difference between the bounds of the `localContext` and the `globalContext` is the spinner which is displayed when the `globalContext.loadingProcessStart()` or `localContext.loadingProcessStart()` is called :
 
 <div style="display: flex; justify-content: space-around;">
   <p><b>Global context spinner</b></p>
@@ -110,3 +148,20 @@ A good image to see the difference between the bounds of the `localContext` and 
 :::tip
 [See the global and local context plugins example.](../examples/context_plugins.html)
 :::
+
+## Design System 🧑‍🎨
+
+The [BIMData design system](https://design.bimdata.io/) is globally available on the viewer and can be use to quickly stylize the plugin components.
+
+In the following example, the [`BIMDataButton` ](https://design.bimdata.io/components/buttons) is not imported as it is globally available:
+
+```js
+const myPluginComponent = {
+  template: "<BIMDataButton @click='onClick' >Click !</BIMDataButton>",
+  methods: {
+    onClick() {
+      console.log("clicked !");
+    }
+  }
+}
+```

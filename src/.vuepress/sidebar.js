@@ -41,8 +41,7 @@ function getViewerSidebar() {
       title: "Guide",
       children: [
         "guide/",
-        "guide/plugin_essentials",
-        "guide/style_and_personalization",
+        "guide/plugins",
       ],
     },
     {

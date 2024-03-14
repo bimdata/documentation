@@ -1,6 +1,6 @@
 # Graphical User Interface
 
-The main elements of the BIMDataViewer GUI are the **Header**, the **Windows**, the **Plugins**, the **Context Menu** and the **Keyboard Shorcuts**.
+This guide shown how to quickly customize the existing BIMDataViewer UI.
 
 ## Header & Windows
 
@@ -13,41 +13,103 @@ Different layouts can be created, with or without header, and with as many windo
 
 <img width=500px src="/assets/img/viewer/viewer-gui-layouts.png" alt="Viewer GUI layouts.">
 
+It is possible to completly remove the header using the `ui` property of the `makeBIMDataViever` configuration parameter:
 
-## Plugins
+```js
+const bimdataViewer = makeBIMDataViewer({
+    ui: {
+      header: false,
+  },
+});
+```
 
-Plugins are window children and can be displayed in different ways.
+To display the desire layout, use the second parameter of the `bimdataViewer.mount` method:
 
-### Default representation
+```js
+const bimdataViewer = makeBIMDataViewer({
+    ui: {
+      header: false,
+  },
+});
 
-The default representation is on the window area.
+const layout = {
+  ratios: [70, 30],
+  children: [
+    "3d",
+    {
+      direction: "column",
+      ratios: [40, 60],
+      children: [
+        "2d",
+        "properties"
+      ],
+    },
+  ],
+};
 
-<img width=250px src="/assets/img/viewer/viewer-gui-plugin-default.png" alt="Viewer GUI plugin default.">
+bimdataViewer.mount("#viewer", layout);
+```
 
-### Plugin as button
+And you get the following layout:
 
-Plugins can also be displayed as a side button, on the left or right of the window. By clicking on it, the plugin opens and its content is displayed in 3 different ways:
+<img width=400px src="/assets/img/viewer/layout-with-window-names.png" alt="Viewer layout with window names">
 
-- **simple** : plugin content displayed close to its corresponding button, on a small window.
+## BIMData Logo and Viewer Version
 
-<img width=250px src="/assets/img/viewer/viewer-gui-plugin-button-simple.png" alt="Viewer GUI plugin button simple.">
+By default, the BIMData Logo and the Viewer version are displayed on the UI. They may change location depending on the number of windows. If only one window without header, they are displayed on the bottom left corner of the UI. Else, they are displayed on the right of the header.
 
-- **panel** : plugin content displayed on the whole window height.
+They can be removed using the `ui` property of the `makeBIMDataViever` configuration parameter:
 
-<img width=250px src="/assets/img/viewer/viewer-gui-plugin-button-panel.png" alt="Viewer GUI plugin button panel.">
+```js
+const bimdataViewer = makeBIMDataViewer({
+    ui: {
+      bimdataLogo: false,
+      version: false,
+  },
+});
+```
 
-- **free** : plugin content displayed on the side of the button, without any layout. Its size is determined by its content.
+## Colors 🎨
 
-<img width=250px src="/assets/img/viewer/viewer-gui-plugin-button-free.png" alt="Viewer GUI plugin button free.">
+You can change the colors of the viewer and the BIMData Design System components.
 
-:::tip
-Checkout [the example about the GUI Layout](../examples/gui_layout.html) for practical application.
-:::
+All customizable colors are defined in the [BIMData Design System documentation](https://design.bimdata.io/guidelines-utilities/colors)
 
-## Context Menu & Keyboard Shortcuts
+You can overide any color you want to change using a value as a `string` representing any valid CSS value ("red", "#FF0000", "rgb(255, 0, 0)", etc).
 
-The context menu and the keyboard shortcuts take into account the context of the request. In this way, it is possible to launch a specific action in a particular window when a keyboard key is pressed while the mouse is hovering that window. In the same way, it is possible to add to the context menu only a list of commands specific to the place where the click was made.
-
-The context menu is usually displayed while right clicking on the screen.
-
-<img width=250px src="/assets/img/viewer/viewer-gui-context-menu.png" alt="Viewer GUI context menu.">
+```javascript
+const bimdataViewer = makeBIMDataViewer({
+  /* */
+  ui: {
+    style: {
+      backgroundColor: "",
+      colorPrimary: "",
+      colorPrimaryLighter: "",
+      colorPrimaryLight: "",
+      colorPrimaryDark: "",
+      colorSecondary: "",
+      colorSecondaryLight: "",
+      colorSecondaryLighter: "",
+      colorSecondaryDark: "",
+      colorSilverLight: "",
+      colorSilver: "",
+      colorSilverDark: "",
+      colorGraniteLight: "",
+      colorGranite: "",
+      colorSuccess: "",
+      colorSuccessLight: "",
+      colorSuccessLighter: "",
+      colorSuccessDark: "",
+      colorWarning: "",
+      colorWarningLight: "",
+      colorWarningLighter: "",
+      colorWarningDark: "",
+      colorHigh: "",
+      colorHighLight: "",
+      colorHighLighter: "",
+      colorHighDark: "",
+      colorText: "",
+    },
+  },
+});
+```
