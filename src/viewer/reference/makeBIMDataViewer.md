@@ -124,7 +124,7 @@ const bimdataViewer = makeBIMDataViewer({
       navCube: false,
       edges: false,
     },
-    "window-split": false,
+    "window-manager": false,
   },
 });
 ```

@@ -156,11 +156,13 @@ const viewer = makeBIMDataViewer({
 | :-------------------- | :----------------------------------- |
 | `reloadTrees(): void` | Reload the trees of the loaded IFCs. |
 
-## Window split
+## Window Manager
 
-- name: `window-split`
+- name: `window-manager`
 
-This plugin is displayed if there is only one window and the header is displayed flying. It is displayed as button on the top-right of the window, and add the possibility to split the current window by half, and add the new window where the user want (top, bottom, right or left).
+This plugin is in two parts.
+The first part is displayed if there is only one window without header. It is displayed as a button on the top-right of the window, and add the possibility to split the current window by half, and add the new window where the user want (top, bottom, right or left).
+The second part is on the right side of the header, and allows to enable split and shows window option.
 
 ## Viewer 3D (IFC)
 

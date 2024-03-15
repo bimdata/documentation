@@ -40,6 +40,8 @@ makeBIMDataViewer({ ui: { menuVisible: true }});
 makeBIMDataViewer({ ui: { header: true }});
 ```
 
+- "window-split" plugin replaced by "window-manager"
+
 ### FEATURES
 
 [Vue.js v3](https://vuejs.org/) brings the new [composition API](https://vuejs.org/guide/introduction.html#composition-api) & the [script setup support](https://vuejs.org/api/sfc-script-setup.html).

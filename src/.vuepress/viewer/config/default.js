@@ -15,7 +15,7 @@ export default function (viewerId) {
             fullscreen: false,
             smartview: false,
             search: false,
-            "window-split": false,
+            "window-manager": false,
             bcf: false,
         }
     }
