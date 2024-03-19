@@ -86,13 +86,16 @@ export default {
         return
       }
 
-      const { pages } = this.$site
+      /** @type { "/api/" | "/viewer/" | "/on-promises/" } */
+      const documentationCategory = this.$page.regularPath.match(/^\/[\w-]*\//)[0];
+      const filteredPages = this.$site.pages.filter(page => page.path.match(documentationCategory));
+
       const max = this.$site.themeConfig.searchMaxSuggestions || this.searchMaxSuggestions
       const localePath = this.$localePath
       const res = []
-      for (let i = 0; i < pages.length; i++) {
+      for (let i = 0; i < filteredPages.length; i++) {
         if (res.length >= max) break
-        const p = pages[i]
+        const p = filteredPages[i]
         // filter out results that do not match current locale
         if (this.getPageLocalePath(p) !== localePath) {
           continue

@@ -17,4 +17,12 @@ module.exports = {
     sidebar,
     searchPlaceholder: "Search",
   },
+  plugins: [
+    () => ({
+      alias: {
+        '@SearchBox':
+        "/src/.vuepress/components/SearchBox.vue"
+      },
+    })
+  ]
 };
