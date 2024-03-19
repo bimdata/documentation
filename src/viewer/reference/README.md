@@ -1,7 +1,3 @@
----
-search: false
----
-
 # Reference
 
 <Reference />
