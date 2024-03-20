@@ -200,7 +200,7 @@ The [`globalContent`](../reference/global_context.html) and the [`localContext`]
 
 The [`globalContent`](../reference/global_context.html) is the entity to interact with the UI at a global level. It has API to manipulate the [**Window**](../reference/window.html) layout like `open`, `swap`, `close`... It is also the access point for the viewer [`header` API](../reference/header.html): `globalContext.header`. It is also used to register [keyboard shortcuts](../reference/keyboard_shortcuts.html) globally, display [loading spinner](../reference/$viewer.html#spinners) or display [modal](../reference/$viewer.html#modals) on the entire viewer view.
 
-It can be also considered as the [`localContexts`](../reference/local_context.html) parent. Indeed, it has API to get all viewer's [`localContexts`](../reference/local_context.html), [**PluginInstances**](../reference/plugin.html#plugin-instance), [**PluginComponentInstances**](../reference/plugin.html#plugin-component-instance)...
+It can be also considered as the [`localContexts`](../reference/local_context.html) parent. Indeed, it has API to get all viewer's [`localContexts`](../reference/local_context.html), [**PluginInstances**](../reference/plugin.html#plugin-instance), [**PluginComponentInstances**](../reference/plugin.html#plugin-component-instance) (using `globalContext.plugins` API)...
 
 ### Local Context
 

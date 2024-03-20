@@ -17,7 +17,7 @@ export default function (viewerElementId) {
       template: "<BIMDataButton fill @click='onClick' >Click to open the plugin 2</BIMDataButton>",
       methods: {
         onClick() {
-          this.$viewer.localContext.pluginComponentInstances.get("plugin-2").$open();
+          this.$viewer.localContext.plugins.get("plugin-2").$open();
         }
       }
     },

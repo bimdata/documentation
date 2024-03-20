@@ -71,7 +71,7 @@ interface LocalContext extends Context {
 
   // Plugins
   readonly pluginInstances: new Map<string, PluginInstance>;
-  readonly pluginComponentInstances: Map<string, PluginComponentInstance>;
+  readonly plugins: Map<string, PluginComponentInstance>;
 }
 ```
 

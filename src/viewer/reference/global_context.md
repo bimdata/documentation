@@ -43,7 +43,7 @@ interface GlobalContext extends Context {
   getLocalContexts(windowName: string): LocalContext[];
 
   readonly pluginInstances: Map<string, PluginInstance[]>;
-  readonly pluginComponentInstances: Map<string, PluginComponentInstance[]>;
+  readonly plugins: Map<string, PluginComponentInstance[]>;
 
   getViewers(): ModelViewerInstance[];
 }

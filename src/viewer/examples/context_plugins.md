@@ -51,7 +51,7 @@ This example shows how to communicate from different plugins across the BIMDataV
         template: "<BIMDataButton fill @click='onClick' >Click to open the plugin 2</BIMDataButton>",
         methods: {
           onClick() {
-            this.$viewer.localContext.pluginComponentInstances.get("plugin-2").$open();
+            this.$viewer.localContext.plugins.get("plugin-2").$open();
           }
         }
       },
@@ -116,5 +116,5 @@ This example shows how to communicate from different plugins across the BIMDataV
 ```
 
 :::tip
-Notice that [PluginInstances](../reference/plugin.html#plugin-instance) and [PluginComponentInstances](../reference/plugin.html#plugin-component-instance) do not use the same API to open the plugin. Also, `globalContext.pluginInstances` return an Array of [PluginInstances](../reference/plugin.html#plugin-instance) because the same plugin can be instantiated many times on different [Windows](../reference/window.html).
+Notice that [PluginInstances](../reference/plugin.html#plugin-instance) and [PluginComponentInstances](../reference/plugin.html#plugin-component-instance) (the entities returned by `localContext.plugins` or `globalContext.plugins`) do not use the same API to open the plugin. Also, `globalContext.pluginInstances` return an Array of [PluginInstances](../reference/plugin.html#plugin-instance) because the same plugin can be instantiated many times on different [Windows](../reference/window.html).
 :::
