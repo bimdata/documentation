@@ -85,6 +85,8 @@ interface Api {
   getModelStructure(model: Model): Promise<any>;
   getRawElements(modelId: number): Promise<any>;
   waitForModelProcess(model: Model): Promise<Model>;
+  enableOfflineMode(blob: Blob | string): Promise<void>;
+  disableOfflineMode(): void;
 }
 ```
 
@@ -162,6 +164,24 @@ A typical usage example is when you need to upload a model and then wait for it 
 ```javascript
 const processedModel = await this.$viewer.api.waitForModelProcess(model);
 ```
+
+### enableOfflineMode
+
+The `$viewer.api.enableOfflineMode()` method is used to activate offline mode.
+Here is its signature:
+
+```ts
+enableOfflineMode(blob: Blob | string): Promise<void>;
+```
+
+The `blob` parameter can be either a [Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob) or an url (string)
+that will be fetched (using the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)).
+
+Refer to the [Offline Mode](../offline_mode.md) page for more information on how to work with offline mode.
+
+### disableOfflineMode
+
+The `$viewer.api.disableOfflineMode()` method allows you to switch offline mode off.
 
 ## State
 

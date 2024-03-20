@@ -56,10 +56,10 @@ The `api` properties are:
 
 Here are the `offline` configuration options:
 
-| Name       | Type      | Description                                      |
-| :--------- | :-------- | :----------------------------------------------- |
-| `enabled`  | `boolean` | Default to `false`. Enable/Disable offline mode. |
-| `data`     | `string`  | Offline package URL.                             |
+| Name          | Type       | Description                    |
+| :------------ | :--------- | :----------------------------- |
+| `enabled`     | `boolean`  | Default to `false`. Enable/Disable offline mode. |
+| `data`        | `Blob | string`   | A Blob or URL of the *offline-package*    |
 
 You can refer to [the dedicated page](./offline_mode.md) to learn more about offline mode.
 
