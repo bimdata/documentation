@@ -85,6 +85,8 @@ interface Api {
   getModelStructure(model: Model): Promise<any>;
   getRawElements(modelId: number): Promise<any>;
   waitForModelProcess(model: Model): Promise<Model>;
+  enableOfflineMode(blob: Blob | string): Promise<void>;
+  disableOfflineMode(): void;
 }
 ```
 

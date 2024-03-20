@@ -59,7 +59,7 @@ Here are the `offline` configuration options:
 | Name          | Type       | Description                    |
 | :------------ | :--------- | :----------------------------- |
 | `enabled`     | `boolean`  | Default to `false`. Enable/Disable offline mode. |
-| `dataFile`    | `string | Blob`   | URL of the *offline-package* or a Blob.   |
+| `data`        | `Blob | string`   | A Blob or URL of the *offline-package*    |
 
 You can refer to [the dedicated page](./offline_mode.md) to learn more about offline mode.
 
