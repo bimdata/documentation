@@ -20,7 +20,7 @@ const viewer = makeBIMDataViewer({
 });
 ```
 
-Some plugins have instance API that can be used to interact with them:
+Some plugins have an [instance](./plugin.md#plugin-component-instance) API that can be used to interact with them:
 
 Example:
 
@@ -263,8 +263,7 @@ const viewer2dPlugin = this.$viewer.localContext.plugins.get("viewer2d");
 | `doorsDisplayed: boolean` | **Default** to `false`. If `true`, the doors are displayed. |
 | `compassDisplayed: boolean` | **Default** to `true`. If `true`, the compass is displayed. |
 | `camera3DSynchronization: boolean` | **Default** to `false`. If `true`, the camera follows the rotation of a 3D camera and an icon representing the 3D camera position is displayed. |
-| `syncRotationFrom3DCamera(eye: number[], look: number[], up: number[]): void` | **Default** arguments are `eye = [0, 0, 0], look = [0, 0, 0],up = [0, 1, 0]`. Synchronize the roation between the given 3D camera parameters and the 2D camera. |
-| `selectedStorey: Storey` | Currently selected (displayed) storey |
+| `syncRotationFrom3DCamera(eye: number[], look: number[], up: number[]): void` | **Default** arguments are `eye = [0, 0, 0], look = [0, 0, 0],up = [0, 1, 0]`. Synchronize the rotation between the given 3D camera parameters and the 2D camera. |
 
 ## Viewer DWG
 

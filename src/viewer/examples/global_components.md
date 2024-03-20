@@ -27,7 +27,7 @@ This example shows how to use the BIMDataViewer [global components](../reference
 </head>
 
 <body>
-  <div style="height: 100svh">
+  <div style="height: 100vh">
     <div id="viewer"></div>
   </div>
   <script type="module">

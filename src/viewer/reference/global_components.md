@@ -1,22 +1,12 @@
 # Global components
 
-## ModelsLoader
-
-### On viewers
-
-By default, the `BIMDataModelLoader` component is available on viewers (3d, 2d, plan, ...). Is allows to load/unload models.
-
-It is possible [to hide it or disable it](./native_plugins.html#viewer-plugins).
-
-### Global
-
-Global components are available to allows quick integration: (no import needed)
+Global components are available to allows quick integration (no import needed):
 
 - `BIMDataModelLoader`
 - `BIMDataNoModelWindowPlaceHolder`
 - `BIMDataStoreySelector`
 
-These components are already binded to their corresponding localContext and can be use to update/display the local state. (selected storey, loaded models...)
+These components are already binded to their corresponding localContext and can be used to update/display the local state. (selected storey, loaded models...)
 
 ```html
 <template>
@@ -26,6 +16,16 @@ These components are already binded to their corresponding localContext and can 
   </div>
 </template>
 ```
+
+Have a look at [this demo example](../examples/global_components.md) to see how they can be used.
+
+## ModelsLoader
+
+### On viewers
+
+By default, the `BIMDataModelLoader` component is available on viewers (3d, 2d, plan, ...). It allows to load/unload models.
+
+It is possible [to hide it or disable it](./viewer_plugins.md#viewers-common-config).
 
 The `BIMDataModelLoader` has the following interface:
 

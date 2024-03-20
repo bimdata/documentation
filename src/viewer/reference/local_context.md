@@ -40,18 +40,12 @@ interface LocalContext extends Context {
   readonly loadedModels: StateModel[];
   readonly loadedModelIds: number[];
   readonly loadingModelIds: number[];
-  readonly currentStorey: StateStorey | null;
+  readonly selectedStorey: StateStorey | null;
   loadModels(ids: number[]): Promise<boolean>;
   unloadModels(ids: number[]): boolean;
-  toggleModel(id: number): Promise<boolean>;
   selectStorey(storey: StateStorey): void;
   showPlan(plan: StatePlan): void;
   hidePlan(plan: StatePlan): void;
-  togglePlanVisibility(plan: StatePlan): void;
-  togglePlanEdition(plan: StatePlan): void;
-  createPlan(model: StateModel, storey: StateStorey, document: ApiDocument, positioning: StatePositionning): Promise<StatePlan>;
-  updatePlan(plan: StatePlan, positioning: StatePositionning): Promise<StatePlan>;
-  deletePlan(plan: StatePlan): Promise<void>;
 
   // Viewer Interface
   readonly viewer: ModelViewerInstance | null;
@@ -87,18 +81,16 @@ To manage models, storeys and plans for a given context you can use the `localCo
 | `loadedModels`                     | List of currently loaded models                                        |
 | `loadedModelIds`                   | List of currently loaded model ids                                     |
 | `loadingModelIds`                  | List of model ids that are currently loading                           |
-| `currentStorey`                    | Storey that is currently active                                        |
+| `selectedStorey`                   | Storey that is currently active                                        |
 | **methods**                        |                                                                        |
 | `loadModels(ids: number[])`        | Load the given models in this context                                  |
 | `unloadModels(ids: number[])`      | Unload the given models from this context                              |
-| `toggleModel(id: number)`          | *Load* (resp. *unload*) model if it is *not unloaded* (resp. *loaded*) |
 | `selectStorey(storey: Storey)`     | Set storey as the current storey                                       |
 | `showPlan(plan: Plan)`             | Show plan                                                              |
 | `hidePlan(plan: Plan)`             | Hide plan                                                              |
-| `togglePlanVisibility(plan: Plan)` | Toggle plan visibility                                                 |
-| `togglePlanEdition(plan: Plan)`    | Toggle plan edition mode                                               |
 
-The properties described above are reactive and can be watched by Vue to trigger effects:
+The properties described above are reactive and can be
+[watched](https://vuejs.org/guide/essentials/watchers.html) by Vue to trigger effects:
 
 ```javascript
 watch(
@@ -121,12 +113,13 @@ If the current context is not a viewer window, an error is thrown when these met
 | `viewer`                                      | Model viewer instance of this context, `null` if the context is not a viewer window |
 | `annotationMode`                              | `true` if annotation mode is activated, `false` otherwise                           |
 | **methods**                                   |                                                                                     |
-| `getViewpoint(options?: any)`                 | (*async*) Get the current model viewer viewpoint                                    |
+| `getSnapshot()`                               | (*async*) Get a snapshot of the current viewer: `{ snapshot_type: string, snapshot_data: string (Data URL) }` |
+| `getViewpoint(options?: any)`                 | (*async*) Get a [BCF viewpoint](https://api.bimdata.io/doc#/bcf/getViewpoint) of the current viewer |
 | `setViewpoint(viewpoint: any, options?: any)` | (*async*) Set model viewer viewpoint                                                |
 | `startAnnotationMode(callback: Function)`     | Activate annotation mode                                                            |
 | `stopAnnotationMode()`                        | Deactivate annotation mode                                                          |
 | `fitView(options?: any)`                      | Apply a "fit view" command to the model viewer                                      |
-| `showUI(options?: any)`                       | Makes all UI elements of the context visible (such as plugins and model selector)   |
+| `showUI(options?: any)`                       | (*async*) Makes all UI elements of the context visible (such as plugins and model selector) |
 | `hideUI(options?: { exceptions: string[] })`  | (*async*) Hide all UI elements of the context (some exceptions can be specified)    |
 
 ## Events
@@ -143,10 +136,6 @@ If the current context is not a viewer window, an error is thrown when these met
 | `storey-selected`  | `{ storey: Storey }`                | The current active storey has changed                    |
 | `plan-shown`       | `{ plan: Plan }`                    | A storey plan is now visible                             |
 | `plan-hidden`      | `{ plan: Plan }`                    | A storey plan has been hidden                            |
-| `plan-editing`     | `{ plan: Plan }`                    | A storey plan edition mode has been toggle               |
-| `plan-created`     | `{ plan: Plan }`                    | A storey plan has been created                           |
-| `plan-updated`     | `{ plan: Plan }`                    | A storey plan has been updated                           |
-| `plan-deleted`     | `{ plan: Plan }`                    | A storey plan has been deleted                           |
 | `pdf-page-changed` | `{ model: Model, page: any }`       | The current PDF page changed                             |
 
 ### Events emitted on both Global & Local contexts
@@ -155,8 +144,6 @@ If the current context is not a viewer window, an error is thrown when these met
 | :-------------------------- | :------------------------------------------- | :--------------------------------------------------- |
 | `plugin-created`            | `{ name: string, plugin: PluginInstance }`   | A plugin has been added to this context              |
 | `plugin-destroyed`          | `{ name: string, plugin: PluginInstance }`   | A plugin has been removed from this context          |
-| `plugin-menu-open`          | `{ name: string, plugin: PluginInstance }`   | A menu plugin has been opened                        |
-| `plugin-menu-close`         | `{ name: string, plugin: PluginInstance }`   | A menu plugin has been closed                        |
 | `3d-model-loaded`           | `{ model: Model, plugin: ViewerIfc3D }`      | An IFC model has been loaded in an IFC 3D viewer     |
 | `3d-model-unloaded`         | `{ model: Model, plugin: ViewerIfc3D }`      | An IFC model has been unloaded from an IFC 3D viewer |
 | `2d-model-loaded`           | `{ model: Model, plugin: ViewerIfc2D }`      | An IFC model has been loaded in an IFC 2D viewer     |

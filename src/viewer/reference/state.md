@@ -136,21 +136,17 @@ interface Storey {
   absoluteTopElevation: number; // elevation of the next storey (in world coordinates)
 
   key: string; // storey unique key
-  selected: boolean;
 }
 
-/** For `ApiModel` fields see: https://api.bimdata.io/doc#/model/getModel */
-interface Plan extends ApiModel {
-  positioning: {
-    x: number;
-    y: number;
-    angle: number;
-    scale: number;
-    opacity: number;
-  };
+interface Plan {
+  plan: ApiModel; /* see: https://api.bimdata.io/doc#/model/getModel */
+  translation_x: number;
+  translation_y: number;
+  rotate_z: number;
+  scale: number;
+  opacity: number;
 
   key: string; // plan unique key
-  selected: boolean;
 }
 ```
 
@@ -196,7 +192,7 @@ interface StateObject {
 | `objectsMap: Map<string, StateObject>` | A Map of all objects keyed by **id**.    |
 | `uuidsMap: Map<string, StateObject[]>` | A Map of all objects keyed by **uuids**. |
 
-As object uuids may not be unique, `uuidsMap.get()` always returns an array of objects.
+**Note:** As object uuids may not be unique, `uuidsMap.get()` always returns an array of objects.
 
 ### Objects getters
 
@@ -259,7 +255,7 @@ $viewer.state.selectObjectsByUuids(uuids); // selects objects by uuids
 Moreover, every setter has an optional `options` argument that can be used to pass additional data to the triggered event payload.
 This provide more flexibility and allows to handle some complex use cases.
 
-An example usage if the `options` argument could be to ensure that a plugin will not "auto-trigger" itself by emitting
+An example usage is to ensure that a plugin will not "auto-trigger" itself by emitting
 an `"objects-selected"` event while still being able to react to other plugins `"objects-selected"` events:
 
 ```javascript
@@ -300,29 +296,32 @@ Annotation related fields and methods:
 
 ## Events
 
-| Name                    | Payload                                                  | Description |
-| :---------------------- | :------------------------------------------------------- | :---------- |
-| **Models events**       |                                                          |             |
-| `models-loaded`         | { models: Model[] }                                      | One or more models have been loaded in the state |
-| `models-unloaded`       | { models: Model[] }                                      | One or more models have been unloaded from the state |
-| **Objects events**      |                                                          |             |
-| `objects-added`         | { objects: StateObject[] }                               | Some objects have been added to the state |
-| `objects-removed`       | { objects: StateObject[] }                               | Some objects have been removed from the state |
-| `objects-shown`         | { objects: StateObject[], options?: any }                | Some objects have been made visible |
-| `objects-hidden`        | { objects: StateObject[], options?: any }                | Some objects have been hidden |
-| `objects-pickable`      | { objects: StateObject[], options?: any }                | Some objects have been made pickable |
-| `objects-unpickable`    | { objects: StateObject[], options?: any }                | Some objects have been made unpickable |
-| `objects-selected`      | { objects: StateObject[], options?: any }                | Some objects have been selected |
-| `objects-deselected`    | { objects: StateObject[], options?: any }                | Some objects have been deselected |
-| `objects-highlighted`   | { objects: StateObject[], options?: any }                | Some objects have been highlighted |
-| `objects-unhighlighted` | { objects: StateObject[], options?: any }                | Some objects have been unhighlighted |
-| `objects-xrayed`        | { objects: StateObject[], options?: any }                | Some objects have been xrayed |
-| `objects-unxrayed`      | { objects: StateObject[], options?: any }                | Some objects have been unxrayed |
-| `objects-colorized`     | { objects: StateObject[], color: string, options?: any } | Some objects have been colorized |
-| **Annotations events**  |                                                          |             |
-| `annotation-added`      | { annotation: Annotation, options?: any }                | An annotation has been added |
-| `annotation-updated`    | { annotation: Annotation, options?: any }                | An annotation has been updated/moved |
-| `annotation-removed`    | { annotation: Annotation, options?: any }                | An annotation has been removed |
+| Name                    | Payload                                                    | Description |
+| :---------------------- | :--------------------------------------------------------- | :---------- |
+| **Models events**       |                                                            |             |
+| `models-loaded`         | `{ models: Model[] }`                                      | One or more models have been loaded in the state |
+| `models-unloaded`       | `{ models: Model[] }`                                      | One or more models have been unloaded from the state |
+| `plan-created`          | `{ plan: Plan }`                                           | A storey plan has been created |
+| `plan-updated`          | `{ plan: Plan }`                                           | A storey plan has been updated |
+| `plan-deleted`          | `{ plan: Plan }`                                           | A storey plan has been deleted |
+| **Objects events**      |                                                            |             |
+| `objects-added`         | `{ objects: StateObject[] }`                               | Some objects have been added to the state |
+| `objects-removed`       | `{ objects: StateObject[] }`                               | Some objects have been removed from the state |
+| `objects-shown`         | `{ objects: StateObject[], options?: any }`                | Some objects have been made visible |
+| `objects-hidden`        | `{ objects: StateObject[], options?: any }`                | Some objects have been hidden |
+| `objects-pickable`      | `{ objects: StateObject[], options?: any }`                | Some objects have been made pickable |
+| `objects-unpickable`    | `{ objects: StateObject[], options?: any }`                | Some objects have been made unpickable |
+| `objects-selected`      | `{ objects: StateObject[], options?: any }`                | Some objects have been selected |
+| `objects-deselected`    | `{ objects: StateObject[], options?: any }`                | Some objects have been deselected |
+| `objects-highlighted`   | `{ objects: StateObject[], options?: any }`                | Some objects have been highlighted |
+| `objects-unhighlighted` | `{ objects: StateObject[], options?: any }`                | Some objects have been unhighlighted |
+| `objects-xrayed`        | `{ objects: StateObject[], options?: any }`                | Some objects have been xrayed |
+| `objects-unxrayed`      | `{ objects: StateObject[], options?: any }`                | Some objects have been unxrayed |
+| `objects-colorized`     | `{ objects: StateObject[], color: string, options?: any }` | Some objects have been colorized |
+| **Annotations events**  |                                                            |             |
+| `annotation-added`      | `{ annotation: Annotation, options?: any }`                | An annotation has been added |
+| `annotation-updated`    | `{ annotation: Annotation, options?: any }`                | An annotation has been updated/moved |
+| `annotation-removed`    | `{ annotation: Annotation, options?: any }`                | An annotation has been removed |
 
 :::tip
 For more information about the state hub interface, see [the hub reference](hubs.html).

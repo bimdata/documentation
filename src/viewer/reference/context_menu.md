@@ -57,15 +57,15 @@ const MyPlugin = {
 
 ### Context command
 
-**Description**: Right clicking on the button element clear default commands and add a custom command to the context menu. The command is called "Yo" and log "Yo !" on the console.
+**Description**: Right clicking on the button element clear default commands and add a custom command to the context menu. The command is called "Hello" and log "Hello World !" on the console.
 
 ```javascript
 {
   methods: {
     onContextMenu() {
       this.$viewer.contextMenu.registerContextCommand({
-        label: "Yo",
-        execute: () => console.log("Yo !"),
+        label: "Hello",
+        execute: () => console.log("Hello World !"),
       });
     },
   },

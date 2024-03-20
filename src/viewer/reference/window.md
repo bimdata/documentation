@@ -2,7 +2,7 @@
 
 ## Registration
 
-A window is composed of [plugins](#plugin) and can be registered using two ways :
+A window is composed of [plugins](./plugin.md) and can be registered using two ways :
 
 - The first and most commonly used method is to add a window configuration object when registering a plugin.
 - The second is by registering it directly on the BIMData viewer object.
@@ -17,13 +17,13 @@ const windowConfigurationObject = {
   ],
 };
 
-// first way
+// first way: register via plugin
 bimdataViewer.registerPlugin({
   /* plugin specific fields */
   window: windowConfigurationObject,
 });
 
-// second way
+// second way: register directly
 bimdataViewer.registerWindow(windowConfigurationObject);
 ```
 

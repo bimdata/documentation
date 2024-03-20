@@ -1,7 +1,7 @@
 
 # Plugin
 
-The viewer is shipped with native plugins but others can be added to add new features and more possibilities. A plugin is mainly either a [Vuejs 3.x component](https://vuejs.org/guide/essentials/component-basics.html) or/and a simple function that is run once when the viewer is mounted into the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model).
+The viewer is shipped with native plugins but others can be added to add new features and more possibilities. A plugin is mainly either a [Vuejs 3.x component](https://vuejs.org/guide/essentials/component-basics.html) or a simple function that is run once when the viewer is mounted into the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model).
 
 ## Registration and Plugin API
 
@@ -25,10 +25,10 @@ The registerPlugin method take an Plugin as argument :
 | `i18n`: `object`           | An object containing translations for internationalization.                                                                                                     |
 | `startupScript($viewer)`   | A function that is executed when the viewer is mounted, with [`$viewer`](/viewer/reference/$viewer.html) as argument.                                           |
 | `button`: `object`         | An [object](#plugin-as-button) that describe the display of the plugin if the plugin is shown as button.                                                        |
-| `window`: `Window`         | An [Window configuration object](./window.html) used to register a window with this plugin in it. This plugin is automatically aded to the window.plugins list. |
+| `window`: `Window`         | An [Window configuration object](./window.html#window-api) used to register a window with this plugin in it. This plugin is automatically added to the `window.plugins` list. |
 | `addToWindows`: `string[]` | An array of [window](./window.html) name in which to include this plugin.                                                                                       |
-| `isViewer`: `boolean`      | *Default* to false. Defines if this plugin must be considered as a `viewer`. See viewer common interface.                                                       |
-| `settings`: `Object`       | An object with the corresponding options passed to the makeBIMDataViewer(cfg) method. (cfg: { plugins: { name: thisObject }})                                   |
+| `isViewer`: `boolean`      | *Default* to `false`. Defines if this plugin must be considered as a `viewer`. See [viewer plugins](./viewer_plugins.md).                                                       |
+| `settings`: `Object`       | An object with the corresponding options passed to the [`makeBIMDataViewer()`](./makeBIMDataViewer.md) method.                                   |
 
 Note that additional custom data are forward to the registered Plugin to let you configure your plugins as you need to.
 
@@ -38,7 +38,7 @@ Once registered, the plugin is available on the viewer with the same interface a
 
 Once registered, the plugin is on the list of the registered plugins. But when a window is loaded with a particular plugin as a child, the resulting plugin is a plugin instance. A unique copy of the registered plugin, with additional APIs.
 
-The Plugin Instance inherites all of the [Plugin APIs](#registration-and-plugin-api). The additional APIs are the followings:
+The Plugin Instance inherits all of the [Plugin APIs](#registration-and-plugin-api). The additional APIs are the followings:
 
 | Property                      | Description                                                                                                      |
 | :---------------------------- | :--------------------------------------------------------------------------------------------------------------- |
@@ -48,13 +48,13 @@ The Plugin Instance inherites all of the [Plugin APIs](#registration-and-plugin-
 | `show`: `Function`            | Used to show the plugin component.                                                                               |
 | `hide`: `Function`            | Used to hide the plugin component.                                                                               |
 | `shown`: `boolean`            | `true` if the plugin component is shown.                                                                         |
-| `loading`: `boolean`          | `true` if the plugin component is openning or closing. Used in case of async plugin as button component.         |
+| `loading`: `boolean`          | `true` if the plugin component is being opened or closed. Used in case of async plugin as button component.      |
 | `componentInstance`: `Object` | The [Vuejs 3.x component](https://vuejs.org/guide/essentials/component-basics.html) instance.                    |
 | `buttonText`: `string`        | The text displayed on the plugin button. (getter & setter)                                                       |
 
 ## Plugin Component Instance
 
-A plugin component is a [Vuejs 3.x component](https://vuejs.org/guide/essentials/component-basics.html) with somme additional features.
+A plugin component is a [Vuejs 3.x component](https://vuejs.org/guide/essentials/component-basics.html) with some additional features.
 
 By default, a plugin component is displayed on the window content. (the orange area on the image below)
 
@@ -80,12 +80,12 @@ setup() {
 
 For more convenience, some of the [Plugin Instance](#plugin-instance) APIs are available on the component instance, with a `$` in front of it:
 
-- `$show`: Function, a `function` to show the plugin component.
-- `$hide`: Function, a `function` to hide the plugin component.
-- `$open`: Function, a `function` to open the plugin component (plugin as button only). 
-- `$close`: Function, a `function` to close the plugin component (plugin as button only).
+- `$show()`: Function, a `function` to show the plugin component.
+- `$hide()`: Function, a `function` to hide the plugin component.
+- `$open()`: Function, a `function` to open the plugin component (plugin as button only). 
+- `$close()`: Function, a `function` to close the plugin component (plugin as button only).
 - `$isOpen`: boolean, `true` if the plugin component is open (plugin as button only).
-- `$loading`: boolean, `true` if the plugin component is openning or closing (async plugin as button only).
+- `$loading`: boolean, `true` if the plugin component is opening or closing (async plugin as button only).
 - `$shown`: boolean, `true` if the plugin is shown.
 
 ## Plugin as button
@@ -97,19 +97,19 @@ Another way to display a plugin component is as a button. To do so, when registe
 | `position`: `string`        | "left" or "right". The position of the button in the window.                                                                           |
 | `stance`: `number`          | A `number` used to sort the plugin as buttons registered on the same side of a window.                                                 |
 | `tooltip`: `string`         | A string that is displayed when the plugin button is hovered. It can be a key to be translated ex: "myPluginName.tooltip"              |
-| `content`: `string`         | "simple", "panel" or "free"(default). [Different way to display the component](../guide/#plugin-as-button) when the button is clicked. |
+| `content`: `string`         | "simple", "panel" or "free"(default). [Different way to display the component](#content) when the button is clicked. |
 | `keepOpen`: `boolean`       | Default to `false`. If `true`, the plugin stay open even if the user click away from it.                                               |
 | `icon.imgUri`: `string`     | An uri to an image for the button.                                                                                                     |
 | `iconOpen.imgUri`: `string` | An uri to an image for the button when the plugin is displayed (open).                                                                 |
 
 If only the `icon` is defined, the corresponding image is always displayed on the button.
-A similar option, iconOpen can be defined to display a different icon when the button is open.
+A similar `iconOpen` option can be defined to display a different icon when the button is open.
 
 ### Content
 
 A plugin as button can be displayed in 3 different ways, defined by the plugin `content` property.
 
-- **simple** : plugin content displayed close to its corresponding button, on a small window.
+- **simple** : plugin content displayed close to its corresponding button, on a small panel.
 
 <img width=250px src="/assets/img/viewer/viewer-gui-plugin-button-simple.png" alt="Viewer GUI plugin button simple.">
 
@@ -167,7 +167,7 @@ The plugin can be opened or closed using the UI (by clicking) or [programmatical
 #### $open and $close
 
 A plugin can be opened or closed using the UI (by clicking) but you may want to do it programmatically using javascript.
-To do so, you can use `$open` or `$close` methods available on `this`.
+To do so, you can use `$open` or `$close` methods available on [`pluginComponentInstance`](#plugin-component-instance).
 
 Example: a plugin component opened at startup and that close itself after 2 seconds.
 ```javascript
@@ -206,9 +206,7 @@ const myPluginComponent = {
 
 ## startupScript
 
-The `startupScript` option of the plugin registration API allows to register a function that is executed once the viewer is mounted into the DOM. The function has `$viewer` as parameter.
-
-The *startupScript* function:
+The `startupScript` option of the plugin registration API allows to register a function that is executed once the viewer is mounted into the DOM. The function has [`$viewer`](./$viewer.md) as parameter.
 
 ```javascript
 const myFunction = ($viewer) => {
@@ -256,17 +254,11 @@ const myPlugin = {
 
 ### Set the viewer locale
 
-To set the viewer local, use the `locale` property of the [makeBIMDataViewer](/viewer/reference/makeBIMDataViewer.html) configuration object:
+To set the viewer language, use the `locale` property of the [makeBIMDataViewer](/viewer/reference/makeBIMDataViewer.html) configuration object:
 
 ```javascript
 const viewer = makeBIMDataViewer({
   locale: "en",
+  // ...
 });
 ```
-
-The available locales are:
-- English: en (default)
-- French: fr 
-- Spanish: es
-- German: de
-- Italian: it

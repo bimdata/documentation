@@ -67,8 +67,8 @@ export default {
           link: "/viewer/reference/native_plugins.html"
         },
         {
-          title: "Offline Model",
-          link: "/viewer/reference/offline_model.html"
+          title: "Offline Mode",
+          link: "/viewer/reference/offline_mode.html"
         },
         {
           title: "Plugin",

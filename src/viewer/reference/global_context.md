@@ -26,7 +26,8 @@ interface Context {
 ```js
 interface GlobalContext extends Context {
   resizable: boolean; // if `true`, the user can resize the windows by dragging the window separators.
-  open({ ratio: number;
+  open({
+    ratio: number;
     direction?: "column" | "row";
     insertAfter?: boolean;
     windowName?: string;
@@ -53,10 +54,10 @@ interface GlobalContext extends Context {
 
 The table below describe global context specific events:
 
-| Name           | Payload                  | Description                                                                                    |
-| :------------- | :----------------------- | :--------------------------------------------------------------------------------------------- |
-| `window-open`  | the opened window object | Sent when a [window](/viewer/customize_the_ui.html#window) is selected on the window selector. |
-| `window-close` | the closed window object | Sent when a [window](/viewer/customize_the_ui.html#window) is closed.                          |
+| Name           | Payload                  | Description                                                           |
+| :------------- | :----------------------- | :-------------------------------------------------------------------- |
+| `window-open`  | the opened window object | Sent when a [window](./window.md) is selected on the window selector. |
+| `window-close` | the closed window object | Sent when a [window](./window.md) is closed.                          |
 
 Additionally a set of [local context events](/viewer/reference/local_context.html#events-emitted-on-both-global-local-contexts)
 are also emitted on global context.

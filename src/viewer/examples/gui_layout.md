@@ -29,7 +29,7 @@ The plugins are registered first with different display options. Then the window
 </head>
 
 <body>
-  <div style="height: 100svh">
+  <div style="height: 100vh">
     <div id="viewer"></div>
   </div>
   <script type="module">

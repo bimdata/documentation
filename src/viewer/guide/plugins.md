@@ -54,9 +54,9 @@ const myPlugin = bimdataViewer.registerPlugin({
 
 ### Plugin as button
 
-[**Plugins**](../reference/plugin.html) can also be displayed as a side button, on the left or right of the [**Windows**](..reference/window.html). By clicking on it, the [**Plugin**](../reference/plugin.html) opens and its content is displayed in 3 different ways:
+[**Plugins**](../reference/plugin.html) can also be displayed as a side button, on the left or right of the [**Windows**](../reference/window.html). By clicking on it, the [**Plugin**](../reference/plugin.html) opens and its content is displayed in 3 different ways:
 
-- **simple** : plugin content displayed close to its corresponding button, on a small [**Windows**](..reference/window.html).
+- **simple** : plugin content displayed close to its corresponding button, on a small panel.
 
 ```js{8}
 const myPlugin = bimdataViewer.registerPlugin({
@@ -113,15 +113,15 @@ Checkout [the example about the GUI Layout](../examples/gui_layout.html) for pra
 
 ### Context Menu & Keyboard Shortcuts
 
-The [**Context Menu**](../reference/context-menu.html) and the [**Keyobard Shortcuts**](../reference/keyobard-shortcuts.html) can be personalized using [**Plugins**](../reference/plugin.html).
+The [**Context Menu**](../reference/context_menu.html) and the [**Keyobard Shortcuts**](../reference/keyboard_shortcuts.html) can be personalized using [**Plugins**](../reference/plugin.html).
 
 <img width=250px src="/assets/img/viewer/viewer-gui-context-menu.png" alt="Viewer GUI context menu.">
 
-Both of them take into account the context of the request. In this way, it is possible to launch a specific action in a particular [**Window**](../reference/window.html) when a keyboard key is pressed while the mouse is hovering that [**Windows**](..reference/window.html). In the same way, it is possible to add to the [**Context Menu**](../reference/context-menu.html) only a list of commands specific to the place where the click was made.
+Both of them take into account the context of the request. In this way, it is possible to launch a specific action in a particular [**Window**](../reference/window.html) when a keyboard key is pressed while the mouse is hovering that [**Window**](../reference/window.html). In the same way, it is possible to add to the [**Context Menu**](../reference/context_menu.html) only a list of commands specific to the place where the click was made.
 
-The [**Context Menu**](../reference/context-menu.html) is usually displayed while right clicking on the screen.
+The [**Context Menu**](../reference/context_menu.html) is usually displayed while right clicking on the screen.
 
-Here is a example of a shortcut and a context menu command:
+Here is an example of a shortcut and a context menu command:
 
 ```js
 const MyPlugin = {
@@ -165,7 +165,7 @@ const myPluginComponent = {
 Via [`$viewer`](../reference/$viewer.html), you can access important properties like:
 
 - [`localContext`](../reference/local_context.html), used to manipulate the parent [**Window**](../reference/window.html) UI and state.
-- [`globalContent`](../reference/global_context.html), used to manipulate the global UI.
+- [`globalContext`](../reference/global_context.html), used to manipulate the global UI.
 - [`api`](../reference/$viewer.html#api), used to do all the things related to the connection with the [BIMData API](/api/introduction/overview.html).
 - [`state`](../reference/state.html), used to manipulate the BIM object states, the annotations and listen to BIM object state changes.
 - [`i18n`](../reference/$viewer.html#i18n), used to do internationalization.
@@ -194,27 +194,27 @@ const myPlugin = {
 
 ## Global & Local Contexts
 
-The [`globalContent`](../reference/global_context.html) and the [`localContext`](../reference/local_context.html) are two essential entities of the BIMDataViewer API.
+The [`globalContext`](../reference/global_context.html) and the [`localContext`](../reference/local_context.html) are two essential entities of the BIMDataViewer API.
 
 ### Global Context
 
-The [`globalContent`](../reference/global_context.html) is the entity to interact with the UI at a global level. It has API to manipulate the [**Window**](../reference/window.html) layout like `open`, `swap`, `close`... It is also the access point for the viewer [`header` API](../reference/header.html): `globalContext.header`. It is also used to register [keyboard shortcuts](../reference/keyboard_shortcuts.html) globally, display [loading spinner](../reference/$viewer.html#spinners) or display [modal](../reference/$viewer.html#modals) on the entire viewer view.
+The [`globalContext`](../reference/global_context.html) is the entity to interact with the UI at a global level. It has API to manipulate the [**Window**](../reference/window.html) layout like `open`, `swap`, `close`... It is also the access point for the viewer [`header` API](../reference/header.html): `globalContext.header`. It is also used to register [keyboard shortcuts](../reference/keyboard_shortcuts.html) globally, display [loading spinner](../reference/$viewer.html#spinners) or display [modal](../reference/$viewer.html#modals) on the entire viewer view.
 
 It can be also considered as the [`localContexts`](../reference/local_context.html) parent. Indeed, it has API to get all viewer's [`localContexts`](../reference/local_context.html), [**PluginInstances**](../reference/plugin.html#plugin-instance), [**PluginComponentInstances**](../reference/plugin.html#plugin-component-instance) (using `globalContext.plugins` API)...
 
 ### Local Context
 
-The [`localContext`](../reference/local_context.html) is the entity to interact with the [**Window**](../reference/window.html) UI. It is used to register [keyboard shortcuts](../reference/keyboard_shortcuts.html) locally, display [loading spinner](../reference/$viewer.html#spinners) or display [modal](../reference/$viewer.html#modals) bounded on the [**Window**](../reference/window.html) view. It also owns the [**Window**](../reference/window.html) state (loadedModels, modeTypes, selectedStorey...).
+The [`localContext`](../reference/local_context.html) is the entity to interact with the [**Window**](../reference/window.html) UI. It is used to register [keyboard shortcuts](../reference/keyboard_shortcuts.html) locally, display [loading spinner](../reference/$viewer.html#spinners) or display [modal](../reference/$viewer.html#modals) bounded on the [**Window**](../reference/window.html) view. It also owns the [**Window**](../reference/window.html) state (loadedModels, modelTypes, selectedStorey...).
 
 Notice that the [`$viewer.localContext`](../reference/local_context.html) property is context dependent. It returns the corresponding [`localContext`](../reference/local_context.html) of where it is called. In another hand,  [`$viewer.globalContext`](../reference/global_context.html) is always the same wherever it is called.
 
 #### Difference from Window
 
-[`localContext`](../reference/local_context.html) and [**Window**](../reference/window.html) can be mistaken as a single entity, but the main difference is that you can load different [**Window**](../reference/window.html) using the same localContext. The [**Windows**](../reference/window.html) have to be registered first, and then can be loaded using the [`bimdataViewer.mount`](../reference/mount.html) second argument, or the [`localContext.loadWindow`](../reference/local_context.html#local-state) method. The [`localContext`](../reference/local_context.html) is like the *host* that can accept different [**Window**](../reference/window.html) to be loaded in it.
+[`localContext`](../reference/local_context.html) and [**Window**](../reference/window.html) can be mistaken as a single entity, but the main difference is that you can load different [**Window**](../reference/window.html) using the same localContext. The [**Windows**](../reference/window.html) have to be registered first, and then can be loaded using the [`bimdataViewer.mount`](../reference/mount.html) second argument, or the [`localContext.loadWindow`](../reference/local_context.html) method. The [`localContext`](../reference/local_context.html) is like the *host* that can accept different [**Window**](../reference/window.html) to be loaded in it.
 
 #### UI bounds
 
-A good image to see the difference between the bounds of the [`localContext`](../reference/local_context.html) and the [`globalContent`](../reference/global_context.html) is the spinner which is displayed when the `globalContext.loadingProcessStart()` or `localContext.loadingProcessStart()` is called :
+A good image to see the difference between the bounds of the [`localContext`](../reference/local_context.html) and the [`globalContext`](../reference/global_context.html) is the spinner which is displayed when the `globalContext.loadingProcessStart()` or `localContext.loadingProcessStart()` is called :
 
 <div style="display: flex; justify-content: space-around;">
   <p><b>Global context spinner</b></p>
@@ -232,7 +232,7 @@ A good image to see the difference between the bounds of the [`localContext`](..
 
 ## Design System 🧑‍🎨
 
-The [BIMData design system](https://design.bimdata.io/) is globally available on the viewer and can be use to quickly stylize the [**Plugin Components**](../reference/plugin.html#plugin-component-instance).
+The [BIMData design system](https://design.bimdata.io/) is globally available on the viewer and can be used to quickly style the [**Plugin Components**](../reference/plugin.html#plugin-component-instance).
 
 In the following example, the [`BIMDataButton` ](https://design.bimdata.io/components/buttons) is not imported as it is globally available:
 

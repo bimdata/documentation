@@ -13,7 +13,8 @@ Each model format is handled by its own native built-in viewer and interactions 
 
 The BIMData Viewer is binded to the [BIMData API](/api/introduction/overview.html) and you can directly upload models using it or using the [BIMData platform](https://platform.bimdata.io/).
 
-[The UI can be customized](/viewer/customize_the_ui.html) to organize the workspace as you need and a flexible javascript API using [<svg class="logo" viewBox="0 0 128 128" width="18" height="18" data-v-0495d436=""><path fill="#42b883" d="M78.8,10L64,35.4L49.2,10H0l64,110l64-110C128,10,78.8,10,78.8,10z" data-v-0495d436=""></path><path fill="#35495e" d="M78.8,10L64,35.4L49.2,10H25.6L64,76l38.4-66H78.8z" data-v-0495d436=""></path></svg> Vue.js 3](https://vuejs.org/) allows to create custom plugins to match your business perfectly.
+[The UI can be customized](./guide/README.md#graphical-user-interface) to organize the workspace as you need and a flexible javascript API using
+[<svg class="logo" viewBox="0 0 128 128" width="18" height="18" data-v-0495d436=""><path fill="#42b883" d="M78.8,10L64,35.4L49.2,10H0l64,110l64-110C128,10,78.8,10,78.8,10z" data-v-0495d436=""></path><path fill="#35495e" d="M78.8,10L64,35.4L49.2,10H25.6L64,76l38.4-66H78.8z" data-v-0495d436=""></path></svg> Vue.js 3](https://vuejs.org/) allows to create custom plugins to match your business perfectly.
 However, you don't need to master Vue.js to develop a plugin and you can still update the DOM with jQuery if you like!
 
 <ViewerMainPage />

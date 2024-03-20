@@ -7,8 +7,9 @@ tags:
 
 The `$viewer` object can be accessed on any component instance (using `this.$viewer`),
 it is also passed as the first argument of the `startupScript` method of a plugin.
-It is the entrypoint to interact with the viewer core.:
-If a component uses the Vue.js composition API, `$viewer` needs to be injected:
+It is the entrypoint to interact with the viewer core.
+If a component uses the Vue.js composition API, `$viewer` needs to be
+[injected](https://vuejs.org/api/composition-api-dependency-injection.html#inject):
 
 ```js
 setup() {
@@ -149,7 +150,7 @@ const elements = await this.$viewer.api.getRawElements(modelId);
 ```
 
 The result is an object where keys are uuids and value are the element data formatted like
-the [API response](https://api.bimdata.io/doc#/ifc/getElement).
+the [API response](https://api.bimdata.io/doc#/model/getElement).
 
 ### waitForModelProcess
 
@@ -213,7 +214,7 @@ this.$viewer.localContext.registerShortcut({
 });
 ```
 
-Shortcuts can be unregistered calling the `unregisterShortcut` with the shortcut name.
+Shortcuts can be unregistered calling the `unregisterShortcut()` method with the shortcut name.
 
 ```javascript
 this.$viewer.globalContext.unregisterShortcut("log");
@@ -252,17 +253,17 @@ this.$viewer.localContext.loadingProcessEnd();
 
 There is a `loading` property (on both `globalContext` and `localContext`) that indicates if a spinner is displayed on the related context.
 
-The global spinner can also be customized via the `setSpinner` method:
+The global spinner can also be customized via the `spinner` property on `globalContext`:
 
 ```javascript
 // Set custom spinner to be used as global spinner
-this.$viewer.globalContext.setSpinner({
+this.$viewer.globalContext.spinner = {
   component: SpinnerComponent,
   props: SpinnerProps,
-});
+};
 
 // Reset global spinner to default
-this.$viewer.globalContext.setSpinner(null);
+this.$viewer.globalContext.spinner = null;
 ```
 
 ### Modals
@@ -273,18 +274,18 @@ using modals manager available on `globalContext.modals` and `localContext.modal
 Modal manager allows to display modals. Modals are queued so if more than one modals are sent to the same modals manager,
 they will be displayed in order.
 
-To open a modal, call `pushModal` on a modal manager.
+To open a modal, call `pushModal()` method on a modal manager.
 
 | Property                      | Description                                                                                              |
 | :---------------------------- | :------------------------------------------------------------------------------------------------------- |
 | `pushModal(component, props)` | Add a modal to the queue. `component` is a valid vuejs component. `props` is the component props values. |
-| `clearModal()`                | Clear the current model.                                                                                 |
+| `clearModal()`                | Clear the current modal.                                                                                 |
 
 ```javascript
 this.$viewer.localContext.modals.pushModal(MyModalComponent);
 ```
 
-To close a modal, click outside of its content or emit the "close" event inside the modal component.
+To close a modal, click outside of its content or emit the `"close"` event inside the modal component.
 
 ```javascript
 this.$emit("close");

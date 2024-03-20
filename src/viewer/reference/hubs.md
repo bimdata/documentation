@@ -22,12 +22,13 @@ The interface of a hub is the following:
 | `emit(eventName: string, payload?: any): void`                          | Emit an event with a optional payload.                                                                                                                                                                                                                                      |
 | `clear(): void`                                                         | Remove all subscriptions of this hub.                                                                                                                                                                                                                                       |
 
-The third parameter `options` is an optional `Object` that accepts the property `getLastEvent` as a boolean default to `false`. If `true`, the callback is trigered with the last event (if it exists) immediately. It can be interesting for state synchronization.
+The third parameter `options` is an optional `Object` that accepts the property `getLastEvent` as a boolean (default to `false`). If `true`, the callback is trigered with the last event immediately (if it exists). It can be useful for state synchronization.
 
 :::tip
 Many of the events you may use are State events. Find more [reading the State reference](./state.html#events).
 :::
 
 :::tip
-Other usefull events are from the global and the local context. Find more [reading the \$viewer reference](./$viewer.html#events).
+Other useful events are from the global and the local context.
+Find more reading the [globalContext](./global_context.md#events) and [localContext](./local_context.md#events) references.
 :::
