@@ -59,6 +59,6 @@ export default {
       pivotMarker: true,
     },
     "viewer3d-parameters": false,
-    "window-split": false,
+    "window-manager": false,
   }
 };

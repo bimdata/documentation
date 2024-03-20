@@ -50,7 +50,7 @@ This tool asks you a couple of questions about the plugin you develop and genera
 
 Files are created in the directory `src/plugins/{name_of_your_plugin}`.
 
-Then import your newly created plugin in `src/viewer/viewer.vue` and add it to the registerPlugin array.
+Then import your newly created plugin in `src/viewer/viewer.vue` and add it to the `registeredPlugin` array.
 
 ```javascript
 import SnowflakesPlugin from "@/plugins/snowflakes/src/snowflakes.plugin.js";
@@ -68,8 +68,8 @@ mounted() {
 
 ## Package your plugin
 
-To load your plugin in a real environment, you want to package and publish your plugin.
-The plugin template is pre-configured with a rollup config that let you do this easily:
+To load your plugin in a real environment, you need to package and publish your plugin.
+The plugin template is pre-configured with a [rollup](https://rollupjs.org/) config that let you do this easily:
 
 ```bash
 cd src/plugins/{your_plugin}
@@ -77,7 +77,7 @@ npm install
 npm run build
 ```
 
-This creates a dist/ folder in your plugin directory with a simple js file. This minified file includes the CSS and the assets (encoded in base64). It's not the most performant way, but it's the simplest and the Viewer loads many mega-bytes models anyway.
+This creates a `dist/` folder in your plugin directory with a simple js file. This minified file includes the CSS and the assets (encoded in base64). It's not the most performant way, but it's the simplest and the Viewer loads many mega-bytes models anyway.
 
 You can either copy-paste this file in your environment and load it at your convenience, or you can publish it on NPM.
 To publish it, update the `package.json` file with the proper information and just run an `npm publish`.

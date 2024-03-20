@@ -20,7 +20,7 @@ const viewer = makeBIMDataViewer({
 });
 ```
 
-Some plugins have instance API that can be used to interact with them:
+Some plugins have an [instance](./plugin.md#plugin-component-instance) API that can be used to interact with them:
 
 Example:
 
@@ -156,11 +156,13 @@ const viewer = makeBIMDataViewer({
 | :-------------------- | :----------------------------------- |
 | `reloadTrees(): void` | Reload the trees of the loaded IFCs. |
 
-## Window split
+## Window Manager
 
-- name: `window-split`
+- name: `window-manager`
 
-This plugin is displayed if there is only one window and the header is displayed flying. It is displayed as button on the top-right of the window, and add the possibility to split the current window by half, and add the new window where the user want (top, bottom, right or left).
+This plugin is in two parts.
+The first part is displayed if there is only one window without header. It is displayed as a button on the top-right of the window, and add the possibility to split the current window by half, and add the new window where the user want (top, bottom, right or left).
+The second part is on the right side of the header, and allows to enable split and shows window option.
 
 ## Viewer 3D (IFC)
 
@@ -261,8 +263,7 @@ const viewer2dPlugin = this.$viewer.localContext.plugins.get("viewer2d");
 | `doorsDisplayed: boolean` | **Default** to `false`. If `true`, the doors are displayed. |
 | `compassDisplayed: boolean` | **Default** to `true`. If `true`, the compass is displayed. |
 | `camera3DSynchronization: boolean` | **Default** to `false`. If `true`, the camera follows the rotation of a 3D camera and an icon representing the 3D camera position is displayed. |
-| `syncRotationFrom3DCamera(eye: number[], look: number[], up: number[]): void` | **Default** arguments are `eye = [0, 0, 0], look = [0, 0, 0],up = [0, 1, 0]`. Synchronize the roation between the given 3D camera parameters and the 2D camera. |
-| `selectedStorey: Storey` | Currently selected (displayed) storey |
+| `syncRotationFrom3DCamera(eye: number[], look: number[], up: number[]): void` | **Default** arguments are `eye = [0, 0, 0], look = [0, 0, 0],up = [0, 1, 0]`. Synchronize the rotation between the given 3D camera parameters and the 2D camera. |
 
 ## Viewer DWG
 

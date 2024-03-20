@@ -8,7 +8,7 @@ Here is the list of native viewer plugins:
 
  - [Viewer IFC 3D](#viewer-ifc-3d)
  - [Viewer IFC 2D](#viewer-ifc-2d)
- - [Viewer DWG/DXF](#viewer-dwgdxf)
+ - [Viewer DWG/DXF](#viewer-dwg-dxf)
  - [Viewer Plan](#viewer-plan)
  - [Viewer Point Cloud](#viewer-point-cloud)
 
@@ -34,15 +34,12 @@ interface ModelViewerInstance extends PluginInstance {
   modelTypes?: string[];
   annotationMode: boolean;
 
-  getLoadedModels(): Model[]; // Get the list of models that are currently loaded in this viewer
-  loadModels(models: Model[]): Promise<void>;
-  unloadModels(models: Model[]): Promise<void>;
-  getViewpoint(options?: any): any | Promise<any>;
-  setViewpoint(viewpoint: any, options?: any): void | Promise<void>;
+  getViewpoint(options?: any): Promise<any>;
+  setViewpoint(viewpoint: any, options?: any): Promise<void>;
   startAnnotationMode(callback: Function): void;
   stopAnnotationMode(): void;
   fitView(options?: any): void;
-  showUI(options?: any): void;
+  showUI(options?: any): Promise<void>;
   hideUI(options?: { exceptions: string[] }): Promise<void>;
 }
 ```

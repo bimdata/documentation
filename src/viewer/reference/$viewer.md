@@ -1,16 +1,36 @@
+---
+tags:
+  - $viewer
+---
+
 # `$viewer`
 
 The `$viewer` object can be accessed on any component instance (using `this.$viewer`),
 it is also passed as the first argument of the `startupScript` method of a plugin.
 It is the entrypoint to interact with the viewer core.
+If a component uses the Vue.js composition API, `$viewer` needs to be
+[injected](https://vuejs.org/api/composition-api-dependency-injection.html#inject):
+
+```js
+setup() {
+  const $viewer = inject("$viewer");
+
+  // ...
+}
+```
 
 Below is a description of its interface:
 
 ```typescript
 interface $Viewer {
+  readonly version: string; // the viewer version
+  readonly locale: string;
   readonly i18n: i18n;
   readonly api: Api;
   readonly state: State;
+  readonly uiSettings: Object; // the settings of the ui property passed to the mabeBIMDataViewer function
+  readonly pluginsCfg: Object; // the settings of the plugins property passed to the mabeBIMDataViewer function
+
   readonly registeredWindows: string[];  // List of registered window names
   readonly registeredPlugins: string[];  // List of registered plugin names
 
@@ -130,7 +150,7 @@ const elements = await this.$viewer.api.getRawElements(modelId);
 ```
 
 The result is an object where keys are uuids and value are the element data formatted like
-the [API response](https://api.bimdata.io/doc#/ifc/getElement).
+the [API response](https://api.bimdata.io/doc#/model/getElement).
 
 ### waitForModelProcess
 
@@ -148,13 +168,6 @@ const processedModel = await this.$viewer.api.waitForModelProcess(model);
 The `$viewer.state` object provide a way to interact with [the global state](./state.md).
 
 ## Global and Local contexts
-
-The [`globalContext`](./global_context.md) and the [`localContext`](./local_context.md) objects
-are related to [windows](/viewer/customize_the_ui.html#window) and the viewer UI in general.
-The `globalContext` is the whole UI while the `localContext` is the [window](/viewer/customize_the_ui.html#window) where the code is executed.
-
-A plugin must have a unique name in a window, but many plugins with the same name can be instanciated in the viewer if they belong to different windows.
-That is why `globalContext.plugins.get(pluginName)` returns an Array of plugins, while `localContext.plugins.get(pluginName)` returns a simple plugin.
 
 For a more detailed description of the global/local context interfaces, refer to their respective documentation:
 
@@ -201,7 +214,7 @@ this.$viewer.localContext.registerShortcut({
 });
 ```
 
-Shortcuts can be unregistered calling the `unregisterShortcut` with the shortcut name.
+Shortcuts can be unregistered calling the `unregisterShortcut()` method with the shortcut name.
 
 ```javascript
 this.$viewer.globalContext.unregisterShortcut("log");
@@ -240,17 +253,17 @@ this.$viewer.localContext.loadingProcessEnd();
 
 There is a `loading` property (on both `globalContext` and `localContext`) that indicates if a spinner is displayed on the related context.
 
-The global spinner can also be customized via the `setSpinner` method:
+The global spinner can also be customized via the `spinner` property on `globalContext`:
 
 ```javascript
 // Set custom spinner to be used as global spinner
-this.$viewer.globalContext.setSpinner({
+this.$viewer.globalContext.spinner = {
   component: SpinnerComponent,
   props: SpinnerProps,
-});
+};
 
 // Reset global spinner to default
-this.$viewer.globalContext.setSpinner(null);
+this.$viewer.globalContext.spinner = null;
 ```
 
 ### Modals
@@ -261,18 +274,18 @@ using modals manager available on `globalContext.modals` and `localContext.modal
 Modal manager allows to display modals. Modals are queued so if more than one modals are sent to the same modals manager,
 they will be displayed in order.
 
-To open a modal, call `pushModal` on a modal manager.
+To open a modal, call `pushModal()` method on a modal manager.
 
 | Property                      | Description                                                                                              |
 | :---------------------------- | :------------------------------------------------------------------------------------------------------- |
 | `pushModal(component, props)` | Add a modal to the queue. `component` is a valid vuejs component. `props` is the component props values. |
-| `clearModal()`                | Clear the current model.                                                                                 |
+| `clearModal()`                | Clear the current modal.                                                                                 |
 
 ```javascript
 this.$viewer.localContext.modals.pushModal(MyModalComponent);
 ```
 
-To close a modal, click outside of its content or emit the "close" event inside the modal component.
+To close a modal, click outside of its content or emit the `"close"` event inside the modal component.
 
 ```javascript
 this.$emit("close");

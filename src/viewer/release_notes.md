@@ -30,6 +30,18 @@ Now:
 </script>
 ```
 
+- `menuVisible` property of the `makeBIMDataViewer` `ui` configuration changed to `header`:
+
+```js
+// OLD
+makeBIMDataViewer({ ui: { menuVisible: true }});
+
+// NEW
+makeBIMDataViewer({ ui: { header: true }});
+```
+
+- "window-split" plugin replaced by "window-manager"
+
 ### FEATURES
 
 [Vue.js v3](https://vuejs.org/) brings the new [composition API](https://vuejs.org/guide/introduction.html#composition-api) & the [script setup support](https://vuejs.org/api/sfc-script-setup.html).
@@ -379,7 +391,7 @@ Major features:
 - Implement [loading screens](/viewer/reference/$viewer.html#global-and-local-contexts).
 - [Modals](/viewer/reference/$viewer.html#modals).
 - [Custom Right click actions](/viewer/reference/context_menu.html#get-the-context-menu).
-- Improved integration in [various web environments](/viewer/getting_started.html#installation).
+- Improved integration in various web environments.
 - Better performances.
 - Improved multi-models loading and positioning.
 - [Undo/Redo (CTRL-Z)](/viewer/reference/state.html#undo-redo) on state change actions.

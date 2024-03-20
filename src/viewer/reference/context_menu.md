@@ -17,18 +17,19 @@ $viewer.contextMenu;
 | `registerContextCommand(command: ContextMenuCommand): number` | Add command for the openning context menu. Returns the command id.                                                                 |
 | `registerCommand(command: ContextMenuCommand): number`        | Add command on context menu, displayed if the predicate exists and returns true. Returns the command id.                           |
 | `unregisterCommand(commandId: number): boolean`               | Remove the command corresponding to the given id. Returns `true` if a command was removed, `false` otherwise.                      |
+| `preventDefault(): void;`                                     | Prevent registered commands to show. Usefull when only context commands are needed.                                                |
 | `groupPositions: Object`                                      | An object with `select`, `visibility` and `color` properties that represent the group positions of corresponding default commands. |
 
 ## Command Interface
 
-| Property            | Description                                                                                                                       |
-| :------------------ | :-------------------------------------------------------------------------------------------------------------------------------- |
-| `label: string`     | The text displayed on the menu.                                                                                                   |
-| `picto: string`     | Usually a letter to show the associated shortcut.                                                                                 |
-| `execute()`         | The function to execute when the command is clicked.                                                                              |
+| Property            | Description                                                                                                                                                                                                                                              |
+| :------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `label: string`     | The text displayed on the menu.                                                                                                                                                                                                                          |
+| `picto: string`     | Usually a letter to show the associated shortcut.                                                                                                                                                                                                        |
+| `execute()`         | The function to execute when the command is clicked.                                                                                                                                                                                                     |
 | `predicate()?`      | An optional predicate function that is run when the context menu opens. The command is displayed if the function returns `true`. If the predicate is an `async` function, the command is displayed when the `Promise` returned by the function resolves. |
-| `group?: number`    | The group the command belongs to. **Default** to 0.                                                                               |
-| `position?: number` | The position where to display the command in its group. **Default** to 0.                                                         |
+| `group?: number`    | The group the command belongs to. **Default** to 0.                                                                                                                                                                                                      |
+| `position?: number` | The position where to display the command in its group. **Default** to 0.                                                                                                                                                                                |
 
 ## Examples
 
@@ -56,15 +57,15 @@ const MyPlugin = {
 
 ### Context command
 
-**Description**: Right clicking on the button element clear default commands and add a custom command to the context menu. The command is called "Yo" and log "Yo !" on the console.
+**Description**: Right clicking on the button element clear default commands and add a custom command to the context menu. The command is called "Hello" and log "Hello World !" on the console.
 
 ```javascript
 {
   methods: {
     onContextMenu() {
       this.$viewer.contextMenu.registerContextCommand({
-        label: "Yo",
-        execute: () => console.log("Yo !"),
+        label: "Hello",
+        execute: () => console.log("Hello World !"),
       });
     },
   },

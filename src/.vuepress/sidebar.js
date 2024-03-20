@@ -37,39 +37,29 @@ function getApiSidebar() {
 function getViewerSidebar() {
   return [
     "",
-    "getting_started",
     {
-      title: "Tutorials",
+      title: "Guide",
       children: [
-        "tutorials/",
-        "tutorials/make_your_own_window_layout",
-        "tutorials/add_plugins_on_windows",
-        "tutorials/shortcuts",
-        "tutorials/context_menu",
-        "tutorials/state",
-        "tutorials/hubs",
+        "guide/",
+        "guide/plugins",
       ],
     },
-    "customize_the_ui",
     {
-      title: "Develop your plugins",
+      title: "Examples",
+      path: "/viewer/examples/",
       children: [
-        "plugins/overview",
-        "plugins/plugin_as_button",
-        "plugins/i18n",
+        "examples/gui_layout",
+        "examples/context_plugins",
+        "examples/plan_annotations",
+        "examples/global_components",
       ],
-    },
-    "viewer_sdk",
-    "offline_mode",
-    {
-      title: "Cookbook",
-      children: [
-        "cookbook/plan_annotations"
-      ], 
     },
     {
       title: "Reference",
+      path: "/viewer/reference/",
       children: [
+        "reference/window",
+        "reference/plugin",
         "reference/makeBIMDataViewer",
         "reference/mount",
         "reference/$viewer",
@@ -77,12 +67,16 @@ function getViewerSidebar() {
         "reference/global_context",
         "reference/local_context",
         "reference/context_menu",
+        "reference/keyboard_shortcuts",
+        "reference/header",
         "reference/native_plugins",
         "reference/viewer_plugins",
         "reference/global_components",
         "reference/hubs",
+        "reference/offline_mode",
       ],
     },
+    "viewer_sdk",
     "release_notes",
   ];
 }

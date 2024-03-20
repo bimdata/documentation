@@ -1,41 +1,37 @@
 # Global components
 
-## ModelsLoader
+Global components are available to allows quick integration (no import needed):
 
-### On viewers
+- `BIMDataModelLoader`
+- `BIMDataNoModelWindowPlaceHolder`
+- `BIMDataStoreySelector`
 
-By default, the `ModelsLoader` component is available on viewers (3d, 2d, plan, ...). Is allows to load/unload models.
-
-It is possible [to hide it or disable it](./native_plugins.html#viewer-plugins).
-
-### Global
-
-The `ModelsLoader` & the `NoModelWindowPlaceHolder` components are also globally registered on the viewer and can be used like [the globally registered BIMData design system](/viewer/customize_the_ui.html#embed-design-system).
+These components are already binded to their corresponding localContext and can be used to update/display the local state. (selected storey, loaded models...)
 
 ```html
 <template>
   <div class="myComponentTemplate">
-    <NoModelWindowPlaceHolder v-if="noModelLoaded" />
-    <ModelsLoader
-      :multi="true"
-      :types="['IFC']"
-      @load-models="loadModels"
-      @unload-models="unloadModels"
-    />
+    <BIMDataNoModelWindowPlaceHolder v-if="$viewer.localContext.loadedModels.length === 0" />
+    <BIMDataModelLoader />
   </div>
 </template>
 ```
 
-These two components are already stylized so they render at the center of the window. (full size for the `NoModelWindowPlaceHolder`)
+Have a look at [this demo example](../examples/global_components.md) to see how they can be used.
 
-The `ModelsLoader` has the following interface:
+## ModelsLoader
 
-| Property                                                             | Description                                                                                             |
-| :------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------ |
-| **Event handlers**                                                   |                                                                                                         |
-| `load-models(models)`                                                | Trigger when the user click on an unloaded [model](/viewer/reference/state.html#model).                 |
-| `unload-models(models)`                                              | Trigger when the user click on an loaded [model](/viewer/reference/state.html#model).                   |
-| **Props**                                                            |                                                                                                         |
-| `multi: boolean`                                                     | If false, radio buttons are displayed instead of checkboxes and only one model can be loaded at a time. |
-| `types: ["IFC", "POINT_CLOUD", "PDF", "METABUILDING", "DWG", "DXF"]` | Used to filter the [models](/viewer/reference/state.html#model) displayed on the list.                  |
-| `customFilter: Function`                                             | An optional function to filter the models.                                                              |
+### On viewers
+
+By default, the `BIMDataModelLoader` component is available on viewers (3d, 2d, plan, ...). It allows to load/unload models.
+
+It is possible [to hide it or disable it](./viewer_plugins.md#viewers-common-config).
+
+The `BIMDataModelLoader` has the following interface:
+
+| Props                        | Description                                                                        |
+| :--------------------------- | :--------------------------------------------------------------------------------- |
+| `preview: boolean`           | *Default* to `false`. If `true`, hovering a model on the list display its preview. |
+| `windowPositioning: boolean` | *Default* to `true`. If `false`, it is displayed as a `block`.                     |
+| `width: string`              | *Default* to `"350px"`.                                                            |
+| `customFilter: Function`     | An optional function to filter the models.                                         |

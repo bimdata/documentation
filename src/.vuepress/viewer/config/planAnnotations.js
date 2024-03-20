@@ -114,6 +114,7 @@ export default function(viewerId) {
     },
     plugins: {
       ...baseConfig.plugins,
+      "window-manager": false,
       plan: {
         help: false,
         modelLoader: "hidden",
