@@ -1,5 +1,17 @@
 # Release Notes
 
+## v2.1.0
+
+[Add ability to switch offline mode dynamically and add offline methods customization options.](./reference/offline_mode.html)
+
+### Bugfixes
+
+* Add missing iconOpen plugin option.
+* window open/close events payload was incorrect.
+* Change 'api.offline.dataFile' to 'api.offline.data'.
+* add bcfApi and collaborationApi offline customization options.
+* remove deprecated of local context & global context plugins getters.
+
 ## v2.0.0
 
 ### BREAKING-CHANGES
