@@ -1,12 +1,12 @@
 import baseConfig from "./baseConfig.js";
 
-const PlanAnnotationsPlugin = {
-  name: "planAnnotations",
-  addToWindows: ["plan"],
+const IfcAnnotationsPlugin = {
+  name: "ifcAnnotations",
+  addToWindows: ["2d", "3d"],
   button: {
     position: "right",
     keepOpen: true,
-    tooltip: "planAnnotations.tooltip",
+    tooltip: "ifcAnnotations.tooltip",
     icon: {
       component: "BIMDataIcon",
       options: { name: "location", size: "m" },
@@ -14,7 +14,7 @@ const PlanAnnotationsPlugin = {
   },
   i18n: {
     en: {
-      tooltip: "Annotate",
+      tooltip: "Add Annotations",
     },
   },
   component: {
@@ -29,9 +29,9 @@ const PlanAnnotationsPlugin = {
     onOpen() {
       const state = this.$viewer.state;
       const context = this.$viewer.localContext;
-      context.startAnnotationMode(({ x, y }) => {
+      context.startAnnotationMode(({ x, y, z }) => {
         const annotation = state.addAnnotation({
-          component: PlanAnnotation,
+          component: IfcAnnotation,
           props: {
             index: ++this.index,
             moveTo: position => Object.assign(annotation, position),
@@ -39,7 +39,7 @@ const PlanAnnotationsPlugin = {
           },
           x,
           y,
-          z: 0,
+          z,
         });
         context.stopAnnotationMode();
         this.$close();
@@ -48,10 +48,10 @@ const PlanAnnotationsPlugin = {
   },
 };
 
-const PlanAnnotation = {
+const IfcAnnotation = {
   template: `
     <div
-      class="plan-annotation"
+      class="ifc-annotation"
       :class="{ grabbing }"
       ref="marker"
       tabindex="0"
@@ -88,16 +88,35 @@ const PlanAnnotation = {
       document.removeEventListener("mousemove", this.onMouseMove);
     },
     onMouseMove(event) {
-      const engine2d = this.localContext.viewer.viewer;
-      const { x: cx, y: cy } = engine2d.canvas.getBoundingClientRect();
-      const { x, y } = this.$refs.marker.getBoundingClientRect();
+      let position;
 
-      const { movementX, movementY } = event;
+      const windowName = this.localContext.window.name;
 
-      const position = engine2d.camera.getPosition({
-        x: (x - cx) + movementX,
-        y: (y - cy) + movementY,
-      });
+      if (windowName === "3d") {
+        const { clientX, clientY } = event;
+
+        const xeokit = this.localContext.viewer.xeokit;
+        const { x, y } = xeokit.scene.canvas.canvas.getBoundingClientRect();
+
+        const pickResult = xeokit.scene.pick({
+          pickSurface: true,
+          canvasPos: [clientX - x, clientY - y],
+        });
+
+        const [p0, p1, p2] = pickResult?.worldPos ?? [0, 0, 0];
+        position = { x: p0, y: p2, z: p1 }; // xeokit is y-up
+      } else {
+        const { movementX, movementY } = event;
+
+        const engine2d = this.localContext.viewer.viewer;
+        const { x: cx, y: cy } = engine2d.canvas.getBoundingClientRect();
+        const { x, y } = this.$refs.marker.getBoundingClientRect();
+
+        position = engine2d.camera.getPosition({
+          x: (x - cx) + movementX,
+          y: (y - cy) + movementY,
+        });
+      }
 
       this.moveTo(position);
     }
@@ -105,27 +124,29 @@ const PlanAnnotation = {
 };
 
 export default function(viewerId) {
-  const config = {
+  const viewer = makeBIMDataViewer({
     ...baseConfig,
     api: {
       accessToken: "fZ5CP4g2QQlj2KBXxqdl2jTNokiESIde",
       cloudId: 11520,
       projectId: 245620,
-      modelIds: [1173804],
+      modelIds: [1203414],
     },
     plugins: {
       ...baseConfig.plugins,
-      "window-manager": false,
-      plan: {
+      viewer2d: {
+        compass: false,
         help: false,
         modelLoader: "hidden",
-      },
+        storeySelectorAutoOpen: false,
+      }
     }
-  };
+  });
 
-  const viewer = makeBIMDataViewer(config);
+  viewer.registerPlugin(IfcAnnotationsPlugin);
 
-  viewer.registerPlugin(PlanAnnotationsPlugin);
-
-  viewer.mount(viewerId, "plan");
+  viewer.mount(viewerId, {
+    ratios: [50, 50],
+    children: ["2d", "3d"]
+  });
 }

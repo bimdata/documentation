@@ -1,17 +1,13 @@
-# Plan Annotations
+# IFC Annotations
 
-This example will show you how to create a plugin that use the annotation API
-to create, edit and delete annotations on a PDF plan.
-
-The plugin will be a button that you can click to add an annotation anywhere on a plan.
-Once the annotation is added you can drag & drop it to change its position.
-You can also "select" an annotation by clicking it and delete it by pressing the **&lt;Delete&gt;** key.
+Here is an example of an IFC annotation plugin that demonstrate the use of the annotation API
+to create synchronized annotations between 2D and 3D.
 
 ### Demo
 
 <ClientOnly>
   <style>
-    .plan-annotation {
+    .ifc-annotation {
       width: 32px;
       height: 32px;
       border-radius: 50%;
@@ -24,53 +20,32 @@ You can also "select" an annotation by clicking it and delete it by pressing the
       user-select: none;
       cursor: grab;
     }
-    .plan-annotation.grabbing {
+    .ifc-annotation.grabbing {
       cursor: grabbing;
     }
-    .plan-annotation:focus {
+    .ifc-annotation:focus {
       border: 2px solid var(--color-high);
       background-color: var(--color-warning);
     }
   </style>
-  <BIMDataViewer config="planAnnotations"/>
+  <BIMDataViewer config="ifcAnnotations"/>
 </ClientOnly>
 
-### Setup
+### Code
 
-First lets setup a viewer with a simple configuration and register a custom plugin:
-
+**Plugin definition:**
 ```js
-// file: main.js
-import makeBIMDataViewer from "@bimdata/viewer";
-import PlanAnnotationsPlugin from "./plan-annotations-plugin.js";
-
-const viewer = makeBIMDataViewer({
-  api: {
-    // ...
-  },
-});
-
-viewer.registerPlugin(PlanAnnotationsPlugin);
-
-viewer.mount("#app", "plan");
-```
-
-### Create the plugin definition
-
-Next, we'll define our plugin configuration:
-
-```js
-// file: plan-annotations-plugin.js
-import PlanAnnotationsPluginComponent from "./PlanAnnotationsPlugin.js";
+// file: ifc-annotations.plugin.js
+import IfcAnnotationsPlugin from "./IfcAnnotationsPlugin.js";
 
 export default {
-  name: "planAnnotations",
-  component: PlanAnnotationsPluginComponent,
-  addToWindows: ["plan"],
+  name: "ifcAnnotations",
+  component: IfcAnnotationsPlugin,
+  addToWindows: ["3d", "2d"],
   button: {
     position: "right",
     keepOpen: true,
-    tooltip: "planAnnotations.tooltip",
+    tooltip: "ifcAnnotations.tooltip",
     icon: {
       component: "BIMDataIconLocation",
       options: { size: "m" },
@@ -78,19 +53,16 @@ export default {
   },
   i18n: {
     en: {
-      tooltip: "Annotate",
+      tooltip: "Add Annotations",
     },
   },
 };
 ```
 
-### Create plugin components
-
-Then we'll create the plugin component that will hold the logic:
-
+**Plugin component:**
 ```js
-// file: PdfAnnotationsPlugin.js
-import PlanAnnotation from "./PlanAnnotation.vue";
+// file: IfcAnnotationsPlugin.js
+import IfcAnnotation from "./IfcAnnotation.js";
 
 export default {
   data() {
@@ -104,9 +76,9 @@ export default {
   onOpen() {
     const state = this.$viewer.state;
     const context = this.$viewer.localContext;
-    context.startAnnotationMode(({ x, y }) => {
+    context.startAnnotationMode(({ x, y, z }) => {
       const annotation = state.addAnnotation({
-        component: PlanAnnotation,
+        component: IfcAnnotation,
         props: {
           index: ++this.index,
           moveTo: position => Object.assign(annotation, position),
@@ -114,7 +86,7 @@ export default {
         },
         x,
         y,
-        z: 0,
+        z,
       });
       context.stopAnnotationMode();
       this.$close();
@@ -123,14 +95,13 @@ export default {
 };
 ```
 
-Finally we'll add the component that will materialize the PDF annotation on the plan:
-
+**Annotation component and styles:**
 ```js
-// file: PlanAnnotation.js
+// file: IfcAnnotation.js
 export default {
   template: `
     <div
-      class="plan-annotation"
+      class="ifc-annotation"
       :class="{ grabbing }"
       ref="marker"
       tabindex="0"
@@ -167,16 +138,35 @@ export default {
       document.removeEventListener("mousemove", this.onMouseMove);
     },
     onMouseMove(event) {
-      const engine2d = this.localContext.viewer.viewer;
-      const { x: cx, y: cy } = engine2d.canvas.getBoundingClientRect();
-      const { x, y } = this.$refs.marker.getBoundingClientRect();
+      let position;
 
-      const { movementX, movementY } = event;
+      const windowName = this.localContext.window.name;
 
-      const position = engine2d.camera.getPosition({
-        x: (x - cx) + movementX,
-        y: (y - cy) + movementY,
-      });
+      if (windowName === "3d") {
+        const { clientX, clientY } = event;
+
+        const xeokit = this.localContext.viewer.xeokit;
+        const { x, y } = xeokit.scene.canvas.canvas.getBoundingClientRect();
+
+        const pickResult = xeokit.scene.pick({
+          pickSurface: true,
+          canvasPos: [clientX - x, clientY - y],
+        });
+
+        const [p0, p1, p2] = pickResult?.worldPos ?? [0, 0, 0];
+        position = { x: p0, y: p2, z: p1 }; // xeokit is y-up
+      } else {
+        const { movementX, movementY } = event;
+
+        const engine2d = this.localContext.viewer.viewer;
+        const { x: cx, y: cy } = engine2d.canvas.getBoundingClientRect();
+        const { x, y } = this.$refs.marker.getBoundingClientRect();
+
+        position = engine2d.camera.getPosition({
+          x: (x - cx) + movementX,
+          y: (y - cy) + movementY,
+        });
+      }
 
       this.moveTo(position);
     }
@@ -184,33 +174,45 @@ export default {
 };
 ```
 
-You can also add the following rules to your page stylesheet:
-
 ```css
-.plan-annotation {
+.ifc-annotation {
   width: 32px;
   height: 32px;
   border-radius: 50%;
   border: 1px solid var(--color-primary);
   background-color: var(--color-high);
   font-weight: bold;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   user-select: none;
   cursor: grab;
 }
-
-.plan-annotation.grabbing {
+.ifc-annotation.grabbing {
   cursor: grabbing;
 }
-
-.plan-annotation:focus {
+.ifc-annotation:focus {
   border: 2px solid var(--color-high);
   background-color: var(--color-warning);
 }
 ```
 
-Notice the use of [BIMData css variables](https://design.bimdata.io/guidelines-utilities/variables) like `--color-primary`. It allows to stay in sync with the global theme and to track colors that may have been changed [when the viewer was initialized](../guide/#colors-🎨).
+**Viewer instanciation:**
+```js
+// file: mains.js
+import makeBIMDataViewer from "@bimdata/viewer";
+import IfcAnnotationsPlugin from "./ifc-annotations-plugin.js";
+
+const viewer = makeBIMDataViewer({
+  api: {
+    // ...
+  },
+});
+
+viewer.registerPlugin(IfcAnnotationsPlugin);
+
+viewer.mount("#app", {
+  ratios: [50, 50],
+  children: ["2d", "3d"]
+});
+```

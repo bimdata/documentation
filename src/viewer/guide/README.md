@@ -13,7 +13,7 @@ Different layouts can be created, with or without [**Header**](../reference/head
 
 <img width=500px src="/assets/img/viewer/viewer-gui-layouts.png" alt="Viewer GUI layouts.">
 
-It is possible to completly remove the [**Header**](../reference/header.html) using the `ui` property of the [`makeBIMDataViever`](../reference/makeBIMDataViewer.html) configuration parameter:
+It is possible to completly remove the [**Header**](../reference/header.html) using the `ui` property of the [`makeBIMDataViewer`](../reference/makeBIMDataViewer.html) configuration parameter:
 
 ```js
 const bimdataViewer = makeBIMDataViewer({
@@ -58,7 +58,7 @@ And you get the following layout:
 
 By default, the BIMData Logo and the Viewer version are displayed on the UI. They may change location depending on the number of [**Windows**](../reference/window.html). If only one [**Window**](../reference/window.html) without [**Header**](../reference/header.html), they are displayed on the bottom left corner of the UI. Else, they are displayed on the right of the [**Header**](../reference/header.html).
 
-They can be removed using the `ui` property of the [`makeBIMDataViever`](../reference/makeBIMDataViewer.html) configuration parameter:
+They can be removed using the `ui` property of the [`makeBIMDataViewer`](../reference/makeBIMDataViewer.html) configuration parameter:
 
 ```js
 const bimdataViewer = makeBIMDataViewer({

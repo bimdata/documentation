@@ -1,6 +1,6 @@
 {
   "name": "documentation",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "BIMData documentation",
   "main": "index.js",
   "authors": {
@@ -9,7 +9,7 @@
   },
   "repository": "https://github.com/bimdata/documentation",
   "scripts": {
-    "dev": "vuepress dev src",
+    "dev": "NODE_OPTIONS=--openssl-legacy-provider vuepress dev src",
     "build": "vuepress build src"
   },
   "license": "MIT",

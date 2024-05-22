@@ -50,6 +50,7 @@ function getViewerSidebar() {
       children: [
         "examples/gui_layout",
         "examples/context_plugins",
+        "examples/ifc_annotations",
         "examples/plan_annotations",
         "examples/global_components",
       ],

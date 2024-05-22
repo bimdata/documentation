@@ -1,15 +1,15 @@
 export default {
-  locale: "fr",
+  locale: "en",
+  ui: {
+    bimdataLogo: false,
+    header: false,
+    version: false,
+  },
   api: {
     accessToken: "TAbdyPzoQeYgVSMe4GUKoCEfYctVhcwJ",
     cloudId: 10344,
     projectId: 237466,
     modelIds: [15097],
-  },
-  ui: {
-    bimdataLogo: false,
-    menuVisible: false,
-    version: false,
   },
   plugins: {
     alerts: false,
@@ -19,12 +19,14 @@ export default {
     dwg: false,
     "dwg-layer": false,
     dxf: false,
-    equipment2d: false,
+    firstPersonView: false,
     fullscreen: false,
     gauge2d: false,
     ged: false,
     measure2d: false,
     measure3d: false,
+    metaBuildingStructure: false,
+    miniMap2d: false,
     navigationVersionsModel: false,
     pdf: false,
     pdfAnnotations: false,
@@ -32,7 +34,6 @@ export default {
     plan: false,
     pointCloud: false,
     pointCloudParameters: false,
-    projection: false,
     properties: false,
     "right-angled": false,
     search: false,
@@ -60,5 +61,8 @@ export default {
     },
     "viewer3d-parameters": false,
     "window-manager": false,
+    "window-selector": false,
+    "zone-editor": false,
+    "zone-editor-button": false,
   }
 };
