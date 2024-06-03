@@ -4,6 +4,7 @@ import globalComponents from "./config/globalComponents.js";
 import guiLayout from "./config/guiLayout.js";
 import hubs from "./config/hubs.js";
 import ifcAnnotations from "./config/ifcAnnotations.js";
+import layoutManipulation from "./config/layoutManipulation.js";
 import planAnnotations from "./config/planAnnotations.js";
 import pluginUI from "./config/pluginUI.js";
 import shortcuts from "./config/shortcuts.js";
@@ -18,6 +19,7 @@ const configs = new Map([
   ["guiLayout", guiLayout],
   ["hubs", hubs],
   ["ifcAnnotations", ifcAnnotations],
+  ["layoutManipulation", layoutManipulation],
   ["planAnnotations", planAnnotations],
   ["pluginUI", pluginUI],
   ["shortcuts", shortcuts],
@@ -27,7 +29,7 @@ const configs = new Map([
 ]);
 
 async function makeViewer(config, id) {
-  await import(/* webpackIgnore: true */ "https://cdn.jsdelivr.net/npm/@bimdata/viewer@2.3.0-beta.12");
+  await import(/* webpackIgnore: true */ "https://cdn.jsdelivr.net/npm/@bimdata/viewer@2.3.0-beta.18");
   if (configs.has(config)) {
     return configs.get(config)(id);
   } else {

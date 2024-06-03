@@ -199,9 +199,9 @@ export default {
 
 **Viewer instanciation:**
 ```js
-// file: mains.js
+// file: main.js
 import makeBIMDataViewer from "@bimdata/viewer";
-import IfcAnnotationsPlugin from "./ifc-annotations-plugin.js";
+import IfcAnnotationsPlugin from "./ifc-annotations.plugin.js";
 
 const viewer = makeBIMDataViewer({
   api: {
