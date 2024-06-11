@@ -313,6 +313,8 @@ This plugin allows to view bitmap plans (PDF, PNG, JPG, METABUILDING models). Th
 | :------------------------ | :-------- | :---------- |
 | `help`                    | `boolean` | Whether to display help button or not. Defaults to `true`. |
 | `modelLoader`             | `string`  | See [viewers config](./viewer_plugins.md#viewers-common-config). Possible values: `"hidden"`, `"disabled"`, allows to control models loader display. By default model loader is displayed and enabled. |
+| `pdfExportFormat`         | `number[]` | Set the format of PDF documents generated with [`exportAsPDF()`](./viewer_plugins.md#viewer-plan) method. The format is provided as an array of two numbers: `[width, height]`. This is `[595, 842]` (A4) by default. |
+| `pdfExportScale`          | `number`  | Control the quality of the generated PDF documents, a higher value means a better resolution, but also increase document size. Defaults to 1. |
 | `storeySelector`          | `boolean` | Whether to display storey selector or not. Defaults to `true`. |
 | `storeySelectorAutoOpen`  | `boolean` | Whether storey selector should auto open on model loading or not. Defaults to `true`. |
 
