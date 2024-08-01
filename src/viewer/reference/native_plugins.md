@@ -313,8 +313,7 @@ This plugin allows to view bitmap plans (PDF, PNG, JPG, METABUILDING models). Th
 | :------------------------ | :-------- | :---------- |
 | `help`                    | `boolean` | Whether to display help button or not. Defaults to `true`. |
 | `modelLoader`             | `string`  | See [viewers config](./viewer_plugins.md#viewers-common-config). Possible values: `"hidden"`, `"disabled"`, allows to control models loader display. By default model loader is displayed and enabled. |
-| `pdfExportFormat`         | `number[]` | Set the format of PDF documents generated with [`exportAsPDF()`](./viewer_plugins.md#viewer-plan) method. The format is provided as an array of two numbers: `[width, height]`. This is `[595, 842]` (A4) by default. |
-| `pdfExportScale`          | `number`  | Control the quality of the generated PDF documents, a higher value means a better resolution, but also increase document size. Defaults to 2. |
+| `metaBuildingStructure`   | `boolean` | Wether to display meta-building structure panel when a meta-building is loaded. If set to `false` a storey selector will be used instead. Defaults to `true`. |
 | `storeySelector`          | `boolean` | Whether to display storey selector or not. Defaults to `true`. |
 | `storeySelectorAutoOpen`  | `boolean` | Whether storey selector should auto open on model loading or not. Defaults to `true`. |
 
@@ -346,7 +345,7 @@ const viewerPlanPlugin = this.$viewer.localContext.plugins.get("plan");
 | `setPdfPage(index: number): Promise<void>` | (*async*) Go to the specified PDF page (if it exist). **Note:** pages are indexed from 0 to n-1. |
 | `exportAsPNG(): Promise<string>` | (*async*) Get a base64 URL of PNG screenshot of the viewer |
 | `exportAsJPG(): Promise<string>` | (*async*) Get a base64 URL of JPG screenshot of the viewer |
-| `exportAsPDF(): Promise<any>` | (*async*) Generate and return a [jsPDF](https://artskydj.github.io/jsPDF/docs/jsPDF.html) document with the viewer content |
+| `exportAsPDF(): Promise<Blob>` | (*async*) Generate and return a PDF with the viewer content |
 
 ## Viewer Point Cloud
 

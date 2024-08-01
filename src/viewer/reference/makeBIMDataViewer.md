@@ -46,12 +46,13 @@ The `api` properties are:
 
 | Name          | Type       | Description                    |
 | :------------ | :--------- | :----------------------------- |
-| `modelIds`    | `number[]` | (**Optional**) An array of model ids to load on startup. |
+| `apiUrl`      | `string`   | (**Optional**) The BIMData API URL. Default to `https://api.bimdata.io` |
+| `archiveUrl`  | `string`   | (**Optional**) The BIMData Archive backend URL. Default to `https://archive.bimdata.io` |
+| `pdfBackendUrl` | `string` | (**Optional**) The BIMData API URL. Default to `https://pdf-backend.bimdata.io` |
+| `accessToken` | `string`   | The access token.              |
 | `cloudId`     | `number`   | The cloud id.                  |
 | `projectId`   | `number`   | The project id.                |
-| `accessToken` | `string`   | The access token.              |
-| `archiveUrl`  | `string`   | The BIMData Archive backend URL. Default to `https://archive.bimdata.io` |
-| `apiUrl`      | `string`   | The BIMData API URL. Default to `https://api.bimdata.io` |
+| `modelIds`    | `number[]` | (**Optional**) An array of model ids to load on startup. |
 | `offline`     | `object`   | Offline mode configuration.    |
 
 Here are the `offline` configuration options:

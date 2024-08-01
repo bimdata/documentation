@@ -135,8 +135,8 @@ interface ViewerPlan extends ModelViewerInstance {
   exportAsPNG(): Promise<string>; // Get a base64 URL of PNG screenshot of the viewer
   exportAsJPG(): Promise<string>; // Get a base64 URL of JPG screenshot of the viewer
 
-  // Generate a jsPDF document with the viewer content (https://raw.githack.com/MrRio/jsPDF/master/docs/jsPDF.html)
-  exportAsPDF({ format?: number[], scale?: number }): Promise<any>;
+  // Generate a PDF document with the viewer content
+  exportAsPDF({ pagesToScan?: number[] }): Promise<Blob | null>;
 }
 ```
 
