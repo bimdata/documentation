@@ -23,7 +23,7 @@ interface Context {
 }
 ```
 
-```js
+```typescript
 interface GlobalContext extends Context {
   resizable: boolean;
   open({
@@ -47,6 +47,10 @@ interface GlobalContext extends Context {
   readonly plugins: Map<string, PluginComponentInstance[]>;
 
   getViewers(): ModelViewerInstance[];
+
+  readonly loadedModels: StateModel[];
+  readonly loadedModelIds: number[];
+  readonly loadingModelIds: number[];
 }
 ```
 
@@ -59,7 +63,10 @@ interface GlobalContext extends Context {
 | `activeLocalContext` | The currently active local context (the one associated to the window that is currently hovered by the cursor). |
 | `localContexts` | List of all local contexts. |
 | `pluginInstances` | A map of all plugin instances, map keys are plugin names and values are list of instances. |
-| `plugins` | A map of all plugin [**component instances**](./plugin.md#plugin-component-instance) |
+| `plugins` | A map of all plugin [**component instances**](./plugin.md#plugin-component-instance). |
+| `loadedModels` | List of currently loaded models (in all windows). |
+| `loadedModelIds` | List of currently loaded model ids (in all windows). |
+| `loadingModelIds` | List of currently loading model ids (in all windows). |
 | **methods**                        |                                                                        |
 | `open(options: any)` | (**async**) Split the given context with the specified options (ratio, direction, window, etc...). |
 | `close(id: number)` | (**async**) Close the given context. |
