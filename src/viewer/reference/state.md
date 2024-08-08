@@ -227,7 +227,7 @@ $viewer.state.selectedObjectsIds;   // list of selected objects ids
 $viewer.state.selectedObjectsUuids; // list of selected objects uuids
 ```
 
-## Objects setters
+### Objects setters
 
 Setters allows to update the objects state.
 
@@ -270,29 +270,7 @@ this.$viewer.state.selectObjects(ids, { emitter: this });
 
 ## Annotations
 
-The state provide a way to manage a set of annotation objects.
-
-```typescript
-interface Annotation {
-  // Coordinates
-  x: number;
-  y: number; 
-  z: number;
-  // Vue component used to render annotation on viewer
-  component: any;
-  // Optional props to pass to the annotation component
-  props?: any;
-}
-```
-
-Annotation related fields and methods:
-
-| Name                                    | Description                                                     |
-| :-------------------------------------- | :-------------------------------------------------------------- |
-| `annotations`                           | The list of all annotations (read only)                         |
-| `addAnnotation(annotation, options)`    | Add an annotation to the state                                  |
-| `removeAnnotation(annotation, options)` | Remove the given annotation from state                          |
-| `clearAnnotations()`                    | Remove all annotations from state                               |
+See the [dedicated reference page](./annotations.md) to learn more about Annotation API.
 
 ## Events
 

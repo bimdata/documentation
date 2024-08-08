@@ -75,6 +75,7 @@ function getViewerSidebar() {
         "reference/viewer_plugins",
         "reference/global_components",
         "reference/hubs",
+        "reference/annotations",
         "reference/offline_mode",
       ],
     },

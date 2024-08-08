@@ -124,7 +124,6 @@ interface ViewerPlan extends ModelViewerInstance {
   viewer: E2D.Viewer;
   model: Model | null;
   selectedStorey: Storey | null;
-  bitmaps: any[];
   pdfPages: any[];
   pdfPageIndex: number;
 

@@ -27,6 +27,10 @@ export default {
           link: "/viewer/reference/$viewer.html"
         },
         {
+          title: "Annotation API",
+          link: "/viewer/reference/annotations.html"
+        },
+        {
           title: "Context menu",
           link: "/viewer/reference/context_menu.html"
         },

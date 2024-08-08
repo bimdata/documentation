@@ -1,8 +1,110 @@
 # Release Notes
 
+## v2.4.0
+
+### BREAKING CHANGES
+
+#### Window Lifecycle
+
+`loadWindow` is called in *setup* intead of *mounted*,
+This means that it is no longer possible to access `localContext.el` in the `created()` hook,
+it will only be available from the `mounted()` hook and after.
+
+Before:
+```js
+export default {
+  created() {
+    this.$viewer.localContext.el.addEventListener(
+      "contextmenu",
+      this.onContextMenu
+    );
+  },
+  // ...
+};
+```
+
+Now:
+```js
+export default {
+  created() {
+    // `this.$viewer.localContext.el` is null here
+  },
+  mounted() {
+    this.$viewer.localContext.el.addEventListener(
+      "contextmenu",
+      this.onContextMenu
+    );
+  },
+  // ...
+};
+```
+
+#### Annotation API
+
+Annotation API has been simplified to provide developers with more flexibility and ease of use.
+
+Examples ([IFC](./examples/ifc_annotations.md) and [Plan](./examples/plan_annotations.md)) have been updated accordingly.
+
+See [viewer reference](./reference/annotations.md) to learn more.
+
+### Features
+
+ * [Add globalContext models API](./reference/global_context.md)
+ * Provide annotated object to annotation callback (IFC only)
+ * [Add `metaBuildingStructure` to viewer plan settings](./reference/native_plugins.md#configuration-5)
+ * [Improve PDF export feature](./reference/viewer_plugins.md#viewer-plan)
+ * Save & restore BCF topic layout
+ * Update xeokit
+
+### Bugfixes
+
+ * Fix keyboard shortcuts displayed in help modal
+ * Fix 3D annotations visibility update
+ * Fix IFC property edition
+
+## v2.3.0
+
+### Features
+
+ * Meta-Building Structure
+ * First person view + Mini map
+ * Add offline options param
+ * Add ability to remove the zone editor "Done" button
+ * Viewer 3D parameters rework
+ * Re-enabled structures root element to show/select all
+ * Viewer plan `fitView()` now accepts zone/space UUIDs as parameters
+ * Add the ability to dynamically change viewer 3D keyboard layout
+ * PDF export optimization
+
+### Bugfixes
+
+ * Fix error on storey change when no model is loaded
+ * Fix synchronization & background-2d plugins position
+ * Fix viewer plan `fitView()`
+ * Fix: `buildingElevation` fallbacks to `siteElevation` if not set
+ * Fix: model loader spinner on initialization
+
+## v2.2.0
+
+### Features
+
+ * Update english translations
+ * Add `loadDrawings` and `clearDrawings` methods to drawing tools plugin interface
+
+### Bugfixes
+
+ * Fix "scroll on zoom" bug for 3D and point cloud viewers
+ * Fix handle touch events for drawing tools
+ * Keep current selection when opening BCF topic creation form
+ * BCF topic auto open
+ * Fix typos
+
 ## v2.1.0
 
-[Add ability to switch offline mode dynamically and add offline methods customization options.](./reference/offline_mode.html)
+### Features
+
+ * [Add ability to switch offline mode dynamically](./reference/offline_mode.html)
+ * [Add offline methods customization options](./reference/offline_mode.html)
 
 ### Bugfixes
 
@@ -14,7 +116,7 @@
 
 ## v2.0.0
 
-### BREAKING-CHANGES
+### BREAKING CHANGES
 
 #### Vue 3
 
@@ -42,7 +144,9 @@ Now:
 </script>
 ```
 
-- `menuVisible` property of the `makeBIMDataViewer` `ui` configuration changed to `header`:
+#### Viewer configuration
+
+- **(1)** `menuVisible` property of the `makeBIMDataViewer` `ui` configuration changed to `header`:
 
 ```js
 // OLD
@@ -52,13 +156,13 @@ makeBIMDataViewer({ ui: { menuVisible: true }});
 makeBIMDataViewer({ ui: { header: true }});
 ```
 
-- "window-split" plugin replaced by "window-manager"
+- **(2)** `"window-split"` plugin replaced by `"window-manager"`
 
 ### FEATURES
 
 [Vue.js v3](https://vuejs.org/) brings the new [composition API](https://vuejs.org/guide/introduction.html#composition-api) & the [script setup support](https://vuejs.org/api/sfc-script-setup.html).
 
-[`$viewer`](/viewer/reference/$viewer.html) is available as injection.
+[`$viewer`](/viewer/reference/$viewer.html) is available via injection.
 
 Example of a plugin using the composition API:
 

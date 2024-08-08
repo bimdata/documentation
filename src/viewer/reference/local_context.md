@@ -111,13 +111,13 @@ If the current context is not a viewer window, an error is thrown when these met
 | :-------------------------------------------- | :---------------------------------------------------------------------------------- |
 | **properties**                                |                                                                                     |
 | `viewer`                                      | Model viewer instance of this context, `null` if the context is not a viewer window |
-| `annotationMode`                              | `true` if annotation mode is activated, `false` otherwise                           |
+| `annotationMode`                              | `true` if annotation mode is enabled, `false` otherwise                             |
 | **methods**                                   |                                                                                     |
 | `getSnapshot()`                               | (*async*) Get a snapshot of the current viewer: `{ snapshot_type: string, snapshot_data: string (Data URL) }` |
 | `getViewpoint(options?: any)`                 | (*async*) Get a [BCF viewpoint](https://api.bimdata.io/doc#/bcf/getViewpoint) of the current viewer |
 | `setViewpoint(viewpoint: any, options?: any)` | (*async*) Set model viewer viewpoint                                                |
-| `startAnnotationMode(callback: Function)`     | Activate annotation mode                                                            |
-| `stopAnnotationMode()`                        | Deactivate annotation mode                                                          |
+| `startAnnotationMode(callback: Function)`     | Enable annotation mode (see [annotation API](./annotations.md#usage))               |
+| `stopAnnotationMode()`                        | Disable annotation mode                                                             |
 | `fitView(options?: any)`                      | Apply a "fit view" command to the model viewer                                      |
 | `showUI(options?: any)`                       | (*async*) Makes all UI elements of the context visible (such as plugins and model selector) |
 | `hideUI(options?: { exceptions: string[] })`  | (*async*) Hide all UI elements of the context (some exceptions can be specified)    |
