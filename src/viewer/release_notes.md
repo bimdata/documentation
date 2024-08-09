@@ -55,6 +55,7 @@ See [viewer reference](./reference/annotations.md) to learn more.
  * [Improve PDF export feature](./reference/viewer_plugins.md#viewer-plan)
  * Save & restore BCF topic layout
  * Update xeokit
+ * Update english and german translations
 
 ### Bugfixes
 
