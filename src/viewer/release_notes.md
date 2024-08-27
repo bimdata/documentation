@@ -1,5 +1,13 @@
 # Release Notes
 
+## 2.4.1
+
+### Bugfixes
+
+ * Correctly load viewpoint if no topic layout specified
+ * Fix persistent spinner when opening BCF Manager
+ * Fix Meta-Building storey change handler
+
 ## v2.4.0
 
 ### BREAKING CHANGES
