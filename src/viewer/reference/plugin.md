@@ -22,6 +22,7 @@ The registerPlugin method take an Plugin as argument :
 | :------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `name`: `string`           | **Required** The name of the plugin. Must be unique.                                                                                                            |
 | `component`: `object`      | A Vuejs (v3.x) component.                                                                                                                                       |
+| `i18nTokenPrefix`: `string`| Prefix to add before i18n tokens. Defautl: plugin.name                                                                                                     |
 | `i18n`: `object`           | An object containing translations for internationalization.                                                                                                     |
 | `startupScript($viewer)`   | A function that is executed when the viewer is mounted, with [`$viewer`](/viewer/reference/$viewer.html) as argument.                                           |
 | `button`: `object`         | An [object](#plugin-as-button) that describe the display of the plugin if the plugin is shown as button.                                                        |
