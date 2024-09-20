@@ -398,7 +398,7 @@ Measurements are saved in local storage.
 
 - name: `zone-editor-button`
 
-This plugin just opens the [Zone Editor plugin](#zone-editor).
+This plugin opens the [Zone Editor plugin](#zone-editor).
 
 ## Zone Editor
 
