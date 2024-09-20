@@ -393,3 +393,31 @@ Parameters are saved in local storage.
 
 A button plugin that allows to measure distances, angles and surfaces in the 2D viewer
 Measurements are saved in local storage.
+
+## Zone Editor Button
+
+- name: `zone-editor-button`
+
+This plugin allows to interact with the BIMData Zone Editor by opening the [Zone Editor plugin](#zone-editor).
+
+::: warning Note
+In order to use Zone Editor features you have to enable the [**Zon Editor plugin**](#zone-editor) (enabled by default).<br/>
+The Zone-Editor plugin will be useless if Zone Editor Button is not enabled.
+:::
+
+## Zone Editor
+
+- name: `zone-editor`
+
+The Zone Editor plugin is a window plugin that provides a complete UI to manage zones on a Meta Building.
+
+### Events
+
+| Name                          | Payload              | Description                       | Emitted on                         |
+| :---------------------------- | :------------------- | :-------------------------------- | :--------------------------------- |
+| `zone-created`                | `{ zone }`           | Emitted when a zone is created.   | `localContext` and `globalContext` |
+| `space-created`               | `{ space }`          | Emitted when a space is created.  | `localContext` and `globalContext` |
+| `zone-deleted`                | `{ zone }`           | Emitted when a zone is deleted.   | `localContext` and `globalContext` |
+| `space-deleted`               | `{ space }`          | Emitted when a space is deleted.  | `localContext` and `globalContext` |
+| `zone-updated`                | `{ zone, changes }`  | Emitted when a zone is updated.   | `localContext` and `globalContext` |
+| `space-updated`               | `{ space, changes }` | Emitted when a space is updated.  | `localContext` and `globalContext` |
