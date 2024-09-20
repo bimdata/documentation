@@ -401,7 +401,7 @@ Measurements are saved in local storage.
 This plugin allows to interact with the BIMData Zone Editor by opening the [Zone Editor plugin](#zone-editor).
 
 ::: warning Note
-In order to use Zone Editor features you have to enable the [**Zon Editor plugin**](#zone-editor) (enabled by default).<br/>
+In order to use Zone Editor features you have to enable the [**Zone Editor plugin**](#zone-editor) (enabled by default).<br/>
 The Zone-Editor plugin will be useless if Zone Editor Button is not enabled.
 :::
 
