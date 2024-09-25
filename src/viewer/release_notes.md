@@ -1,5 +1,27 @@
 # Release Notes
 
+## 2.5.0
+
+### Feature
+
+ * Viewer Plan: add `includeDrawings` param to `exportAsPdf()` method
+ * Add button-structure and button-properties plugins
+ * Add `bimdata_elevation` field to state storeys
+ * Add zone creation event on local/global contexts
+ * Update translations
+ * Add `area` and `perimeter` getters on state zones
+
+### Bugfixes
+
+ * Fix: injection for annotation components
+ * Fix: pdf page selection in building maker
+ * Fix: properly set localContext resolution on pdf export
+ * Fix: load xkt file on models with no explicit xkt versions
+ * Fix: add model name to IfcProject structure
+ * Fix(Viewer 3D): LOD
+ * Fix(Viewer Plan): properly handle models without document
+ * Fix: add touch event for 3D annotation mode & annotations drag & drop
+
 ## 2.4.1
 
 ### Bugfixes
