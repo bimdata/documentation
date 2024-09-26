@@ -33,7 +33,7 @@ The plugins are registered first with different display options. Then the window
     <div id="viewer"></div>
   </div>
   <script type="module">
-    import makeBIMDataViewer from "https://cdn.jsdelivr.net/npm/@bimdata/viewer@2.1.0-beta.3";
+    import makeBIMDataViewer from "https://cdn.jsdelivr.net/npm/@bimdata/viewer@2.5.0";
 
     const bimdataViewer = makeBIMDataViewer({
       // do not display the header, the bimdata logo and the viewer version
