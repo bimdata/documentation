@@ -53,6 +53,14 @@ The Plugin Instance inherits all of the [Plugin APIs](#registration-and-plugin-a
 | `componentInstance`: `Object` | The [Vuejs 3.x component](https://vuejs.org/guide/essentials/component-basics.html) instance.                    |
 | `buttonText`: `string`        | The text displayed on the plugin button. (getter & setter)                                                       |
 
+
+To retrieve a plugin instance:
+```js
+const myPluginInstance = localContext.pluginInstances.get("myPlugin");
+// or
+const myPluginInstance = localContext.plugins.get("myPlugin").$plugin;
+```
+
 ## Plugin Component Instance
 
 A plugin component is a [Vuejs 3.x component](https://vuejs.org/guide/essentials/component-basics.html) with some additional features.
@@ -88,6 +96,11 @@ For more convenience, some of the [Plugin Instance](#plugin-instance) APIs are a
 - `$isOpen`: boolean, `true` if the plugin component is open (plugin as button only).
 - `$loading`: boolean, `true` if the plugin component is opening or closing (async plugin as button only).
 - `$shown`: boolean, `true` if the plugin is shown.
+
+To retrieve a plugin component instance:
+```js
+const myPluginComponentInstance = localContext.plugins.get("myPlugin")
+```
 
 ## Plugin as button
 
