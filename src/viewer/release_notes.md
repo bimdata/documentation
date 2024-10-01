@@ -1,6 +1,6 @@
 # Release Notes
 
-## 2.5.0
+## v2.5.0
 
 ### Feature
 
@@ -22,7 +22,7 @@
  * Fix(Viewer Plan): properly handle models without document
  * Fix: add touch event for 3D annotation mode & annotations drag & drop
 
-## 2.4.1
+## v2.4.1
 
 ### Bugfixes
 
