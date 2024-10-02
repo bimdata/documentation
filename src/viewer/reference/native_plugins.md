@@ -323,7 +323,8 @@ This plugin allows to view bitmap plans (PDF, PNG, JPG, METABUILDING models). Th
 | :------------------- | :------------------ | :------------------------------------- | :--------------------------------- |
 | `plan-model-loaded`   | `{ model, plugin }` | Emitted when a plan model is loaded.   | `localContext` and `globalContext` |
 | `plan-model-unloaded` | `{ model, plugin }` | Emitted when a plan model is unloaded. | `localContext` and `globalContext` |
-| `pdf-page-changed`    | `{ model, page }` | Emitted when a pdf page is changed. | `localContext` only |
+| `pdf-page-changed`    | `{ model, page }`   | Emitted when a pdf page is changed.    | `localContext` only |
+| `storey-loaded`       | `{ storey }`        | Emitted when a storey is fully loaded. | `localContext` and `globalContext` |
 
 ### Instance API
 
