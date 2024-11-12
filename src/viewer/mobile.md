@@ -28,3 +28,24 @@ const mobilePlugin = $viewer.globalContext.plugins.get("mobile")[0];
 const engine2d = mobilePlugin.viewer2d.engine2d;
 const xeokit = mobilePlugin.viewer3d.xeokit;
 ```
+
+## Loading model
+
+The model loaded into the mobile plugin is the one loaded on the [localContext](/viewer/reference/local_context.html#local-state).
+
+```js
+this.$viewer.localContext.loadModels([myModelId]);
+```
+
+Or at startup using the config object of the [makeBIMDataViewer](/viewer/reference/makeBIMDataViewer.html#api) function.
+
+```js
+const bimdataViewer = makeBIMDataViewer({
+  api: {
+    modelIds: [15097], // < ---
+    cloudId: 10344,
+    projectId: 237466,
+    accessToken: "TAbdyPzoQeYgVSMe4GUKoCEfYctVhcwJ",
+  },
+});
+```
