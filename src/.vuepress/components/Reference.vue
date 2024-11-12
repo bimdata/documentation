@@ -63,6 +63,10 @@ export default {
           link: "/viewer/reference/makeBIMDataViewer.html"
         },
         {
+          title: "mobile",
+          link: "/viewer/mobile.html"
+        },
+        {
           title: "mount",
           link: "/viewer/reference/mount.html"
         },
