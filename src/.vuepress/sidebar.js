@@ -79,6 +79,7 @@ function getViewerSidebar() {
         "reference/offline_mode",
       ],
     },
+    "mobile",
     "viewer_sdk",
     "release_notes",
   ];
