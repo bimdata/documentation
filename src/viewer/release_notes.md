@@ -1,5 +1,20 @@
 # Release Notes
 
+## v2.6.0
+
+### Feature
+ * DWG Viewer now supports layouts. You can now switch between different layouts in the same DWG file.
+ * [BIMData Viewer can no be used on mobile with a special UI](./mobile.html)
+ * Offline archives with PDF models can be lighter with the trade off of higher CPU usage during load.
+ * Point density on point clouds is now better
+ * Smartviews plugin has been improve and allow to mix many views
+
+### Bugfixes
+ * Editing properies works again
+ * Fix annotations on 3D and 2D at the same time when 3D annotation goes behind the camera
+ * Many fixes in PDF exports with drawings
+ * Fix performance issue with Minimap
+
 ## v2.5.0
 
 ### Feature
