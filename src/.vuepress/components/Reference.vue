@@ -47,7 +47,7 @@ export default {
           link: "/viewer/reference/header.html"
         },
         {
-          title: "Hubs",
+          title: "Event Hubs",
           link: "/viewer/reference/hubs.html"
         },
         {
