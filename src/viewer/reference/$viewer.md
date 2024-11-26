@@ -260,8 +260,8 @@ this.$viewer.localContext.loadingProcessStart();
   <p><b>Local context spinner</b></p>
 </div>
 <p align="center">
-  <img width="48%" src="/assets/img/viewer/Viewer-global_context.gif" alt="Viewer global context spinner">
-  <img width="48%" src="/assets/img/viewer/Viewer-local_context.gif" alt="Viewer local context spinner.">
+  <img width="48%" src="/assets/img/viewer/viewer-global_context.gif" alt="Viewer global context spinner">
+  <img width="48%" src="/assets/img/viewer/viewer-local_context.gif" alt="Viewer local context spinner.">
 </p>
 
 To stop spinners use the following methods:
