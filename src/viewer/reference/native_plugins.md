@@ -48,6 +48,22 @@ The BCF plugin will be useless if BCF Manager is not enabled.
 | :---------- | :------- | :---------- |
 | `topicGuid` | `string` | **guid** of the topic that will be opened automatically when the plugin is mounted |
 
+## Drawing Tools
+
+- name: `drawing-tools`
+
+The Drawing Tools plugin allows to enrich plans from the [**viewer plan**](#viewer-plan) with drawings. Drawings can be predefined shapes like lines, arrows, circles or rectangles, free hand drawings or texts. Except for texts, the line width and the color can be customized for each drawing. Once created, the drawings are stored on the BIMData API. It is possible to move or delete drawings using the corresponding tools (pointer / eraser). It is also possible to edit the text drawing by clicking on them while the text tool is active. Once the input is active, the font size and the text content can be changed.
+
+The Drawing Tools plugin is disabled by default. To enable it, add the following entry into the `plugins` property object of the [`makeBimdataViewer`](#native-plugins) function:
+
+```js
+const viewer = makeBIMDataViewer({
+  plugins: {
+    "drawing-tools": true,
+  },
+});
+```
+
 ## BCF Manager
 
 - name: `bcfManager`
