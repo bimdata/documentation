@@ -49,3 +49,15 @@ const bimdataViewer = makeBIMDataViewer({
   },
 });
 ```
+
+## Mobile browsers
+
+If you plan to embed the viewer into a web page that will be accessed on mobile
+make sure to add the following `<meta />` tag in the `<head>` of your html document:
+
+```html
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+```
+
+This ensure that the viewer is displayed properly on both desktop and mobile devices
+([learn more](https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag)).

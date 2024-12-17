@@ -32,6 +32,7 @@ You can directly download the BIMDataViewer from a **CDN** or you can install th
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>BIMDataViewer - Quick start</title>
   </head>
 
@@ -41,7 +42,7 @@ You can directly download the BIMDataViewer from a **CDN** or you can install th
     </div>
 
     <script type="module">
-      import makeBIMDataViewer from "https://cdn.jsdelivr.net/npm/@bimdata/viewer@2.5.0";
+      import makeBIMDataViewer from "https://cdn.jsdelivr.net/npm/@bimdata/viewer@2.6.1";
 
       const bimdataViewer = makeBIMDataViewer({
         api: {
@@ -67,6 +68,7 @@ You can directly download the BIMDataViewer from a **CDN** or you can install th
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>BIMDataViewer - Quick start</title>
   </head>
 
