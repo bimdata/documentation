@@ -1,5 +1,14 @@
 # Release Notes
 
+## v2.6.1
+
+### Features
+
+ * Add "field of view" param to point cloud viewer parameters
+ * Smartview selection feature
+ * Smartview show/hide feature
+ * Edit smartviews feature
+
 ## v2.6.0
 
 ### Feature
