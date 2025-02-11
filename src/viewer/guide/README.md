@@ -109,6 +109,7 @@ const bimdataViewer = makeBIMDataViewer({
       colorHighLighter: "",
       colorHighDark: "",
       colorText: "",
+      headerHeight: "",
     },
   },
 });

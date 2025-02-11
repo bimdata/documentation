@@ -16,20 +16,20 @@ const bimdataViewer = makeBIMDataViewer(/* {...} */);
 bimdataViewer.registerPlugin(MyPlugin);
 ```
 
-The registerPlugin method take an Plugin as argument :
+The `registerPlugin` method take a `PluginDefinition` object as argument:
 
-| Property                   | Description                                                                                                                                                     |
-| :------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `name`: `string`           | **Required** The name of the plugin. Must be unique.                                                                                                            |
-| `component`: `object`      | A Vuejs (v3.x) component.                                                                                                                                       |
-| `i18nTokenPrefix`: `string`| Prefix to add before i18n tokens. Defautl: plugin.name                                                                                                     |
-| `i18n`: `object`           | An object containing translations for internationalization.                                                                                                     |
-| `startupScript($viewer)`   | A function that is executed when the viewer is mounted, with [`$viewer`](/viewer/reference/$viewer.html) as argument.                                           |
-| `button`: `object`         | An [object](#plugin-as-button) that describe the display of the plugin if the plugin is shown as button.                                                        |
-| `window`: `Window`         | An [Window configuration object](./window.html#window-api) used to register a window with this plugin in it. This plugin is automatically added to the `window.plugins` list. |
-| `addToWindows`: `string[]` | An array of [window](./window.html) name in which to include this plugin.                                                                                       |
-| `isViewer`: `boolean`      | *Default* to `false`. Defines if this plugin must be considered as a `viewer`. See [viewer plugins](./viewer_plugins.md).                                                       |
-| `settings`: `Object`       | An object with the corresponding options passed to the [`makeBIMDataViewer()`](./makeBIMDataViewer.md) method.                                   |
+| Property                    | Description                                                                                                                                                     |
+| :-------------------------- | :--------------------------------------------------- |
+| `name`: `string`            | **Required** The name of the plugin. Must be unique. |
+| `component`: `object`       | A Vuejs (v3.x) component. |
+| `i18nTokenPrefix`: `string` | *Default* to `plugin.name`. Prefix to add before i18n tokens. |
+| `i18n`: `object`            | An object containing translations for internationalization. |
+| `startupScript`: `Function` | A callback that is executed when the viewer is mounted and takes [`$viewer`](/viewer/reference/$viewer.html) as argument. |
+| `button`: `object`          | An [object](#plugin-as-button) that describe the display of the plugin if the plugin is shown as button. |
+| `window`: `Window`          | An [Window configuration object](./window.html#window-api) used to register a window with this plugin in it. This plugin is automatically added to the `window.plugins` list. |
+| `addToWindows`: `string[]`  | An array of [window](./window.html) name in which to include this plugin. |
+| `isViewer`: `boolean`       | *Default* to `false`. Defines if this plugin must be considered as a `viewer`. See [viewer plugins](./viewer_plugins.md). |
+| `settings`: `object`        | An object with the corresponding options passed to the [`makeBIMDataViewer()`](./makeBIMDataViewer.md) method. |
 
 Note that additional custom data are forward to the registered Plugin to let you configure your plugins as you need to.
 
@@ -37,7 +37,7 @@ Once registered, the plugin is available on the viewer with the same interface a
 
 ## Plugin instance
 
-Once registered, the plugin is on the list of the registered plugins. But when a window is loaded with a particular plugin as a child, the resulting plugin is a plugin instance. A unique copy of the registered plugin, with additional APIs.
+Once registered, the plugin is on the list of the registered plugins. But when a window is loaded with a particular plugin as a child, the resulting plugin is a **plugin instance**. A unique copy of the registered plugin, with additional APIs.
 
 The Plugin Instance inherits all of the [Plugin APIs](#registration-and-plugin-api). The additional APIs are the followings:
 
@@ -50,7 +50,7 @@ The Plugin Instance inherits all of the [Plugin APIs](#registration-and-plugin-a
 | `hide`: `Function`            | Used to hide the plugin component.                                                                               |
 | `shown`: `boolean`            | `true` if the plugin component is shown.                                                                         |
 | `loading`: `boolean`          | `true` if the plugin component is being opened or closed. Used in case of async plugin as button component.      |
-| `componentInstance`: `Object` | The [Vuejs 3.x component](https://vuejs.org/guide/essentials/component-basics.html) instance.                    |
+| `componentInstance`: `object` | The [Vuejs 3.x component](https://vuejs.org/guide/essentials/component-basics.html) instance.                    |
 | `buttonText`: `string`        | The text displayed on the plugin button. (getter & setter)                                                       |
 
 
@@ -106,15 +106,15 @@ const myPluginComponentInstance = localContext.plugins.get("myPlugin")
 
 Another way to display a plugin component is as a button. To do so, when registering a plugin, the `pluginToRegister.button` object must implement the following interface:
 
-| Property                    | Description                                                                                                                            |
-| :-------------------------- | :------------------------------------------------------------------------------------------------------------------------------------- |
-| `position`: `string`        | "left" or "right". The position of the button in the window.                                                                           |
-| `stance`: `number`          | A `number` used to sort the plugin as buttons registered on the same side of a window.                                                 |
-| `tooltip`: `string`         | A string that is displayed when the plugin button is hovered. It can be a key to be translated ex: "myPluginName.tooltip"              |
+| Property                    | Description                                                  |
+| :-------------------------- | :----------------------------------------------------------- |
+| `position`: `string`        | "left" or "right". The position of the button in the window. |
+| `stance`: `number`          | A `number` used to sort the plugin as buttons registered on the same side of a window. |
+| `tooltip`: `string`         | A string that is displayed when the plugin button is hovered. It can be a key to be translated ex: "myPluginName.tooltip". |
 | `content`: `string`         | "simple", "panel" or "free"(default). [Different way to display the component](#content) when the button is clicked. |
-| `keepOpen`: `boolean`       | Default to `false`. If `true`, the plugin stay open even if the user click away from it.                                               |
-| `icon.imgUri`: `string`     | An uri to an image for the button.                                                                                                     |
-| `iconOpen.imgUri`: `string` | An uri to an image for the button when the plugin is displayed (open).                                                                 |
+| `keepOpen`: `boolean`       | Default to `false`. If `true`, the plugin stay open even if the user click away from it. |
+| `icon.imgUri`: `string`     | An uri to an image for the button. |
+| `iconOpen.imgUri`: `string` | An uri to an image for the button when the plugin is displayed (open). |
 
 If only the `icon` is defined, the corresponding image is always displayed on the button.
 A similar `iconOpen` option can be defined to display a different icon when the button is open.
