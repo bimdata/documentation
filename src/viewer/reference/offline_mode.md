@@ -24,7 +24,7 @@ const viewer = makeBIMDataViewer({
 ```
 
 It is also possible to enable offline mode dynamically after the viewer was instanciated
-using the [`enableOfflineMode()`](./reference/$viewer.md#enableofflinemode) method.
+using the [`enableOfflineMode()`](./$viewer.md#api) method.
 
 ```js
 // Enable offline mode
