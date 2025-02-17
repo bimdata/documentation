@@ -1,5 +1,19 @@
 # Release Notes
 
+## v2.7.0
+
+### Features
+
+ * Photosphere viewer
+ * Improve PDF export performance
+ * Improve Structure performance
+ * i18n: Update translations
+
+### Bugfixes
+
+ * Fix BCF annotation edition (create/update/delete)
+ * Avoid annotation drag & drop on right-click
+
 ## v2.6.1
 
 ### Features
