@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import {SwaggerUIBundle} from "swagger-ui-dist";
+import { SwaggerUIBundle } from "swagger-ui-dist";
 
 const AdvancedFilterPlugin = function (system) {
   return {
