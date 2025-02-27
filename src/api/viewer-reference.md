@@ -1,4 +1,4 @@
-# Viewer Integration
+# Viewer Reference
 
 <ClientOnly>
   <SwaggerUIViewerIntegration />

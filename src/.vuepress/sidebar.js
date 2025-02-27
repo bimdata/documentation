@@ -30,7 +30,7 @@ function getApiSidebar() {
     },
     "external_libraries",
     "reference",
-    "viewer-integration",
+    "viewer-reference",
     "support",
   ];
 }

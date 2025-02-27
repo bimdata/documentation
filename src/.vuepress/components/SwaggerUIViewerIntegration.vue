@@ -11,7 +11,8 @@ export default {
       dom_id: "#bimdata-doc-swagger-ui",
       url: "https://api.bimdata.io/viewer-integration/doc.json",
       displayOperationId: true,
-      docExpansion: "none",
+      docExpansion: "list",
+      defaultModelsExpandDepth: -1,
     });
   },
 };
