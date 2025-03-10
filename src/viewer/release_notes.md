@@ -1,5 +1,15 @@
 # Release Notes
 
+## v2.8.0
+
+### Features
+
+ * Drawing tools text color
+
+### Bugfixes
+
+ * Fix plan section deletion error
+
 ## v2.7.0
 
 ### Features
@@ -26,6 +36,7 @@
 ## v2.6.0
 
 ### Feature
+
  * DWG Viewer now supports layouts. You can now switch between different layouts in the same DWG file.
  * [BIMData Viewer can no be used on mobile with a special UI](./mobile.html)
  * Offline archives with PDF models can be lighter with the trade off of higher CPU usage during load.
@@ -33,6 +44,7 @@
  * Smartviews plugin has been improve and allow to mix many views
 
 ### Bugfixes
+
  * Editing properies works again
  * Fix annotations on 3D and 2D at the same time when 3D annotation goes behind the camera
  * Many fixes in PDF exports with drawings
