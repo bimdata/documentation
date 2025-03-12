@@ -197,6 +197,7 @@ This plugin allows to view 3D representation of IFC models. This is a [viewer pl
 | `enableDynamicLOD`        | `boolean` | **Default** to `true`. If FPS are too low, complex objects will be hidden during camera moves. This allow a better navigation on low-end computers or with very big models. This decrease GPU memory usage |
 | `home`                    | `boolean` | **Default** to `true`.  Reinitialize point of view and reset all objects state (visibility, x-ray) |
 | `navigationVersionsModel` | `boolean` | **Default** to `true`.  Allows navigation between various version of models |
+| `interactiveSpaces`       | `boolean` | **Default** to `false`.  Allow interaction with IfcSpaces |
 
 ### Events
 
@@ -238,6 +239,7 @@ const viewer3dPlugin = this.$viewer.localContext.plugins.get("viewer3d");
 | `setObjectsXrayed(ids: string[], xrayed: boolean)`| Update the `xrayed` property of the corresponding objects. |
 | `setObjectsOpacity(ids: string[], opacity: boolean)`| Update the `opacity` property of the corresponding objects. |
 | `setObjectsCulled(ids: string[], culled: boolean)`| Update the `culled` property of the corresponding objects. |
+| `setInteractiveSpaces(interact: boolean)`| Makes IfcSpace objects pickable. |
 
 ## Viewer 2D (IFC)
 
