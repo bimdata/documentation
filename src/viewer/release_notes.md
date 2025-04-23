@@ -1,5 +1,23 @@
 # Release Notes
 
+## v2.9.0
+
+### Features
+
+ * New model loader UI
+ * Viewer IFC 3D: add 'Interactive Spaces' parameter (can be switched *On* or *Off*, was always *On* before)
+ * Improve IFC structure performance
+ * Improve PDF export performance
+
+### Bugfixes
+
+ * Fix: handle viewer photosphere topic viewpoint
+ * Fix: improve mobile compatibility
+ * Fix: encapsulate internal styles to avoid CSS leaks
+ * Fix: drawings creation on mobile device
+ * Fix: children count in IFC structure tree
+ * Fix: PDF viewer window resize
+
 ## v2.8.0
 
 ### Features
