@@ -1,5 +1,16 @@
 # Release Notes
 
+## v2.10.0
+
+### Features
+
+ * 3D Section plugin rework. The section planes are no longer disabled when the plugin is closed.
+
+### Bugfixes
+
+ * BCF comment snapshot with multi-windows was broken
+ * DWG Layers CSS issue
+
 ## v2.9.0
 
 ### Features
