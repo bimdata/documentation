@@ -1,5 +1,12 @@
 # Release Notes
 
+## v2.10.1
+
+### Bugfixes
+
+ * Avoid error when switching PDF pages quickly
+ * Update API client to v10.21.3
+
 ## v2.10.0
 
 ### Features
