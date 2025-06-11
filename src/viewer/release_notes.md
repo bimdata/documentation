@@ -1,5 +1,24 @@
 # Release Notes
 
+## v2.11.0
+
+### Features
+
+ * BCF: add 'stage' field to export and filters
+ * IFC: 3D models chunks
+ * Plan: Model Positioning
+ * Plan: add drawing events on create, update, delete
+
+### Bugfixes
+
+ * BCF: handle topics whith no model attached
+ * BCF: open topic 'default' window if no layout is specified
+ * BCF: use user locale in xlsx export
+ * Model Loader: fix bug with model preview
+ * IFC: properly handle model unload in structure
+ * Plan: fix drawings on PDF pages
+ * Plan: fix PDF export on chromium based browsers
+
 ## v2.10.1
 
 ### Bugfixes
