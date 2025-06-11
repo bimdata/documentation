@@ -137,6 +137,9 @@ If the current context is not a viewer window, an error is thrown when these met
 | `plan-shown`       | `{ plan: Plan }`                    | A storey plan is now visible                             |
 | `plan-hidden`      | `{ plan: Plan }`                    | A storey plan has been hidden                            |
 | `pdf-page-changed` | `{ model: Model, page: any }`       | The current PDF page changed                             |
+| `drawing-created`  | `{ drawing: Drawing }`              | A new drawing has been created on the current model      |
+| `drawing-updated`  | `{ drawing: Drawing }`              | A drawing has been updated on the current model          |
+| `drawing-deleted`  | `{ drawing: Drawing }`              | A drawing has been deleted on the current model          |
 
 ### Events emitted on both Global & Local contexts
 
