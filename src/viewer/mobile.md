@@ -12,7 +12,9 @@ A plugin with specific mobile interactions is natively available in the BIMDataV
 bimdataViewer.mount("#app", "mobile");
 ```
 
-<img width=500px src="/assets/img/viewer/viewer-mobile.png" alt="Viewer Mobile">
+<div style="text-align: center">
+  <img height="600px" src="/assets/img/viewer/viewer-mobile.png" alt="Viewer Mobile">
+</div>
 
 The plugin is composed of **three** main elements from top to bottom:
 
@@ -43,7 +45,9 @@ You can use the mobile specific plan viewer with the `"mobile-plan"` window.
 bimdataViewer.mount("#app", "mobile-plan");
 ```
 
-<img width=500px src="/assets/img/viewer/viewer-mobile-plan.png" alt="Viewer Mobile Plan">
+<div style="text-align: center">
+  <img height="600px" src="/assets/img/viewer/viewer-mobile-plan.png" alt="Viewer Mobile Plan">
+</div>
 
 ## Loading model
 
