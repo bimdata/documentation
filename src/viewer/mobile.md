@@ -1,6 +1,12 @@
 # Mobile
 
-A plugin with specific mobile interactions is natively available in the BIMDataViewer. To use it, give the `"mobile"` window name as second argument of the [mount method](/viewer/reference/mount.html) when mounting the BIMDataViewer into the DOM.
+## Config
+
+In order to have functional UI for mobile you need to set the [`ui.mobile` config](./reference//makeBIMDataViewer.md#ui) to `true`.
+
+## Mobile Viewer IFC
+
+A plugin with specific mobile interactions is natively available in the BIMDataViewer. To use it, give the `"mobile"` window name as second argument of the [mount method](./reference/mount.md) when mounting the BIMDataViewer into the DOM.
 
 ```js
 bimdataViewer.mount("#app", "mobile");
@@ -14,7 +20,7 @@ The plugin is composed of **three** main elements from top to bottom:
 - viewer 2D as a mini map
 - viewer 3D
 
-It has the following [instance](/viewer/reference/plugin.html#plugin-component-instance) API:
+It has the following [instance](./reference/plugin.md#plugin-component-instance) API:
 
 | property              | Description                                                                                                                                            |
 | :-------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -29,15 +35,25 @@ const engine2d = mobilePlugin.viewer2d.engine2d;
 const xeokit = mobilePlugin.viewer3d.xeokit;
 ```
 
+## Mobile Viewer Plan
+
+You can use the mobile specific plan viewer with the `"mobile-plan"` window.
+
+```js
+bimdataViewer.mount("#app", "mobile-plan");
+```
+
+<img width=500px src="/assets/img/viewer/viewer-mobile-plan.png" alt="Viewer Mobile Plan">
+
 ## Loading model
 
-The model loaded into the mobile plugin is the one loaded on the [localContext](/viewer/reference/local_context.html#local-state).
+The model loaded into the mobile plugin is the one loaded on the [localContext](./reference/local_context.md#local-state).
 
 ```js
 this.$viewer.localContext.loadModels([myModelId]);
 ```
 
-Or at startup using the config object of the [makeBIMDataViewer](/viewer/reference/makeBIMDataViewer.html#api) function.
+Or at startup using the config object of the [makeBIMDataViewer](./reference/makeBIMDataViewer.md#api) function.
 
 ```js
 const bimdataViewer = makeBIMDataViewer({

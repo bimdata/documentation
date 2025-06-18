@@ -82,6 +82,7 @@ const bimdataViewer = makeBIMDataViewer({
     bimdataLogo: false,
     contextMenu: false,
     resizable: true,
+    mobile: false,
   },
 });
 ```
@@ -96,6 +97,7 @@ The `ui` properties are:
 | `bimdataLogo`           | `boolean` | **Default** to `true`. If `false`, the BIMData logo is hidden.              |
 | `contextMenu`           | `boolean` | **Default** to `true`. If `false`, the context menu is disabled.            |
 | `resizable`             | `boolean` | **Default** to `true`. If `false`, the layout is not resizable from the UI. |
+| `mobile`                | `boolean` | **Default** to `false`. Enable / Disable mobile specific UI.                |
 
 ## plugins
 
