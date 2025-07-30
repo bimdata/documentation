@@ -1,5 +1,24 @@
 # Release Notes
 
+## v2.12.0
+
+### Features
+
+ * Viewer Plan refactoring
+ * [Viewer Plan Mobile](./mobile.md#mobile-viewer-plan)
+ * Plan: add plan mask feature
+ * Plan: add 'panDisabled' option to drawing-tools config
+ * Plan: use `model.transform` instead of storey plan porsitioning
+ * Plan: label plugin
+ * DWG: add calibration tool
+
+### Bugfixes
+
+ * MetaBuilding: fix view fit on storey change
+ * IFC 2D: fix setPickable/Unpickable
+ * Plan: fix bug when spam clicking 'next page' button
+ * Plan: use Pointer Events instead of Touch Events in drawing-tools
+
 ## v2.11.0
 
 ### Features
