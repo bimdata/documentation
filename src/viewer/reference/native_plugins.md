@@ -198,6 +198,9 @@ This plugin allows to view 3D representation of IFC models. This is a [viewer pl
 | `home`                    | `boolean` | **Default** to `true`.  Reinitialize point of view and reset all objects state (visibility, x-ray) |
 | `navigationVersionsModel` | `boolean` | **Default** to `true`.  Allows navigation between various version of models |
 | `interactiveSpaces`       | `boolean` | **Default** to `false`.  Allow interaction with IfcSpaces |
+  `scaleCanvasResolution`   | `boolean` | **Default** to `true`. Scale down the canvas resolution when the camera is moving.
+  `defaultScaleCanvasResolutionFactor` | `number`  | **Default** to `0.8`. Default canvas resolution scale factor. Value between `0` and `1`. Lower values increase performance but decrease quality. |
+  `performanceModeScaleCanvasResolutionFactor` | `number`  | **Default** to `0.5`. Scale down the canvas resolution when the performance mode is activated. Value between `0` and `1`. Lower values increase performance but decrease quality. |
 
 ### Events
 
@@ -240,6 +243,8 @@ const viewer3dPlugin = this.$viewer.localContext.plugins.get("viewer3d");
 | `setObjectsOpacity(ids: string[], opacity: boolean)`| Update the `opacity` property of the corresponding objects. |
 | `setObjectsCulled(ids: string[], culled: boolean)`| Update the `culled` property of the corresponding objects. |
 | `setInteractiveSpaces(interact: boolean)`| Makes IfcSpace objects pickable. |
+  `setCameraOnTop(uuids: string[]): void` | Set the camera on top of the given objects, looking at their center. |
+  `getObjectsCenter(uuids: string[]): number[]` | Return the world coordinates of the center of the given objects. |
 
 ## Viewer 2D (IFC)
 
