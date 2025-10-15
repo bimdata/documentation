@@ -43,7 +43,7 @@ interface LocalContext extends Context {
   readonly selectedStorey: StateStorey | null;
   loadModels(ids: number[]): Promise<boolean>;
   unloadModels(ids: number[]): boolean;
-  selectStorey(storey: StateStorey): void;
+  selectStorey(storey: StateStorey, { showPlans?: boolean, fitViewRequested?: boolean }): void;
   showPlan(plan: StatePlan): void;
   hidePlan(plan: StatePlan): void;
 
@@ -85,7 +85,7 @@ To manage models, storeys and plans for a given context you can use the `localCo
 | **methods**                        |                                                                        |
 | `loadModels(ids: number[])`        | Load the given models in this context                                  |
 | `unloadModels(ids: number[])`      | Unload the given models from this context                              |
-| `selectStorey(storey: Storey)`     | Set storey as the current storey                                       |
+| `selectStorey(storey: Storey, { showPlans?: boolean, fitViewRequested?: boolean })`     | Set storey as the current storey. If `showPlans` is `false` (default to `true`), the corresponding storey plans are not shown. `fitViewRequested` (default to `true`) is an hint indicating to the `"storey-selected"` listeners that a fit view should be done. Usefull if a custom fit view is performed juste after selecting the storey.                                       |
 | `showPlan(plan: Plan)`             | Show plan                                                              |
 | `hidePlan(plan: Plan)`             | Hide plan                                                              |
 
