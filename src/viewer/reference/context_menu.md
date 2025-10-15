@@ -17,7 +17,7 @@ $viewer.contextMenu;
 | `registerContextCommand(command: ContextMenuCommand): number` | Add command for the openning context menu. Returns the command id.                                                                 |
 | `registerCommand(command: ContextMenuCommand): number`        | Add command on context menu, displayed if the predicate exists and returns true. Returns the command id.                           |
 | `unregisterCommand(commandId: number): boolean`               | Remove the command corresponding to the given id. Returns `true` if a command was removed, `false` otherwise.                      |
-| `preventDefault(): void;`                                     | Prevent registered commands to show. Usefull when only context commands are needed.                                                |
+| `preventDefault(): void;`                                     | Prevent registered commands to show. Useful when only context commands are needed.                                                |
 | `groupPositions: Object`                                      | An object with `select`, `visibility` and `color` properties that represent the group positions of corresponding default commands. |
 
 ## Command Interface

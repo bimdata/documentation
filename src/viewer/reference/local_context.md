@@ -85,7 +85,7 @@ To manage models, storeys and plans for a given context you can use the `localCo
 | **methods**                        |                                                                        |
 | `loadModels(ids: number[])`        | Load the given models in this context                                  |
 | `unloadModels(ids: number[])`      | Unload the given models from this context                              |
-| `selectStorey(storey: Storey, { showPlans?: boolean, fitViewRequested?: boolean })`     | Set storey as the current storey. If `showPlans` is `false` (default to `true`), the corresponding storey plans are not shown. `fitViewRequested` (default to `true`) is an hint indicating to the `"storey-selected"` listeners that a fit view should be done. Usefull if a custom fit view is performed juste after selecting the storey.                                       |
+| `selectStorey(storey: Storey, { showPlans?: boolean, fitViewRequested?: boolean })`     | Set storey as the current storey. If `showPlans` is `false` (default to `true`), the corresponding storey plans are not shown. `fitViewRequested` (default to `true`) is an hint indicating to the `"storey-selected"` listeners that a fit view should be done. Useful if a custom fit view is performed just after selecting the storey.                                       |
 | `showPlan(plan: Plan)`             | Show plan                                                              |
 | `hidePlan(plan: Plan)`             | Hide plan                                                              |
 
