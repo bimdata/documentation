@@ -1,5 +1,21 @@
 # Release Notes
 
+## v2.13.0
+
+### Features
+
+ * Viewer Plan: add `fitViewRequested` param to [`selectStorey`](./reference/local_context.md#local-state) method
+
+### Bugfixes
+
+ * Fix bug with button plugin active state
+ * Fix bugs with multiple viewer instances on the same page
+ * Fix 3D camera control keymap
+ * Fix 3D model loading with no chunks
+ * Fix Point Cloud section plugin
+ * Fix caliper for DWG measures
+ * Plan: Fix `fitView` for zones/spaces
+
 ## v2.12.0
 
 ### Features
