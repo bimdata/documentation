@@ -32,7 +32,7 @@ This example shows how to use the BIMDataViewer [global components](../reference
     <div id="viewer"></div>
   </div>
   <script type="module">
-    import makeBIMDataViewer from "https://cdn.jsdelivr.net/npm/@bimdata/viewer@2.6.1";
+    import makeBIMDataViewer from "https://cdn.jsdelivr.net/npm/@bimdata/viewer@latest";
 
     const bimdataViewer = makeBIMDataViewer({
       // do not display the header, the bimdata logo and the viewer version

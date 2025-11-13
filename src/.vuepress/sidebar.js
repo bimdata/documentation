@@ -55,6 +55,7 @@ function getViewerSidebar() {
         "examples/ifc_annotations",
         "examples/plan_annotations",
         "examples/global_components",
+        "examples/filter_elements",
       ],
     },
     {

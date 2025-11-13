@@ -22,7 +22,7 @@ to create synchronized annotations between 2D and 3D.
       cursor: grab;
     }
   </style>
-  <BIMDataViewer config="ifcAnnotations"/>
+  <BIMDataViewer config="ifcAnnotations" />
 </ClientOnly>
 
 ### Code

@@ -54,6 +54,7 @@ The `api` properties are:
 | `projectId`   | `number`   | The project id.                |
 | `modelIds`    | `number[]` | (**Optional**) An array of model ids to load on startup. |
 | `offline`     | `object`   | Offline mode configuration.    |
+| `onlyLoadUuids` | `object` | A 'model id' to 'element uuids' mapping to filter elements ([see example](../examples/filter_elements.md)). |
 
 Here are the `offline` configuration options:
 
@@ -97,7 +98,7 @@ The `ui` properties are:
 | `bimdataLogo`           | `boolean` | **Default** to `true`. If `false`, the BIMData logo is hidden.              |
 | `contextMenu`           | `boolean` | **Default** to `true`. If `false`, the context menu is disabled.            |
 | `resizable`             | `boolean` | **Default** to `true`. If `false`, the layout is not resizable from the UI. |
-| `mobile`                | `boolean` | **Default** to `false`. Enable / Disable mobile specific UI.                |
+| `mobile`                | `boolean` | **Default** to `false`. Enable / Disable mobile UI.                         |
 
 ## plugins
 

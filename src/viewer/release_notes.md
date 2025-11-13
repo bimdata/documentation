@@ -1,5 +1,21 @@
 # Release Notes
 
+## v2.14.0
+
+### Features
+
+ * IFC: partial loading: ability to filter loaded elements via viewer config ([see example](./examples/filter_elements.md))
+ * Plan: display zones/spaces for models other than Meta Building
+ * Plan: rotation plugin
+ * Plan: 360 annotations
+ * BCF: view annotations of all topics
+ * BCF: topic documents and groups
+
+### Bugfixes
+
+ * BCF: properly handle overflow for topic objects list
+ * i18n: update and fix translations for English, German and Spanish
+
 ## v2.13.0
 
 ### Features

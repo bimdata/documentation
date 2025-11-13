@@ -1,5 +1,6 @@
 import contextMenu from "./config/contextMenu.js";
 import contextPlugins from "./config/contextPlugins.js";
+import filterElements from "./config/filterElements.js";
 import globalComponents from "./config/globalComponents.js";
 import guiLayout from "./config/guiLayout.js";
 import hubs from "./config/hubs.js";
@@ -15,6 +16,7 @@ import windowUI from "./config/windowUI.js";
 const configs = new Map([
   ["contextMenu", contextMenu],
   ["contextPlugins", contextPlugins],
+  ["filterElements", filterElements],
   ["globalComponents", globalComponents],
   ["guiLayout", guiLayout],
   ["hubs", hubs],
@@ -29,7 +31,7 @@ const configs = new Map([
 ]);
 
 async function makeViewer(config, id) {
-  await import(/* webpackIgnore: true */ "https://cdn.jsdelivr.net/npm/@bimdata/viewer@2.6.1");
+  await import(/* webpackIgnore: true */ "https://cdn.jsdelivr.net/npm/@bimdata/viewer@2.14.0-beta.8");
   if (configs.has(config)) {
     return configs.get(config)(id);
   } else {
