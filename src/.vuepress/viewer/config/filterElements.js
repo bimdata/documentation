@@ -14,6 +14,7 @@ export default function(viewerId) {
     },
     plugins: {
       ...baseConfig.plugins,
+      structure: true,
       viewer2d: {
         compass: false,
         help: false,
@@ -24,7 +25,7 @@ export default function(viewerId) {
   });
 
   viewer.mount(viewerId, {
-    ratios: [50, 50],
-    children: ["3d", "2d"]
+    ratios: [40, 60],
+    children: ["structure", "3d"]
   });
 }
