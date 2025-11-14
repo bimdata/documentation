@@ -54,7 +54,7 @@ const viewer = makeBIMDataViewer({
 });
 
 viewer.mount("#app", {
-  ratios: [50, 50],
-  children: ["3d", "2d"]
+  ratios: [40, 60],
+  children: ["structure", "3d"]
 });
 ```
