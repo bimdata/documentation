@@ -1,4 +1,4 @@
-# Filter elements
+# Partial loading
 
 Thanks to the `api.onlyLoadUuids` configuration it is possible to filter elements before they are loaded in the viewer.
 
@@ -32,7 +32,7 @@ If nothing is displayed when you use `onlyLoadUuids` then check that your UUIDs 
 ### Demo
 
 <ClientOnly>
-  <BIMDataViewer config="filterElements" />
+  <BIMDataViewer config="partialLoading" />
 </ClientOnly>
 
 ### Code

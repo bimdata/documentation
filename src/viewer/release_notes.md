@@ -4,7 +4,7 @@
 
 ### Features
 
- * IFC: partial loading: ability to filter loaded elements via viewer config ([see example](./examples/filter_elements.md))
+ * IFC: partial loading: ability to filter loaded elements via viewer config ([see example](./examples/partial_loading.md))
  * Plan: display zones/spaces for models other than Meta Building
  * Plan: rotation plugin
  * Plan: 360 annotations

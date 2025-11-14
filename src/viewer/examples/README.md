@@ -11,4 +11,4 @@ and develop your own features.
  - [IFC Annotations (2D/3D)](./ifc_annotations.md)
  - [Plan Annotations](./plan_annotations.md)
  - [Global Components](./global_components.md)
- - [Filter Elements](./filter_elements.md)
+ - [Partial Loading](./partial_loading.md)
