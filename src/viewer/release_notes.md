@@ -1,5 +1,18 @@
 # Release Notes
 
+## v2.15.0
+
+### Features
+
+ * IFC/Plan: Annotation 360
+
+### Bugfixes
+
+ * BCF: fix bcf export when all topics are selected
+ * Point Cloud: handle tile data with no content
+ * Point Cloud: fix tiles center positioning
+ * Plan: fix model transform with multiple plans
+
 ## v2.14.0
 
 ### Features
