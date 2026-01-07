@@ -1,5 +1,11 @@
 # Release Notes
 
+## v2.15.1
+
+### Bugfixes
+
+ * Plan: fix measurement plugin
+
 ## v2.15.0
 
 ### Features
