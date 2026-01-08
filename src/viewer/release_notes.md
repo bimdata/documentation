@@ -1,5 +1,15 @@
 # Release Notes
 
+### v2.16.0
+
+### Features
+
+ * DWG: new Engine 2D with better perfomance
+
+### Bugfixes
+
+ * Plan: fix drawings in PDF models
+
 ## v2.15.1
 
 ### Bugfixes
