@@ -1,5 +1,11 @@
 # Release Notes
 
+### v2.16.1
+
+### Bugfixes
+
+ * DWG: fix new Engine 2D integration
+
 ### v2.16.0
 
 ### Features
