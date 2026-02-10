@@ -1,12 +1,20 @@
 # Release Notes
 
-### v2.16.1
+## v2.16.2 (2026-02-10)
+
+### Bugfixes
+
+ * IFC 2D: fix rotation plugin for Mac OS
+ * Mobile: fix 3D engine setup and 2D camera positioning
+ * Point Cloud: tile handle full rootTransform matrix 
+
+## v2.16.1
 
 ### Bugfixes
 
  * DWG: fix new Engine 2D integration
 
-### v2.16.0
+## v2.16.0
 
 ### Features
 
