@@ -1,6 +1,17 @@
 # Release Notes
 
-## v2.16.2 (2026-02-10)
+## v2.16.3
+(2026-02-26)
+
+### Bugfixes
+
+ * IFC 2D: show spaces areas
+ * IFC 2D: fix rotation issue
+ * Plan: add tooltip on clibration button
+ * BCF: avoid error when exporting many topics
+
+## v2.16.2
+(2026-02-10)
 
 ### Bugfixes
 
