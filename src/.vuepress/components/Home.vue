@@ -179,7 +179,7 @@
         <BIMDataCard borderRadius="6px">
           <template #content>
             <div class="flex m-r-24">
-              <img :src="$withBase('/assets/img/bimdata_icon-plugin.svg')" alt="" />
+              <img :src="$withBase('/assets/img/bimdata_icon-plugins.svg')" alt="" />
             </div>
             <div class="flex flex-col items-start">
               <h4 class="color-primary">Plugin</h4>
@@ -198,7 +198,7 @@
         <BIMDataCard borderRadius="6px">
           <template #content>
             <div class="flex m-r-24">
-              <img :src="$withBase('/assets/img/bimdata_icon-viewer_sdk.svg')" alt="" />
+              <img :src="$withBase('/assets/img/bimdata_icon-sdk.svg')" alt="" />
             </div>
             <div class="flex flex-col items-start">
               <h4 class="color-primary">Viewer SDK</h4>
