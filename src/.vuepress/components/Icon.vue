@@ -1,5 +1,5 @@
 <template>
-  <BIMDataIcon :name="name" :size="size" />
+  <BIMDataIcon :name="name" :size="size" :rotate="rotate" />
 </template>
 
 <script>
@@ -12,6 +12,7 @@ export default {
   props: {
     name: String,
     size: String,
+    rotate: Number
   }
 }
 </script>

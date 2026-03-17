@@ -3,6 +3,7 @@ module.exports = {
   "/plateform/": [],
   "/viewer/": getViewerSidebar(),
   "/on-premises/": getOnpremSidebar(),
+  "/user-guide/": getUserGuideSidebar(),
 };
 
 function getApiSidebar() {
@@ -10,11 +11,7 @@ function getApiSidebar() {
     {
       title: "Introduction",
       collapsable: false,
-      children: [
-        "introduction/overview",
-        "introduction/quick_start",
-        "introduction/concepts",
-      ],
+      children: ["introduction/overview", "introduction/quick_start", "introduction/concepts"],
     },
     {
       title: "Guides",
@@ -40,10 +37,7 @@ function getViewerSidebar() {
     "",
     {
       title: "Guide",
-      children: [
-        "guide/",
-        "guide/plugins",
-      ],
+      children: ["guide/", "guide/plugins"],
     },
     {
       title: "Examples",
@@ -96,10 +90,7 @@ function getOnpremSidebar() {
         "install/prerequisites",
         {
           title: "Quickstart",
-          children: [
-            "install/quickstart/install",
-            "install/quickstart/config",
-          ],
+          children: ["install/quickstart/install", "install/quickstart/config"],
         },
         "install/high_availability",
       ],
@@ -116,9 +107,23 @@ function getOnpremSidebar() {
             "config/env/platform_back",
             "config/env/archive",
             "config/env/workers",
-          ]
-        }
-      ]
+          ],
+        },
+      ],
     },
   ];
 }
+
+function getUserGuideSidebar() {
+  return [
+    {
+      title: "Créer un compte BIMData",
+      path: "creer-un-compte-bimdata/creer-un-compte-bimdata",
+    },
+    {
+      title: "Tableau de bord",
+      path: "tableau-de-bord/tableau-de-bord",
+    }
+  ];
+}
+
