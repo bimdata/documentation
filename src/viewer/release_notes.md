@@ -1,7 +1,19 @@
 # Release Notes
 
-## v2.16.3
-(2026-02-26)
+## v2.17.0 (2026-04-08)
+
+### Features
+
+ * IFC 2D: new synchronization plugin (with anchors)
+ * Plan: fit view on all plans
+
+### Bugfixes
+
+ * IFC: fix bug in first person view mode
+ * IFC: fix fit view when loading multiple models at once
+ * IFC: improve performance of structure plugin
+
+## v2.16.3 (2026-02-26)
 
 ### Bugfixes
 
@@ -10,8 +22,7 @@
  * Plan: add tooltip on clibration button
  * BCF: avoid error when exporting many topics
 
-## v2.16.2
-(2026-02-10)
+## v2.16.2 (2026-02-10)
 
 ### Bugfixes
 
