@@ -97,7 +97,7 @@
                 step by step.
               </p>
             </div>
-            <RouterLink to="/user-guide/creer-un-compte-bimdata/creer-un-compte-bimdata.html">
+            <RouterLink to="/user-guide/creer-un-compte-bimdata.html">
               <BIMDataButton color="primary" outline width="45px" height="45px">
                 <span class="btn-arrow">
                   <Icon :name="'arrow'" :rotate="180" size="xxs" />
