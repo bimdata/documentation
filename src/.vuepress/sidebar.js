@@ -121,9 +121,27 @@ function getUserGuideSidebar() {
       path: "creer-un-compte-bimdata/creer-un-compte-bimdata",
     },
     {
-      title: "Tableau de bord",
-      path: "tableau-de-bord/tableau-de-bord",
-    }
+      title: "BIMData Platform",
+      children: [
+        "tableau-de-bord/tableau-de-bord",
+        "espace/espace",
+        "compte-de-facturation/compte-de-facturation",
+        "page-projet/page-projet",
+        {
+          title: "GED",
+          children: [
+            "ged/ged",
+            "ged/navigation/navigation",
+            "ged/arborescence/arborescence",
+            "ged/gestion-des-droits-d-acces/gestion-des-droits-d-acces",
+            "ged/visa/visa",
+            "ged/versionning/versionning",
+            "ged/fonctionnalites-avancees/fonctionnalites-avancees",
+          ],
+        },
+        "bcf-plateforme/bcf-plateforme",
+        // "meta-building/meta-building",
+      ],
+    },
   ];
 }
-
