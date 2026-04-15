@@ -8,12 +8,11 @@ Accédez à la gestion/création de vos groupes en haut à droite sur votre page
 
 ![Groupes](/assets/img/user-guide/groupes.png)
 
-Vous pouvez créer des groupes et y ajouter ou supprimer des utilisateurs selon vos besoins. Ces groupes vous permettent d'organiser facilement les droits d'accès pour plusieurs utilisateurs en même temps.
+Vous pouvez créer des groupes et y ajouter ou supprimer des utilisateurs selon vos besoins. La création de groupes est un **pré-requis** pour la gestion des droits d’accès aux dossiers : les permissions se définissent **au niveau des groupes d’utilisateurs**, et non directement utilisateur par utilisateur. Cela permet d’appliquer ou de modifier des droits pour plusieurs personnes en une seule opération.
 
 ## Importation de groupes existants
 
 ![Importer groupes](/assets/img/user-guide/importer-groupes.png)
-
 
 Pour gagner du temps, vous pouvez également importer les groupes utilisateurs d'autres projets dans lesquels vous êtes administrateur. Pour cela, cliquez sur **"Importer un groupe"**, en haut à droite de la page **"Gestion des groupes"**, et sélectionnez les groupes que vous souhaitez intégrer.
 

@@ -1,6 +1,6 @@
 # Visa
 
-La fonctionnalité **VISA** de la plateforme BIMData permet une meilleure gestion des processus de validation de vos documents.
+La fonctionnalité **VISA** permet de gérer une validation **simple** des documents dans BIMData. Elle sert à centraliser les échanges et le statut de validation autour d’un fichier. **À ce stade, aucun workflow automatisé n’est intégré** : le VISA repose sur une utilisation flexible (soumission, suivi, commentaires) et a vocation à être **enrichi progressivement**.
 
 ## Accès à la fonctionnalité VISA
 

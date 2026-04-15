@@ -130,7 +130,7 @@ function getUserGuideSidebar() {
         {
           title: "GED",
           children: [
-            "bimdata-platform/ged/ged",
+            "bimdata-platform/ged/introduction",
             "bimdata-platform/ged/navigation",
             "bimdata-platform/ged/arborescence",
             "bimdata-platform/ged/gestion-des-droits-d-acces",
