@@ -63,7 +63,7 @@ L’onglet **Archives** permet de gérer l’**archivage** des modèles : vous p
 
 ### Structurer un bâtiment avec MetaBuilding
 Le Gestionnaire de modèles permet aussi de créer et gérer des **MetaBuilding** : une **arborescence de bâtiment** (par exemple Bâtiment → Niveaux/étages → lots) pour **classer vos documents** au bon endroit.
- > **_Exemple:_** : ranger le **plan PDF de l’étage 1** dans le nœud Étage 1, puis faire de même pour chaque niveau.
+ > **_Exemple:_** ranger le **plan PDF de l’étage 1** dans le nœud Étage 1, puis faire de même pour chaque niveau.
 
 ### Gérer les photosphères
 Les **photosphères** sont également accessibles depuis cette vue et peuvent être **visualisées** via le **viewer photosphère**.
