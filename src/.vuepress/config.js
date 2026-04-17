@@ -13,6 +13,7 @@ module.exports = {
       { text: "API", link: "/api/introduction/overview.html" },
       { text: "Viewer", link: "/viewer/" },
       { text: "On Premises", link: "/on-premises/getting_started.html" },
+      { text: "User Guide", link: "/user-guide/creer-un-compte-bimdata.html" },
     ],
     sidebar,
     searchPlaceholder: "Search",

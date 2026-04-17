@@ -2,126 +2,213 @@
   <div class="bimdata-documentation__home">
     <Navbar />
     <section class="bimdata-documentation__home__header m-b-48">
-      <h1 class="bimdata-h1">Documentation</h1>
-      <div class="home_illustration flex items-center justify-center m-b-18">
-        <img :src="$withBase('/assets/img/home_illu.svg')" alt="" />
+      <div class="home_title flex">
+        <h1 class="bimdata-h1">Documentation</h1>
+        <h3>Go from idea to integration: guides, APIs, and examples.</h3>
       </div>
       <div class="home_links flex justify-center">
-        <BIMDataCard>
+        <BIMDataCard borderRadius="8px">
           <template #content>
-            <img :src="$withBase('/assets/img/bimdata_icon-viewer.svg')" alt="" />
-            <h3 class="color-primary">Viewer</h3>
-            <p>BIMData provides you a customizable 3D Viewer, to see and manipulate your models.</p>
-            <RouterLink to="/viewer/">
-              <BIMDataButton width="165px" color="primary" fill radius>Viewer</BIMDataButton>
-            </RouterLink>
-          </template>
-        </BIMDataCard>
-        <BIMDataCard>
-          <template #content>
-            <img :src="$withBase('/assets/img/bimdata_icon-api.svg')" alt="" />
-            <h3 class="color-primary">API</h3>
-            <p>
-              BIMData's API provides you tools to upload IFCs, manage your files and retreive your
-              model data.
-            </p>
+            <img
+              :src="$withBase('/assets/img/bimdata_icon-api.png')"
+              alt=""
+              height="111px"
+              width="144px"
+            />
+            <div>
+              <h3 class="color-primary">API</h3>
+              <p>
+                BIMData’s API gives you the tools to upload and manage your project models (IFC,
+                PDFs, DWGs, point clouds, and 360° photos) and retrieve structured data from them.
+              </p>
+            </div>
             <RouterLink to="/api/introduction/overview">
-              <BIMDataButton width="165px" color="primary" fill radius>API</BIMDataButton>
+              <BIMDataButton color="primary" outline width="45px" height="45px">
+                <span class="btn-arrow">
+                  <Icon :name="'arrow'" :rotate="180" size="xxs" />
+                </span>
+                <span class="btn-text m-l-12">Voir plus</span>
+              </BIMDataButton>
             </RouterLink>
           </template>
         </BIMDataCard>
-        <BIMDataCard>
+        <BIMDataCard borderRadius="8px">
           <template #content>
-            <img :src="$withBase('/assets/img/bimdata_icon-on_premises.svg')" alt="" />
-            <h3 class="color-primary">On-Premises</h3>
-            <p>
-              BIMData's On-Premises provides you the possibility to host our solutions on your
-              servers.
-            </p>
+            <img
+              :src="$withBase('/assets/img/bimdata_icon-viewer.png')"
+              alt=""
+              height="111px"
+              width="170px"
+            />
+            <div>
+              <h3 class="color-primary">Viewer</h3>
+              <p>
+                BIMData offers a customizable 3D viewer that lets you view, inspect, and manipulate
+                your models in real time.
+              </p>
+            </div>
+            <RouterLink to="/viewer/">
+              <BIMDataButton color="primary" outline width="45px" height="45px">
+                <span class="btn-arrow">
+                  <Icon :name="'arrow'" :rotate="180" size="xxs" />
+                </span>
+                <span class="btn-text m-l-12">Voir plus</span>
+              </BIMDataButton>
+            </RouterLink>
+          </template>
+        </BIMDataCard>
+        <BIMDataCard borderRadius="8px">
+          <template #content>
+            <img
+              :src="$withBase('/assets/img/bimdata_icon-on_premises.png')"
+              alt=""
+              height="111px"
+              width="140px"
+            />
+            <div>
+              <h3 class="color-primary">On-Premises</h3>
+              <p>
+                BIMData's On-Premises provides you the possibility to host our solutions on your
+                servers.
+              </p>
+            </div>
             <RouterLink to="/on-premises/getting_started.html">
-              <BIMDataButton width="165px" color="primary" fill radius>On-Premises</BIMDataButton>
+              <BIMDataButton color="primary" outline width="45px" height="45px">
+                <span class="btn-arrow">
+                  <Icon :name="'arrow'" :rotate="180" size="xxs" />
+                </span>
+                <span class="btn-text m-l-12">Voir plus</span>
+              </BIMDataButton>
+            </RouterLink>
+          </template>
+        </BIMDataCard>
+        <BIMDataCard borderRadius="8px">
+          <template #content>
+            <img
+              :src="$withBase('/assets/img/bimdata_icon-user_guide.png')"
+              alt=""
+              height="104px"
+              width="154px"
+            />
+            <div>
+              <h3 class="color-primary">User-Guide</h3>
+              <p>
+                User guides help you get started with BIMData and walk you through key workflows
+                step by step.
+              </p>
+            </div>
+            <RouterLink to="/user-guide/creer-un-compte-bimdata.html">
+              <BIMDataButton color="primary" outline width="45px" height="45px">
+                <span class="btn-arrow">
+                  <Icon :name="'arrow'" :rotate="180" size="xxs" />
+                </span>
+                <span class="btn-text m-l-12">Voir plus</span>
+              </BIMDataButton>
             </RouterLink>
           </template>
         </BIMDataCard>
       </div>
     </section>
     <section class="bimdata-documentation__home__content m-b-48">
-      <h2 class="bimdata-h2">How Can We Help?</h2>
-      <p class="color-granite">
-        Here are a few items we think might help you get started faster with BIMData.io depending on
-        your needs.
-      </p>
-      <div class="flex justify-center m-t-30">
-        <BIMDataCard class="m-r-12" borderRadius="6px">
+      <div class="home_title flex">
+        <h2 class="bimdata-h2">How Can We Help?</h2>
+        <p class="color-granite">
+          Here are a few items we think might help you get started faster with BIMData.io depending
+          on your needs.
+        </p>
+      </div>
+
+      <div class="cards flex justify-center">
+        <BIMDataCard borderRadius="6px">
           <template #content>
-            <div class="flex items-center justify-center m-b-24">
+            <div class="flex m-r-24">
               <img :src="$withBase('/assets/img/bimdata_icon-ifc.svg')" alt="" />
             </div>
-            <h4 class="color-primary">IFC</h4>
-            <p>
-              Build BIM tools by freeing yourself from technical complexity to focus on your
-              business.
-            </p>
-            <a
-              href="https://developers-staging.bimdata.io/api/introduction/overview.html#apis"
-              target="_blank"
-            >
-              <BIMDataButton width="125px" color="secondary" fill radius>Learn more</BIMDataButton>
-            </a>
-          </template>
-        </BIMDataCard>
-        <BIMDataCard class="m-r-12" borderRadius="6px">
-          <template #content>
-            <div class="flex items-center justify-center m-b-24">
-              <img :src="$withBase('/assets/img/bimdata_icon-bcf.svg')" alt="" />
+            <div class="flex flex-col items-start">
+              <h4 class="color-primary">IFC</h4>
+              <p>
+                Build BIM tools by freeing yourself from technical complexity to focus on your
+                business.
+              </p>
+              <a
+                href="https://developers-staging.bimdata.io/api/introduction/overview.html#apis"
+                target="_blank"
+              >
+                <BIMDataButton class="btn-tertiary" width="125px" color="primary" outline
+                  >Learn more</BIMDataButton
+                >
+              </a>
             </div>
-            <h4 class="color-primary">BCF</h4>
-            <p>Access, create, share, export your BCFs with our BCF API.</p>
-            <a
-              href="https://developers-staging.bimdata.io/api/introduction/overview.html#apis"
-              target="_blank"
-            >
-              <BIMDataButton width="125px" color="secondary" fill radius>Explore</BIMDataButton>
-            </a>
-          </template>
-        </BIMDataCard>
-        <BIMDataCard class="m-r-12" borderRadius="6px">
-          <template #content>
-            <div class="flex items-center justify-center m-b-24">
-              <img :src="$withBase('/assets/img/bimdata_icon-open_source.svg')" alt="" />
-            </div>
-            <h4 class="color-primary">Open source</h4>
-            <p>You can install our platform on your own server.</p>
-            <a href="https://github.com/bimdata/platform-next" target="_blank">
-              <BIMDataButton width="125px" color="secondary" fill radius>Discover</BIMDataButton>
-            </a>
-          </template>
-        </BIMDataCard>
-        <BIMDataCard class="m-r-12" borderRadius="6px">
-          <template #content>
-            <div class="flex items-center justify-center m-b-24">
-              <img :src="$withBase('/assets/img/bimdata_icon-plugin.svg')" alt="" />
-            </div>
-            <h4 class="color-primary">Plugin</h4>
-            <p>Develop your own plugins to increase the efficiency of your tools.</p>
-            <a
-              href="https://developers-staging.bimdata.io/viewer/customize_the_ui.html#plugin"
-              target="_blank"
-            >
-              <BIMDataButton width="125px" color="secondary" fill radius>Try</BIMDataButton>
-            </a>
           </template>
         </BIMDataCard>
         <BIMDataCard borderRadius="6px">
           <template #content>
-            <div class="flex items-center justify-center m-b-24">
-              <img :src="$withBase('/assets/img/bimdata_icon-viewer_sdk.svg')" alt="" />
+            <div class="flex m-r-24">
+              <img :src="$withBase('/assets/img/bimdata_icon-bcf.svg')" alt="" />
             </div>
-            <h4 class="color-primary">Viewer SDK</h4>
-            <p>You can develop, test, build, package and share your plugin easily.</p>
-            <RouterLink to="/viewer/viewer_sdk.html">
-              <BIMDataButton width="125px" color="secondary" fill radius>Explore</BIMDataButton>
-            </RouterLink>
+            <div class="flex flex-col items-start">
+              <h4 class="color-primary">BCF</h4>
+              <p>Access, create, share, export your BCFs with our BCF API.</p>
+              <a
+                href="https://developers-staging.bimdata.io/api/introduction/overview.html#apis"
+                target="_blank"
+              >
+                <BIMDataButton class="btn-tertiary" width="125px" color="primary" outline
+                  >Explore</BIMDataButton
+                >
+              </a>
+            </div>
+          </template>
+        </BIMDataCard>
+        <BIMDataCard borderRadius="6px">
+          <template #content>
+            <div class="flex m-r-24">
+              <img :src="$withBase('/assets/img/bimdata_icon-open_source.svg')" alt="" />
+            </div>
+            <div class="flex flex-col items-start">
+            <h4 class="color-primary">Open source</h4>
+            <p>You can install our platform on your own server.</p>
+            <a href="https://github.com/bimdata/platform-next" target="_blank">
+              <BIMDataButton class="btn-tertiary" width="125px" color="primary" outline
+                >Discover</BIMDataButton
+              >
+            </a>
+            </div>
+          </template>
+        </BIMDataCard>
+        <BIMDataCard borderRadius="6px">
+          <template #content>
+            <div class="flex m-r-24">
+              <img :src="$withBase('/assets/img/bimdata_icon-plugins.svg')" alt="" />
+            </div>
+            <div class="flex flex-col items-start">
+              <h4 class="color-primary">Plugin</h4>
+              <p>Develop your own plugins to increase the efficiency of your tools.</p>
+              <a
+                href="https://developers-staging.bimdata.io/viewer/customize_the_ui.html#plugin"
+                target="_blank"
+              >
+                <BIMDataButton class="btn-tertiary" width="125px" color="primary" outline
+                  >Try</BIMDataButton
+                >
+              </a>
+            </div>
+          </template>
+        </BIMDataCard>
+        <BIMDataCard borderRadius="6px">
+          <template #content>
+            <div class="flex m-r-24">
+              <img :src="$withBase('/assets/img/bimdata_icon-sdk.svg')" alt="" />
+            </div>
+            <div class="flex flex-col items-start">
+              <h4 class="color-primary">Viewer SDK</h4>
+              <p>You can develop, test, build, package and share your plugin easily.</p>
+              <RouterLink to="/viewer/viewer_sdk.html">
+                <BIMDataButton class="btn-tertiary" width="125px" color="primary" outline
+                  >Explore</BIMDataButton
+                >
+              </RouterLink>
+            </div>
           </template>
         </BIMDataCard>
       </div>
@@ -181,7 +268,6 @@
 
 <script>
 import { BIMDataButton, BIMDataCard } from "@bimdata/design-system";
-//import BIMDataCard from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataCard.js";
 
 import Navbar from "@vuepress/theme-default/components/Navbar.vue";
 
@@ -198,6 +284,25 @@ export default {
 @import "../../../node_modules/@bimdata/design-system/dist/css/design-system.css";
 @import "../../../node_modules/@bimdata/design-system/dist/scss/_BIMDataVariables.scss";
 .bimdata-documentation__home {
+  .home_title {
+    justify-content: center;
+    flex-direction: column;
+    width: 83vw;
+    align-items: flex-start;
+    margin: auto;
+    h1 {
+      font-size: 43px;
+      margin-bottom: 0;
+    }
+    h2 {
+      font-size: 25px;
+    }
+    h3 {
+      font-size: 18px;
+      color: #205dbd;
+      border: none;
+    }
+  }
   /* custom HEADER HOME */
   &__header {
     margin-top: calc(60px + 34px);
@@ -205,42 +310,50 @@ export default {
       text-align: center;
     }
     .home_links {
-      width: 100%;
+      gap: 12px;
+      width: 83vw;
+      margin: auto;
+      justify-content: space-between;
       .bimdata-card {
-        margin-right: 53px;
-        padding: 16px;
-        max-width: 330px;
-        text-align: center;
-        img {
-          margin: auto;
-          height: 220px;
+        padding: 8px;
+        flex: 1;
+        box-shadow: none;
+        border: 1px solid #d8d8d8;
+        :deep(.bimdata-card__content) {
+          height: 410px;
           display: flex;
-          align-items: center;
-          justify-content: center;
+          flex-direction: column;
+          justify-content: space-around;
         }
         h3 {
+          margin: 0;
           position: relative;
-          &::after {
-            content: "";
-            position: absolute;
-            width: 16px;
-            height: 2px;
-            bottom: -7px;
-            left: calc(50% - (16px / 2));
-            background-color: $color-secondary;
-          }
+          font-size: 33px;
         }
         p {
-          margin: 18px 0;
+          margin: 12px 0 0;
           min-height: 60px;
           display: flex;
           align-items: center;
+          font-size: 16px;
+          line-height: 24px;
         }
         .bimdata-btn {
-          margin: auto;
-        }
-        &:last-child {
-          margin-right: 0;
+          border-radius: 50px;
+          transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+          .btn-text {
+            display: none;
+          }
+          &:hover {
+            width: 145px;
+            background-color: $color-primary;
+            color: $color-white;
+            transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+            .btn-text {
+              display: inline;
+              transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+            }
+          }
         }
       }
     }
@@ -262,31 +375,44 @@ export default {
   }
   /* custom CONTENT HOME */
   &__content {
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 38px;
+      width: 83vw;
+      margin: 30px auto;
+      justify-content: flex-start;
+    }
     .bimdata-card {
-      padding: 16px;
-      width: 204px;
-      border: 1px solid $color-tertiary-lightest;
+      width: 375px;
+      border: none;
       box-shadow: none;
       transition: all ease 0.2s;
+      :deep(.bimdata-card__content) {
+        display: flex;
+      }
       .flex {
-        height: 47px;
         img {
           height: 40px;
         }
       }
       h4 {
-        margin-bottom: 12px;
+        margin: 0 0 12px;
       }
       p {
         margin-bottom: 12px;
-        min-height: 85px;
+        text-align: left;
       }
-      .bimdata-btn {
-        margin: auto;
-      }
-      &:hover {
-        box-shadow: 0px 2px 10px rgba($color-black, 0.1);
-        transition: all ease 0.2s;
+      .btn-tertiary {
+        border-radius: 50px;
+        border-color: #205dbd;
+        color: #205dbd;
+        transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+        &:hover {
+          background-color: #205dbd;
+          color: $color-white;
+          transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+        }
       }
     }
   }
