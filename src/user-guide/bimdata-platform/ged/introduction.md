@@ -8,4 +8,4 @@ Un processus de **VISA** est également disponible pour encadrer la validation d
 
 Enfin, l’accès aux documents est encadré par une **gestion des droits**. Selon votre rôle et les permissions définies au niveau de l’espace et/ou du projet, vous pouvez consulter, ajouter, modifier, supprimer ou télécharger des fichiers. Cette gestion permet d’adapter l’accès à la GED aux responsabilités de chacun et de limiter les actions sensibles aux personnes autorisées.
 
-![GED](/assets/img/user-guide/ged.png)
+![GED](/images/user-guide/ged.png)

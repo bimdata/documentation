@@ -1,0 +1,14 @@
+@import "../../../node_modules/@bimdata/design-system/src/assets/css/design-system.css";
+
+.VPImage.logo {
+  height: 38px !important;
+}
+
+.VPHome {
+  margin-bottom: 0 !important;
+}
+
+.VPHome .container {
+  max-width: none !important;
+  padding: 0 !important;
+}

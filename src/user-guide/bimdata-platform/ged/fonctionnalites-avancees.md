@@ -4,7 +4,7 @@ La plateforme BIMData propose plusieurs fonctionnalités pratiques pour gérer v
 
 ## Importer la structure d’un autre projet
 
-![Importer GED](/assets/img/user-guide/importer-ged.png)
+![Importer GED](/images/user-guide/importer-ged.png)
 
 Si vous êtes administrateur, vous pouvez importer la structure de fichiers d’un autre projet situé dans le même espace de travail :
 
@@ -15,7 +15,7 @@ Si vous êtes administrateur, vous pouvez importer la structure de fichiers d’
 
 ## Charger un dossier via drag and drop
 
-![Importer dossier](/assets/img/user-guide/importer-dossier.png)
+![Importer dossier](/images/user-guide/importer-dossier.png)
 
 La plateforme simplifie l’importation en vous permettant de **glisser-déposer** vos dossiers directement dans l’interface de la GED.
 

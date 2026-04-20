@@ -1,5 +1,14 @@
 # Getting started
 
+<script setup>
+import BIMDataIconFileDwg from "../.vitepress/components/BIMDataIconFileDwg.vue";
+import BIMDataIconFileDxf from "../.vitepress/components/BIMDataIconFileDxf.vue";
+import BIMDataIconFileIfc from "../.vitepress/components/BIMDataIconFileIfc.vue";
+import BIMDataIconFilePlan from "../.vitepress/components/BIMDataIconFilePlan.vue";
+import BIMDataIconFilePointCloud from "../.vitepress/components/BIMDataIconFilePointCloud.vue";
+import ViewerMainPage from "../.vitepress/components/ViewerMainPage.vue";
+</script>
+
 ## Introduction
 
 The BIMData Viewer is a tool for interacting with models of different formats like :
@@ -23,11 +32,9 @@ However, you don't need to master Vue.js to develop a plugin and you can still u
 
 You can directly download the BIMDataViewer from a **CDN** or you can install the [`@bimdata/viewer` package](https://www.npmjs.com/package/@bimdata/viewer) using **NPM**.
 
-<code-group>
+::: code-group
 
-<code-block title="CDN" active>
-
-```html
+```html [CDN]
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -59,11 +66,8 @@ You can directly download the BIMDataViewer from a **CDN** or you can install th
   </body>
 </html>
 ```
-</code-block>
 
-<code-block title="NPM">
-
-```html
+```html [NPM]
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -95,6 +99,4 @@ You can directly download the BIMDataViewer from a **CDN** or you can install th
   </body>
 </html>
 ```
-</code-block>
-
-</code-group>
+:::

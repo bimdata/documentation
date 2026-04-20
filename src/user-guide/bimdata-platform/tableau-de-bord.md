@@ -2,7 +2,7 @@
 
 La page d'accueil de la plateforme se présente sous la forme d'un tableau de bord. Vous y trouverez un accès direct à vos espaces et projets récents.
 
-![Dashboard plateforme](/assets/img/user-guide/dashboard.png)
+![Dashboard plateforme](/images/user-guide/dashboard.png)
 
 ### Espace de démo
 

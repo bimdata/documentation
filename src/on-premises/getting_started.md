@@ -48,4 +48,4 @@ They can also use some optional components:
 There are a lot of different components, it can be complicated to understand their interactions,
 so we hope this diagram can help you to apprehend the different network flows:
 
-![Diagram showing the communication between the different components](/assets/img/on-premises/Onpremise-network_flow.png)
+![Diagram showing the communication between the different components](/images/on-premises/Onpremise-network_flow.png)

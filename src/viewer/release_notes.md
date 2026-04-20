@@ -785,10 +785,9 @@ Major features:
 
 #### ES Module
 
-<code-group>
-<code-block title="Version 0.x">
+::: code-group
 
-```javascript
+```javascript [Version 0.x]
 import BIMDataViewer from "@bimdata/viewer";
 
 const cfg = {
@@ -802,12 +801,10 @@ const cfg = {
     }
 };
 const accessToken = 'DEMO_TOKEN';
-const {viewer, store, eventHub, setAccessToken} = initBIMDataViewer('app', accessToken, cfg);
+const { viewer, store, eventHub, setAccessToken } = initBIMDataViewer('app', accessToken, cfg);
 ```
-</code-block>
-<code-block title="Version 1.x">
 
-```javascript
+```javascript [Version 1.x]
 import makeBIMDataViewer from "@bimdata/viewer";
 
 const bimdataViewer = makeBIMDataViewer({
@@ -829,10 +826,8 @@ const bimdataViewer = makeBIMDataViewer({
 
 const vm = bimdataViewer.mount("#app");
 ```
-</code-block>
-<code-block title="Both">
 
-```javascript
+```javascript [Both]
 /******* VERSION 0.X *******/
 
 import BIMDataViewer from "@bimdata/viewer";
@@ -848,7 +843,7 @@ const cfg = {
     }
 };
 const accessToken = 'DEMO_TOKEN';
-const {viewer, store, eventHub, setAccessToken} = initBIMDataViewer('app', accessToken, cfg);
+const { viewer, store, eventHub, setAccessToken } = initBIMDataViewer('app', accessToken, cfg);
 
 /******* VERSION 1.X *******/
 
@@ -873,70 +868,55 @@ const bimdataViewer = makeBIMDataViewer({
 
 const vm = bimdataViewer.mount("#app");
 ```
-</code-block>
-
-</code-group>
+:::
 
 #### Script tag
 
 
-<code-group>
-<code-block title="Version 0.x">
+::: code-group
 
-```html
+```html [Version 0.x]
 <script src="https://unpkg.com/@bimdata/viewer@^0.8.22/dist/bimdata-viewer.min.js" charset="utf-8"></script>
 ```
-</code-block>
-<code-block title="Version 1.x">
 
-```html
+```html [Version 1.x]
 <script src="https://cdn.jsdelivr.net/npm/@bimdata/viewer@1.9.3" charset="utf-8"></script>
 ```
-</code-block>
-</code-group>
+:::
 
 #### Refresh access token
 
-<code-group>
-<code-block title="Version 0.x">
+::: code-group
 
-```javascript
+```javascript [Version 0.x]
 const {viewer, store, eventHub, setAccessToken} = initBIMDataViewer('app', accessToken, cfg);
 setAccessToken(newToken);
 ```
-</code-block>
-<code-block title="Version 1.x">
 
-```javascript
+```javascript [Version 1.x]
 bimdataViewer.setAccessToken(newToken);
 ```
-</code-block>
-</code-group>
+:::
 
 #### Change language
 
-<code-group>
-<code-block title="Version 0.x">
+::: code-group
 
-```javascript
+```javascript [Version 0.x]
 const {viewer, store, eventHub, setAccessToken} = initBIMDataViewer('app', accessToken, cfg);
 viewer.$i18n.locale = locale;
 ```
-</code-block>
-<code-block title="Version 1.x">
 
-```javascript
+```javascript [Version 1.x]
 viewerVm.$i18n.locale = locale;
 ```
-</code-block>
-</code-group>
+:::
 
 ### Plugin configuration file
 
-<code-group>
-<code-block title="Version 0.x">
+::: code-group
 
-```javascript
+```javascript [Version 0.x]
 export default {
   name: "bimObjectPlugin",
   component: BimobjectComponent,
@@ -961,10 +941,8 @@ export default {
   },
 };
 ```
-</code-block>
-<code-block title="Version 1.x">
 
-```javascript
+```javascript [Version 1.x]
 export default {
   name: "bimObjectPlugin",
   component: BimobjectComponent,
@@ -990,10 +968,8 @@ export default {
   },
 };
 ```
-</code-block>
-<code-block title="Both">
 
-```javascript
+```javascript [Both]
 /******* VERSION 0.X *******/
 
 export default {
@@ -1047,8 +1023,7 @@ export default {
   },
 };
 ```
-</code-block>
-</code-group>
+:::
 
 ### Plugin API
 
@@ -1062,58 +1037,46 @@ Version 0.x used objects `uuids` as `id`. To handle identical `uuids` (eg: in mo
 There are `uuids` utilities. See the [state reference](/viewer/reference/state.html#ids-and-uuids).
 :::
 
-<code-group>
-<code-block title="Version 0.x">
+::: code-group
 
-```javascript
+```javascript [Version 0.x]
 this.$hub.on("select-objects", ({ ids }) => { /* Do something with ids. */ });
 ```
-</code-block>
-<code-block title="Version 1.x">
 
-```javascript
+```javascript [Version 1.x]
 this.$viewer.state.hub.on("objects-selected", ({ objects }) => { /* Do something with objects. */ });
 ```
-</code-block>
-</code-group>
+:::
 
 #### Setters
 
-<code-group>
-<code-block title="Version 0.x">
+::: code-group
 
-```javascript
+```javascript [Version 0.x]
 this.$hub.emit("select-objects", { ids: [/* object ids to be selected */] });
 ```
-</code-block>
-<code-block title="Version 1.x">
 
-```javascript
+```javascript [Version 1.x]
 this.$viewer.state.selectObjects([/* object ids to be selected */]);
 ```
-</code-block>
-</code-group>
+:::
 
 #### Getters
 
-<code-group>
-<code-block title="Version 0.x">
+::: code-group
 
-```javascript
+```javascript [Version 0.x]
 this.$utils.getCloudId();
 this.$utils.getProjectId();
 this.$utils.getAccessToken();
 ```
-</code-block>
-<code-block title="Version 1.x">
 
-```javascript
+```javascript [Version 1.x]
 this.$viewer.api.cloudId;
 this.$viewer.api.projectId;
 this.$viewer.api.accessToken;
 ```
-</code-block>
-</code-group>
+:::
 
 ::: tip
 - [$viewer reference](/viewer/reference/$viewer.html#viewer).
@@ -1122,43 +1085,35 @@ this.$viewer.api.accessToken;
 
 #### BIMData API Client
 
-<code-group>
-<code-block title="Version 0.x">
+::: code-group
 
-```javascript
+```javascript [Version 0.x]
 const apiClient = new this.$bimdataApiClient.IfcApi();
 ```
-</code-block>
-<code-block title="Version 1.x">
 
-```javascript
+```javascript [Version 1.x]
 const apiClient = new this.$viewer.api.apiClient.IfcApi();
 // All API calls are the same
 ```
-</code-block>
-</code-group>
+:::
 
 #### Structure helpers
 
-<code-group>
-<code-block title="Version 0.x">
+::: code-group
 
-```javascript
+```javascript [Version 0.x]
 this.$utils.getObjectParent(id);
 this.$utils.getObjectSpace(id);
 this.$utils.getObjectAncestorByType(id, type);
 ```
-</code-block>
-<code-block title="Version 1.x">
 
-```javascript
+```javascript [Version 1.x]
 // structure methods are now object's methods
 object.parent;
 object.space;
 object.getFirstAncestorWithType(type);
 ```
-</code-block>
-</code-group>
+:::
 
 ::: tip
 See [state object reference](/viewer/reference/state.html#object).
@@ -1166,65 +1121,53 @@ See [state object reference](/viewer/reference/state.html#object).
 
 #### Model Loading
 
-<code-group>
-<code-block title="Version 0.x">
+::: code-group
 
-```javascript
+```javascript [Version 0.x]
 this.$utils.loadIfc(ifcs);
 this.$utils.unloadIfc(ifcs);
 
 const loadedIfc = this.$utils.getSelectedIfcs()[0];
 ```
-</code-block>
-<code-block title="Version 1.x">
 
-```javascript
+```javascript [Version 1.x]
 await this.$viewer.state.loadIfcs([ifcIds]);
 // Resolve when ifcs are added in the state, not when the 3D viewer has loaded them
 this.$viewer.state.unloadIfcs([ifcIds]);
 
 const loadedIfc = this.$viewer.state.ifcs[0];
 ```
-</code-block>
-</code-group>
+:::
 
 #### Error message
 
-<code-group>
-<code-block title="Version 0.x">
+::: code-group
 
-```javascript
+```javascript [Version 0.x]
 this.$hub.emit("alert", {
   type: "success",
   message: this.$t("successMessage"),
 });
 ```
-</code-block>
-<code-block title="Version 1.x">
 
-```javascript
+```javascript [Version 1.x]
 this.$viewer.localContext.hub.emit("alert", {
   type: "success",
   message: this.$t("bimObjectPlugin.successMessage"),
 });
 ```
-</code-block>
-</code-group>
+:::
 
 
 #### Modals
 
-<code-group>
-<code-block title="Version 0.x">
+::: code-group
 
-```javascript
+```javascript [Version 0.x]
 this.$plugins.modalManager.pushModal(modal);
 ```
-</code-block>
-<code-block title="Version 1.x">
 
-```javascript
+```javascript [Version 1.x]
 this.$viewer.globalContext.modals.pushModal(modal);
 ```
-</code-block>
-</code-group>
+:::

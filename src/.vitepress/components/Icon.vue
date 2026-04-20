@@ -12,7 +12,7 @@ export default {
   props: {
     name: String,
     size: String,
-    rotate: Number
+    rotate: Number,
   }
 }
 </script>

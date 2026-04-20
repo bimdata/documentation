@@ -2,7 +2,7 @@
 
 ### Créer des dossiers et importer des fichiers dans la GED
 
-![Arborescence](/assets/img/user-guide/arborescence.png)
+![Arborescence](/images/user-guide/arborescence.png)
 
 La **GED BIMData** permet une organisation efficace de vos documents grâce à la création de dossiers et l’importation de fichiers.
 

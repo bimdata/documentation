@@ -1,6 +1,6 @@
 <template>
     <div class="bimdata-viewer-main-page">
-        <RouterLink to="/viewer/guide" style="text-decoration: none; color: inherit; flex: 0 32%;">
+        <a href="/viewer/guide" style="text-decoration: none; color: inherit; flex: 0 32%;">
             <div class="bimdata-viewer-main-page__card">
                 <div class="bimdata-viewer-main-page__card__title">Guide</div>
                 <div class="bimdata-viewer-main-page__card__emoji">🗺️</div>
@@ -8,8 +8,8 @@
                     The guide walks you through every aspect of the BIMDataViewer in full detail.
                 </div>
             </div>
-        </RouterLink>
-        <RouterLink to="/viewer/examples" style="text-decoration: none; color: inherit; flex: 0 32%;">
+        </a>
+        <a href="/viewer/examples" style="text-decoration: none; color: inherit; flex: 0 32%;">
             <div class="bimdata-viewer-main-page__card">
                 <div class="bimdata-viewer-main-page__card__title">Examples</div>
                 <div class="bimdata-viewer-main-page__card__emoji">🏗️</div>
@@ -17,8 +17,8 @@
                     A series of practical examples to help you learn how to use the BIMDataViewer.
                 </div>
             </div>
-        </RouterLink>
-        <RouterLink to="/viewer/reference" style="text-decoration: none; color: inherit; flex: 0 32%;">
+        </a>
+        <a href="/viewer/reference" style="text-decoration: none; color: inherit; flex: 0 32%;">
             <div class="bimdata-viewer-main-page__card">
                 <div class="bimdata-viewer-main-page__card__title">Reference</div>
                 <div class="bimdata-viewer-main-page__card__emoji">📚</div>
@@ -26,7 +26,7 @@
                     The detailed API reference of the BIMDataViewer.
                 </div>
             </div>
-        </RouterLink>
+        </a>
     </div>
 </template>
 

@@ -6,12 +6,12 @@ This guide shows how to quickly customize the existing BIMDataViewer UI.
 
 As the name suggests, the [**Header**](../reference/header.html) is located at the top of the BIMDataViewer. [**Windows**](../reference/window.html) share the remaining space.
 
-<img width=500px src="/assets/img/viewer/viewer-gui-header-and-windows.png" alt="Viewer GUI with windows and header.">
+<img width=500px src="/images/viewer/viewer-gui-header-and-windows.png" alt="Viewer GUI with windows and header.">
 
 
 Different layouts can be created, with or without [**Header**](../reference/header.html), and with as many [**Windows**](../reference/window.html) as required.
 
-<img width=500px src="/assets/img/viewer/viewer-gui-layouts.png" alt="Viewer GUI layouts.">
+<img width=500px src="/images/viewer/viewer-gui-layouts.png" alt="Viewer GUI layouts.">
 
 It is possible to completly remove the [**Header**](../reference/header.html) using the `ui` property of the [`makeBIMDataViewer`](../reference/makeBIMDataViewer.html) configuration parameter:
 
@@ -52,7 +52,7 @@ bimdataViewer.mount("#viewer", layout);
 
 And you get the following layout:
 
-<img width=400px src="/assets/img/viewer/layout-with-window-names.png" alt="Viewer layout with window names">
+<img width=400px src="/images/viewer/layout-with-window-names.png" alt="Viewer layout with window names">
 
 ## BIMData Logo and Viewer Version
 

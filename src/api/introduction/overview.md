@@ -7,7 +7,7 @@ BIMData API is a tool to interact with your models stored on BIMData’s servers
 - Upload IFC, DWG, PDF, plan images
 - Request data from clouds, projects, and models
 
-![all API features](/assets/img/api/API-features.png)
+![all API features](/images/api/API-features.png)
 
 ## APIs
 
