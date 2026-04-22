@@ -1,7 +1,7 @@
 @import "../../../node_modules/@bimdata/design-system/src/assets/css/design-system.css";
 
 .VPImage.logo {
-  height: 38px !important;
+  height: 36px !important;
 }
 
 .VPHome {
@@ -11,4 +11,14 @@
 .VPHome .container {
   max-width: none !important;
   padding: 0 !important;
+}
+
+.VPDoc .container:has(#bimdata-doc-swagger-ui) {
+  .aside {
+    display: none;
+  }
+  
+  .content .content-container {
+    max-width: none;
+  }
 }

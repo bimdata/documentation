@@ -21,14 +21,14 @@ You may need to modify it to suit your needs.
   - You must be sudo / root on the servers.
 
 ## Environment
-This quickstart uses Ansible to install Docker, Docker-compose, and the Bimdata
+This quickstart uses Ansible to install Docker, Docker-compose, and the BIMData
 applications on the configured servers.
 This doesn't support HA deployment currently.
 
 ## How to start
 ### The easy way
 We provide a script to simplify the Ansible usage. Keep in mind that it will not let
-you completely personalize how you want to install the Bimdata.io apps.
+you completely personalize how you want to install the BIMData.io apps.
 
 Clone the repository:
 ```

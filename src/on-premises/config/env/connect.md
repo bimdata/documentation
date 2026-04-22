@@ -1,13 +1,13 @@
-# Bimdata Connect
+# BIMData Connect
 
-## URLs of Bimdata apps
+## URLs of BIMData apps
 
 | Variables    | Default value | Description                |
 |--------------|---------------|----------------------------|
-| SITE_URL     | ""            | Bimdata Connect URL.       |
-| API_URL      | ""            | Bimdata API URL.           |
-| DOC_URL      | ""            | Bimdata Documentation URL. |
-| PLATFORM_URL | ""            | Bimdata Platform URL.      |
+| SITE_URL     | ""            | BIMData Connect URL.       |
+| API_URL      | ""            | BIMData API URL.           |
+| DOC_URL      | ""            | BIMData Documentation URL. |
+| PLATFORM_URL | ""            | BIMData Platform URL.      |
 
 ## Database configuration
 There variables are needed for the database authentication.

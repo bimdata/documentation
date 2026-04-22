@@ -1,82 +1,80 @@
 <template>
-    <div class="bimdata-viewer-main-page">
-        <a href="/viewer/guide" style="text-decoration: none; color: inherit; flex: 0 32%;">
-            <div class="bimdata-viewer-main-page__card">
-                <div class="bimdata-viewer-main-page__card__title">Guide</div>
-                <div class="bimdata-viewer-main-page__card__emoji">🗺️</div>
-                <div class="bimdata-viewer-main-page__card__detail">
-                    The guide walks you through every aspect of the BIMDataViewer in full detail.
-                </div>
-            </div>
-        </a>
-        <a href="/viewer/examples" style="text-decoration: none; color: inherit; flex: 0 32%;">
-            <div class="bimdata-viewer-main-page__card">
-                <div class="bimdata-viewer-main-page__card__title">Examples</div>
-                <div class="bimdata-viewer-main-page__card__emoji">🏗️</div>
-                <div class="bimdata-viewer-main-page__card__detail">
-                    A series of practical examples to help you learn how to use the BIMDataViewer.
-                </div>
-            </div>
-        </a>
-        <a href="/viewer/reference" style="text-decoration: none; color: inherit; flex: 0 32%;">
-            <div class="bimdata-viewer-main-page__card">
-                <div class="bimdata-viewer-main-page__card__title">Reference</div>
-                <div class="bimdata-viewer-main-page__card__emoji">📚</div>
-                <div class="bimdata-viewer-main-page__card__detail">
-                    The detailed API reference of the BIMDataViewer.
-                </div>
-            </div>
-        </a>
-    </div>
+  <div class="bimdata-viewer-main-page">
+    <a href="/viewer/guide" style="text-decoration: none; color: inherit; flex: 0 32%;">
+      <div class="bimdata-viewer-main-page__card">
+        <div class="bimdata-viewer-main-page__card__title">Guide</div>
+        <div class="bimdata-viewer-main-page__card__emoji">🗺️</div>
+        <div class="bimdata-viewer-main-page__card__detail">
+          The guide walks you through every aspect of the BIMDataViewer in full detail.
+        </div>
+      </div>
+    </a>
+    <a href="/viewer/examples" style="text-decoration: none; color: inherit; flex: 0 32%;">
+      <div class="bimdata-viewer-main-page__card">
+        <div class="bimdata-viewer-main-page__card__title">Examples</div>
+        <div class="bimdata-viewer-main-page__card__emoji">🏗️</div>
+        <div class="bimdata-viewer-main-page__card__detail">
+          A series of practical examples to help you learn how to use the BIMDataViewer.
+        </div>
+      </div>
+    </a>
+    <a href="/viewer/reference" style="text-decoration: none; color: inherit; flex: 0 32%;">
+      <div class="bimdata-viewer-main-page__card">
+        <div class="bimdata-viewer-main-page__card__title">Reference</div>
+        <div class="bimdata-viewer-main-page__card__emoji">📚</div>
+        <div class="bimdata-viewer-main-page__card__detail">
+          The detailed API reference of the BIMDataViewer.
+        </div>
+      </div>
+    </a>
+  </div>
 </template>
 
 <style lang="scss" scoped>
 .bimdata-viewer-main-page {
+  a {
+    font-weight: normal;
+    text-decoration: none;
+    color: inherit;
+    flex: 0 32%;
+    line-height: 1.4;
+  }
 
-    a {
-        font-weight: normal;
-        text-decoration: none;
-        color: inherit;
-        flex: 0 32%;
-        line-height: 1.4;
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+  }
+
+  &__card {
+    height: 100%;
+    margin: 6px;
+    padding: 20px;
+    border: 1px solid #eaecef;
+    border-radius: 4px;
+    text-align: center;
+
+    cursor: pointer;
+    transition: all 0.3s;
+    &:hover {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
-    @media screen and (min-width: 1024px) {
-        display: flex;
-        justify-content: space-between;
-        align-items: stretch;
+    &__title {
+      font-weight: 500;
+      font-size: 24px;
+      margin-bottom: 10px;
     }
 
-    &__card {
-        border: 1px solid #eaecef;
-        border-radius: 4px;
-        padding: 20px;
-        margin: 20px;
-        text-align: center;
-        cursor: pointer;
-        transition: all 0.3s;
-        height: calc(100% - 80px); // 20px margin * 2 + 20px padding * 2
-
-        &:hover {
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        &__title {
-            font-weight: 500;
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        &__emoji {
-            font-size: 40px;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-
-        &__detail {
-            font-size: 16px;
-            text-align: left;
-        }
+    &__emoji {
+      font-size: 40px;
+      margin-bottom: 10px;
+      text-align: center;
     }
+
+    &__detail {
+      font-size: 16px;
+    }
+  }
 }
 </style>

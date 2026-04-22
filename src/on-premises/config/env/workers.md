@@ -1,10 +1,10 @@
-# Bimdata workers
+# BIMData workers
 
 ## Workers
-### URLs of Bimdata apps
+### URLs of BIMData apps
 | Variables   | Default value           | Description             |
 |-------------|-------------------------|-------------------------|
-| API_URL     | "http://0.0.0.0:8000"   | Bimdata API URL.        |
+| API_URL     | "http://0.0.0.0:8000"   | BIMData API URL.        |
 
 ### RabbitMQ configuration
 | Variables         | Default value | Description              |
@@ -33,10 +33,10 @@
 | ENV                              | "development"                 |             |
 
 ## Workers xkt
-### URLs of Bimdata apps
+### URLs of BIMData apps
 | Variables   | Default value                    | Description             |
 |-------------|----------------------------------|-------------------------|
-| API_URL     | "https://api-staging.bimdata.io" | Bimdata API URL.        |
+| API_URL     | "https://api-staging.bimdata.io" | BIMData API URL.        |
 
 ### RabbitMQ configuration
 | Variables         | Default value | Description              |
@@ -47,10 +47,10 @@
 | RABBITMQ_PASSWORD | "guest"       | RabbitMQ password.       |
 
 ## Worker headless viewer 360
-### URLs of Bimdata apps
+### URLs of BIMData apps
 | Variables   | Default value                    | Description             |
 |-------------|----------------------------------|-------------------------|
-| API_URL     | "https://api-staging.bimdata.io" | Bimdata API URL.        |
+| API_URL     | "https://api-staging.bimdata.io" | BIMData API URL.        |
 
 ### RabbitMQ configuration
 | Variables         | Default value | Description              |

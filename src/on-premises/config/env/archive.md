@@ -1,9 +1,9 @@
-# Bimdata Archive
+# BIMData Archive
 
-## URLs of Bimdata apps
+## URLs of BIMData apps
 | Variables   | Default value | Description             |
 |-------------|---------------|-------------------------|
-| API_URL     | ""            | Bimdata API URL.        |
+| API_URL     | ""            | BIMData API URL.        |
 
 ## Image configuration
 | Variables            | Default value | Description                                            |

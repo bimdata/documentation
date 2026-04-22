@@ -4,16 +4,16 @@ This guide shows how to quickly customize the existing BIMDataViewer UI.
 
 ## Header & Windows
 
-As the name suggests, the [**Header**](../reference/header.html) is located at the top of the BIMDataViewer. [**Windows**](../reference/window.html) share the remaining space.
+As the name suggests, the [**Header**](../reference/header) is located at the top of the BIMDataViewer. [**Windows**](../reference/window) share the remaining space.
 
 <img width=500px src="/images/viewer/viewer-gui-header-and-windows.png" alt="Viewer GUI with windows and header.">
 
 
-Different layouts can be created, with or without [**Header**](../reference/header.html), and with as many [**Windows**](../reference/window.html) as required.
+Different layouts can be created, with or without [**Header**](../reference/header), and with as many [**Windows**](../reference/window) as required.
 
 <img width=500px src="/images/viewer/viewer-gui-layouts.png" alt="Viewer GUI layouts.">
 
-It is possible to completly remove the [**Header**](../reference/header.html) using the `ui` property of the [`makeBIMDataViewer`](../reference/makeBIMDataViewer.html) configuration parameter:
+It is possible to completly remove the [**Header**](../reference/header) using the `ui` property of the [`makeBIMDataViewer`](../reference/makeBIMDataViewer) configuration parameter:
 
 ```js
 const bimdataViewer = makeBIMDataViewer({
@@ -23,7 +23,7 @@ const bimdataViewer = makeBIMDataViewer({
 });
 ```
 
-To display the desire layout, use the second parameter of the [`bimdataViewer.mount`](../reference/mount.html) method:
+To display the desire layout, use the second parameter of the [`bimdataViewer.mount`](../reference/mount) method:
 
 ```js
 const bimdataViewer = makeBIMDataViewer({
@@ -56,9 +56,9 @@ And you get the following layout:
 
 ## BIMData Logo and Viewer Version
 
-By default, the BIMData Logo and the Viewer version are displayed on the UI. They may change location depending on the number of [**Windows**](../reference/window.html). If only one [**Window**](../reference/window.html) without [**Header**](../reference/header.html), they are displayed on the bottom left corner of the UI. Else, they are displayed on the right of the [**Header**](../reference/header.html).
+By default, the BIMData Logo and the Viewer version are displayed on the UI. They may change location depending on the number of [**Windows**](../reference/window). If only one [**Window**](../reference/window) without [**Header**](../reference/header), they are displayed on the bottom left corner of the UI. Else, they are displayed on the right of the [**Header**](../reference/header).
 
-They can be removed using the `ui` property of the [`makeBIMDataViewer`](../reference/makeBIMDataViewer.html) configuration parameter:
+They can be removed using the `ui` property of the [`makeBIMDataViewer`](../reference/makeBIMDataViewer) configuration parameter:
 
 ```js
 const bimdataViewer = makeBIMDataViewer({
@@ -79,7 +79,6 @@ You can overide any color you want to change using a value as a `string` represe
 
 ```javascript
 const bimdataViewer = makeBIMDataViewer({
-  /* */
   ui: {
     style: {
       backgroundColor: "",
