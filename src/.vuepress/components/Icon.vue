@@ -1,9 +1,9 @@
 <template>
-  <BIMDataIcon :name="name" :size="size" />
+  <BIMDataIcon :name="name" :size="size" :rotate="rotate" />
 </template>
 
 <script>
-import BIMDataIcon from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataIcon.js";
+import { BIMDataIcon } from "@bimdata/design-system"
 
 export default {
   components: {
@@ -12,6 +12,7 @@ export default {
   props: {
     name: String,
     size: String,
+    rotate: Number
   }
 }
 </script>
