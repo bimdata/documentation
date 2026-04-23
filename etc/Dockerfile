@@ -1,4 +1,4 @@
-FROM node:16
+FROM node:24 AS node
 
 WORKDIR /opt
 
@@ -15,4 +15,4 @@ RUN npm run build
 FROM nginx:stable
 RUN rm /etc/nginx/conf.d/default.conf
 COPY etc/nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=0 /opt/src/.vuepress/dist /usr/share/nginx/html
+COPY --from=node /opt/src/.vuepress/dist /usr/share/nginx/html
