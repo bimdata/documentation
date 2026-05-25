@@ -1,5 +1,21 @@
 # Release Notes
 
+## v2.17.2 (2026-05-25)
+
+### Features
+
+ * IFC 3D: add color selector in context menu
+
+### Bugfixes
+
+ * IFC 2D / DWG: white lines in dark mode
+
+## v2.17.1 (2026-04-23)
+
+### Bugfixes
+
+ * IFC 3D: fix demo xkt loading
+
 ## v2.17.0 (2026-04-08)
 
 ### Features
