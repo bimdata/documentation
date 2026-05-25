@@ -24,7 +24,7 @@
             <a href="/api/introduction/overview.html">
               <BIMDataButton color="primary" outline width="45px" height="45px">
                 <span class="btn-arrow">
-                  <Icon name="arrow" :rotate="180" size="xxs" />
+                  <BIMDataIconArrow :rotate="180" size="xxs" />
                 </span>
                 <span class="btn-text m-l-12">Voir plus</span>
               </BIMDataButton>
@@ -49,7 +49,7 @@
             <a href="/viewer">
               <BIMDataButton color="primary" outline width="45px" height="45px">
                 <span class="btn-arrow">
-                  <Icon name="arrow" :rotate="180" size="xxs" />
+                  <BIMDataIconArrow :rotate="180" size="xxs" />
                 </span>
                 <span class="btn-text m-l-12">Voir plus</span>
               </BIMDataButton>
@@ -74,7 +74,7 @@
             <a href="/on-premises/getting_started.html">
               <BIMDataButton color="primary" outline width="45px" height="45px">
                 <span class="btn-arrow">
-                  <Icon name="arrow" :rotate="180" size="xxs" />
+                  <BIMDataIconArrow :rotate="180" size="xxs" />
                 </span>
                 <span class="btn-text m-l-12">Voir plus</span>
               </BIMDataButton>
@@ -99,7 +99,7 @@
             <a href="/user-guide/creer-un-compte-bimdata.html">
               <BIMDataButton color="primary" outline width="45px" height="45px">
                 <span class="btn-arrow">
-                  <Icon :name="'arrow'" :rotate="180" size="xxs" />
+                  <BIMDataIconArrow :rotate="180" size="xxs" />
                 </span>
                 <span class="btn-text m-l-12">Voir plus</span>
               </BIMDataButton>
@@ -267,14 +267,13 @@
 </template>
 
 <script>
-import { BIMDataButton, BIMDataCard } from "@bimdata/design-system";
-import Icon from "./Icon.vue";
+import { BIMDataButton, BIMDataCard, BIMDataIconArrow } from "@bimdata/design-system";
 
 export default {
   components: {
-    BIMDataCard,
     BIMDataButton,
-    Icon,
+    BIMDataCard,
+    BIMDataIconArrow,
   },
 };
 </script>
@@ -291,10 +290,8 @@ export default {
       font-size: 43px;
       margin-bottom: 0;
     }
-    h2 {
-      font-size: 25px;
-    }
     h3 {
+      margin: 18px 0;
       font-size: 18px;
       color: #205dbd;
       border: none;
@@ -415,6 +412,9 @@ export default {
         margin-bottom: 12px;
         text-align: left;
       }
+      a {
+        text-decoration: none;
+      }
       .btn-tertiary {
         border-radius: 50px;
         border-color: #205dbd;
@@ -440,6 +440,7 @@ export default {
 
     &__img {
       img {
+        max-width: none;
         width: 436px;
       }
     }
