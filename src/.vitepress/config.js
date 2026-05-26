@@ -25,4 +25,16 @@ export default defineConfig({
     ],
     sidebar,
   },
+
+  // This is to avoid 'legacy-js-api' warnings
+  // (see: https://sass-lang.com/documentation/breaking-changes/legacy-js-api/#bundlers)
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: "modern-compiler"
+        }
+      }
+    }
+  }
 });

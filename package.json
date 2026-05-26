@@ -16,7 +16,7 @@
   "license": "MIT",
   "devDependencies": {
     "@bimdata/design-system": "2.4.1",
-    "sass": "^1.100.0",
+    "sass-embedded": "^1.100.0",
     "swagger-ui": "^5.32.6",
     "swagger-ui-dist": "^5.32.6",
     "vitepress": "^1.6.4"
