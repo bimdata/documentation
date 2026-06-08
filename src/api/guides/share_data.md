@@ -22,7 +22,7 @@ You can then invite your user in the Cloud you created with your app
 curl --request POST 'https://api.bimdata.io/cloud/YOUR_CLOUD_ID/invitation' \
   --header 'Content-Type: application/json' \
   --header 'Authorization: Bearer YOUR_APP_ACCESS_TOKEN' \
-  --data '{"email": "YOUR_EMAIL_ADDRESS", "redirect_uri": "https://platform.bimdata.io/cloud/YOUR_CLOUD_ID"}'
+  --data '{"email": "YOUR_EMAIL_ADDRESS", "redirect_uri": "https://platform.bimdata.io/invitations"}'
 ```
 
 ::: tip
