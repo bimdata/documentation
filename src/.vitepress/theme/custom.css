@@ -22,3 +22,49 @@
     max-width: none;
   }
 }
+
+.VPNavBarSearch {
+  .DocSearch-Button {
+    width: 250px;
+    border: none;
+    background-color: var(--color-silver-light);
+    color: var(--color-granite-light);
+    &:hover {
+      color: var(--color-granite);
+    }
+    .DocSearch-Button-Container {
+      flex:1;
+    }
+  }
+}
+.VPLocalSearchBox {
+  .search-bar {
+    background-color: var(--color-silver-light);
+    &:focus-within {
+      border: none;
+    }
+  }
+  .results {
+    .result {
+      border: solid 1px var(--color-silver-light);
+      color: var(--color-granite);
+      font-size: 15px;
+      .titles {
+        mark {
+          background-color: var(--color-neutral);
+          color: var(--color-white);
+        }
+      }
+      &.selected {
+        border-color: var(--color-neutral);
+        .titles {
+          color: var(--color-neutral) !important;
+          mark {
+            background-color: var(--color-neutral);
+            color: var(--color-white);
+          }
+        }
+      }
+    }
+  }
+}

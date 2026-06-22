@@ -24,6 +24,9 @@ export default defineConfig({
       { text: "User Guide", link: "/user-guide/creer-un-compte-bimdata.html" },
     ],
     sidebar,
+    search: {
+      provider: 'local',
+    }
   },
 
   // This is to avoid 'legacy-js-api' warnings
