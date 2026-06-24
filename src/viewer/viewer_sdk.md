@@ -37,8 +37,8 @@ npm run dev
 
 ### Usage
 
-When going on [http://localhost:8080](http://localhost:8080), a simple interface will let you open the project and model you want.
-You can directly open one by opening an URL using specific Ids, for example : [http://localhost:8080/viewer?cloudId=391&projectId=634&ifcId=1491](http://localhost:8080/viewer?cloudId=391&projectId=634&ifcId=1491)
+When going on http://localhost:8080, a simple interface will let you open the project and model you want.
+You can directly open one by opening an URL using specific Ids, for example : http://localhost:8080/viewer?cloudId=391&projectId=634&ifcId=1491
 
 ## Create your plugin
 

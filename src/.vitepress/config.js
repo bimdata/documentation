@@ -5,6 +5,7 @@ export default defineConfig({
   lang: "en-US",
   title: "Documentation",
   description: "BIMData Official Documentation",
+  ignoreDeadLinks: "localhostLinks",
   appearance: false,
   markdown: {
     theme: 'one-dark-pro'
@@ -53,5 +54,8 @@ export default defineConfig({
         },
       },
     },
+    ssr: {
+      noExternal: ["@bimdata/design-system"]
+    }
   },
 });

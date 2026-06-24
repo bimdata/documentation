@@ -11,7 +11,7 @@
   "repository": "https://github.com/bimdata/documentation",
   "scripts": {
     "dev": "vitepress dev src",
-    "build": "vitpress build src"
+    "build": "vitepress build src"
   },
   "license": "MIT",
   "devDependencies": {

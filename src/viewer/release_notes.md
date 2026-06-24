@@ -430,7 +430,7 @@ makeBIMDataViewer({ ui: { header: true }});
 
 [Vue.js v3](https://vuejs.org/) brings the new [composition API](https://vuejs.org/guide/introduction.html#composition-api) & the [script setup support](https://vuejs.org/api/sfc-script-setup.html).
 
-[`$viewer`](/viewer/reference/$viewer.html) is available via injection.
+[`$viewer`](./reference/$viewer) is available via injection.
 
 Example of a plugin using the composition API:
 
@@ -511,14 +511,14 @@ export default defineConfig(() => {
 #### Developers
 
 * Improved annotation api
-* [Add Viewer Plan "pdf-page-changed" event](/viewer/reference/native_plugins.html#viewer-plan)
-* [Add ability to pass params to plugin onOpen/onClose methods](/viewer/plugins/plugin_as_button.html#open-close-parameters)
+* [Add Viewer Plan "pdf-page-changed" event](./reference/native_plugins#viewer-plan)
+* [Add ability to pass params to plugin onOpen/onClose methods](./guide/plugins#plugin_as_button)
 * Add viewer common interface
-* [Context menu handles async predicates](/viewer/reference/context_menu.html#command-interface)
-* [New bimdataViewer `destroy` method to propertly clean it](/viewer/reference/makeBIMDataViewer.html#makebimdataviewer)
-* [New `setObjectsOpacity` method on the Viewer3D plugin](/viewer/reference/native_plugins.html#viewer-3d)
-* [Point Cloud Viewer has `xeokitSdk` exposed and its `viewer` property is renamed as `xeokit`](/viewer/reference/native_plugins.html#viewer-point-cloud)
-* [Add Viewer Plan 'plan-model-loaded' and 'plan-model-unloaded' events](/viewer/reference/native_plugins.html#viewer-plan)
+* [Context menu handles async predicates](./reference/context_menu#command-interface)
+* [New bimdataViewer `destroy` method to propertly clean it](./reference/makeBIMDataViewer)
+* [New `setObjectsOpacity` method on the Viewer3D plugin](./reference/native_plugins#viewer-3d-ifc)
+* [Point Cloud Viewer has `xeokitSdk` exposed and its `viewer` property is renamed as `xeokit`](./reference/native_plugins#viewer-point-cloud)
+* [Add Viewer Plan 'plan-model-loaded' and 'plan-model-unloaded' events](./reference/native_plugins#viewer-plan)
 
 #### Bugfixes
 
@@ -562,14 +562,14 @@ export default defineConfig(() => {
 
 #### Developers
 
-* [Exposed Modelsloader](/viewer/reference/global_components.html#modelsloader)
+* [Exposed Modelsloader](./reference/global_components#modelsloader)
 * Upgrade xeokit dependency to 2.2
 * Upgrade bimdata 2d-engine dependency to 1.14
 * Command Manager removed
 * Logger removed
 * Warning plugin removed
-* Add getLocalContexts(windowName) on [$viewer](/viewer/reference/$viewer.html)
-* [Embed BIMData design system](/viewer/customize_the_ui.html#embed-design-system)
+* Add getLocalContexts(windowName) on [$viewer](./reference/$viewer)
+* [Embed BIMData design system](./guide/index)
 * Improve state performances
 * Customizable colors
 * Use BIMData model API
@@ -602,7 +602,7 @@ export default defineConfig(() => {
 
 ## v1.8.2 (2021-11-12)
 #### Developers
-* Add [`translateIfcEntities` option](/viewer/reference/native_plugins.html#structure-and-properties)
+* Add [`translateIfcEntities` option](./reference/native_plugins#structure-and-properties)
 
 
 ## v1.8.1 (2021-11-10)
@@ -659,10 +659,10 @@ export default defineConfig(() => {
 * 2D improve path measure validation
 
 #### Developers
-* Add `2d-model-loaded` and `2d-model-unloaded` [events](/viewer/reference/native_plugins.html#events-2)
+* Add `2d-model-loaded` and `2d-model-unloaded` [events](./reference/native_plugins#events-1)
 * The new 2D engine is now [documented](https://2d-engine.bimdata.io). You can develop plugin drawing stuff in 2D!
-* Windows can now have an [icon](/viewer/customize_the_ui.html#window-configuration-object)
-* Add 3D annotations [events](https://developers-staging.bimdata.io/viewer/reference/native_plugins.html#events)
+* Windows can now have an [icon](./guide/index)
+* Add 3D annotations [events](./reference/native_plugins#events)
 
 #### Bugfixes
 * Fix 2D crash if the page loading the viewer doesn't allow `eval` or `new Function()`
@@ -711,9 +711,9 @@ export default defineConfig(() => {
 
 ## v1.5.0 (2021-02-19)
 #### Developers
-* Add [showAllAnnotations option](/viewer/reference/native_plugins.html#bcf) to BCF plugin
+* Add [showAllAnnotations option](./reference/native_plugins#bcf) to BCF plugin
 * Add structure window as available window by default. `bimdataViewer.unregisterWindow('structure')` to remove it.
-* Add [getRawElements()](/viewer/reference/$viewer.html#getrawelements)
+* Add [getRawElements()](./reference/$viewer#getrawelements)
 
 #### Bugfixes
 * Fix BCF bucket tip which showed the wrong shortcut
@@ -723,7 +723,7 @@ export default defineConfig(() => {
 
 ## v1.4.1 (2021-02-08)
 #### Bugfixes
-* Fix [object properties](/viewer/reference/state.html#object) that may not be accessible in some contexts
+* Fix [object properties](./reference/state.html#object) that may not be accessible in some contexts
 
 
 ## v1.4.0 (2021-02-02)
@@ -731,9 +731,9 @@ export default defineConfig(() => {
 * Improve 3D rendering performances up to 25%
 
 #### Developers
-* [BCF current-user can now be fetched from a custom endpoint](/viewer/reference/native_plugins.html#bcf)
-* [Add method to reload Structure plugin](/viewer/reference/native_plugins.html#structure-and-properties)
-* [Move getRawElements() method to $viewer.state.api](/viewer/reference/$viewer.html#getrawelements)
+* [BCF current-user can now be fetched from a custom endpoint](./reference/native_plugins#bcf)
+* [Add method to reload Structure plugin](./reference/native_plugins#structure-and-properties)
+* [Move getRawElements() method to $viewer.state.api](./reference/$viewer#getrawelements)
 
 #### Bugfixes
 * Fix picking on big 3D models
@@ -752,11 +752,11 @@ export default defineConfig(() => {
 * Elements highlight on mouse hover is now disabled in Flight mode
 
 #### Developers
-* [BCF users can now be fetched from a custom endpoint](/viewer/reference/native_plugins.html#bcf)
+* [BCF users can now be fetched from a custom endpoint](./reference/native_plugins#bcf)
 * [Increase render and pick precision for very large models](https://github.com/xeokit/xeokit-sdk/issues/254)
-* [Add methods to retrieve objects, children, siblings and parents](/viewer/reference/state.html#object)
-* [Add logger level configuration in makeBIMDataViewer](/viewer/reference/makeBIMDataViewer.html#logger)
-* [Add viewer instance setLocale method](/viewer/reference/makeBIMDataViewer.html#locale)
+* [Add methods to retrieve objects, children, siblings and parents](./reference/state#objects)
+* [Add logger level configuration in makeBIMDataViewer](./reference/makeBIMDataViewer#logger)
+* [Add viewer instance setLocale method](./reference/makeBIMDataViewer#locale)
 
 #### Bugfixes
 * Fix BCF interface if loading was slower than the human
@@ -767,18 +767,18 @@ export default defineConfig(() => {
 ## Migration Guide from 0.x to 1.x
 
 This is the first major BIMData Viewer update. Thanks to your feebacks, we have improved the API. It is now more intuitive, more powerful and there are many new features.
-This guide will only show you how to upgrade your plugins. If you want to see the new feature in detail, see the [viewer documentation](/viewer/index.html).
+This guide will only show you how to upgrade your plugins. If you want to see the new feature in detail, see the [viewer documentation](./index).
 
 Major features:
 - The 2D Viewer is now available.
-- Implement your plugins in [dedicated windows and build even more powerful tools](/viewer/customize_the_ui.html#overview).
-- Implement [loading screens](/viewer/reference/$viewer.html#global-and-local-contexts).
-- [Modals](/viewer/reference/$viewer.html#modals).
-- [Custom Right click actions](/viewer/reference/context_menu.html#get-the-context-menu).
+- Implement your plugins in [dedicated windows and build even more powerful tools](./guide/index).
+- Implement [loading screens](./reference/$viewer#global-and-local-contexts).
+- [Modals](./reference/$viewer#modals).
+- [Custom Right click actions](./reference/context_menu#get-the-context-menu).
 - Improved integration in various web environments.
 - Better performances.
 - Improved multi-models loading and positioning.
-- [Undo/Redo (CTRL-Z)](/viewer/reference/state.html#undo-redo) on state change actions.
+- [Undo/Redo (CTRL-Z)](./reference/state#undo-redo) on state change actions.
 
 
 ### Viewer instance
@@ -1034,7 +1034,7 @@ Version 0.x used objects `uuids` as `id`. To handle identical `uuids` (eg: in mo
 :::
 
 ::: tip
-There are `uuids` utilities. See the [state reference](/viewer/reference/state.html#ids-and-uuids).
+There are `uuids` utilities. See the [state reference](./reference/state#objects).
 :::
 
 ::: code-group
@@ -1079,8 +1079,8 @@ this.$viewer.api.accessToken;
 :::
 
 ::: tip
-- [$viewer reference](/viewer/reference/$viewer.html#viewer).
-- [State getters reference](/viewer/reference/state.html#getters).
+- [$viewer reference](./reference/$viewer).
+- [State getters reference](./reference/state#objects-getters).
 :::
 
 #### BIMData API Client
@@ -1116,7 +1116,7 @@ object.getFirstAncestorWithType(type);
 :::
 
 ::: tip
-See [state object reference](/viewer/reference/state.html#object).
+See [state object reference](./reference/state#objects).
 :::
 
 #### Model Loading
