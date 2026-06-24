@@ -67,7 +67,7 @@ A plugin component is a [Vuejs 3.x component](https://vuejs.org/guide/essentials
 
 By default, a plugin component is displayed on the window content. (the orange area on the image below)
 
-<img width=250px src="/assets/img/viewer/viewer-gui-plugin-default.png" alt="Viewer GUI plugin default.">
+<img width=250px src="/images/viewer/viewer-gui-plugin-default.png" alt="Viewer GUI plugin default.">
 
 Some additional properties are natively available on the component instance: (`this` on computed, lifeCycles, methods...)
 
@@ -125,15 +125,15 @@ A plugin as button can be displayed in 3 different ways, defined by the plugin `
 
 - **simple** : plugin content displayed close to its corresponding button, on a small panel.
 
-<img width=250px src="/assets/img/viewer/viewer-gui-plugin-button-simple.png" alt="Viewer GUI plugin button simple.">
+<img width=250px src="/images/viewer/viewer-gui-plugin-button-simple.png" alt="Viewer GUI plugin button simple.">
 
 - **panel** : plugin content displayed on the whole window height.
 
-<img width=250px src="/assets/img/viewer/viewer-gui-plugin-button-panel.png" alt="Viewer GUI plugin button panel.">
+<img width=250px src="/images/viewer/viewer-gui-plugin-button-panel.png" alt="Viewer GUI plugin button panel.">
 
 - **free** : plugin content displayed on the side of the button, without any layout. Its size is determined by its content.
 
-<img width=250px src="/assets/img/viewer/viewer-gui-plugin-button-free.png" alt="Viewer GUI plugin button free.">
+<img width=250px src="/images/viewer/viewer-gui-plugin-button-free.png" alt="Viewer GUI plugin button free.">
 
 ### Additional Component API
 
@@ -170,7 +170,7 @@ const myComponent = {
 
 The result:
 
-![Viewer async plugin](/assets/img/viewer/viewer-async_plugin.gif)
+![Viewer async plugin](/images/viewer/viewer-async_plugin.gif)
 
 These methods are useful when an action needs to be awaited before the plugin can be opened or closed again.
 

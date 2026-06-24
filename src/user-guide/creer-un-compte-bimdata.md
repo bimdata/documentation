@@ -15,7 +15,7 @@ Inscrivez-vous à BIMData avec votre **adresse e-mail** et un **mot de passe uni
 5. Cliquez sur le bouton **S'enregistrer** pour terminer le processus. 
 6. BIMData vous enverra un e-mail pour vérifier votre compte. Ouvrez cet e-mail et cliquez sur le bouton de vérification pour terminer le processus et vous connecter à votre nouveau compte BIMData.
 
-![Formulaire](/assets/img/user-guide/formulaire.png)
+![Formulaire](/images/user-guide/formulaire.png)
 
 ## Et ensuite ?
 

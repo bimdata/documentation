@@ -13,7 +13,7 @@ bimdataViewer.mount("#app", "mobile");
 ```
 
 <div style="text-align: center">
-  <img height="600px" src="/assets/img/viewer/viewer-mobile.png" alt="Viewer Mobile">
+  <img height="600px" src="/images/viewer/viewer-mobile.png" alt="Viewer Mobile">
 </div>
 
 The plugin is composed of **three** main elements from top to bottom:
@@ -46,7 +46,7 @@ bimdataViewer.mount("#app", "mobile-plan");
 ```
 
 <div style="text-align: center">
-  <img height="600px" src="/assets/img/viewer/viewer-mobile-plan.png" alt="Viewer Mobile Plan">
+  <img height="600px" src="/images/viewer/viewer-mobile-plan.png" alt="Viewer Mobile Plan">
 </div>
 
 ## Loading model

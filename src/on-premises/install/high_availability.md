@@ -1,5 +1,5 @@
 # High availability
-Most of Bimdata's components are stateless, so we can simply increase the
+Most of BIMData's components are stateless, so we can simply increase the
 number of replicas and run them across multiple nodes and use the leverage of
 the internal mechanism of the orchestrator to distribute the charge across them.
 
@@ -10,14 +10,14 @@ This include :
   - a highly available RabbitMQ cluster,
   - a highly available Keycloak cluser.
 
-## Bimdata API
-Bimdata API itself is stateless, but it manages the storage of uploaded data by users.
+## BIMData API
+BIMData API itself is stateless, but it manages the storage of uploaded data by users.
 Therefore, you have two possibilities:
   - use a redundant swift object storage to store the data,
   - you need to provide a redundant storage shared between all the API containers.
 
-## Bimdata Connect
-Bimdata Connect itself is stateless, but it manages the storage of uploaded data by users.
+## BIMData Connect
+BIMData Connect itself is stateless, but it manages the storage of uploaded data by users.
 Therefore, you have two possibilities:
   - use a redundant swift object storage to store the data,
   - you need to provide a redundant storage shared between all the Connect containers.

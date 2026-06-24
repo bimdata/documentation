@@ -24,7 +24,7 @@ curl --request POST 'https://api.bimdata.io/cloud' \
  --data '{"name": "My First Cloud"}'
 ```
 - ✅ Pros : Can be directly used without additionnal HTTP request
-- ❌ Cons : Does't have an expire date. If you leak it, the only way to secure your data is to revoke the ApiKey on the [application management page](https://connect.bimdata.io/developers/client/).
+- ❌ Cons : Doesn't have an expire date. If you leak it, the only way to secure your data is to revoke the ApiKey on the [application management page](https://connect.bimdata.io/developers/client/).
 
 
 ## I want to run BIMData Viewer on my website
@@ -45,7 +45,6 @@ The requests takes two parameters:
 To open the viewer, `model:read` is the minimum scope required.
 
 
-
 ## I want to impersonate users
 
 OpenID Connect allows you to impersonate users with your app. These flows are complex and already well documented all around Internet.
@@ -53,4 +52,4 @@ OpenID Connect allows you to impersonate users with your app. These flows are co
 
 ## I have another use case
 
-There are many possibilities, please contact us by email: [<support@bimdata.io>](support@bimdata.io)
+There are many possibilities, please contact us: support@bimdata.io

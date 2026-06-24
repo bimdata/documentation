@@ -6,7 +6,7 @@ Le **compte de facturation** est l’entité qui centralise la **gestion des abo
 
 La **création** et l’**édition** des comptes de facturation se fait uniquement depuis la page **“Mes espaces”**, via le bouton **“Comptes de facturation”** (en haut à droite).
 
-![Compte de facturation](/assets/img/user-guide/compte-de-facturation.png)
+![Compte de facturation](/images/user-guide/compte-de-facturation.png)
 
 ## Abonnements
 

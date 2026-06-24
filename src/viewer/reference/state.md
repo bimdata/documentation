@@ -216,8 +216,8 @@ The state provide getters that allows to quickly access a set of objects with sp
 | `getObject(id: number)`                                    | Returns the object with the specified id.              |
 | `getObjectsByUuids(uuids: string[])`                       | Returns objects with corresponding uuids.              |
 | `getObjectsOfType(type: string)`                           | Returns objects with corresponding type.               |
-| `getObjectsWithTheSameTypeAs(ids: number[] | Set<number>)` | Returns all objects with the same type as objects ids. |
-| `getTypesOf(ids: number[] | Set<number>)`                  | Returns all the types of the corresponding objects.    |
+| `getObjectsWithTheSameTypeAs(ids: number[] \| Set\<number\>)`  | Returns all objects with the same type as objects ids. |
+| `getTypesOf(ids: number[] \| Set\<number\>)`                   | Returns all the types of the corresponding objects.    |
 
 **Note:** for convenience, all getter properties have also `ids` and `uuids` equivalent:
 
