@@ -10,24 +10,25 @@ You can also delete it by double clicking it.
 ### Demo
 
 <ClientOnly>
-  <style>
-    .plan-annotation {
-      transform: translate(-50%, -50%);
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      border: 1px solid var(--color-primary);
-      background-color: var(--color-high);
-      font-weight: bold;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      user-select: none;
-      cursor: grab;
-    }
-  </style>
   <BIMDataViewer config="planAnnotations"/>
 </ClientOnly>
+
+<style>
+  .plan-annotation {
+    transform: translate(-50%, -50%);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--color-primary);
+    background-color: var(--color-high);
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    cursor: grab;
+  }
+</style>
 
 ### Setup
 
