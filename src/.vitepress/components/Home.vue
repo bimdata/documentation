@@ -283,7 +283,7 @@ export default {
   .home_title {
     justify-content: center;
     flex-direction: column;
-    width: 83vw;
+    width: 80vw;
     align-items: flex-start;
     margin: auto;
     h1 {
@@ -300,7 +300,7 @@ export default {
 
   /* custom HEADER HOME */
   &__header {
-    margin-top: calc(60px + 34px);
+    margin-top: 60px;
 
     h1 {
       text-align: center;
@@ -308,7 +308,7 @@ export default {
 
     .home_links {
       gap: 12px;
-      width: 83vw;
+      width: 80vw;
       margin: auto;
       justify-content: space-between;
 
@@ -386,23 +386,24 @@ export default {
     .cards {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      gap: 38px;
-      width: 83vw;
+      gap: 12px;
+      width: 80vw;
       margin: 30px auto;
       justify-content: flex-start;
     }
     .bimdata-card {
-      width: 375px;
+      width: auto;
       border: none;
       box-shadow: none;
       transition: all ease 0.2s;
       .bimdata-card__content {
+        padding: calc(var(--spacing-unit) * 2);
         display: flex;
       }
       .flex {
         img {
           height: 40px;
-          width: 72px;
+          // width: 72px;
         }
       }
       h4 {
@@ -431,7 +432,7 @@ export default {
 
   /* custom DESIGN SYSTEM SECTION */
   &__ds {
-    background-color: #f0f5ff;
+    background-color: var(--color-bg-subtle);
 
     .flex {
       margin: auto;
@@ -471,12 +472,12 @@ export default {
 
   &__questions {
     margin: 0;
-    background: #dce7ff;
+    background: var(--color-bg-accent);
   }
 
   /* custom FOOTER HOME */
   &__footer {
-    background-color: var(--color-primary);
+    background-color: var(--color-bg-primary);
     color: var(--color-white);
   }
 }

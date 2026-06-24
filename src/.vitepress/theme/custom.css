@@ -1,5 +1,41 @@
 @import "../../../node_modules/@bimdata/design-system/src/assets/css/design-system.css";
 
+:root {
+  --color-bg-subtle: #f0f5ff;
+  --color-bg-accent: #dce7ff;
+  --color-bg-primary: #205dbd;
+  --vp-c-brand-1: #205dbd;
+  --vp-c-brand-2: #205dbd;
+  --vp-c-brand-3: #205dbd;
+
+  /* Fond du bloc de code */
+  --vp-code-bg: rgba(27,31,35,.05);
+  --vp-code-block-bg: #282c34;
+  
+  /* Couleur du texte par défaut dans le code */
+  --vp-code-color: #4d5a7a;
+  /* --vp-code-color: #e0e0e0; */
+
+  /* Onglets du code-group */
+  --vp-code-tab-bg: #16213e;
+  --vp-code-tab-active-bg: #1a1a2e;
+  --vp-code-tab-text-color: #a0a0b0;
+  --vp-code-tab-active-text-color: #ffffff;
+  --vp-code-tab-hover-text-color: #ffffff;
+  --shiki-light: #E1E4E8;
+
+  /* Typo */
+  --vp-font-family-mono: 'Source Code Pro', monospace;
+}
+
+.vp-doc {
+  a {
+    text-decoration: none;
+  }
+}
+.vp-code-group {
+  font-family: var(--vp-font-family-mono);
+}
 .VPImage.logo {
   height: 36px !important;
 }
@@ -13,13 +49,26 @@
   padding: 0 !important;
 }
 
-.VPDoc .container:has(#bimdata-doc-swagger-ui) {
-  .aside {
-    display: none;
+.VPDoc {
+   .container:has(#bimdata-doc-swagger-ui) {
+    .aside {
+      display: none;
+    }
+    
+    .content .content-container {
+      max-width: none;
+    }
   }
-  
-  .content .content-container {
-    max-width: none;
+  &.has-aside {
+    .content .content-container {
+      max-width: none;
+    }
+  }
+}
+
+.VPNavBar {
+  .container {
+    max-width: var(--vp-layout-max-width);
   }
 }
 
@@ -27,7 +76,7 @@
   .DocSearch-Button {
     width: 250px;
     border: none;
-    background-color: var(--color-silver-light);
+    background-color: var(--vp-sidebar-bg-color);
     color: var(--color-granite-light);
     &:hover {
       color: var(--color-granite);
@@ -39,14 +88,14 @@
 }
 .VPLocalSearchBox {
   .search-bar {
-    background-color: var(--color-silver-light);
+    background-color: var(--vp-sidebar-bg-color);
     &:focus-within {
       border: none;
     }
   }
   .results {
     .result {
-      border: solid 1px var(--color-silver-light);
+      border: solid 1px var(--vp-sidebar-bg-color);
       color: var(--color-granite);
       font-size: 15px;
       .titles {
@@ -66,5 +115,28 @@
         }
       }
     }
+  }
+}
+
+/* custom TABLE */
+.vp-doc div:has(> table) {
+  overflow-x: visible; /* supprime le scroll du wrapper */
+}
+.vp-doc table {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  th:nth-child(1), td:nth-child(1) {
+    width: 30%;
+    word-break: break-word;
+  }
+  th:nth-child(2), td:nth-child(2) {
+    width: 25%;
+    word-break: break-word;
+  }
+  th:nth-child(3), td:nth-child(3) {
+    width: 45%;
+    white-space: normal;
+    word-break: break-word;
   }
 }

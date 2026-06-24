@@ -5,17 +5,31 @@ export default defineConfig({
   lang: "en-US",
   title: "Documentation",
   description: "BIMData Official Documentation",
+  appearance: false,
+  markdown: {
+    theme: 'one-dark-pro'
+  },
   head: [
-    ["link", { rel: "icon", href: "/images/favicon.svg", type: "image/svg+xml" }]
+    ["link", { rel: "icon", href: "/images/favicon.svg", type: "image/svg+xml" }],
+    [
+      "link",
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap",
+      },
+    ],
   ],
   themeConfig: {
     siteTitle: false,
-    logo: "/images/logo.svg",
+    logo: {
+      light: "/images/logo.svg",
+      alt: "BIMData",
+    },
     socialLinks: [
       {
         icon: "github",
         link: "https://github.com/bimdata/documentation",
-      }
+      },
     ],
     nav: [
       { text: "API", link: "/api/introduction/overview.html" },
@@ -25,8 +39,8 @@ export default defineConfig({
     ],
     sidebar,
     search: {
-      provider: 'local',
-    }
+      provider: "local",
+    },
   },
 
   // This is to avoid 'legacy-js-api' warnings
@@ -35,9 +49,9 @@ export default defineConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          api: "modern-compiler"
-        }
-      }
-    }
-  }
+          api: "modern-compiler",
+        },
+      },
+    },
+  },
 });
