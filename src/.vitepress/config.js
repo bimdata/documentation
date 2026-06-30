@@ -1,5 +1,7 @@
 import { defineConfig } from "vitepress";
 import sidebar from "./sidebar.js";
+import llmstxt from 'vitepress-plugin-llms';
+
 
 export default defineConfig({
   lang: "en-US",
@@ -56,6 +58,7 @@ export default defineConfig({
     },
     ssr: {
       noExternal: ["@bimdata/design-system"]
-    }
+    },
+    plugins: [llmstxt()],
   },
 });
