@@ -48,12 +48,13 @@ bimdataViewer.mount("#app", "mobile-plan");
 <img style="margin: auto" src="/images/viewer/viewer-mobile-plan.png" alt="Viewer Mobile Plan">
 
 
-## Mobile Viewer DWG
+## Mobile Viewer DWG / DXF
 
-You can use the mobile DWG viewer with the `"mobile-dwg"` window.
+You can use the mobile DWG viewer with the `"mobile-dwg"` window (or `"mobile-dxf"` for DXF models).
 
 ```js
-bimdataViewer.mount("#app", "mobile-dwg");
+bimdataViewer.mount("#app", "mobile-dwg"); // for DWG
+bimdataViewer.mount("#app", "mobile-dxf"); // for DXF
 ```
 
 <img style="margin: auto" src="/images/viewer/viewer-mobile-dwg.png" alt="Viewer Mobile DWG">
