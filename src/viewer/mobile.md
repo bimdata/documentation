@@ -45,9 +45,18 @@ You can use the mobile specific plan viewer with the `"mobile-plan"` window.
 bimdataViewer.mount("#app", "mobile-plan");
 ```
 
-<div style="text-align: center">
-  <img height="600px" src="/images/viewer/viewer-mobile-plan.png" alt="Viewer Mobile Plan">
-</div>
+<img style="margin: auto" src="/images/viewer/viewer-mobile-plan.png" alt="Viewer Mobile Plan">
+
+
+## Mobile Viewer DWG
+
+You can use the mobile DWG viewer with the `"mobile-dwg"` window.
+
+```js
+bimdataViewer.mount("#app", "mobile-dwg");
+```
+
+<img style="margin: auto" src="/images/viewer/viewer-mobile-dwg.png" alt="Viewer Mobile DWG">
 
 ## Loading model
 
