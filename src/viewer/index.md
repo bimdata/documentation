@@ -1,5 +1,14 @@
 # Getting started
 
+<script setup>
+import BIMDataIconFileDwg from "../.vitepress/components/BIMDataIconFileDwg.vue";
+import BIMDataIconFileDxf from "../.vitepress/components/BIMDataIconFileDxf.vue";
+import BIMDataIconFileIfc from "../.vitepress/components/BIMDataIconFileIfc.vue";
+import BIMDataIconFilePlan from "../.vitepress/components/BIMDataIconFilePlan.vue";
+import BIMDataIconFilePointCloud from "../.vitepress/components/BIMDataIconFilePointCloud.vue";
+import ViewerMainPage from "../.vitepress/components/ViewerMainPage.vue";
+</script>
+
 ## Introduction
 
 The BIMData Viewer is a tool for interacting with models of different formats like :
@@ -11,10 +20,10 @@ The BIMData Viewer is a tool for interacting with models of different formats li
 
 Each model format is handled by its own native built-in viewer and interactions include **display**, **navigation**, **measurement** and **annotation**.
 
-The BIMData Viewer is binded to the [BIMData API](/api/introduction/overview.html) and you can directly upload models using it or using the [BIMData platform](https://platform.bimdata.io/).
+The BIMData Viewer is binded to the [BIMData API](/api/introduction/overview) and you can directly upload models using it or using the [BIMData platform](https://platform.bimdata.io/).
 
-[The UI can be customized](./guide/README.md#graphical-user-interface) to organize the workspace as you need and a flexible javascript API using
-[<svg class="logo" viewBox="0 0 128 128" width="18" height="18" data-v-0495d436=""><path fill="#42b883" d="M78.8,10L64,35.4L49.2,10H0l64,110l64-110C128,10,78.8,10,78.8,10z" data-v-0495d436=""></path><path fill="#35495e" d="M78.8,10L64,35.4L49.2,10H25.6L64,76l38.4-66H78.8z" data-v-0495d436=""></path></svg> Vue.js 3](https://vuejs.org/) allows to create custom plugins to match your business perfectly.
+[The UI can be customized](./guide/index#graphical-user-interface) to organize the workspace as you need and a flexible javascript API using
+[Vue 3](https://vuejs.org/) allows to create custom plugins to match your business perfectly.
 However, you don't need to master Vue.js to develop a plugin and you can still update the DOM with jQuery if you like!
 
 <ViewerMainPage />
@@ -23,11 +32,9 @@ However, you don't need to master Vue.js to develop a plugin and you can still u
 
 You can directly download the BIMDataViewer from a **CDN** or you can install the [`@bimdata/viewer` package](https://www.npmjs.com/package/@bimdata/viewer) using **NPM**.
 
-<code-group>
+::: code-group
 
-<code-block title="CDN" active>
-
-```html
+```html [CDN]
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -59,11 +66,8 @@ You can directly download the BIMDataViewer from a **CDN** or you can install th
   </body>
 </html>
 ```
-</code-block>
 
-<code-block title="NPM">
-
-```html
+```html [NPM]
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -95,6 +99,4 @@ You can directly download the BIMDataViewer from a **CDN** or you can install th
   </body>
 </html>
 ```
-</code-block>
-
-</code-group>
+:::

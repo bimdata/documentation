@@ -177,7 +177,7 @@ enableOfflineMode(blob: Blob | string): Promise<void>;
 The `blob` parameter can be either a [Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob) or an url (string)
 that will be fetched (using the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)).
 
-Refer to the [Offline Mode](../offline_mode.md) page for more information on how to work with offline mode.
+Refer to the [Offline Mode](./offline_mode) page for more information on how to work with offline mode.
 
 ### disableOfflineMode
 
@@ -260,8 +260,8 @@ this.$viewer.localContext.loadingProcessStart();
   <p><b>Local context spinner</b></p>
 </div>
 <p align="center">
-  <img width="48%" src="/assets/img/viewer/viewer-global_context.gif" alt="Viewer global context spinner">
-  <img width="48%" src="/assets/img/viewer/viewer-local_context.gif" alt="Viewer local context spinner.">
+  <img width="48%" src="/images/viewer/viewer-global_context.gif" alt="Viewer global context spinner">
+  <img width="48%" src="/images/viewer/viewer-local_context.gif" alt="Viewer local context spinner.">
 </p>
 
 To stop spinners use the following methods:

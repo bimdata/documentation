@@ -2,7 +2,7 @@
 
 La GED s’adapte à vos projets et permet de réaliser des opérations destinées à centraliser, organiser, archiver et à sécuriser vos documents.
 
-![GED](/assets/img/user-guide/ged-2.png)
+![GED](/images/user-guide/ged-2.png)
 
 Dans la GED (Gestion Électronique des Documents) de BIMData, la navigation se fait via trois onglets principaux pour une gestion optimale de vos documents de projet :
 
@@ -14,4 +14,4 @@ Dans la GED (Gestion Électronique des Documents) de BIMData, la navigation se f
 
 Cette structure en onglets rend la gestion documentaire simple et efficace, en s'adaptant aux besoins spécifiques de votre projet.
 
-![Onglet GED](/assets/img/user-guide/onglet-ged.png)
+![Onglet GED](/images/user-guide/onglet-ged.png)

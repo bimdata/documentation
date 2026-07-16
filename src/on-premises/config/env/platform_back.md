@@ -1,12 +1,12 @@
-# Bimdata Platform Back
+# BIMData Platform Back
 
-## URLs of Bimdata apps
+## URLs of BIMData apps
 
 | Variables         | Default value  | Description                 |
 |-------------------|----------------|-----------------------------|
-| API_URL           | ""             | Bimdata API URL.            |
-| PLATFORM_URL      | ""             | Bimdata platform front URL. |
-| PLATFORM_BACK_URL | ""             | Bimdata platform back URL.  |
+| API_URL           | ""             | BIMData API URL.            |
+| PLATFORM_URL      | ""             | BIMData platform front URL. |
+| PLATFORM_BACK_URL | ""             | BIMData platform back URL.  |
 
 ## Database configuration
 There variables are needed for the database authentication.

@@ -46,13 +46,13 @@
  * Mobile: fix 3D engine setup and 2D camera positioning
  * Point Cloud: tile handle full rootTransform matrix 
 
-## v2.16.1
+## v2.16.1 (2026-01-22)
 
 ### Bugfixes
 
  * DWG: fix new Engine 2D integration
 
-## v2.16.0
+## v2.16.0 (2026-01-08)
 
 ### Features
 
@@ -62,13 +62,13 @@
 
  * Plan: fix drawings in PDF models
 
-## v2.15.1
+## v2.15.1 (2026-01-07)
 
 ### Bugfixes
 
  * Plan: fix measurement plugin
 
-## v2.15.0
+## v2.15.0 (2025-12-09)
 
 ### Features
 
@@ -81,7 +81,7 @@
  * Point Cloud: fix tiles center positioning
  * Plan: fix model transform with multiple plans
 
-## v2.14.0
+## v2.14.0 (2025-11-14)
 
 ### Features
 
@@ -97,7 +97,7 @@
  * BCF: properly handle overflow for topic objects list
  * i18n: update and fix translations for English, German and Spanish
 
-## v2.13.0
+## v2.13.0 (2025-10-27)
 
 ### Features
 
@@ -113,7 +113,7 @@
  * Fix caliper for DWG measures
  * Plan: Fix `fitView` for zones/spaces
 
-## v2.12.0
+## v2.12.0 (2025-07-30)
 
 ### Features
 
@@ -132,7 +132,7 @@
  * Plan: fix bug when spam clicking 'next page' button
  * Plan: use Pointer Events instead of Touch Events in drawing-tools
 
-## v2.11.0
+## v2.11.0 (2025-06-11)
 
 ### Features
 
@@ -151,14 +151,14 @@
  * Plan: fix drawings on PDF pages
  * Plan: fix PDF export on chromium based browsers
 
-## v2.10.1
+## v2.10.1 (2025-05-12)
 
 ### Bugfixes
 
  * Avoid error when switching PDF pages quickly
  * Update API client to v10.21.3
 
-## v2.10.0
+## v2.10.0 (2025-04-28)
 
 ### Features
 
@@ -169,7 +169,7 @@
  * BCF comment snapshot with multi-windows was broken
  * DWG Layers CSS issue
 
-## v2.9.0
+## v2.9.0 (2025-04-23)
 
 ### Features
 
@@ -187,7 +187,7 @@
  * Fix: children count in IFC structure tree
  * Fix: PDF viewer window resize
 
-## v2.8.0
+## v2.8.0 (2025-03-10)
 
 ### Features
 
@@ -197,7 +197,7 @@
 
  * Fix plan section deletion error
 
-## v2.7.0
+## v2.7.0 (2025-02-17)
 
 ### Features
 
@@ -211,7 +211,7 @@
  * Fix BCF annotation edition (create/update/delete)
  * Avoid annotation drag & drop on right-click
 
-## v2.6.1
+## v2.6.1 (2024-12-12)
 
 ### Features
 
@@ -220,7 +220,7 @@
  * Smartview show/hide feature
  * Edit smartviews feature
 
-## v2.6.0
+## v2.6.0 (2024-11-18)
 
 ### Feature
 
@@ -237,7 +237,7 @@
  * Many fixes in PDF exports with drawings
  * Fix performance issue with Minimap
 
-## v2.5.0
+## v2.5.0 (2024-09-25)
 
 ### Feature
 
@@ -259,7 +259,7 @@
  * Fix(Viewer Plan): properly handle models without document
  * Fix: add touch event for 3D annotation mode & annotations drag & drop
 
-## v2.4.1
+## v2.4.1 (2024-08-14)
 
 ### Bugfixes
 
@@ -267,7 +267,7 @@
  * Fix persistent spinner when opening BCF Manager
  * Fix Meta-Building storey change handler
 
-## v2.4.0
+## v2.4.0 (2024-08-09)
 
 ### BREAKING CHANGES
 
@@ -330,7 +330,7 @@ See [viewer reference](./reference/annotations.md) to learn more.
  * Fix 3D annotations visibility update
  * Fix IFC property edition
 
-## v2.3.0
+## v2.3.0 (2024-06-27)
 
 ### Features
 
@@ -352,7 +352,7 @@ See [viewer reference](./reference/annotations.md) to learn more.
  * Fix: `buildingElevation` fallbacks to `siteElevation` if not set
  * Fix: model loader spinner on initialization
 
-## v2.2.0
+## v2.2.0 (2024-04-29)
 
 ### Features
 
@@ -367,7 +367,7 @@ See [viewer reference](./reference/annotations.md) to learn more.
  * BCF topic auto open
  * Fix typos
 
-## v2.1.0
+## v2.1.0 (2024-03-22)
 
 ### Features
 
@@ -382,7 +382,7 @@ See [viewer reference](./reference/annotations.md) to learn more.
 * add bcfApi and collaborationApi offline customization options.
 * remove deprecated of local context & global context plugins getters.
 
-## v2.0.0
+## v2.0.0 (2024-03-07)
 
 ### BREAKING CHANGES
 
@@ -430,7 +430,7 @@ makeBIMDataViewer({ ui: { header: true }});
 
 [Vue.js v3](https://vuejs.org/) brings the new [composition API](https://vuejs.org/guide/introduction.html#composition-api) & the [script setup support](https://vuejs.org/api/sfc-script-setup.html).
 
-[`$viewer`](/viewer/reference/$viewer.html) is available via injection.
+[`$viewer`](./reference/$viewer) is available via injection.
 
 Example of a plugin using the composition API:
 
@@ -490,7 +490,7 @@ export default defineConfig(() => {
 });
 ```
 
-## v1.10.1
+## v1.10.1 (2023-06-14)
 
 #### Usages
 
@@ -511,14 +511,14 @@ export default defineConfig(() => {
 #### Developers
 
 * Improved annotation api
-* [Add Viewer Plan "pdf-page-changed" event](/viewer/reference/native_plugins.html#viewer-plan)
-* [Add ability to pass params to plugin onOpen/onClose methods](/viewer/plugins/plugin_as_button.html#open-close-parameters)
+* [Add Viewer Plan "pdf-page-changed" event](./reference/native_plugins#viewer-plan)
+* [Add ability to pass params to plugin onOpen/onClose methods](./guide/plugins#plugin_as_button)
 * Add viewer common interface
-* [Context menu handles async predicates](/viewer/reference/context_menu.html#command-interface)
-* [New bimdataViewer `destroy` method to propertly clean it](/viewer/reference/makeBIMDataViewer.html#makebimdataviewer)
-* [New `setObjectsOpacity` method on the Viewer3D plugin](/viewer/reference/native_plugins.html#viewer-3d)
-* [Point Cloud Viewer has `xeokitSdk` exposed and its `viewer` property is renamed as `xeokit`](/viewer/reference/native_plugins.html#viewer-point-cloud)
-* [Add Viewer Plan 'plan-model-loaded' and 'plan-model-unloaded' events](/viewer/reference/native_plugins.html#viewer-plan)
+* [Context menu handles async predicates](./reference/context_menu#command-interface)
+* [New bimdataViewer `destroy` method to propertly clean it](./reference/makeBIMDataViewer)
+* [New `setObjectsOpacity` method on the Viewer3D plugin](./reference/native_plugins#viewer-3d-ifc)
+* [Point Cloud Viewer has `xeokitSdk` exposed and its `viewer` property is renamed as `xeokit`](./reference/native_plugins#viewer-point-cloud)
+* [Add Viewer Plan 'plan-model-loaded' and 'plan-model-unloaded' events](./reference/native_plugins#viewer-plan)
 
 #### Bugfixes
 
@@ -537,7 +537,7 @@ export default defineConfig(() => {
 * Do not clear object selection when opening BCF creation form
 * Handle deprecated BIMDataAPI IfcApi methods properly
 
-## v1.9.0
+## v1.9.0 (2022-11-24)
 
 #### Usages
 
@@ -562,14 +562,14 @@ export default defineConfig(() => {
 
 #### Developers
 
-* [Exposed Modelsloader](/viewer/reference/global_components.html#modelsloader)
+* [Exposed Modelsloader](./reference/global_components#modelsloader)
 * Upgrade xeokit dependency to 2.2
 * Upgrade bimdata 2d-engine dependency to 1.14
 * Command Manager removed
 * Logger removed
 * Warning plugin removed
-* Add getLocalContexts(windowName) on [$viewer](/viewer/reference/$viewer.html)
-* [Embed BIMData design system](/viewer/customize_the_ui.html#embed-design-system)
+* Add getLocalContexts(windowName) on [$viewer](./reference/$viewer)
+* [Embed BIMData design system](./guide/index)
 * Improve state performances
 * Customizable colors
 * Use BIMData model API
@@ -600,17 +600,17 @@ export default defineConfig(() => {
 * Fix properties showing last selected object
 * Hide plugin as button tooltip while the plugin is open
 
-## v1.8.2
+## v1.8.2 (2021-11-12)
 #### Developers
-* Add [`translateIfcEntities` option](/viewer/reference/native_plugins.html#structure-and-properties)
+* Add [`translateIfcEntities` option](./reference/native_plugins#structure-and-properties)
 
 
-## v1.8.1
+## v1.8.1 (2021-11-10)
 #### Developers
 * `getLastEvent` is now referenced in `index.d.ts`. Don't forget to use it (even with .js files) to bring auto-complete in your development tools.
 
 
-## v1.8.0
+## v1.8.0 (2021-11-10)
 #### Usages
 * 2D Measurement can now snap to lines. Press CTRL (or cmd) while measuring.
 * 3D and 2D camera synchronization is now available in 2D parameters.
@@ -623,28 +623,28 @@ export default defineConfig(() => {
 * Events now have an option `getLastEvent`. If `true`, the last event (if any) is instantly triggered. It is useful for state synchronization on plugin initialization.
 
 
-## v1.7.4
+## v1.7.4 (2021-10-18)
 #### Usages
 * Archived models can now be loaded in multi-model if the first model loaded is archived
 
 
-## v1.7.3
+## v1.7.3 (2021-10-13)
 #### Usages
 * Add first iteration of Spanish translations
 
 
-## v1.7.2
+## v1.7.2 (2021-10-11)
 #### Usages
 * Add first iteration of German translations
 
 
-## v1.7.1
+## v1.7.1 (2021-09-29)
 #### Developers
 * Alerts plugin is now enabled on 2d window by default
 #### Bugfixes
 * Update api client to fix issues with `getExtensions`, `updateExtensions`, `createClassificationElementRelations` and `listClassificationElementRelations` methods
 
-## v1.7.0
+## v1.7.0 (2021-09-17)
 #### Usages
 * New menu to select windowed plugins
 * New UI to manage viewers and windows
@@ -659,10 +659,10 @@ export default defineConfig(() => {
 * 2D improve path measure validation
 
 #### Developers
-* Add `2d-model-loaded` and `2d-model-unloaded` [events](/viewer/reference/native_plugins.html#events-2)
+* Add `2d-model-loaded` and `2d-model-unloaded` [events](./reference/native_plugins#events-1)
 * The new 2D engine is now [documented](https://2d-engine.bimdata.io). You can develop plugin drawing stuff in 2D!
-* Windows can now have an [icon](/viewer/customize_the_ui.html#window-configuration-object)
-* Add 3D annotations [events](https://developers-staging.bimdata.io/viewer/reference/native_plugins.html#events)
+* Windows can now have an [icon](./guide/index)
+* Add 3D annotations [events](./reference/native_plugins#events)
 
 #### Bugfixes
 * Fix 2D crash if the page loading the viewer doesn't allow `eval` or `new Function()`
@@ -673,17 +673,17 @@ export default defineConfig(() => {
 * Object state is now correctly set when opening a new 3D window
 
 
-## v1.6.2
+## v1.6.2 (2021-05-12)
 #### Bugfixes
 * Fix bug with logarithmicDepthBuffer. It could cause glitches if two surfaces were too close to each other
 
 
-## v1.6.1
+## v1.6.1 (2021-05-10)
 #### Usages
 * Improve default 2D and 3D parameters (Edges, highlight, spaces and space names are enabled by default)
 
 
-## v1.6.0
+## v1.6.0 (2021-05-10)
 #### Usages
 * Brand new 2D viewer
 * Faster and more accurate rendering
@@ -704,16 +704,16 @@ export default defineConfig(() => {
 * Fix loadIfc method when ifcId is a string instead of an integer
 
 
-## v1.5.6
+## v1.5.6 (2021-03-25)
 #### Bugfixes
 * Performance fixes
 
 
-## v1.5.0
+## v1.5.0 (2021-02-19)
 #### Developers
-* Add [showAllAnnotations option](/viewer/reference/native_plugins.html#bcf) to BCF plugin
+* Add [showAllAnnotations option](./reference/native_plugins#bcf) to BCF plugin
 * Add structure window as available window by default. `bimdataViewer.unregisterWindow('structure')` to remove it.
-* Add [getRawElements()](/viewer/reference/$viewer.html#getrawelements)
+* Add [getRawElements()](./reference/$viewer#getrawelements)
 
 #### Bugfixes
 * Fix BCF bucket tip which showed the wrong shortcut
@@ -721,19 +721,19 @@ export default defineConfig(() => {
 * Fix xraySetters
 
 
-## v1.4.1
+## v1.4.1 (2021-02-08)
 #### Bugfixes
-* Fix [object properties](/viewer/reference/state.html#object) that may not be accessible in some contexts
+* Fix [object properties](./reference/state.html#object) that may not be accessible in some contexts
 
 
-## v1.4.0
+## v1.4.0 (2021-02-02)
 #### Usages
 * Improve 3D rendering performances up to 25%
 
 #### Developers
-* [BCF current-user can now be fetched from a custom endpoint](/viewer/reference/native_plugins.html#bcf)
-* [Add method to reload Structure plugin](/viewer/reference/native_plugins.html#structure-and-properties)
-* [Move getRawElements() method to $viewer.state.api](/viewer/reference/$viewer.html#getrawelements)
+* [BCF current-user can now be fetched from a custom endpoint](./reference/native_plugins#bcf)
+* [Add method to reload Structure plugin](./reference/native_plugins#structure-and-properties)
+* [Move getRawElements() method to $viewer.state.api](./reference/$viewer#getrawelements)
 
 #### Bugfixes
 * Fix picking on big 3D models
@@ -741,7 +741,7 @@ export default defineConfig(() => {
 * Fix plugin `$close()` triggered even if the plugin wasn't opened when `keepOpen = false`
 
 
-## v1.3.0
+## v1.3.0 (2021-01-20)
 
 #### Usages
 * New Section planes tool
@@ -752,11 +752,11 @@ export default defineConfig(() => {
 * Elements highlight on mouse hover is now disabled in Flight mode
 
 #### Developers
-* [BCF users can now be fetched from a custom endpoint](/viewer/reference/native_plugins.html#bcf)
+* [BCF users can now be fetched from a custom endpoint](./reference/native_plugins#bcf)
 * [Increase render and pick precision for very large models](https://github.com/xeokit/xeokit-sdk/issues/254)
-* [Add methods to retrieve objects, children, siblings and parents](/viewer/reference/state.html#object)
-* [Add logger level configuration in makeBIMDataViewer](/viewer/reference/makeBIMDataViewer.html#logger)
-* [Add viewer instance setLocale method](/viewer/reference/makeBIMDataViewer.html#locale)
+* [Add methods to retrieve objects, children, siblings and parents](./reference/state#objects)
+* [Add logger level configuration in makeBIMDataViewer](./reference/makeBIMDataViewer#logger)
+* [Add viewer instance setLocale method](./reference/makeBIMDataViewer#locale)
 
 #### Bugfixes
 * Fix BCF interface if loading was slower than the human
@@ -767,28 +767,27 @@ export default defineConfig(() => {
 ## Migration Guide from 0.x to 1.x
 
 This is the first major BIMData Viewer update. Thanks to your feebacks, we have improved the API. It is now more intuitive, more powerful and there are many new features.
-This guide will only show you how to upgrade your plugins. If you want to see the new feature in detail, see the [viewer documentation](/viewer/index.html).
+This guide will only show you how to upgrade your plugins. If you want to see the new feature in detail, see the [viewer documentation](./index).
 
 Major features:
 - The 2D Viewer is now available.
-- Implement your plugins in [dedicated windows and build even more powerful tools](/viewer/customize_the_ui.html#overview).
-- Implement [loading screens](/viewer/reference/$viewer.html#global-and-local-contexts).
-- [Modals](/viewer/reference/$viewer.html#modals).
-- [Custom Right click actions](/viewer/reference/context_menu.html#get-the-context-menu).
+- Implement your plugins in [dedicated windows and build even more powerful tools](./guide/index).
+- Implement [loading screens](./reference/$viewer#global-and-local-contexts).
+- [Modals](./reference/$viewer#modals).
+- [Custom Right click actions](./reference/context_menu#get-the-context-menu).
 - Improved integration in various web environments.
 - Better performances.
 - Improved multi-models loading and positioning.
-- [Undo/Redo (CTRL-Z)](/viewer/reference/state.html#undo-redo) on state change actions.
+- [Undo/Redo (CTRL-Z)](./reference/state#undo-redo) on state change actions.
 
 
 ### Viewer instance
 
 #### ES Module
 
-<code-group>
-<code-block title="Version 0.x">
+::: code-group
 
-```javascript
+```javascript [Version 0.x]
 import BIMDataViewer from "@bimdata/viewer";
 
 const cfg = {
@@ -802,12 +801,10 @@ const cfg = {
     }
 };
 const accessToken = 'DEMO_TOKEN';
-const {viewer, store, eventHub, setAccessToken} = initBIMDataViewer('app', accessToken, cfg);
+const { viewer, store, eventHub, setAccessToken } = initBIMDataViewer('app', accessToken, cfg);
 ```
-</code-block>
-<code-block title="Version 1.x">
 
-```javascript
+```javascript [Version 1.x]
 import makeBIMDataViewer from "@bimdata/viewer";
 
 const bimdataViewer = makeBIMDataViewer({
@@ -829,10 +826,8 @@ const bimdataViewer = makeBIMDataViewer({
 
 const vm = bimdataViewer.mount("#app");
 ```
-</code-block>
-<code-block title="Both">
 
-```javascript
+```javascript [Both]
 /******* VERSION 0.X *******/
 
 import BIMDataViewer from "@bimdata/viewer";
@@ -848,7 +843,7 @@ const cfg = {
     }
 };
 const accessToken = 'DEMO_TOKEN';
-const {viewer, store, eventHub, setAccessToken} = initBIMDataViewer('app', accessToken, cfg);
+const { viewer, store, eventHub, setAccessToken } = initBIMDataViewer('app', accessToken, cfg);
 
 /******* VERSION 1.X *******/
 
@@ -873,70 +868,55 @@ const bimdataViewer = makeBIMDataViewer({
 
 const vm = bimdataViewer.mount("#app");
 ```
-</code-block>
-
-</code-group>
+:::
 
 #### Script tag
 
 
-<code-group>
-<code-block title="Version 0.x">
+::: code-group
 
-```html
+```html [Version 0.x]
 <script src="https://unpkg.com/@bimdata/viewer@^0.8.22/dist/bimdata-viewer.min.js" charset="utf-8"></script>
 ```
-</code-block>
-<code-block title="Version 1.x">
 
-```html
+```html [Version 1.x]
 <script src="https://cdn.jsdelivr.net/npm/@bimdata/viewer@1.9.3" charset="utf-8"></script>
 ```
-</code-block>
-</code-group>
+:::
 
 #### Refresh access token
 
-<code-group>
-<code-block title="Version 0.x">
+::: code-group
 
-```javascript
+```javascript [Version 0.x]
 const {viewer, store, eventHub, setAccessToken} = initBIMDataViewer('app', accessToken, cfg);
 setAccessToken(newToken);
 ```
-</code-block>
-<code-block title="Version 1.x">
 
-```javascript
+```javascript [Version 1.x]
 bimdataViewer.setAccessToken(newToken);
 ```
-</code-block>
-</code-group>
+:::
 
 #### Change language
 
-<code-group>
-<code-block title="Version 0.x">
+::: code-group
 
-```javascript
+```javascript [Version 0.x]
 const {viewer, store, eventHub, setAccessToken} = initBIMDataViewer('app', accessToken, cfg);
 viewer.$i18n.locale = locale;
 ```
-</code-block>
-<code-block title="Version 1.x">
 
-```javascript
+```javascript [Version 1.x]
 viewerVm.$i18n.locale = locale;
 ```
-</code-block>
-</code-group>
+:::
 
 ### Plugin configuration file
 
-<code-group>
-<code-block title="Version 0.x">
+::: code-group
 
-```javascript
+```javascript [Version 0.x]
 export default {
   name: "bimObjectPlugin",
   component: BimobjectComponent,
@@ -961,10 +941,8 @@ export default {
   },
 };
 ```
-</code-block>
-<code-block title="Version 1.x">
 
-```javascript
+```javascript [Version 1.x]
 export default {
   name: "bimObjectPlugin",
   component: BimobjectComponent,
@@ -990,10 +968,8 @@ export default {
   },
 };
 ```
-</code-block>
-<code-block title="Both">
 
-```javascript
+```javascript [Both]
 /******* VERSION 0.X *******/
 
 export default {
@@ -1047,8 +1023,7 @@ export default {
   },
 };
 ```
-</code-block>
-</code-group>
+:::
 
 ### Plugin API
 
@@ -1059,172 +1034,140 @@ Version 0.x used objects `uuids` as `id`. To handle identical `uuids` (eg: in mo
 :::
 
 ::: tip
-There are `uuids` utilities. See the [state reference](/viewer/reference/state.html#ids-and-uuids).
+There are `uuids` utilities. See the [state reference](./reference/state#objects).
 :::
 
-<code-group>
-<code-block title="Version 0.x">
+::: code-group
 
-```javascript
+```javascript [Version 0.x]
 this.$hub.on("select-objects", ({ ids }) => { /* Do something with ids. */ });
 ```
-</code-block>
-<code-block title="Version 1.x">
 
-```javascript
+```javascript [Version 1.x]
 this.$viewer.state.hub.on("objects-selected", ({ objects }) => { /* Do something with objects. */ });
 ```
-</code-block>
-</code-group>
+:::
 
 #### Setters
 
-<code-group>
-<code-block title="Version 0.x">
+::: code-group
 
-```javascript
+```javascript [Version 0.x]
 this.$hub.emit("select-objects", { ids: [/* object ids to be selected */] });
 ```
-</code-block>
-<code-block title="Version 1.x">
 
-```javascript
+```javascript [Version 1.x]
 this.$viewer.state.selectObjects([/* object ids to be selected */]);
 ```
-</code-block>
-</code-group>
+:::
 
 #### Getters
 
-<code-group>
-<code-block title="Version 0.x">
+::: code-group
 
-```javascript
+```javascript [Version 0.x]
 this.$utils.getCloudId();
 this.$utils.getProjectId();
 this.$utils.getAccessToken();
 ```
-</code-block>
-<code-block title="Version 1.x">
 
-```javascript
+```javascript [Version 1.x]
 this.$viewer.api.cloudId;
 this.$viewer.api.projectId;
 this.$viewer.api.accessToken;
 ```
-</code-block>
-</code-group>
+:::
 
 ::: tip
-- [$viewer reference](/viewer/reference/$viewer.html#viewer).
-- [State getters reference](/viewer/reference/state.html#getters).
+- [$viewer reference](./reference/$viewer).
+- [State getters reference](./reference/state#objects-getters).
 :::
 
 #### BIMData API Client
 
-<code-group>
-<code-block title="Version 0.x">
+::: code-group
 
-```javascript
+```javascript [Version 0.x]
 const apiClient = new this.$bimdataApiClient.IfcApi();
 ```
-</code-block>
-<code-block title="Version 1.x">
 
-```javascript
+```javascript [Version 1.x]
 const apiClient = new this.$viewer.api.apiClient.IfcApi();
 // All API calls are the same
 ```
-</code-block>
-</code-group>
+:::
 
 #### Structure helpers
 
-<code-group>
-<code-block title="Version 0.x">
+::: code-group
 
-```javascript
+```javascript [Version 0.x]
 this.$utils.getObjectParent(id);
 this.$utils.getObjectSpace(id);
 this.$utils.getObjectAncestorByType(id, type);
 ```
-</code-block>
-<code-block title="Version 1.x">
 
-```javascript
+```javascript [Version 1.x]
 // structure methods are now object's methods
 object.parent;
 object.space;
 object.getFirstAncestorWithType(type);
 ```
-</code-block>
-</code-group>
+:::
 
 ::: tip
-See [state object reference](/viewer/reference/state.html#object).
+See [state object reference](./reference/state#objects).
 :::
 
 #### Model Loading
 
-<code-group>
-<code-block title="Version 0.x">
+::: code-group
 
-```javascript
+```javascript [Version 0.x]
 this.$utils.loadIfc(ifcs);
 this.$utils.unloadIfc(ifcs);
 
 const loadedIfc = this.$utils.getSelectedIfcs()[0];
 ```
-</code-block>
-<code-block title="Version 1.x">
 
-```javascript
+```javascript [Version 1.x]
 await this.$viewer.state.loadIfcs([ifcIds]);
 // Resolve when ifcs are added in the state, not when the 3D viewer has loaded them
 this.$viewer.state.unloadIfcs([ifcIds]);
 
 const loadedIfc = this.$viewer.state.ifcs[0];
 ```
-</code-block>
-</code-group>
+:::
 
 #### Error message
 
-<code-group>
-<code-block title="Version 0.x">
+::: code-group
 
-```javascript
+```javascript [Version 0.x]
 this.$hub.emit("alert", {
   type: "success",
   message: this.$t("successMessage"),
 });
 ```
-</code-block>
-<code-block title="Version 1.x">
 
-```javascript
+```javascript [Version 1.x]
 this.$viewer.localContext.hub.emit("alert", {
   type: "success",
   message: this.$t("bimObjectPlugin.successMessage"),
 });
 ```
-</code-block>
-</code-group>
+:::
 
 
 #### Modals
 
-<code-group>
-<code-block title="Version 0.x">
+::: code-group
 
-```javascript
+```javascript [Version 0.x]
 this.$plugins.modalManager.pushModal(modal);
 ```
-</code-block>
-<code-block title="Version 1.x">
 
-```javascript
+```javascript [Version 1.x]
 this.$viewer.globalContext.modals.pushModal(modal);
 ```
-</code-block>
-</code-group>
+:::

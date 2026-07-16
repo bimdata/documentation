@@ -1,17 +1,17 @@
-# Bimdata Platform Front
+# BIMData Platform Front
 
-## URLs of Bimdata apps
+## URLs of BIMData apps
 
 | Variables                  | Default value | Description                 |
 |----------------------------|---------------|-----------------------------|
-| VUE_APP_BASE_URL           |               | Bimdata Platform front URL. |
-| VUE_APP_BACKEND_BASE_URL   |               | Bimdata Platform back URL.  |
-| VUE_APP_API_BASE_URL       |               | Bimdata API URL.            |
-| VUE_APP_ARCHIVE_BASE_URL   |               | Bimdata Archive URL.        |
-| VUE_APP_URL_BIMDATACONNECT |               | Bimdata Connect URL.        |
-| VUE_APP_URL_DOCUMENTATION  |               | Bimdata documentation URL.  |
-| VUE_APP_URL_MARKETPLACE    |               | Bimdata marketplace URL.    |
-| VUE_APP_URL_OLD_PLATFORM   |               | Bimdata old platform URL.   |
+| VUE_APP_BASE_URL           |               | BIMData Platform front URL. |
+| VUE_APP_BACKEND_BASE_URL   |               | BIMData Platform back URL.  |
+| VUE_APP_API_BASE_URL       |               | BIMData API URL.            |
+| VUE_APP_ARCHIVE_BASE_URL   |               | BIMData Archive URL.        |
+| VUE_APP_URL_BIMDATACONNECT |               | BIMData Connect URL.        |
+| VUE_APP_URL_DOCUMENTATION  |               | BIMData documentation URL.  |
+| VUE_APP_URL_MARKETPLACE    |               | BIMData marketplace URL.    |
+| VUE_APP_URL_OLD_PLATFORM   |               | BIMData old platform URL.   |
 
 ## OpenID configuration
 | Variables                             | Default value | Description                                 |

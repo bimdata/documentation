@@ -31,7 +31,7 @@ const configs = new Map([
 ]);
 
 async function makeViewer(config, id) {
-  await import(/* webpackIgnore: true */ "https://cdn.jsdelivr.net/npm/@bimdata/viewer@2.14.0-beta.8");
+  await import("https://cdn.jsdelivr.net/npm/@bimdata/viewer@2.17.2");
   if (configs.has(config)) {
     return configs.get(config)(id);
   } else {

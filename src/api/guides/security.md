@@ -10,4 +10,4 @@ Your data are saved on a daily basis.
 ## HTTPS
 BIMData’s HTTPS implementation is graded A+ on SSL Labs website.
 
-![SSL report](/assets/img/api/API-ssl-report.png)
+![SSL report](/images/api/API-ssl-report.png)
