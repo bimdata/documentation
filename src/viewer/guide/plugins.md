@@ -50,7 +50,7 @@ const myPlugin = bimdataViewer.registerPlugin({
 });
 ```
 
-<img width=250px src="/assets/img/viewer/viewer-gui-plugin-default.png" alt="Viewer GUI plugin default.">
+<img width=250px src="/images/viewer/viewer-gui-plugin-default.png" alt="Viewer GUI plugin default.">
 
 ### Plugin as button
 
@@ -71,7 +71,7 @@ const myPlugin = bimdataViewer.registerPlugin({
 });
 ```
 
-<img width=250px src="/assets/img/viewer/viewer-gui-plugin-button-simple.png" alt="Viewer GUI plugin button simple.">
+<img width=250px src="/images/viewer/viewer-gui-plugin-button-simple.png" alt="Viewer GUI plugin button simple.">
 
 - **panel** : plugin content displayed on the whole [**Window**](../reference/window.html) height.
 
@@ -88,7 +88,7 @@ const myPlugin = bimdataViewer.registerPlugin({
 });
 ```
 
-<img width=250px src="/assets/img/viewer/viewer-gui-plugin-button-panel.png" alt="Viewer GUI plugin button panel.">
+<img width=250px src="/images/viewer/viewer-gui-plugin-button-panel.png" alt="Viewer GUI plugin button panel.">
 
 - **free** : plugin content displayed on the side of the button, without any layout. Its size is determined by its content.
 
@@ -105,7 +105,7 @@ const myPlugin = bimdataViewer.registerPlugin({
 });
 ```
 
-<img width=250px src="/assets/img/viewer/viewer-gui-plugin-button-free.png" alt="Viewer GUI plugin button free.">
+<img width=250px src="/images/viewer/viewer-gui-plugin-button-free.png" alt="Viewer GUI plugin button free.">
 
 :::tip
 Checkout [the example about the GUI Layout](../examples/gui_layout.html) for practical application.
@@ -115,7 +115,7 @@ Checkout [the example about the GUI Layout](../examples/gui_layout.html) for pra
 
 The [**Context Menu**](../reference/context_menu.html) and the [**Keyobard Shortcuts**](../reference/keyboard_shortcuts.html) can be personalized using [**Plugins**](../reference/plugin.html).
 
-<img width=250px src="/assets/img/viewer/viewer-gui-context-menu.png" alt="Viewer GUI context menu.">
+<img width=250px src="/images/viewer/viewer-gui-context-menu.png" alt="Viewer GUI context menu.">
 
 Both of them take into account the context of the request. In this way, it is possible to launch a specific action in a particular [**Window**](../reference/window.html) when a keyboard key is pressed while the mouse is hovering that [**Window**](../reference/window.html). In the same way, it is possible to add to the [**Context Menu**](../reference/context_menu.html) only a list of commands specific to the place where the click was made.
 
@@ -221,8 +221,8 @@ A good image to see the difference between the bounds of the [`localContext`](..
   <p><b>Local context spinner</b></p>
 </div>
 <p align="center">
-  <img width="48%" src="/assets/img/viewer/viewer-global_context.gif" alt="Viewer global context spinner">
-  <img width="48%" src="/assets/img/viewer/viewer-local_context.gif" alt="Viewer local context spinner.">
+  <img width="48%" src="/images/viewer/viewer-global_context.gif" alt="Viewer global context spinner">
+  <img width="48%" src="/images/viewer/viewer-local_context.gif" alt="Viewer local context spinner.">
 </p>`
 
 

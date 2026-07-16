@@ -4,7 +4,7 @@ La plateforme BIMData propose une fonctionnalité d'historique de version pour a
 
 ## Ajout d’une nouvelle version 
 
-![Ajouter nouvelle version](/assets/img/user-guide/menu-version.png)
+![Ajouter nouvelle version](/images/user-guide/menu-version.png)
 
 * Depuis la **GED**, accédez au menu du fichier souhaité.
 * Cliquez sur **"Ajouter une version"**.
@@ -12,11 +12,11 @@ La plateforme BIMData propose une fonctionnalité d'historique de version pour a
 
 ## Historique des versions
 
-![Historique version](/assets/img/user-guide/ajouter-version.png)
+![Historique version](/images/user-guide/ajouter-version.png)
 
 Une fois plusieurs versions ajoutées, vous pourrez :
 * **Consulter les documents :** ouvrez les différentes versions du fichier si elles sont compatibles avec la visionneuse BIMData.
 * **Restaurer une version précédente :** revenez à une version antérieure si nécessaire.
 * **Supprimer des versions :** supprimez des versions obsolètes ou inutiles.
 
-![Consulter version](/assets/img/user-guide/consulter-version.png)
+![Consulter version](/images/user-guide/consulter-version.png)

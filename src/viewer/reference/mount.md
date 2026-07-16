@@ -60,4 +60,4 @@ const layout = {
 
 The result is the following UI layout:
 
-<img width=300px src="/assets/img/viewer/complex-layout.png" alt="Viewer complex mount layouts.">
+<img width=300px src="/images/viewer/complex-layout.png" alt="Viewer complex mount layouts.">

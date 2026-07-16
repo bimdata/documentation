@@ -54,7 +54,7 @@ The `api` properties are:
 | `projectId`   | `number`   | The project id.                |
 | `modelIds`    | `number[]` | (**Optional**) An array of model ids to load on startup. |
 | `offline`     | `object`   | Offline mode configuration.    |
-| `onlyLoadUuids` | `object` | A 'model id' to 'element uuids' mapping to filter elements ([see example](../examples/filter_elements.md)). |
+| `onlyLoadUuids` | `object` | A 'model id' to 'element uuids' mapping to filter elements ([see example](../examples/partial_loading)). |
 
 Here are the `offline` configuration options:
 
@@ -92,7 +92,7 @@ The `ui` properties are:
 
 | Name                    | Type      | Description                                                                 |
 | :---------------------- | :-------- | :-------------------------------------------------------------------------- |
-| `style`                 | `object`  | An set of props to customize [viewer colors](../guide/README.md#colors-🎨). |
+| `style`                 | `object`  | An set of props to customize [viewer colors](../guide/index#colors-🎨). |
 | `header`                | `boolean` | **Default** to `true`. If `false`, the header is hidden.                    |
 | `version`               | `boolean` | **Default** to `true`. If `false`, the viewer version is hidden.            |
 | `bimdataLogo`           | `boolean` | **Default** to `true`. If `false`, the BIMData logo is hidden.              |

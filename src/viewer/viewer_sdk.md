@@ -6,7 +6,7 @@ We have pre-configured a **VueJS** environment to develop BIMData Viewer plugins
 
 In this section, you get tutorials and references for installing and using the [BIMData Viewer SDK](https://github.com/bimdata/bimdata-viewer-sdk)
 
-<img src="/assets/img/viewer/sdk-landing.jpg" style="border:1px solid #dfe2e5; border-radius: 20px;">
+<img src="/images/viewer/sdk-landing.jpg" style="border:1px solid #dfe2e5; border-radius: 20px;">
 
 ## Setup
 
@@ -37,8 +37,8 @@ npm run dev
 
 ### Usage
 
-When going on [http://localhost:8080](http://localhost:8080), a simple interface will let you open the project and model you want.
-You can directly open one by opening an URL using specific Ids, for example : [http://localhost:8080/viewer?cloudId=391&projectId=634&ifcId=1491](http://localhost:8080/viewer?cloudId=391&projectId=634&ifcId=1491)
+When going on http://localhost:8080, a simple interface will let you open the project and model you want.
+You can directly open one by opening an URL using specific Ids, for example : http://localhost:8080/viewer?cloudId=391&projectId=634&ifcId=1491
 
 ## Create your plugin
 

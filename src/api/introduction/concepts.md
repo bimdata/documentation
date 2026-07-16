@@ -6,7 +6,7 @@ A cloud is a set of projects sharing the same configuration. Each projects conta
 
 On BIMData Platform, cloud have been renamed "Space". For compatibility reasons, we did not rename every route on the API. Cloud and Spaces are two names for the same entity.
 
-![BIMData Connect](/assets/img/api/API-cloud.png)
+![BIMData Connect](/images/api/API-cloud.png)
 
 ## Project
 
@@ -25,7 +25,7 @@ A BCF is linked to a Project, not a Model.
 
 A project member can see all other members, and an admin member can manage the users of the project.
 
-![BIMData Connect](/assets/img/api/API-project.png)
+![BIMData Connect](/images/api/API-project.png)
 
 ## IFC
 
@@ -41,7 +41,7 @@ Depending on the options you chose, you can:
 - Retrieve classifications, systems and zones.
 - Retrieve 2D plans in SVG format.
 
-![BIMData Connect](/assets/img/api/API-ifc.png)
+![BIMData Connect](/images/api/API-ifc.png)
 
 ### Upload an IFC
 
@@ -72,7 +72,7 @@ You can follow the progress on the `status` field:
 
 The API exposes a complete set of methods to upload and manage documents.
 
-![BIMData Connect](/assets/img/api/API-folder&document.png)
+![BIMData Connect](/images/api/API-folder&document.png)
 
 ### Folders
 
@@ -108,10 +108,9 @@ BIMData API allows you to upload any kind of file (IFC, Office, images, binaries
 
 File upload is one of the few API calls which does not use the `application/json` Content Type. This call uses `x-www-urlencoded` with `form-data`. The name of the file field must be `“file”`, this means that you have to fire multiple calls if you want to upload many files.
 
-<code-group>
-<code-block title="cURL">
+::: code-group
 
-```bash
+```bash [cURL]
 curl -X POST \
 'https://api.bimdata.io/cloud/1/project/1/document' \
 -H 'authorization: Bearer ZeZr9oYxHspA8OdSCo9uftaLaEHX1N' \
@@ -120,10 +119,7 @@ curl -X POST \
 -F file=@/path/to/XXX.pdf
 ```
 
-</code-block >
-<code-block title="python">
-
-```python
+```python [python]
 import requests
 
 url = "https://api.bimdata.io/cloud/1/project/1/document"
@@ -143,10 +139,7 @@ response = requests.request("POST", url, data=payload, files=files, headers=head
 print(response.text)
 ```
 
-</code-block >
-<code-block title="javascript">
-
-```javascript
+```javascript [javascript]
 var fs = require("fs");
 var request = require("request");
 
@@ -173,9 +166,7 @@ request(options, function(error, response, body) {
   console.log(body);
 });
 ```
-
-</code-block >
-</code-group>
+:::
 
 Response example :
 
@@ -205,19 +196,15 @@ The filesize is the compressed size and not the actual size of the initial file 
 
 You can download files using the URL returned by the API. The URL is valid for 1 hour.
 
-<code-group>
-<code-block title="cURL">
+::: code-group
 
-```bash
+```bash [cURL]
 curl -X GET \
 'https://storage.gra3.cloud.ovh.net/v1/AUTH_b6a1c0b6b7c041d3a71d56f84ce25102/bimdata-staging-dev/cloud_1/project_1/XXX.pdf?temp_url_sig=311d34059bbebc87cd7f37de244bb6b62d114679&temp_url_expires=1527771256'
 ```
 
-</code-block>
 
-<code-block title="python">
-
-```python
+```python [python]
 import requests
 
 url = "https://api.bimdata.io/cloud/1/project/1/ifc"
@@ -227,17 +214,14 @@ querystring = {"status":"C"}
 headers = {
     'Content-Type': "application/json",
     'Authorization': "Bearer ZeZr9oYxHspA8OdSCo9uftaLaEHX1N",
-    }
+}
 
 response = requests.request("GET", url, headers=headers, params=querystring)
 
 print(response.text)
 ```
 
-</code-block>
-<code-block title="javascript">
-
-```javascript
+```javascript [javascript]
 const url =
   "https://storage.gra3.cloud.ovh.net/v1/AUTH_b6a1c0b6b7c041d3a71d56f84ce25102/bimdata-staging-dev/cloud_1/project_1/XXX.pdf?temp_url_sig=311d34059bbebc87cd7f37de244bb6b62d114679&temp_url_expires=1527771256";
 
@@ -245,9 +229,7 @@ const response = await fetch(url);
 
 console.log(await response.text());
 ```
-
-</code-block>
-</code-group>
+:::
 
 ## User
 

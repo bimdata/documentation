@@ -13,7 +13,7 @@ bimdataViewer.mount("#app", "mobile");
 ```
 
 <div style="text-align: center">
-  <img height="600px" src="/assets/img/viewer/viewer-mobile.png" alt="Viewer Mobile">
+  <img height="600px" src="/images/viewer/viewer-mobile.png" alt="Viewer Mobile">
 </div>
 
 The plugin is composed of **three** main elements from top to bottom:
@@ -45,9 +45,19 @@ You can use the mobile specific plan viewer with the `"mobile-plan"` window.
 bimdataViewer.mount("#app", "mobile-plan");
 ```
 
-<div style="text-align: center">
-  <img height="600px" src="/assets/img/viewer/viewer-mobile-plan.png" alt="Viewer Mobile Plan">
-</div>
+<img style="margin: auto" src="/images/viewer/viewer-mobile-plan.png" alt="Viewer Mobile Plan">
+
+
+## Mobile Viewer DWG / DXF
+
+You can use the mobile DWG viewer with the `"mobile-dwg"` window (or `"mobile-dxf"` for DXF models).
+
+```js
+bimdataViewer.mount("#app", "mobile-dwg"); // for DWG
+bimdataViewer.mount("#app", "mobile-dxf"); // for DXF
+```
+
+<img style="margin: auto" src="/images/viewer/viewer-mobile-dwg.png" alt="Viewer Mobile DWG">
 
 ## Loading model
 
