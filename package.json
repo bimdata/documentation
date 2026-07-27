@@ -17,7 +17,7 @@
   "devDependencies": {
     "@bimdata/design-system": "2.4.2",
     "sass-embedded": "^1.100.0",
-    "swagger-ui": "^5.32.8",
+    "swagger-ui": "^5.32.11",
     "swagger-ui-dist": "^5.32.8",
     "vitepress": "^1.6.4",
     "vitepress-plugin-llms": "^1.13.2"
