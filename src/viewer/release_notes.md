@@ -1,5 +1,17 @@
 # Release Notes
 
+## v2.18.0 (2026-08-26)
+
+### Feature
+
+ * **New Fragments Viewer** !!!
+ * Layout: allow multiple side panels in local context
+ * Mobile: Viewer Mobile DWG
+
+### Bugfixes
+
+ * BCF: topic state sync
+
 ## v2.17.2 (2026-05-25)
 
 ### Features
