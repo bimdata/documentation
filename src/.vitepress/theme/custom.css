@@ -1,31 +1,10 @@
 @import "../../../node_modules/@bimdata/design-system/src/assets/css/design-system.css";
+@import "./tokens.css";
+@import "./buttons.css";
 
-:root {
-  --color-bg-subtle: #f0f5ff;
-  --color-bg-accent: #dce7ff;
-  --color-bg-primary: #205dbd;
-  --vp-c-brand-1: #205dbd;
-  --vp-c-brand-2: #205dbd;
-  --vp-c-brand-3: #205dbd;
-
-  /* Fond du bloc de code */
-  --vp-code-bg: rgba(27,31,35,.05);
-  --vp-code-block-bg: #282c34;
-  
-  /* Couleur du texte par défaut dans le code */
-  --vp-code-color: #4d5a7a;
-  /* --vp-code-color: #e0e0e0; */
-
-  /* Onglets du code-group */
-  --vp-code-tab-bg: #16213e;
-  --vp-code-tab-active-bg: #1a1a2e;
-  --vp-code-tab-text-color: #a0a0b0;
-  --vp-code-tab-active-text-color: #ffffff;
-  --vp-code-tab-hover-text-color: #ffffff;
-  --shiki-light: #E1E4E8;
-
-  /* Typo */
-  --vp-font-family-mono: 'Source Code Pro', monospace;
+html, body {
+  font-family: var(--vp-font-family-base);
+  font-size: 16px;
 }
 
 .vp-doc {
@@ -37,7 +16,7 @@
   font-family: var(--vp-font-family-mono);
 }
 .VPImage.logo {
-  height: 36px !important;
+  height: 28px !important;
 }
 
 .VPHome {

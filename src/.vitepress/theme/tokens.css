@@ -1,0 +1,132 @@
+
+:root {
+  /* ========================================
+     BIMDATA — BRAND
+     ======================================== */
+  --bimdata-blue: #2378c4;
+  --bimdata-blue-light: #4ea0e8;
+  --bimdata-primary: #2F374A;
+  --bimdata-yellow: #f9c72c;
+
+  /* ========================================
+     BIMDATA — NEUTRALS
+     ======================================== */
+  --bimdata-navy: #102235;
+  --bimdata-slate: #5e7183;
+
+  --bimdata-white: #ffffff;
+
+  --bimdata-gray-50: #F5F8FC;
+  --bimdata-gray-100: #f1f6fa;
+  --bimdata-gray-200: #d9e4ee;
+  --bimdata-gray-300: #c3d5e3;
+  --bimdata-gray-400: #c2d2e0;
+
+  /* ========================================
+     VITEPRESS
+     ======================================== */
+  --vp-c-brand-1: var(--bimdata-blue);
+  --vp-c-brand-2: #2f87ce;
+  --vp-c-brand-3: #1d69ac;
+
+  --vp-c-brand-soft: rgba(35, 120, 196, 0.15);
+
+  --vp-c-bg: var(--bimdata-gray-50);
+  --vp-c-bg-alt: var(--bimdata-white);
+  --vp-c-bg-elv: var(--bimdata-white);
+
+  --vp-c-text-1: var(--bimdata-navy);
+  --vp-c-text-2: var(--bimdata-slate);
+  --vp-c-text-3: #718ba1;
+
+  --vp-c-divider: var(--bimdata-gray-200);
+  --vp-c-gutter: var(--bimdata-gray-200);
+
+  --vp-c-default-1: var(--bimdata-slate);
+  --vp-c-default-2: var(--bimdata-gray-300);
+  --vp-c-default-3: var(--bimdata-gray-100);
+  --vp-c-default-soft: var(--bimdata-gray-100);
+
+  /* ========================================
+     TYPOGRAPHY
+     ======================================== */
+  --vp-font-family-base: "Roboto", sans-serif;
+  --vp-font-family-mono: "Roboto Mono", monospace;
+
+  /* ========================================
+     LAYOUT
+     ======================================== */
+  --vp-layout-max-width: 1440px;
+
+  /* ========================================
+     SHAPES
+     ======================================== */
+  --vp-button-brand-border: transparent;
+  --vp-button-brand-text: #ffffff;
+  --vp-button-brand-bg: var(--bimdata-blue);
+  --vp-button-brand-hover-border: transparent;
+  --vp-button-brand-hover-text: #ffffff;
+  --vp-button-brand-hover-bg: #2f87ce;
+  --vp-button-brand-active-border: transparent;
+  --vp-button-brand-active-text: #ffffff;
+  --vp-button-brand-active-bg: #1d69ac;
+}
+.dark {
+  /* ========================================
+     BACKGROUND
+     ======================================== */
+
+  --vp-c-bg: #071a2b;
+  --vp-c-bg-alt: #0a1f32;
+  --vp-c-bg-elv: #0c263d;
+
+  /* ========================================
+     TEXT
+     ======================================== */
+
+  --vp-c-text-1: #ffffff;
+  --vp-c-text-2: #9fb0c0;
+  --vp-c-text-3: #718ba1;
+
+  /* ========================================
+     BORDERS
+     ======================================== */
+
+  --vp-c-divider: #15334e;
+  --vp-c-gutter: #15334e;
+
+  /* ========================================
+     BRAND
+     ======================================== */
+
+  --vp-c-brand-1: #4ea0e8;
+  --vp-c-brand-2: #65b0f2;
+  --vp-c-brand-3: #2378c4;
+
+  --vp-c-brand-soft: rgba(78, 160, 232, 0.2);
+
+  /* ========================================
+     DEFAULT
+     ======================================== */
+
+  --vp-c-default-1: #9fb0c0;
+  --vp-c-default-2: #2c465e;
+  --vp-c-default-3: #102a42;
+  --vp-c-default-soft: #102a42;
+
+  /* ========================================
+     BUTTON
+     ======================================== */
+
+  --vp-button-brand-border: transparent;
+  --vp-button-brand-text: #ffffff;
+  --vp-button-brand-bg: #2378c4;
+
+  --vp-button-brand-hover-border: transparent;
+  --vp-button-brand-hover-text: #ffffff;
+  --vp-button-brand-hover-bg: #4ea0e8;
+
+  --vp-button-brand-active-border: transparent;
+  --vp-button-brand-active-text: #ffffff;
+  --vp-button-brand-active-bg: #1d69ac;
+}
