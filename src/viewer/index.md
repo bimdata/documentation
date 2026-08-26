@@ -160,7 +160,7 @@ curl --request POST 'https://api.bimdata.io/cloud/CLOUD_ID/create-demo' \
   --header 'Authorization: ApiKey YOUR_API_KEY'
 
 # List its models
-curl --request GET 'https://api.bimdata.io/cloud/CLOUD_ID/project/PROJECT_ID/ifc' \
+curl --request GET 'https://api.bimdata.io/cloud/CLOUD_ID/project/PROJECT_ID/model' \
   --header 'Authorization: ApiKey YOUR_API_KEY'
 ```
 
