@@ -29,6 +29,7 @@ html, body {
    ======================================== */
 .VPNavBarSearch {
   .DocSearch-Button {
+    padding: 0 12px;
     width: 250px;
     border: 1px solid var(--vp-sidebar-border-color);
     background-color: var(--vp-sidebar-bg-color);
