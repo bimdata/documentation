@@ -13,7 +13,7 @@ export default defineConfig({
     theme: 'one-dark-pro'
   },
   head: [
-    ["link", { rel: "icon", href: "/images/favicon.svg", type: "image/svg+xml" }],
+    ["link", { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" }],
     [
       "link",
       {
