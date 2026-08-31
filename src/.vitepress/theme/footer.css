@@ -5,6 +5,8 @@
   width: 100%;
   background: var(--vp-c-bg-alt);
   color: var(--vp-c-text-1);
+  position: relative;
+  z-index: 25;
 }
 
 .bimdata-footer__container {
@@ -19,7 +21,7 @@
   display: grid;
   grid-template-columns: minmax(320px, 2fr) repeat(3, minmax(140px, 1fr));
   column-gap: 64px;
-  padding: 64px 0 68px;
+  padding: 40px 0 35px;
 }
 
 /* ========================================

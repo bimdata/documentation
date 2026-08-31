@@ -77,8 +77,8 @@ export default {
     this.highlightedCode = await codeToHtml(this.code, {
       lang: this.language,
       themes: {
-        light: "github-light",
-        dark: "github-dark",
+        light: "material-theme-ocean",
+        dark: "material-theme-ocean",
       },
       defaultColor: false,
     });
@@ -109,9 +109,9 @@ export default {
   max-width: 100%;
   min-width: 0;
   overflow: hidden;
-  border: 1px solid var(--vp-c-divider);
+  border: 1px solid var(--bimdata-terminal-border);
   border-radius: 10px;
-  background: var(--vp-c-bg-elv);
+  background: var(--bimdata-terminal-bg);
   box-shadow: 0 12px 32px rgba(16, 34, 53, 0.08);
   box-sizing: border-box;
 }
@@ -125,8 +125,8 @@ export default {
   align-items: center;
   min-width: 0;
   padding: 0 12px;
-  border-bottom: 1px solid var(--vp-c-divider);
-  background: var(--vp-c-bg-elv);
+  border-bottom: 1px solid var(--bimdata-terminal-border);
+  background: var(--bimdata-terminal-bg);
   box-sizing: border-box;
 }
 
@@ -165,7 +165,7 @@ export default {
   font-family: var(--vp-font-family-mono);
   font-size: 10px;
   line-height: 1;
-  color: var(--vp-c-text-3);
+  color: #9fb0c0;
 }
 
 .code-terminal__copy {
@@ -176,7 +176,7 @@ export default {
   background: transparent;
   font-family: var(--vp-font-family-mono);
   font-size: 10px;
-  color: var(--vp-c-text-3);
+  color: #9fb0c0;
   cursor: pointer;
   transition: color 0.15s ease;
 }
@@ -247,10 +247,10 @@ export default {
   align-items: center;
   min-width: 0;
   padding: 9px 12px;
-  border-top: 1px solid var(--vp-c-divider);
+  border-top: 1px solid var(--bimdata-terminal-border);
   font-family: var(--vp-font-family-mono);
   font-size: 9px;
-  color: var(--vp-c-text-3);
+  color: #9fb0c0;
   box-sizing: border-box;
 }
 
@@ -263,20 +263,14 @@ export default {
   margin-left: auto;
   text-overflow: ellipsis;
   white-space: nowrap;
-  color: var(--vp-c-brand-1);
+  color: var(--vp-c-brand-2);
   text-decoration: none;
-}
-
-.code-terminal__footer a:hover {
-  text-decoration: underline;
 }
 
 /* ========================================
    DARK MODE
    ======================================== */
-
 .dark .code-terminal {
   box-shadow: 0 16px 40px rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.15);
 }
 </style>

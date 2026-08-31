@@ -13,7 +13,6 @@
   --bimdata-on-premise: #A375FF;
   --bimdata-platform: #F9C72C;
 
-
   /* ========================================
      BIMDATA — NEUTRALS
      ======================================== */
@@ -40,6 +39,7 @@
   --vp-c-bg: var(--bimdata-gray-50);
   --vp-c-bg-alt: var(--bimdata-white);
   --vp-c-bg-elv: var(--bimdata-white);
+  --vp-c-bg-soft: rgba(35, 120, 196, 0.05);
 
   --vp-c-text-1: var(--bimdata-navy);
   --vp-c-text-2: var(--bimdata-slate);
@@ -89,6 +89,26 @@
   --bimdata-border-card: var(--bimdata-gray-200);
 
   --radius-md: 12px;
+
+  --bimdata-terminal-bg: #0d1b2a;
+  --bimdata-terminal-border: var(--bimdata-slate);
+
+  /* ========================================
+   CODE BLOCK
+   ======================================== */
+  /* Fond du bloc de code */
+  --vp-code-bg: rgba(27,31,35,.05);
+  --vp-code-block-bg: var(--bimdata-terminal-bg);
+  
+  /* Couleur du texte par défaut dans le code */
+  --vp-code-color: #4d5a7a;
+
+  /* Onglets du code-group */
+  --vp-code-tab-bg: var(--bimdata-terminal-bg);
+  --vp-code-tab-active-bg: #1a1a2e;
+  --vp-code-tab-text-color: #a0a0b0;
+  --vp-code-tab-active-text-color: #ffffff;
+  --vp-code-tab-hover-text-color: #ffffff;
 }
 .dark {
   /* ========================================
@@ -98,6 +118,7 @@
   --vp-c-bg-alt: #0a1f32;
   --vp-c-bg-elv: #0B2237;
   --vp-sidebar-bg-color: #0B2237;
+  --vp-code-bg: rgba(255, 255, 255, 0.08);
 
   /* ========================================
      TEXT
@@ -159,4 +180,7 @@
   --bimdata-surface-card-hover: #102a42;
 
   --bimdata-border-card: #1B4261;
+
+  --bimdata-terminal-bg: #0B2237;
+  --bimdata-terminal-border: #1B4261;
 }

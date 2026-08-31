@@ -20,4 +20,7 @@ import VPNavBarSearch from 'vitepress/dist/client/theme-default/components/VPNav
 .VPNavBarSearch{
   padding: 0;
 }
+.dark .hero-search :deep(.DocSearch-Button) {
+  border-color: rgba(78,160,232, .1);
+}
 </style>
