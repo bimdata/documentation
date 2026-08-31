@@ -38,8 +38,8 @@
     <div class="code-terminal__footer">
       <span>{{ language }}</span>
 
-      <a href="/guide/quickstart">
-        Open the full quickstart ↗
+      <a class="button-arrow" href="/guide/quickstart">
+        Open the full quickstart
       </a>
     </div>
   </div>
@@ -104,45 +104,43 @@ export default {
 
 <style scoped>
 .code-terminal {
+  display: block;
+  width: 100%;
+  max-width: 100%;
   min-width: 0;
   overflow: hidden;
-
   border: 1px solid var(--vp-c-divider);
   border-radius: 10px;
-
   background: var(--vp-c-bg-elv);
-
-  box-shadow:
-    0 12px 32px rgba(16, 34, 53, 0.08);
+  box-shadow: 0 12px 32px rgba(16, 34, 53, 0.08);
+  box-sizing: border-box;
 }
 
 /* ========================================
    HEADER
    ======================================== */
-
 .code-terminal__header {
   height: 36px;
-
   display: flex;
   align-items: center;
-
+  min-width: 0;
   padding: 0 12px;
-
   border-bottom: 1px solid var(--vp-c-divider);
-
   background: var(--vp-c-bg-elv);
+  box-sizing: border-box;
 }
 
 .code-terminal__dots {
   display: flex;
   align-items: center;
   gap: 5px;
+  flex-shrink: 0;
 }
 
 .code-terminal__dot {
   width: 6px;
   height: 6px;
-
+  flex: 0 0 6px;
   border-radius: 50%;
 }
 
@@ -159,30 +157,27 @@ export default {
 }
 
 .code-terminal__title {
+  min-width: 0;
   margin-left: 10px;
-
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   font-family: var(--vp-font-family-mono);
   font-size: 10px;
   line-height: 1;
-
   color: var(--vp-c-text-3);
 }
 
 .code-terminal__copy {
+  flex-shrink: 0;
   margin-left: auto;
-
   padding: 2px 4px;
-
   border: 0;
   background: transparent;
-
   font-family: var(--vp-font-family-mono);
   font-size: 10px;
-
   color: var(--vp-c-text-3);
-
   cursor: pointer;
-
   transition: color 0.15s ease;
 }
 
@@ -193,25 +188,28 @@ export default {
 /* ========================================
    CODE
    ======================================== */
-
 .code-terminal__body {
-  margin: 0;
-
+  display: block;
+  width: 100%;
+  min-width: 0;
   min-height: 280px;
   max-height: 390px;
-
-  overflow: auto;
-
+  margin: 0;
   padding: 18px 20px;
-
+  box-sizing: border-box;
+  overflow-x: auto;
+  overflow-y: auto;
   font-family: var(--vp-font-family-mono);
   font-size: 11px;
   line-height: 1.65;
-
   text-align: left;
+  white-space: pre;
 }
 
 .code-terminal__body :deep(pre) {
+  display: block;
+  width: max-content;
+  min-width: 100%;
   margin: 0;
 }
 
@@ -230,7 +228,6 @@ export default {
 
 .code-terminal__body :deep(.shiki) {
   margin: 0;
-
   background: transparent !important;
 }
 
@@ -245,25 +242,28 @@ export default {
 /* ========================================
    FOOTER
    ======================================== */
-
 .code-terminal__footer {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-
+  min-width: 0;
   padding: 9px 12px;
-
   border-top: 1px solid var(--vp-c-divider);
-
   font-family: var(--vp-font-family-mono);
   font-size: 9px;
-
   color: var(--vp-c-text-3);
+  box-sizing: border-box;
+}
+
+.code-terminal__footer > span {
+  flex-shrink: 0;
 }
 
 .code-terminal__footer a {
+  min-width: 0;
+  margin-left: auto;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   color: var(--vp-c-brand-1);
-
   text-decoration: none;
 }
 

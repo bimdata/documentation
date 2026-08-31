@@ -8,6 +8,12 @@
   --bimdata-primary: #2F374A;
   --bimdata-yellow: #f9c72c;
 
+  --bimdata-api: #2378C4;
+  --bimdata-viewer: #FE4A23;
+  --bimdata-on-premise: #A375FF;
+  --bimdata-platform: #F9C72C;
+
+
   /* ========================================
      BIMDATA — NEUTRALS
      ======================================== */
@@ -29,7 +35,7 @@
   --vp-c-brand-2: #2f87ce;
   --vp-c-brand-3: #1d69ac;
 
-  --vp-c-brand-soft: rgba(35, 120, 196, 0.15);
+  --vp-c-brand-soft: rgba(35, 120, 196, 0.05);
 
   --vp-c-bg: var(--bimdata-gray-50);
   --vp-c-bg-alt: var(--bimdata-white);
@@ -46,6 +52,10 @@
   --vp-c-default-2: var(--bimdata-gray-300);
   --vp-c-default-3: var(--bimdata-gray-100);
   --vp-c-default-soft: var(--bimdata-gray-100);
+
+  --vp-sidebar-bg-color: var(--bimdata-white);
+  --vp-sidebar-border-color: #C3D5E3;
+
 
   /* ========================================
      TYPOGRAPHY
@@ -70,20 +80,28 @@
   --vp-button-brand-active-border: transparent;
   --vp-button-brand-active-text: #ffffff;
   --vp-button-brand-active-bg: #1d69ac;
+
+  /* ========================================
+   SURFACES & CARDS
+   ======================================== */
+  --bimdata-surface-card: var(--bimdata-white);
+  --bimdata-surface-card-hover: var(--bimdata-gray-100);
+  --bimdata-border-card: var(--bimdata-gray-200);
+
+  --radius-md: 12px;
 }
 .dark {
   /* ========================================
      BACKGROUND
      ======================================== */
-
   --vp-c-bg: #071a2b;
   --vp-c-bg-alt: #0a1f32;
-  --vp-c-bg-elv: #0c263d;
+  --vp-c-bg-elv: #0B2237;
+  --vp-sidebar-bg-color: #0B2237;
 
   /* ========================================
      TEXT
      ======================================== */
-
   --vp-c-text-1: #ffffff;
   --vp-c-text-2: #9fb0c0;
   --vp-c-text-3: #718ba1;
@@ -91,33 +109,37 @@
   /* ========================================
      BORDERS
      ======================================== */
-
   --vp-c-divider: #15334e;
   --vp-c-gutter: #15334e;
+  --vp-sidebar-border-color: #24516F;
 
   /* ========================================
      BRAND
      ======================================== */
-
+  --bimdata-blue: #4ea0e8;
   --vp-c-brand-1: #4ea0e8;
   --vp-c-brand-2: #65b0f2;
   --vp-c-brand-3: #2378c4;
-
   --vp-c-brand-soft: rgba(78, 160, 232, 0.2);
+
+  /* ========================================
+     NEUTRAL
+     ======================================== */
+  --bimdata-navy: var(--bimdata-white);
+  --bimdata-slate: #9DB0C2;
 
   /* ========================================
      DEFAULT
      ======================================== */
-
   --vp-c-default-1: #9fb0c0;
   --vp-c-default-2: #2c465e;
   --vp-c-default-3: #102a42;
   --vp-c-default-soft: #102a42;
 
+
   /* ========================================
      BUTTON
      ======================================== */
-
   --vp-button-brand-border: transparent;
   --vp-button-brand-text: #ffffff;
   --vp-button-brand-bg: #2378c4;
@@ -129,4 +151,12 @@
   --vp-button-brand-active-border: transparent;
   --vp-button-brand-active-text: #ffffff;
   --vp-button-brand-active-bg: #1d69ac;
+
+  /* ========================================
+   SURFACES & CARDS
+   ======================================== */
+  --bimdata-surface-card: #0b2237;
+  --bimdata-surface-card-hover: #102a42;
+
+  --bimdata-border-card: #1B4261;
 }

@@ -1,5 +1,6 @@
 html, body {
   .button {
+    padding: 0 26px;
     display: inline-flex;
     align-items: center;
   }
@@ -23,17 +24,60 @@ html, body {
     background-color: var(--bimdata-blue);
     color: var(--color-white);
     border: none;
+    transition: background-color 0.2s ease-in-out;
     &:hover {
       background-color: #2f87ce;
+      color: var(--color-white);
+      transition: background-color 0.2s ease-in-out;
     }
   }
   .button-filled-secondary {
     background-color: rgba(35,120,196, .1);
-    color: var(--bimdata-blue);
+    color: var(--bimdata-primary);
     border: solid 1px rgba(35,120,196, .15);
+    transition: background-color 0.2s ease-in-out;
     &:hover {
-      background-color: var(--bimdata-blue);
-      color: var(--color-white);
+      background-color: rgba(35,120,196, .15);
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  .button-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    &::after {
+      content: url('/images/arrow-icon.svg');
+      line-height: 1;
+      transition: transform 180ms ease;
+    }
+    &:hover::after {
+      transform: translateX(3px);
+      transition: transform 180ms ease;
+    }
+  }
+}
+.dark {
+  .button-filled-primary {
+    background-color: var(--bimdata-blue);
+    color: #06182A;
+    border: none;
+    transition: background-color 0.2s ease-in-out;
+    &:hover {
+      background-color: #2f87ce;
+      color: #06182A;
+      transition: background-color 0.2s ease-in-out;
+    }
+  }
+  .button-filled-secondary {
+    background-color: rgba(78,160,232, .13);
+    color: var(--color-white);
+    border: solid 1px rgba(78,160,232, .18);
+    transition: background-color 0.2s ease-in-out;
+    &:hover {
+      background-color: rgba(78,160,232, .15);
+      transition: all 0.2s ease-in-out;
     }
   }
 }

@@ -1,0 +1,143 @@
+/* ========================================
+   BIMData Footer
+   ======================================== */
+.bimdata-footer {
+  width: 100%;
+  background: var(--vp-c-bg-alt);
+  color: var(--vp-c-text-1);
+}
+
+.bimdata-footer__container {
+  width: min(calc(100% - 48px), var(--vp-layout-max-width));
+  margin: 0 auto;
+}
+
+/* ========================================
+   Main
+   ======================================== */
+.bimdata-footer__main {
+  display: grid;
+  grid-template-columns: minmax(320px, 2fr) repeat(3, minmax(140px, 1fr));
+  column-gap: 64px;
+  padding: 64px 0 68px;
+}
+
+/* ========================================
+   Brand
+   ======================================== */
+.bimdata-footer__brand {
+  max-width: 360px;
+}
+
+.bimdata-footer__description {
+  max-width: 320px;
+  margin: 24px 0 0;
+  color: var(--vp-c-text-2);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+/* ========================================
+   Columns
+   ======================================== */
+.bimdata-footer__column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bimdata-footer__column h2 {
+  margin: 0 0 8px;
+  color: var(--vp-c-text-1);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.bimdata-footer__column a {
+  width: fit-content;
+  color: var(--vp-c-text-2);
+  font-size: 13px;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.bimdata-footer__column a:hover {
+  color: var(--vp-c-brand-1);
+}
+
+/* ========================================
+   Bottom
+   ======================================== */
+.bimdata-footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 50px;
+  border-top: 1px solid var(--vp-c-divider);
+  color: var(--vp-c-text-3);
+  font-size: 12px;
+}
+
+.bimdata-footer__copyright {
+  line-height: 1.4;
+}
+
+.bimdata-footer__legal {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.bimdata-footer__legal a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.bimdata-footer__legal a:hover {
+  color: var(--vp-c-brand-1);
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+@media (max-width: 900px) {
+  .bimdata-footer__main {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px 32px;
+  }
+
+  .bimdata-footer__brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .bimdata-footer__container {
+    width: calc(100% - 32px);
+  }
+
+  .bimdata-footer__main {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding: 48px 0;
+  }
+
+  .bimdata-footer__brand {
+    grid-column: auto;
+  }
+
+  .bimdata-footer__bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px 0;
+  }
+
+  .bimdata-footer__legal {
+    gap: 18px;
+  }
+}

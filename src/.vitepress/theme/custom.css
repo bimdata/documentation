@@ -5,58 +5,35 @@
 html, body {
   font-family: var(--vp-font-family-base);
   font-size: 16px;
-}
-
-.vp-doc {
-  a {
-    text-decoration: none;
+  .vp-doc {
+    a {
+      text-decoration: none;
+    }
   }
 }
-.vp-code-group {
-  font-family: var(--vp-font-family-mono);
-}
+
+/* ========================================
+   CUSTOM
+   ======================================== */
 .VPImage.logo {
   height: 28px !important;
 }
 
-.VPHome {
-  margin-bottom: 0 !important;
-}
-
 .VPHome .container {
-  max-width: none !important;
-  padding: 0 !important;
+  max-width: none;
+  padding: 0;
 }
 
-.VPDoc {
-   .container:has(#bimdata-doc-swagger-ui) {
-    .aside {
-      display: none;
-    }
-    
-    .content .content-container {
-      max-width: none;
-    }
-  }
-  &.has-aside {
-    .content .content-container {
-      max-width: none;
-    }
-  }
-}
-
-.VPNavBar {
-  .container {
-    max-width: var(--vp-layout-max-width);
-  }
-}
-
+/* ========================================
+   SEARCHBOX
+   ======================================== */
 .VPNavBarSearch {
   .DocSearch-Button {
     width: 250px;
-    border: none;
+    border: 1px solid var(--vp-sidebar-border-color);
     background-color: var(--vp-sidebar-bg-color);
-    color: var(--color-granite-light);
+    color: #6F879C;
+    border-radius: 50px;
     &:hover {
       color: var(--color-granite);
     }
@@ -97,25 +74,3 @@ html, body {
   }
 }
 
-/* custom TABLE */
-.vp-doc div:has(> table) {
-  overflow-x: visible; /* supprime le scroll du wrapper */
-}
-.vp-doc table {
-  display: table;
-  table-layout: fixed;
-  width: 100%;
-  th:nth-child(1), td:nth-child(1) {
-    width: 30%;
-    word-break: break-word;
-  }
-  th:nth-child(2), td:nth-child(2) {
-    width: 25%;
-    word-break: break-word;
-  }
-  th:nth-child(3), td:nth-child(3) {
-    width: 45%;
-    white-space: normal;
-    word-break: break-word;
-  }
-}

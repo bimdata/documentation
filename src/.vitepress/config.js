@@ -45,6 +45,7 @@ export default defineConfig({
     search: {
       provider: "local",
     },
+    
   },
 
   // This is to avoid 'legacy-js-api' warnings
