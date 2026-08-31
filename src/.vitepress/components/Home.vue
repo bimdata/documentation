@@ -9,10 +9,10 @@
           images using the BIMData API and viewer SDK.
         </p>
         <div class="hero-actions flex">
-          <a href="" class="button button-filled button-filled-primary button-md">
+          <a href="/viewer/" class="button button-filled button-filled-primary button-md">
             Open the viewer quickstart
           </a>
-          <a href="" class="button button-filled button-filled-secondary button-md">
+          <a href="/api/reference.html" class="button button-filled button-filled-secondary button-md">
             Open the API Reference
           </a>
         </div>
@@ -47,8 +47,10 @@
         </div>
 
         <div class="path-grid">
-          <a href="#" class="path-card">
-            <div class="path-icon">API</div>
+          <a href="/api/guides/application.html" class="path-card">
+            <div class="path-icon">
+              <img src="/images/bimdata-api_icon.svg" alt="API" />
+            </div>
 
             <h3>Build an integration</h3>
 
@@ -57,8 +59,10 @@
             </p>
           </a>
 
-          <a href="#" class="path-card">
-            <div class="path-icon">3D</div>
+          <a href="/viewer/" class="path-card">
+            <div class="path-icon">
+              <img src="/images/bimdata-viewer_icon.svg" alt="3D" />
+            </div>
 
             <h3>Build a BIM viewer</h3>
 
@@ -87,7 +91,7 @@
             </div>
             <h3>Create an application</h3>
             <p>Get your credentials and create your first BIMData application.</p>
-            <a href="#" class="mini-link button-arrow"> Authentication </a>
+            <a href="/api/guides/application.html" class="mini-link button-arrow"> Authentication </a>
           </article>
 
           <article class="step-card">
@@ -97,7 +101,7 @@
             </div>
             <h3>Upload a model</h3>
             <p>Create a project and upload your first IFC file.</p>
-            <a href="#" class="mini-link button-arrow"> Upload guide </a>
+            <a href="/api/introduction/quick_start.html" class="mini-link button-arrow"> Upload guide </a>
           </article>
 
           <article class="step-card">
@@ -107,7 +111,7 @@
             </div>
             <h3>Display your model</h3>
             <p>Load your model and display it using the BIMData Viewer.</p>
-            <a href="#" class="mini-link button-arrow"> Viewer guide </a>
+            <a href="/viewer/" class="mini-link button-arrow"> Viewer guide </a>
           </article>
 
           <article class="step-card">
@@ -117,7 +121,7 @@
             </div>
             <h3>Query your data</h3>
             <p>Retrieve elements, properties and relationships from your BIM models.</p>
-            <a href="#" class="mini-link button-arrow"> API reference </a>
+            <a href="/api/reference.html" class="mini-link button-arrow"> API reference </a>
           </article>
         </div>
       </div>
@@ -137,42 +141,42 @@
         </div>
 
         <div class="docs-grid">
-          <a href="#" class="doc-card">
+          <a href="/viewer/" class="doc-card">
             <span class="doc-type"> Tutorial </span>
             <h3>Build a viewer</h3>
             <p>Embed the BIMData Viewer and display your first IFC model.</p>
             <span class="mini-link button-arrow"> Read tutorial </span>
           </a>
 
-          <a href="#" class="doc-card">
+          <a href="/api/introduction/quick_start.html" class="doc-card">
             <span class="doc-type"> Tutorial </span>
             <h3>Make your first API call</h3>
             <p>Authenticate your application and create your first BIMData request.</p>
             <span class="mini-link button-arrow"> Start tutorial </span>
           </a>
 
-          <a href="#" class="doc-card">
+          <a href="/api/reference.html" class="doc-card">
             <span class="doc-type"> Guide </span>
             <h3>Query BIM data</h3>
             <p>Retrieve elements, properties and relationships from your IFC models.</p>
             <span class="mini-link button-arrow"> Read guide </span>
           </a>
 
-          <a href="#" class="doc-card">
+          <a href="/api/introduction/quick_start.html" class="doc-card">
             <span class="doc-type"> Guide </span>
             <h3>Create a project</h3>
             <p>Create projects, upload models and organize your BIMData workspace.</p>
             <span class="mini-link button-arrow"> Read guide </span>
           </a>
 
-          <a href="#" class="doc-card">
+          <a href="/on-premises/getting_started.html" class="doc-card">
             <span class="doc-type"> Advanced </span>
             <h3>Deploy on-premises</h3>
             <p>Understand deployment, infrastructure and configuration options.</p>
             <span class="mini-link button-arrow"> Learn more </span>
           </a>
 
-          <a href="#" class="doc-card">
+          <a href="/api/reference.html" class="doc-card">
             <span class="doc-type"> Reference </span>
             <h3>API reference</h3>
             <p>Endpoints, parameters, responses and authentication methods.</p>
@@ -197,7 +201,7 @@
         </div>
 
         <div class="product-grid">
-          <a href="#" class="product-card">
+          <a href="/api/introduction/overview.html" class="product-card">
             <div class="product-label">API</div>
 
             <h3>REST API</h3>
@@ -207,7 +211,7 @@
             <span class="mini-link button-arrow"> View API </span>
           </a>
 
-          <a href="#" class="product-card">
+          <a href="/viewer/viewer_sdk.html" class="product-card">
             <div class="product-label">SDK</div>
 
             <h3>Viewer SDK</h3>
@@ -217,7 +221,7 @@
             <span class="mini-link button-arrow"> View SDK </span>
           </a>
 
-          <a href="#" class="product-card">
+          <a href="/on-premises/getting_started.html" class="product-card">
             <div class="product-label">On-premises</div>
 
             <h3>On-premises</h3>
@@ -227,7 +231,7 @@
             <span class="mini-link button-arrow"> Learn more </span>
           </a>
 
-          <a href="#" class="product-card">
+          <a href="/viewer/guide/plugins.html" class="product-card">
             <div class="product-label">Platform</div>
 
             <h3>Plugins</h3>
@@ -255,7 +259,7 @@
         </div>
 
         <div class="resource-grid">
-          <a href="#" class="resource-card">
+          <a href="/viewer/release_notes.html" class="resource-card">
             <div class="resource-icon">
               <img src="/images/bimdata-changelog_icon.svg" alt="BIMData changelog" />
             </div>
@@ -263,15 +267,15 @@
             <span>Viewer updates & releases</span>
           </a>
 
-          <a href="#" class="resource-card">
+          <!-- <a href="#" class="resource-card">
             <div class="resource-icon">
               <img src="/images/bimdata-status_icon.svg" alt="BIMData status" />
             </div>
             <strong>API status</strong>
             <span>Uptime & incidents</span>
-          </a>
+          </a> -->
 
-          <a href="#" class="resource-card">
+          <a href="https://github.com/bimdata/documentation" target="_blank" class="resource-card">
             <div class="resource-icon">
               <img src="/images/bimdata-github_icon.svg" alt="Github" />
             </div>
@@ -279,7 +283,7 @@
             <span>Open source code & SDKs</span>
           </a>
 
-          <a href="#" class="resource-card">
+          <a href="https://design.bimdata.io" target="_blank" class="resource-card">
             <div class="resource-icon">
               <img src="/images/bimdata-design-system_icon.svg" alt="Design system" />
             </div>
@@ -287,7 +291,7 @@
             <span>Vue.js UI components</span>
           </a>
 
-          <a href="#" class="resource-card">
+          <a href="/api/support.html" class="resource-card">
             <div class="resource-icon">
               <img src="/images/bimdata-support_icon.svg" alt="Support" />
             </div>
@@ -295,7 +299,7 @@
             <span>Team help & community</span>
           </a>
 
-          <a href="#" class="resource-card">
+          <a href="/viewer/examples/" class="resource-card">
             <div class="resource-icon">
               <img src="/images/bimdata-examples_icon.svg" alt="Examples" />
             </div>
@@ -736,7 +740,7 @@ export default {
        ======================================== */
     .resource-grid {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 10px;
 
       .resource-card {

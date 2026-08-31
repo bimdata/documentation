@@ -38,7 +38,7 @@
     <div class="code-terminal__footer">
       <span>{{ language }}</span>
 
-      <a class="button-arrow" href="/guide/quickstart">
+      <a class="button-arrow" href="/viewer/">
         Open the full quickstart
       </a>
     </div>

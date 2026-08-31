@@ -10,6 +10,9 @@ html, body {
       text-decoration: none;
     }
   }
+  p {
+    font-weight: 400;
+  }
 }
 
 /* ========================================
