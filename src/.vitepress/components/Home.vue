@@ -275,7 +275,7 @@
             <span>Uptime & incidents</span>
           </a> -->
 
-          <a href="https://github.com/bimdata/documentation" target="_blank" class="resource-card">
+          <a href="https://github.com/bimdata" target="_blank" class="resource-card">
             <div class="resource-icon">
               <img src="/images/bimdata-github_icon.svg" alt="Github" />
             </div>

@@ -9,8 +9,10 @@ html, body {
   p {
     font-weight: 400;
   }
-  img:not(.logo) {
-    border-radius: var(--radius-md);
+  .has-sidebar {
+    img:not(.logo) {
+      border-radius: var(--radius-md);
+    }
   }
   .vp-doc {
     a {
