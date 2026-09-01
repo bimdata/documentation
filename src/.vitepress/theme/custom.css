@@ -1,6 +1,7 @@
 @import "../../../node_modules/@bimdata/design-system/src/assets/css/design-system.css";
 @import "./tokens.css";
 @import "./buttons.css";
+@import "./swagger-ui.css";
 
 html, body {
   font-family: var(--vp-font-family-base);
@@ -8,7 +9,7 @@ html, body {
   p {
     font-weight: 400;
   }
-  img {
+  img:not(.logo) {
     border-radius: var(--radius-md);
   }
   .vp-doc {
@@ -47,45 +48,6 @@ html, body {
       
       .content .content-container {
         max-width: none;
-      }
-
-      .swagger-ui {
-        background: var(--bimdata-surface-card);
-        color: var(--vp-c-text-2);
-        .info {
-          .title {
-            color: var(--vp-c-text-1);
-          }
-        }
-        .renderedMarkdown p {
-          color: var(--vp-c-text-2);
-        }
-        .scheme-container {
-          background: var(--bimdata-surface-card);
-        }
-        .filter .operation-filter-input {
-          background: var(--bimdata-surface-card);
-          color: var(--vp-c-text-2);
-          border-color: var(--bimdata-border-card);
-        }
-        a.nostyle {
-          color: var(--vp-c-text-1);
-        }
-        .opblock .opblock-summary-description, .opblock .opblock-summary-operation-id{
-          color: var(--vp-c-text-2);
-        }
-        .opblock .opblock-section-header {
-          background: var(--bimdata-surface-card);
-          h4 {
-            color: var(--vp-c-text-2);
-          }
-        }
-        .opblock-description-wrapper p {
-          color: var(--vp-c-text-2);
-        }
-        table thead tr td, table thead tr th, table tbody tr td {
-          color: var(--vp-c-text-2);
-        }
       }
     }
     &.has-aside {
