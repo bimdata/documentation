@@ -8,12 +8,12 @@ export default defineConfig({
   title: "Documentation",
   description: "BIMData Official Documentation",
   ignoreDeadLinks: "localhostLinks",
-  appearance: false,
+  appearance: true,
   markdown: {
     theme: 'one-dark-pro'
   },
   head: [
-    ["link", { rel: "icon", href: "/images/favicon.svg", type: "image/svg+xml" }],
+    ["link", { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" }],
     [
       "link",
       {
@@ -25,7 +25,8 @@ export default defineConfig({
   themeConfig: {
     siteTitle: false,
     logo: {
-      light: "/images/logo.svg",
+      light: "/images/bimdata-documentation-logo_light.svg",
+      dark: "/images/bimdata-documentation-logo_dark.svg",
       alt: "BIMData",
     },
     socialLinks: [
@@ -44,6 +45,7 @@ export default defineConfig({
     search: {
       provider: "local",
     },
+    
   },
 
   // This is to avoid 'legacy-js-api' warnings

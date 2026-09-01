@@ -1,83 +1,112 @@
 @import "../../../node_modules/@bimdata/design-system/src/assets/css/design-system.css";
+@import "./tokens.css";
+@import "./buttons.css";
+@import "./swagger-ui.css";
 
-:root {
-  --color-bg-subtle: #f0f5ff;
-  --color-bg-accent: #dce7ff;
-  --color-bg-primary: #205dbd;
-  --vp-c-brand-1: #205dbd;
-  --vp-c-brand-2: #205dbd;
-  --vp-c-brand-3: #205dbd;
-
-  /* Fond du bloc de code */
-  --vp-code-bg: rgba(27,31,35,.05);
-  --vp-code-block-bg: #282c34;
-  
-  /* Couleur du texte par défaut dans le code */
-  --vp-code-color: #4d5a7a;
-  /* --vp-code-color: #e0e0e0; */
-
-  /* Onglets du code-group */
-  --vp-code-tab-bg: #16213e;
-  --vp-code-tab-active-bg: #1a1a2e;
-  --vp-code-tab-text-color: #a0a0b0;
-  --vp-code-tab-active-text-color: #ffffff;
-  --vp-code-tab-hover-text-color: #ffffff;
-  --shiki-light: #E1E4E8;
-
-  /* Typo */
-  --vp-font-family-mono: 'Source Code Pro', monospace;
-}
-
-.vp-doc {
-  a {
-    text-decoration: none;
+html, body {
+  font-family: var(--vp-font-family-base);
+  font-size: 16px;
+  p {
+    font-weight: 400;
+  }
+  .has-sidebar {
+    img:not(.logo) {
+      border-radius: var(--radius-md);
+    }
+  }
+  .vp-doc {
+    a {
+      text-decoration: none;
+    }
+  }
+  #VPSidebarNav {
+    .VPSidebarItem {
+      .text {
+        font-weight: 400;
+      }
+      &.is-active {
+        .text {
+          font-weight: 500;
+        }
+      }
+      &.is-link.is-active {
+        .indicator {
+          background-color: var(--vp-c-brand-2);
+        }
+      }
+    }
+    .VPSidebarItem.level-0  {
+      padding-bottom: 10px;
+      .item > .text {
+        font-weight: 500;
+      }
+    }
+  }
+  .VPDoc {
+    .container:has(#bimdata-doc-swagger-ui) {
+      .aside {
+        display: none;
+      }
+      
+      .content .content-container {
+        max-width: none;
+      }
+    }
+    &.has-aside {
+      .content .content-container {
+        max-width: none;
+      }
+    }
   }
 }
-.vp-code-group {
-  font-family: var(--vp-font-family-mono);
-}
-.VPImage.logo {
-  height: 36px !important;
-}
 
-.VPHome {
-  margin-bottom: 0 !important;
+/* ========================================
+   CUSTOM
+   ======================================== */
+.VPImage.logo {
+  height: 28px !important;
 }
 
 .VPHome .container {
-  max-width: none !important;
-  padding: 0 !important;
+  max-width: none;
+  padding: 0;
 }
 
-.VPDoc {
-   .container:has(#bimdata-doc-swagger-ui) {
-    .aside {
-      display: none;
-    }
-    
-    .content .content-container {
-      max-width: none;
-    }
+/* ========================================
+   BLOC CODE
+   ======================================== */
+.vp-code-group{
+  .tabs {
+    border: 1px solid var(--bimdata-terminal-border);
+    border-bottom: none;
   }
-  &.has-aside {
-    .content .content-container {
-      max-width: none;
-    }
-  }
-}
-
-.VPNavBar {
-  .container {
-    max-width: var(--vp-layout-max-width);
+  div[class*="language-"] {
+    border-left: 1px solid;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    border-color: var(--bimdata-terminal-border);
   }
 }
+.vp-doc {
+  :not(pre) > code {
+    color: var(--vp-code-link-color);
+  }
+}
+div[class*="language-"] {
+  border: 1px solid var(--bimdata-terminal-border);
+}
 
+/* ========================================
+   SEARCHBOX
+   ======================================== */
 .VPNavBarSearch {
   .DocSearch-Button {
+    padding: 0 12px;
     width: 250px;
-    border: none;
+    border: 1px solid var(--vp-sidebar-border-color);
     background-color: var(--vp-sidebar-bg-color);
-    color: var(--color-granite-light);
+    color: #6F879C;
+    border-radius: 50px;
     &:hover {
       color: var(--color-granite);
     }
@@ -96,20 +125,20 @@
   .results {
     .result {
       border: solid 1px var(--vp-sidebar-bg-color);
-      color: var(--color-granite);
+      color: var(--vp-c-text-2);
       font-size: 15px;
       .titles {
         mark {
-          background-color: var(--color-neutral);
+          background-color: var(--vp-c-brand-1);
           color: var(--color-white);
         }
       }
       &.selected {
-        border-color: var(--color-neutral);
+        border-color: var(--vp-c-brand-1);
         .titles {
-          color: var(--color-neutral) !important;
+          color: var(--vp-c-brand-1) !important;
           mark {
-            background-color: var(--color-neutral);
+            background-color: var(--vp-c-brand-1);
             color: var(--color-white);
           }
         }
@@ -118,25 +147,3 @@
   }
 }
 
-/* custom TABLE */
-.vp-doc div:has(> table) {
-  overflow-x: visible; /* supprime le scroll du wrapper */
-}
-.vp-doc table {
-  display: table;
-  table-layout: fixed;
-  width: 100%;
-  th:nth-child(1), td:nth-child(1) {
-    width: 30%;
-    word-break: break-word;
-  }
-  th:nth-child(2), td:nth-child(2) {
-    width: 25%;
-    word-break: break-word;
-  }
-  th:nth-child(3), td:nth-child(3) {
-    width: 45%;
-    white-space: normal;
-    word-break: break-word;
-  }
-}

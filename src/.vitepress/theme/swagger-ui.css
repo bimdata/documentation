@@ -1,0 +1,56 @@
+html, body {
+  .VPDoc {
+    .container:has(#bimdata-doc-swagger-ui) {
+    .swagger-ui {
+        background: var(--bimdata-surface-card);
+        color: var(--vp-c-text-2);
+        .info {
+          .title {
+            color: var(--vp-c-text-1);
+          }
+        }
+        .renderedMarkdown p {
+          color: var(--vp-c-text-2);
+        }
+        .scheme-container {
+          background: var(--bimdata-surface-card);
+        }
+        .expand-operation {
+          color: var(--vp-c-text-2);
+        }
+        .filter .operation-filter-input {
+          background: var(--bimdata-surface-card);
+          color: var(--vp-c-text-2);
+          border-color: var(--bimdata-border-card);
+        }
+        a.nostyle {
+          color: var(--vp-c-text-1);
+        }
+        .opblock .opblock-summary-description, .opblock .opblock-summary-operation-id, .model-title {
+          color: var(--vp-c-text-2);
+        }
+        .opblock .opblock-section-header, section.models {
+          background: var(--bimdata-surface-card);
+          border-color: var(--vp-c-text-2);
+          h4 {
+            color: var(--vp-c-text-2);
+          }
+          .model-box {
+            background-color: var(--bimdata-surface-card-hover);
+          }
+        }
+        .model-toggle{
+          &::after {
+            background-color: var(--bimdata-border-card);
+          }
+        }
+        .opblock-description-wrapper p {
+          color: var(--vp-c-text-2);
+        }
+        table thead tr td, table thead tr th, table tbody tr td {
+          color: var(--vp-c-text-2);
+        }
+      }
+    }
+  }
+}

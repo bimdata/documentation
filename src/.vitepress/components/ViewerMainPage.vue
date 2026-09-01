@@ -1,6 +1,6 @@
 <template>
   <div class="bimdata-viewer-main-page">
-    <a href="/viewer/guide" style="text-decoration: none; color: inherit; flex: 0 32%;">
+    <a href="/viewer/guide" style="text-decoration: none; color: inherit; flex: 0 32%">
       <div class="bimdata-viewer-main-page__card">
         <div class="bimdata-viewer-main-page__card__title">Guide</div>
         <div class="bimdata-viewer-main-page__card__emoji">🗺️</div>
@@ -9,7 +9,7 @@
         </div>
       </div>
     </a>
-    <a href="/viewer/examples" style="text-decoration: none; color: inherit; flex: 0 32%;">
+    <a href="/viewer/examples" style="text-decoration: none; color: inherit; flex: 0 32%">
       <div class="bimdata-viewer-main-page__card">
         <div class="bimdata-viewer-main-page__card__title">Examples</div>
         <div class="bimdata-viewer-main-page__card__emoji">🏗️</div>
@@ -18,7 +18,7 @@
         </div>
       </div>
     </a>
-    <a href="/viewer/reference" style="text-decoration: none; color: inherit; flex: 0 32%;">
+    <a href="/viewer/reference" style="text-decoration: none; color: inherit; flex: 0 32%">
       <div class="bimdata-viewer-main-page__card">
         <div class="bimdata-viewer-main-page__card__title">Reference</div>
         <div class="bimdata-viewer-main-page__card__emoji">📚</div>
@@ -50,30 +50,36 @@
     height: 100%;
     margin: 6px;
     padding: 20px;
-    border: 1px solid #eaecef;
-    border-radius: 4px;
+    border: 1px solid var(--bimdata-border-card);
+    border-radius: var(--radius-md);
+    background: var(--bimdata-surface-card);
     text-align: center;
 
     cursor: pointer;
     transition: all 0.3s;
     &:hover {
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      background: var(--bimdata-surface-card-hover);
+      border-color: var(--bimdata-border-card);
+      transition: all 0.3s;
     }
 
     &__title {
-      font-weight: 500;
       font-size: 24px;
+      font-weight: 500;
       margin-bottom: 10px;
+      color: var(--vp-c-text-1);
     }
 
     &__emoji {
-      font-size: 40px;
+      font-size: 35px;
       margin-bottom: 10px;
       text-align: center;
     }
 
     &__detail {
-      font-size: 16px;
+      font-size: 15px;
+      color: var(--vp-c-text-2);
+      font-weight: 400;
     }
   }
 }
