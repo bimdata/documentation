@@ -1,3 +1,15 @@
+.bimdata-footer__logo-dark {
+  display: none;
+}
+
+html.dark .bimdata-footer__logo-light {
+  display: none;
+}
+
+html.dark .bimdata-footer__logo-dark {
+  display: block;
+}
+
 /* ========================================
    BIMData Footer
    ======================================== */
@@ -114,6 +126,7 @@
 
   .bimdata-footer__brand {
     grid-column: 1 / -1;
+    max-width: 420px;
   }
 }
 
@@ -125,7 +138,7 @@
   .bimdata-footer__main {
     grid-template-columns: 1fr;
     gap: 36px;
-    padding: 48px 0;
+    padding: 48px 0 40px;
   }
 
   .bimdata-footer__brand {
@@ -141,5 +154,15 @@
 
   .bimdata-footer__legal {
     gap: 18px;
+    flex-wrap: wrap;
+  }
+  @media (max-width: 480px) {
+    .bimdata-footer__main {
+      grid-template-columns: 1fr;
+    }
+
+    .bimdata-footer__brand {
+      grid-column: auto;
+    }
   }
 }
