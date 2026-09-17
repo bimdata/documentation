@@ -16,11 +16,11 @@
   "license": "MIT",
   "devDependencies": {
     "@bimdata/design-system": "2.4.4",
-    "sass-embedded": "^1.103.1",
-    "swagger-ui": "^5.32.14",
-    "swagger-ui-dist": "^5.32.14",
+    "sass-embedded": "^1.104.1",
+    "swagger-ui": "^5.33.0",
+    "swagger-ui-dist": "^5.33.0",
     "vitepress": "^1.6.4",
-    "vitepress-plugin-llms": "^1.13.5"
+    "vitepress-plugin-llms": "^1.14.0"
   },
   "dependencies": {
     "shiki": "^4.4.3"
