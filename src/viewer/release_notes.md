@@ -1,5 +1,18 @@
 # Release Notes
 
+## v2.19.0 (2026-09-18)
+
+### Feature
+
+ * Viewer DWG - handle svg polyline
+
+### Bugfixes
+
+ * Minor viewer fragments improvments
+ * Viewer Fragments : MacOS trackpad zoom fix
+ * Smartviews performances improvment
+ * Model Manager crashed if model status is unknown
+
 ## v2.18.0 (2026-08-26)
 
 ### Feature
