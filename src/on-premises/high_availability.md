@@ -13,11 +13,11 @@ This include :
 ## BIMData API
 BIMData API itself is stateless, but it manages the storage of uploaded data by users.
 Therefore, you have two possibilities:
-  - use a redundant swift object storage to store the data,
+  - use a redundant S3 object storage to store the data,
   - you need to provide a redundant storage shared between all the API containers.
 
 ## BIMData Connect
 BIMData Connect itself is stateless, but it manages the storage of uploaded data by users.
 Therefore, you have two possibilities:
-  - use a redundant swift object storage to store the data,
+  - use a redundant S3 object storage to store the data,
   - you need to provide a redundant storage shared between all the Connect containers.

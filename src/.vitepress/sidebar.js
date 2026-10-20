@@ -92,15 +92,9 @@ function getOnpremSidebar() {
     {
       text: "Installation",
       items: [
-        { text: "Prerequisites", link: "/on-premises/install/prerequisites" },
-        {
-          text: "Quickstart",
-          items: [
-            { text: "Installation", link: "/on-premises/install/quickstart/install" }, 
-            { text: "Configuration", link: "/on-premises/install/quickstart/config" },
-          ],
-        },
-        { text: "High availability", link: "/on-premises/install/high_availability" },
+        { text: "Prerequisites", link: "/on-premises/prerequisites" },
+        { text: "Installation", link: "/on-premises/install" },
+        { text: "High availability", link: "/on-premises/high_availability" },
       ],
     },
     {
