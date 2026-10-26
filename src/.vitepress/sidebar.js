@@ -92,31 +92,9 @@ function getOnpremSidebar() {
     {
       text: "Installation",
       items: [
-        { text: "Prerequisites", link: "/on-premises/install/prerequisites" },
-        {
-          text: "Quickstart",
-          items: [
-            { text: "Installation", link: "/on-premises/install/quickstart/install" }, 
-            { text: "Configuration", link: "/on-premises/install/quickstart/config" },
-          ],
-        },
-        { text: "High availability", link: "/on-premises/install/high_availability" },
-      ],
-    },
-    {
-      text: "Configuration",
-      items: [
-        {
-          text: "Containers environment",
-          items: [
-            { text: "BIMData API", link: "/on-premises/config/env/api" },
-            { text: "BIMData Connect", link: "/on-premises/config/env/connect" },
-            { text: "BIMData Platform Front", link: "/on-premises/config/env/platform_front" },
-            { text: "BIMData Platform Back", link: "/on-premises/config/env/platform_back" },
-            { text: "BIMData Archive", link: "/on-premises/config/env/archive" },
-            { text: "BIMData workers", link: "/on-premises/config/env/workers" },
-          ],
-        },
+        { text: "Prerequisites", link: "/on-premises/prerequisites" },
+        { text: "Installation", link: "/on-premises/install" },
+        { text: "High availability", link: "/on-premises/high_availability" },
       ],
     },
   ];

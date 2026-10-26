@@ -2,17 +2,23 @@
 ## Hardware
 
 ### Minimal
-| Server                     | CPU        | RAM      | Disk         |
-|:--------------------------:|:----------:|:---------:|:-----------:|
-| Applications + databases   | 4 cores    | 16 GB     | 500GB SSD   |
-| Model processing (workers) | 4 cores    | 16 GB     | 120 GB SSD  |
+
+This can be use to test the solution and process small models.
+
+| Server                             | CPU        | RAM      | Disk                          |
+|:----------------------------------:|:----------:|:---------:|:----------------------------:|
+| Applications + databases + workers | 4 cores    | 16 GB     | 64GB SSD + 2 * data size     |
 
 ### Recommended
-| Server                     | CPU        | RAM       | Disk        |
-|:--------------------------:|:----------:|:---------:|:-----------:|
-| Applications               | 8 cores    | 32 GB     | 120 GB SSD  |
-| Databases                  | 8 cores    | 32 GB     | 500 GB SSD  |
-| Model processing (workers) | 16 cores   | 64 GB     | 120 GB SSD  |
+| Server                     | CPU        | RAM       | Disk                      |
+|:--------------------------:|:----------:|:---------:|:-------------------------:|
+| Applications + Databases   | 4 cores    | 12 GB     | 64GB SSD + 2 * data size  |
+| Model processing (workers) | 8 cores    | 32 GB     | 64 GB SSD                 |
+
+The requirements are heavly dependants of your data, what you want to process, and at which speed.
+For example, for bigs IFCs file with a lot of geometry compelxity, 32 GB of ram will not be enought.
+But we are constanly working to reduce the memory consuption of our workers.
+So don't hesitate to contact us, we can work with you to determine what's best for you need.
 
 ### High Availability
 For the High availability, the prerequisites are the same as the *Recommended*
