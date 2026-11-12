@@ -42,6 +42,7 @@ function getViewerSidebar() {
       items: [
         { text: "User Interface", link: "/viewer/guide/" },
         { text: "Plugins", link: "/viewer/guide/plugins" },
+        { text: "Vue dependency", link: "/viewer/guide/vue-dependency" },
       ],
     },
     {
